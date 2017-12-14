@@ -138,7 +138,7 @@ public class ClienteDao {
     public List<ClienteM> buscaNomeLista(String Nome) throws SQLException{
         PreparedStatement pst;
         String sql;
-        List<ClienteM> listaCliente = new ArrayList<ClienteM>();
+        List<ClienteM> listaCliente = new ArrayList<>();
         String name = "%"+Nome+"%";
         sql = "select * from Cliente where nome like ?";
         pst = Conexao.getInstance().prepareStatement(sql);

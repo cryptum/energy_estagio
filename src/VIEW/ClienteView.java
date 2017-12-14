@@ -52,8 +52,8 @@ public class ClienteView extends javax.swing.JInternalFrame {
                 i++;
             }
             String tituloColuna[] = {"ID", "Nome", "Cidade","Telefone", "Celular1"};
-            DefaultTableModel tabelaFuncionario = new DefaultTableModel();
-            tabelaFuncionario.setDataVector(dados, tituloColuna);
+            DefaultTableModel tabelaCliente = new DefaultTableModel();
+            tabelaCliente.setDataVector(dados, tituloColuna);
             tblCliente.setModel(new DefaultTableModel(dados, tituloColuna) {
                 boolean[] canEdit = new boolean[]{
                     false, false, false, false, false, false,
@@ -90,8 +90,8 @@ public class ClienteView extends javax.swing.JInternalFrame {
                 i++;
             }
             String tituloColuna[] = {"ID", "Nome", "Cidade","Telefone", "Celular1"};
-            DefaultTableModel tabelaFuncionario = new DefaultTableModel();
-            tabelaFuncionario.setDataVector(dados, tituloColuna);
+            DefaultTableModel tabelaCliente = new DefaultTableModel();
+            tabelaCliente.setDataVector(dados, tituloColuna);
             tblCliente.setModel(new DefaultTableModel(dados, tituloColuna) {
                 boolean[] canEdit = new boolean[]{
                     false, false, false, false, false, false,
