@@ -48,7 +48,7 @@ public class ClienteDao {
     public void alterar(ClienteM Cliente) throws SQLException{
         PreparedStatement pst;
         String sql;
-        sql = "update Funcionario set "
+        sql = "update Cliente set "
                         + "nome = ?, "
                         + "cpf = ?, "
                         + "rg = ?, "
@@ -65,16 +65,18 @@ public class ClienteDao {
                         + "where id = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, Cliente.getNome());
-        pst.setString(2, Cliente.getRua());
-        pst.setString(3, Cliente.getNumero());
-        pst.setString(4, Cliente.getBairro()); 
-        pst.setString(5, Cliente.getCidade());
-        pst.setString(6, Cliente.getTelefone());
-        pst.setString(7, Cliente.getCelular1());
-        pst.setString(8, Cliente.getCelular2());
-        pst.setString(9, Cliente.getNascimento());
-        pst.setString(10, Cliente.getObservacao());
-        pst.setInt(11,Cliente.getId());
+        pst.setString(2, Cliente.getCpf());
+        pst.setString(3, Cliente.getRg());
+        pst.setString(4, Cliente.getRua());
+        pst.setString(5, Cliente.getNumero());
+        pst.setString(6, Cliente.getBairro()); 
+        pst.setString(7, Cliente.getCidade());
+        pst.setString(8, Cliente.getTelefone());
+        pst.setString(9, Cliente.getCelular1());
+        pst.setString(10, Cliente.getCelular2());
+        pst.setString(11, Cliente.getNascimento());
+        pst.setString(12, Cliente.getObservacao());
+        pst.setInt(13,Cliente.getId());
         pst.execute();
         pst.close();
      }

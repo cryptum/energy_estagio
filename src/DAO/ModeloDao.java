@@ -88,6 +88,25 @@ public class ModeloDao {
         return modelo;
     }
     
+    public List<ModeloM> buscaModelo(int id) throws SQLException{
+        PreparedStatement pst;
+        String sql;
+        List<ModeloM> listaModelo = new ArrayList<>();
+        sql = "select * from Modelo where IdMarca = ?";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setInt(1, id);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+            listaModelo.add(new ModeloM(
+                            rs.getInt("id"),
+                            marcaDao.busca(rs.getInt("idmarca")),
+                            rs.getString("nome")));
+
+        }
+        pst.close();
+        return listaModelo;
+    }
+    
     public ModeloM buscaNome(String nome) throws SQLException{
         PreparedStatement pst;
         String sql;

@@ -23,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
 public class ProdutoView extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form CRIENTE_DO_CU_QUENTE
+     * Creates new form PRODUTO_DO_CU_QUENTE
      */
     
     ProdutoM produto = new ProdutoM();
@@ -32,21 +32,23 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     
     MarcaM marca = new MarcaM();
     MarcaDao marcadao = new MarcaDao();
+    List<MarcaM> listaMarca = new ArrayList<>();
     
     ModeloM modelo = new ModeloM();
     ModeloDao modelodao = new ModeloDao();
-    
+    List<ModeloM> listaModelo = new ArrayList<>();
     
     public ProdutoView() {
         initComponents();
         this.setVisible(true);
-        atualizaTabelaCliente();
+        atualizaTabelaProduto();
         tblProduto.getTableHeader().setReorderingAllowed(false);
+        atualizaBoxMarca();
     }
 
     
     //Atualiza todos os funcionario para a tabela
-    public void atualizaTabelaCliente(){
+    public void atualizaTabelaProduto(){
         produto = new ProdutoM();
         try {
             listaProduto = produtodao.listaTodos();
@@ -91,7 +93,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     }
     
     //Atualiza Busca
-    public void atualizaTabelaClienteBusca(){
+    public void atualizaTabelaProdutoBusca(){
         produto = new ProdutoM();
         
         String dados[][] = new String[listaProduto.size()][6];
@@ -130,9 +132,39 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             tblProduto.updateUI();
     }
     
+    public void atualizaBoxMarca(){
+       
+        cbxMarca.removeAllItems();
+        cbxMarca.addItem("Selecione");
+       
+        try {
+            listaMarca = marcadao.listaTodos();
+
+        String dados[][] = new String[listaMarca.size()][3];
+        for(MarcaM marcab : listaMarca) {
+            cbxMarca.addItem(marca.getNome());
+        }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
-    
-    
+    public void atualizaBoxModelo(){
+       
+        cbxModelo.removeAllItems();
+        cbxModelo.addItem("Selecione");
+       
+        try {
+            listaModelo = modelodao.buscaModelo(cbxMarca.getSelectedIndex());
+
+        String dados[][] = new String[listaModelo.size()][2];
+        for (ModeloM modelob : listaModelo) {
+            cbxModelo.addItem(modelo.getNome());
+        }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     
     
@@ -262,8 +294,9 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(248, 248, 248));
 
+        jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
         jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
-        jTabbedPane1.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        jTabbedPane1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
 
         jPanel4.setBackground(new java.awt.Color(248, 248, 248));
 
@@ -376,7 +409,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("tab1", jPanel4);
+        jTabbedPane1.addTab("Consulta", jPanel4);
 
         jPanel6.setBackground(new java.awt.Color(248, 248, 248));
 
@@ -406,6 +439,12 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
         cbxMarca.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         cbxMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxMarca.setToolTipText("");
+        cbxMarca.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxMarcaItemStateChanged(evt);
+            }
+        });
 
         cbxModelo.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         cbxModelo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -533,7 +572,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtvalorMinimo, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(18, 20, Short.MAX_VALUE)
+                .addGap(18, 24, Short.MAX_VALUE)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -600,11 +639,12 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                         .addGap(37, 37, 37))))
         );
 
-        jTabbedPane1.addTab("tab2", jPanel6);
+        jTabbedPane1.addTab("Cadastro", jPanel6);
 
-        jPanel8.setBackground(new java.awt.Color(150, 150, 150));
+        jPanel8.setBackground(new java.awt.Color(51, 51, 51));
 
         jLabel15.setFont(new java.awt.Font("Shruti", 0, 20)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(227, 227, 227));
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("Produto");
 
@@ -620,7 +660,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -628,8 +668,8 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 35, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 65, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -638,11 +678,11 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 706, Short.MAX_VALUE)))
+                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 629, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -653,7 +693,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -687,7 +727,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }catch(SQLException ex){
                 JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
             }
-            atualizaTabelaCliente();
+            atualizaTabelaProduto();
             prepararSalvareCancelar();
             desativarCampos();
             limparCamposFuncionario();
@@ -708,7 +748,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
         }
-        atualizaTabelaCliente();
+        atualizaTabelaProduto();
         prepararSalvareCancelar();
         desativarCampos();
         }
@@ -741,7 +781,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 }catch(SQLException ex){
                     JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
                 }
-                atualizaTabelaCliente();
+                atualizaTabelaProduto();
                 prepararExcluir();
             }
         }
@@ -789,7 +829,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     private void txtBuscaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscaCaretUpdate
         listaProduto = null;
         if(txtBusca.getText().equals("")){
-            atualizaTabelaCliente();
+            atualizaTabelaProduto();
         }else{
                     
             try {
@@ -797,15 +837,19 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
                 if(listaProduto == null){
                     JOptionPane.showMessageDialog(null, "Nenhum Cliente encontrado!","", JOptionPane.WARNING_MESSAGE);
-                    atualizaTabelaCliente();
+                    atualizaTabelaProduto();
                 }else{
-                    atualizaTabelaClienteBusca();
+                    atualizaTabelaProdutoBusca();
                 }
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
             }
         } 
     }//GEN-LAST:event_txtBuscaCaretUpdate
+
+    private void cbxMarcaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxMarcaItemStateChanged
+        atualizaBoxModelo();
+    }//GEN-LAST:event_cbxMarcaItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
