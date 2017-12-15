@@ -5,6 +5,8 @@
  */
 package VIEW;
 
+import javax.swing.plaf.basic.BasicInternalFrameUI;
+
 /**
  *
  * @author Danilo-NOTE

@@ -53,7 +53,7 @@ public class MarcaDao {
         PreparedStatement pst;
         String sql;
         List<MarcaM> listaMarca = new ArrayList<>();
-        sql = "select * from Marca order by nome";
+        sql = "select * from Marca";
         pst = Conexao.getInstance().prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
         

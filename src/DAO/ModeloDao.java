@@ -41,13 +41,13 @@ public class ModeloDao {
         String sql;
         sql = "update Modelo set "
                         + "idmarca = ?, "
-                        + "nome = ?, "
+                        + "nome = ? "
 
                         + "where id = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, modelo.getIdMarca().getId());
         pst.setString(2, modelo.getNome());
-        pst.setInt(11,modelo.getId());
+        pst.setInt(3,modelo.getId());
         pst.execute();
         pst.close();
      }
@@ -56,7 +56,7 @@ public class ModeloDao {
         PreparedStatement pst;
         String sql;
         List<ModeloM> listaModelo = new ArrayList<>();
-        sql = "select * from Modelo order by nome";
+        sql = "select * from Modelo";
         pst = Conexao.getInstance().prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
         
@@ -64,7 +64,7 @@ public class ModeloDao {
             listaModelo.add(new ModeloM(
                             rs.getInt("id"),
                             marcaDao.busca(rs.getInt("idmarca")),
-                            rs.getString("cpf")));
+                            rs.getString("nome")));
         }
         pst.close();
         return listaModelo;
