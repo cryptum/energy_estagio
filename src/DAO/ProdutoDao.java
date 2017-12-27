@@ -17,16 +17,17 @@ public class ProdutoDao {
     public void salvar (ProdutoM produto) throws SQLException{
         PreparedStatement pst;
         String sql;
-        sql = "insert into Produto values (?,?,?,?,?,?,?,?)";
+        sql = "insert into Produto values (?,?,?,?,?,?,?,?,?)";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1,0);
         pst.setInt(2, produto.getIdMarca().getId());
         pst.setInt(3, produto.getIdModelo().getId());
         pst.setString(4, produto.getNome());
-        pst.setDouble(5, produto.getValorCusto());
-        pst.setDouble(6, produto.getValorMax());
-        pst.setDouble(7, produto.getValorMini());
-        pst.setString(8, produto.getCodigo());    
+        pst.setFloat(5, produto.getValorCusto());
+        pst.setFloat(6, produto.getValorMax());
+        pst.setFloat(7, produto.getValorMini());
+        pst.setString(8, produto.getCodigo());
+        pst.setInt(9, produto.getQuantidade()); 
         pst.execute();
         pst.close();
     }
@@ -51,7 +52,8 @@ public class ProdutoDao {
                         + "valorcusto = ?, "
                         + "valormax = ?, "
                         + "valormini = ?, "
-                        + "cofigo  = ? "
+                        + "codigo  = ?, "
+                        + "quantidade  = ? "
 
                         + "where id = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
@@ -62,7 +64,8 @@ public class ProdutoDao {
         pst.setDouble(5, produto.getValorMax()); 
         pst.setDouble(6, produto.getValorMini());
         pst.setString(7, produto.getCodigo());
-        pst.setInt(8,produto.getId());
+        pst.setInt(8, produto.getQuantidade());
+        pst.setInt(9,produto.getId());
         pst.execute();
         pst.close();
      }
@@ -81,10 +84,11 @@ public class ProdutoDao {
                             marcaDao.busca(rs.getInt("idmarca")),
                             modeloDao.busca(rs.getInt("idmodelo")),
                             rs.getString("nome"),
-                            rs.getDouble("valorcusto"),
-                            rs.getDouble("valormax"),
-                            rs.getDouble("valormini"),
-                            rs.getString("codigo")));
+                            rs.getFloat("valorcusto"),
+                            rs.getFloat("valormax"),
+                            rs.getFloat("valormini"),
+                            rs.getString("codigo"),
+                            rs.getInt("quantidade")));
         }
         pst.close();
         return listaProduto;
@@ -104,10 +108,11 @@ public class ProdutoDao {
                             marcaDao.busca(rs.getInt("idmarca")),
                             modeloDao.busca(rs.getInt("idmodelo")),
                             rs.getString("nome"),
-                            rs.getDouble("valorcusto"),
-                            rs.getDouble("valormax"),
-                            rs.getDouble("valormini"),
-                            rs.getString("codigo"));
+                            rs.getFloat("valorcusto"),
+                            rs.getFloat("valormax"),
+                            rs.getFloat("valormini"),
+                            rs.getString("codigo"),
+                            rs.getInt("quantidade"));
         }
         pst.close();
         return produto;
@@ -129,10 +134,11 @@ public class ProdutoDao {
                             marcaDao.busca(rs.getInt("idmarca")),
                             modeloDao.busca(rs.getInt("idmodelo")),
                             rs.getString("nome"),
-                            rs.getDouble("valorcusto"),
-                            rs.getDouble("valormax"),
-                            rs.getDouble("valormini"),
-                            rs.getString("codigo")));
+                            rs.getFloat("valorcusto"),
+                            rs.getFloat("valormax"),
+                            rs.getFloat("valormini"),
+                            rs.getString("codigo"),
+                            rs.getInt("quantidade")));
         }
 
         pst.close();

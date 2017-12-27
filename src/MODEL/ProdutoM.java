@@ -10,12 +10,13 @@ public class ProdutoM {
     private MarcaM IdMarca;
     private ModeloM IdModelo;
     private String Nome;
-    private Double ValorCusto;
-    private Double ValorMax;
-    private Double ValorMini;
+    private float ValorCusto;
+    private float ValorMax;
+    private float ValorMini;
     private String Codigo;
+    private int Quantidade;
 
-    public ProdutoM(int Id, MarcaM IdMarca, ModeloM IdModelo, String Nome, Double ValorCusto, Double ValorMax, Double ValorMini, String Codigo) {
+    public ProdutoM(int Id, MarcaM IdMarca, ModeloM IdModelo, String Nome, float ValorCusto, float ValorMax, float ValorMini, String Codigo, int Quantidade) {
         this.Id = Id;
         this.IdMarca = IdMarca;
         this.IdModelo = IdModelo;
@@ -24,6 +25,7 @@ public class ProdutoM {
         this.ValorMax = ValorMax;
         this.ValorMini = ValorMini;
         this.Codigo = Codigo;
+        this.Quantidade = Quantidade;
     }
 
     public ProdutoM() {
@@ -61,27 +63,27 @@ public class ProdutoM {
         this.Nome = Nome;
     }
 
-    public Double getValorCusto() {
+    public float getValorCusto() {
         return ValorCusto;
     }
 
-    public void setValorCusto(Double ValorCusto) {
+    public void setValorCusto(float ValorCusto) {
         this.ValorCusto = ValorCusto;
     }
 
-    public Double getValorMax() {
+    public float getValorMax() {
         return ValorMax;
     }
 
-    public void setValorMax(Double ValorMax) {
+    public void setValorMax(float ValorMax) {
         this.ValorMax = ValorMax;
     }
 
-    public Double getValorMini() {
+    public float getValorMini() {
         return ValorMini;
     }
 
-    public void setValorMini(Double ValorMini) {
+    public void setValorMini(float ValorMini) {
         this.ValorMini = ValorMini;
     }
 
@@ -91,6 +93,14 @@ public class ProdutoM {
 
     public void setCodigo(String Codigo) {
         this.Codigo = Codigo;
+    }
+
+    public int getQuantidade() {
+        return Quantidade;
+    }
+
+    public void setQuantidade(int Quantidade) {
+        this.Quantidade = Quantidade;
     }
 
     

@@ -1,11 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package VIEW;
 
+import DAO.FuncionarioDao;
+import MODEL.FuncionarioM;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,8 +12,8 @@ import java.awt.Color;
  */
 public class LoginView extends javax.swing.JFrame {
 
-    String user = "Usuário";
-    String senha = "Senha";
+    FuncionarioM funcionario = new FuncionarioM();
+    FuncionarioDao funcionariodao = new FuncionarioDao();
     public LoginView() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -53,8 +52,13 @@ public class LoginView extends javax.swing.JFrame {
 
         txtUser.setFont(new java.awt.Font("Corbel", 0, 15)); // NOI18N
         txtUser.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtUser.setText("Usuário");
+        txtUser.setText("Login");
         txtUser.setBorder(null);
+        txtUser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtUserKeyPressed(evt);
+            }
+        });
         jPanel1.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 141, 137, -1));
 
         jSeparator1.setForeground(new java.awt.Color(102, 102, 102));
@@ -89,8 +93,13 @@ public class LoginView extends javax.swing.JFrame {
 
         txtSenha.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtSenha.setText("Senha");
+        txtSenha.setText("123");
         txtSenha.setBorder(null);
+        txtSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtSenhaKeyPressed(evt);
+            }
+        });
         jPanel1.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 199, 137, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Danilo-NOTE\\Desktop\\key-icon.png")); // NOI18N
@@ -135,19 +144,87 @@ public class LoginView extends javax.swing.JFrame {
     }//GEN-LAST:event_lblSairMouseExited
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-            if(!txtUser.getText().equals("") || !txtSenha.getPassword().equals("")){
-            if(txtUser.getText().equals(user) || txtSenha.getPassword().equals(senha)){
-                PrincipalView Principal = new PrincipalView();
-                Principal.show();
-                this.dispose();
-            }
-            else{
-                lblErro.setVisible(true);
-            }
+        funcionario = null;
+        try {
+            if (txtUser.getText().isEmpty()) {
+                //erro.setText("O nome do usuario deve ser preechido");
+                JOptionPane.showMessageDialog(null, "O usuário deve ser preenchido", "Alerta", JOptionPane.INFORMATION_MESSAGE);
+                txtUser.requestFocus();
 
-        }   
-
+            } else if (txtSenha.getText().isEmpty()) {
+                //erro.setText("A senha deve ser preechido");
+                //erro.setVisible(true);
+                JOptionPane.showMessageDialog(null, "A senha deve ser preenchida", "Alerta", JOptionPane.INFORMATION_MESSAGE);
+                txtSenha.requestFocus();
+            } else {
+                funcionario = funcionariodao.valida(txtUser.getText(), txtSenha.getText());
+                if(funcionario == null){
+                    JOptionPane.showMessageDialog(null, "Usuário não encontrado", "Erro", JOptionPane.ERROR_MESSAGE);
+                    txtSenha.setText("");
+                    txtSenha.requestFocus();
+                }else{
+       
+                    PrincipalView principal = new PrincipalView();
+                    this.dispose();
+                    
+                }
+                
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Usuário não encontrado", "Erro", JOptionPane.ERROR_MESSAGE);
+            txtUser.setText("");
+            txtSenha.setText("");
+            txtUser.requestFocus();
+            ex.printStackTrace();
+            
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void txtSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyPressed
+      if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        
+        funcionario = null;
+        try {
+            if (txtUser.getText().isEmpty()) {
+                //erro.setText("O nome do usuario deve ser preechido");
+                JOptionPane.showMessageDialog(null, "O usuário deve ser preenchido", "Alerta", JOptionPane.INFORMATION_MESSAGE);
+                txtUser.requestFocus();
+
+            } else if (txtSenha.getText().isEmpty()) {
+                //erro.setText("A senha deve ser preechido");
+                //erro.setVisible(true);
+                JOptionPane.showMessageDialog(null, "A senha deve ser preenchida", "Alerta", JOptionPane.INFORMATION_MESSAGE);
+                txtSenha.requestFocus();
+            } else {
+                funcionario = funcionariodao.valida(txtUser.getText(), txtSenha.getText());
+                if(funcionario == null){
+                    JOptionPane.showMessageDialog(null, "Usuário não encontrado", "Erro", JOptionPane.ERROR_MESSAGE);
+                    txtSenha.setText("");
+                    txtSenha.requestFocus();
+                }else{
+       
+                    PrincipalView principal = new PrincipalView();
+                    this.dispose();
+                    
+                }
+                
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Usuário não encontrado", "Erro", JOptionPane.ERROR_MESSAGE);
+            txtUser.setText("");
+            txtSenha.setText("");
+            txtUser.requestFocus();
+            ex.printStackTrace();
+            
+        } 
+      }
+    }//GEN-LAST:event_txtSenhaKeyPressed
+
+    private void txtUserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            txtSenha.requestFocusInWindow();
+        }
+    }//GEN-LAST:event_txtUserKeyPressed
 
     /**
      * @param args the command line arguments

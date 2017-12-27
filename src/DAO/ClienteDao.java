@@ -16,12 +16,14 @@ public class ClienteDao {
     public void salvar (ClienteM Cliente) throws SQLException{
         PreparedStatement pst;
         String sql;
-        sql = "insert into Cliente values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        sql = "insert into Cliente set id = ?, nome = ?, cpf = ?, rg = ?, rua = ?, numero = ?, bairro = ?,"
+                + " cidade = ?, telefone = ?, celular1 = ?, celular2 = ?,"
+                + " Nascimento = STR_TO_DATE( ?, \"%d/%m/%Y\" ), observacao = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1,0);
         pst.setString(2, Cliente.getNome());
-        pst.setString(3, Cliente.getRg());
-        pst.setString(4, Cliente.getCpf());
+        pst.setString(3, Cliente.getCpf());
+        pst.setString(4, Cliente.getRg());
         pst.setString(5, Cliente.getRua());
         pst.setString(6, Cliente.getNumero());
         pst.setString(7, Cliente.getBairro()); 
@@ -59,7 +61,7 @@ public class ClienteDao {
                         + "telefone  = ?, "
                         + "celular1  = ?, "
                         + "celular2  = ?, "
-                        + "nascimento  = ?, "
+                        + "Nascimento = STR_TO_DATE( ?, \"%d/%m/%Y\" ), "
                         + "observacao  = ? "
 
                         + "where id = ?";
@@ -85,7 +87,8 @@ public class ClienteDao {
         PreparedStatement pst;
         String sql;
         List<ClienteM> listaCliente = new ArrayList<>();
-        sql = "select * from Cliente order by nome";
+        sql = "select id, nome,cpf, rg, rua, numero, bairro, cidade, telefone, celular1,celular2,"
+                + " DATE_FORMAT( Nascimento, \"%d/%m/%Y\" ) AS Nascimento, observacao from Cliente order by nome";
         pst = Conexao.getInstance().prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
         
@@ -113,7 +116,8 @@ public class ClienteDao {
         PreparedStatement pst;
         String sql;
         ClienteM cliente = null;        
-        sql = "select * from Cliente where id = ?";
+        sql = "select id, nome,cpf, rg, rua, numero, bairro, cidade, telefone, celular1,celular2,"
+                + " DATE_FORMAT( Nascimento, \"%d/%m/%Y\" ) AS Nascimento, observacao from Cliente where id = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, id);
         ResultSet rs = pst.executeQuery();
@@ -142,7 +146,8 @@ public class ClienteDao {
         String sql;
         List<ClienteM> listaCliente = new ArrayList<>();
         String name = "%"+Nome+"%";
-        sql = "select * from Cliente where nome like ?";
+        sql = "select id, nome,cpf, rg, rua, numero, bairro, cidade, telefone, celular1,celular2,"
+                + " DATE_FORMAT( Nascimento, \"%d/%m/%Y\" ) AS Nascimento, observacao from Cliente where nome like ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, name);
         pst.execute();

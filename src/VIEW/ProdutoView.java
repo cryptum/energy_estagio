@@ -44,10 +44,12 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         atualizaTabelaProduto();
         atualizaTabelaMarca();
         atualizaTabelaModelo();
-        tblProduto.getTableHeader().setReorderingAllowed(false);
         atualizaBoxMarca();
         atualizaBoxEditarMarca();
-        
+        tblProduto.getTableHeader().setReorderingAllowed(false);
+        txtId.setVisible(false);
+        txtIdMarca.setVisible(false);
+        txtIdModelo.setVisible(false);
     }
 
     
@@ -60,19 +62,20 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
         }
         
-        String dados[][] = new String[listaProduto.size()][6];
+        String dados[][] = new String[listaProduto.size()][7];
             int i = 0;
             for (ProdutoM produto : listaProduto) {
                 dados[i][0] = String.valueOf(produto.getId());
                 dados[i][1] = produto.getNome();
                 dados[i][2] = produto.getIdMarca().getNome();
                 dados[i][3] = produto.getIdModelo().getNome();
-                dados[i][4] = String.valueOf(produto.getValorMax());
-                dados[i][5] = String.valueOf(produto.getValorMini());
+                dados[i][4] = String.valueOf(produto.getQuantidade());
+                dados[i][5] = String.valueOf(produto.getValorMax());
+                dados[i][6] = String.valueOf(produto.getValorMini());
 
                 i++;
             }
-            String tituloColuna[] = {"ID", "Nome", "Marca","Modelo", "Valor Maximo","Valor Minimo"};
+            String tituloColuna[] = {"ID", "Nome", "Marca","Modelo","Quantidade", "Valor Maximo","Valor Minimo"};
             DefaultTableModel tabelaProduto = new DefaultTableModel();
             tabelaProduto.setDataVector(dados, tituloColuna);
             tblProduto.setModel(new DefaultTableModel(dados, tituloColuna) {
@@ -100,19 +103,20 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     public void atualizaTabelaProdutoBusca(){
         produto = new ProdutoM();
         
-        String dados[][] = new String[listaProduto.size()][6];
+        String dados[][] = new String[listaProduto.size()][7];
             int i = 0;
             for (ProdutoM produto : listaProduto) {
                 dados[i][0] = String.valueOf(produto.getId());
                 dados[i][1] = produto.getNome();
                 dados[i][2] = produto.getIdMarca().getNome();
                 dados[i][3] = produto.getIdModelo().getNome();
-                dados[i][4] = String.valueOf(produto.getValorMax());
-                dados[i][5] = String.valueOf(produto.getValorMini());
+                dados[i][4] = String.valueOf(produto.getQuantidade());
+                dados[i][5] = String.valueOf(produto.getValorMax());
+                dados[i][6] = String.valueOf(produto.getValorMini());
 
                 i++;
             }
-            String tituloColuna[] = {"ID", "Nome", "Marca","Modelo", "Valor Maximo","Valor Minimo"};
+            String tituloColuna[] = {"ID", "Nome", "Marca","Modelo","Quantidade", "Valor Maximo","Valor Minimo"};
             DefaultTableModel tabelaProduto = new DefaultTableModel();
             tabelaProduto.setDataVector(dados, tituloColuna);
             tblProduto.setModel(new DefaultTableModel(dados, tituloColuna) {
@@ -346,7 +350,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         txtvalorMinimo.setText("");
         txtValorMaximo.setText("");
         txtCodigo.setValue("");
-
+        txtQuantidade.setValue("");
     }
    
     public void ativarCampos(){
@@ -358,6 +362,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         txtvalorMinimo.setEnabled(true);
         txtValorMaximo.setEnabled(true);
         txtCodigo.setEnabled(true);
+        txtQuantidade.setEnabled(true);
     }
 
     public void desativarCampos(){
@@ -369,7 +374,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         txtvalorMinimo.setEnabled(false);
         txtValorMaximo.setEnabled(false);
         txtCodigo.setEnabled(false);
-
+        txtQuantidade.setEnabled(false);
     }
    
     public void prepararNovo() {
@@ -432,16 +437,18 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         cbxMarca = new javax.swing.JComboBox<>();
         cbxModelo = new javax.swing.JComboBox<>();
+        jLabel18 = new javax.swing.JLabel();
+        txtQuantidade = new javax.swing.JFormattedTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtValorCusto = new javax.swing.JTextField();
-        txtvalorMinimo = new javax.swing.JTextField();
-        txtValorMaximo = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        txtvalorMinimo = new javax.swing.JFormattedTextField();
+        txtValorMaximo = new javax.swing.JFormattedTextField();
+        txtValorCusto = new javax.swing.JFormattedTextField();
         btnSalvar = new javax.swing.JButton();
         btnNovo = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
@@ -633,6 +640,14 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         cbxModelo.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         cbxModelo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jLabel18.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel18.setText("Quantidade:");
+
+        txtQuantidade.setBackground(new java.awt.Color(245, 245, 245));
+        txtQuantidade.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
+        txtQuantidade.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
+        txtQuantidade.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -640,21 +655,30 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(280, 280, 280))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(cbxMarca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(35, 35, 35)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(cbxModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addComponent(cbxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(42, 42, 42)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addComponent(cbxModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -667,17 +691,21 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 .addGap(0, 0, 0)
                 .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel10))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel11))
                 .addGap(4, 4, 4)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbxModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel18))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(51, 51, 51))
         );
 
@@ -696,23 +724,26 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
         jLabel5.setText("R$");
 
-        txtValorCusto.setBackground(new java.awt.Color(245, 245, 245));
-        txtValorCusto.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        txtValorCusto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
-
-        txtvalorMinimo.setBackground(new java.awt.Color(245, 245, 245));
-        txtvalorMinimo.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        txtvalorMinimo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
-
-        txtValorMaximo.setBackground(new java.awt.Color(245, 245, 245));
-        txtValorMaximo.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        txtValorMaximo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
-
         jLabel9.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
         jLabel9.setText("Valor Maximo:");
 
         jLabel7.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
         jLabel7.setText("R$");
+
+        txtvalorMinimo.setBackground(new java.awt.Color(245, 245, 245));
+        txtvalorMinimo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
+        txtvalorMinimo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("##0.00"))));
+        txtvalorMinimo.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+
+        txtValorMaximo.setBackground(new java.awt.Color(245, 245, 245));
+        txtValorMaximo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
+        txtValorMaximo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("##0.00"))));
+        txtValorMaximo.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+
+        txtValorCusto.setBackground(new java.awt.Color(245, 245, 245));
+        txtValorCusto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
+        txtValorCusto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("##0.00"))));
+        txtValorCusto.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -726,8 +757,9 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addComponent(jLabel4)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txtValorCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addComponent(txtValorCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(44, 44, 44))
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addComponent(jLabel3)
                             .addGap(43, 43, 43))
@@ -746,23 +778,23 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtValorCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtValorCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtvalorMinimo, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(18, 23, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtvalorMinimo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtValorMaximo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70))
+                .addGap(67, 67, 67))
         );
 
         btnSalvar.setText("Salvar");
@@ -1104,7 +1136,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Marca ", jPanel7);
+        jTabbedPane1.addTab("<html><p align = \"center\">Marca <br> Modelo</p></html> ", jPanel7);
 
         jPanel8.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -1166,6 +1198,16 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         produto = new ProdutoM();
+		String custo = txtValorCusto.getText();
+                String Custo = custo.replaceAll(",", ".");
+                
+                String minimo = txtvalorMinimo.getText();
+                String Minimo = minimo.replaceAll(",", ".");
+                
+                String maximo = txtValorMaximo.getText();
+                String Maximo = maximo.replaceAll(",", ".");
+		
+		
         try {
                 marca = marcadao.buscaNome(cbxMarca.getSelectedItem().toString());
                 modelo = modelodao.buscaNome(cbxModelo.getSelectedItem().toString());
@@ -1182,10 +1224,11 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             produto.setIdMarca(marca);
             produto.setIdModelo(modelo);
             produto.setNome(txtNome.getText());
-            produto.setValorCusto(Double.valueOf(txtValorCusto.getText()));
-            produto.setValorMax(Double.valueOf(txtvalorMinimo.getText()));
-            produto.setValorMini(Double.valueOf(txtValorMaximo.getText()));
+            produto.setValorCusto(Float.valueOf(Custo));
+            produto.setValorMax(Float.valueOf(Maximo));
+            produto.setValorMini(Float.valueOf(Minimo));
             produto.setCodigo(txtCodigo.getText());
+            produto.setQuantidade(Integer.valueOf(txtQuantidade.getText()));
             try{
                 produtodao.salvar(produto);
                 JOptionPane.showMessageDialog(null, "Gravado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
@@ -1203,10 +1246,11 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             produto.setIdMarca(marca);
             produto.setIdModelo(modelo);
             produto.setNome(txtNome.getText());
-            produto.setValorCusto(Double.valueOf(txtValorCusto.getText()));
-            produto.setValorMax(Double.valueOf(txtvalorMinimo.getText()));
-            produto.setValorMini(Double.valueOf(txtValorMaximo.getText()));
+            produto.setValorCusto(Float.valueOf(Custo));
+            produto.setValorMax(Float.valueOf(Maximo));
+            produto.setValorMini(Float.valueOf(Minimo));
             produto.setCodigo(txtCodigo.getText());
+            produto.setQuantidade(Integer.valueOf(txtQuantidade.getText()));
         try{
             produtodao.alterar(produto);
             JOptionPane.showMessageDialog(null, "Alterado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);       
@@ -1277,6 +1321,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         txtvalorMinimo.setText(String.valueOf(produto.getValorMax()));
         txtValorMaximo.setText(String.valueOf(produto.getValorMini()));
         txtCodigo.setText(produto.getCodigo());
+        txtCodigo.setText(String.valueOf(produto.getQuantidade()));
 
         btnAlterar.setEnabled(true);
         btnExcluir.setEnabled(true);
@@ -1332,6 +1377,8 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
             }
             atualizaTabelaMarca();
+            atualizaBoxEditarMarca();
+            atualizaBoxMarca();
             btnSalvarMarca.setEnabled(false);
             txtEditarMarca.setEnabled(false);
             txtEditarMarca.setText("");
@@ -1347,6 +1394,8 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
         }
         atualizaTabelaMarca();
+        atualizaBoxEditarMarca();
+        atualizaBoxMarca();
         btnSalvarMarca.setEnabled(false);
         txtEditarMarca.setEnabled(false);
         tblMarca.clearSelection();
@@ -1421,8 +1470,9 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         if(txtEditarModelo.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Preencha todos os obrigatórios !", "erro", JOptionPane.WARNING_MESSAGE);
             txtEditarModelo.requestFocusInWindow();       
-        }
-        else if(txtIdModelo.getText().isEmpty()){
+        }else if (cbxEditarMarca.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(null, "Selecione a Marca!", "erro", JOptionPane.WARNING_MESSAGE);
+        }else if(txtIdModelo.getText().isEmpty()){
             modelo.setNome(txtEditarModelo.getText());
             modelo.setIdMarca(marca);
             try{
@@ -1507,6 +1557,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1544,8 +1595,9 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtIdMarca;
     private javax.swing.JTextField txtIdModelo;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtValorCusto;
-    private javax.swing.JTextField txtValorMaximo;
-    private javax.swing.JTextField txtvalorMinimo;
+    private javax.swing.JFormattedTextField txtQuantidade;
+    private javax.swing.JFormattedTextField txtValorCusto;
+    private javax.swing.JFormattedTextField txtValorMaximo;
+    private javax.swing.JFormattedTextField txtvalorMinimo;
     // End of variables declaration//GEN-END:variables
 }

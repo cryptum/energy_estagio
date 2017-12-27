@@ -6,7 +6,7 @@ import java.util.List;
  *
  * @author Danilo-NOTE
  */
-public class VendaM {
+public class VendaM2 {
     
     private int Id;
     private ClienteM IdCliente;
@@ -14,21 +14,18 @@ public class VendaM {
     private String Data;
     private float TotalVendas;
     private String FormaPagamento;
-    private List<ItensVenda> itensVenda;
 
-    public VendaM(int Id, ClienteM IdCliente, FuncionarioM idFuncionario, String Data, float TotalVendas, String FormaPagamento, List<ItensVenda> itensVenda) {
+    public VendaM2(int Id, ClienteM IdCliente, FuncionarioM idFuncionario, String Data, float TotalVendas, String FormaPagamento) {
         this.Id = Id;
         this.IdCliente = IdCliente;
         this.idFuncionario = idFuncionario;
         this.Data = Data;
         this.TotalVendas = TotalVendas;
         this.FormaPagamento = FormaPagamento;
-        this.itensVenda = itensVenda;
     }
 
     
-    public VendaM() {
-        this.itensVenda = new ArrayList<>();
+    public VendaM2() {
     }
 
     public int getId() {
@@ -78,12 +75,4 @@ public class VendaM {
     public void setFormaPagamento(String FormaPagamento) {
         this.FormaPagamento = FormaPagamento;
     }
-
-    public List<ItensVenda> getItensVenda() {
-        return itensVenda;
-    }
-
-    public void setItensVenda(List<ItensVenda> itensVenda) {
-        this.itensVenda = itensVenda;
-    } 
 }
