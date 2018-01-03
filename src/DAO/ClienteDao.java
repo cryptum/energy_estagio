@@ -172,4 +172,36 @@ public class ClienteDao {
         pst.close();
         return listaCliente;
     }
+    
+    public ClienteM buscaNome2(String Nome) throws SQLException{
+        PreparedStatement pst;
+        String sql;
+        ClienteM cliente = new ClienteM();
+        String name = "%"+Nome+"%";
+        sql = "select id, nome,cpf, rg, rua, numero, bairro, cidade, telefone, celular1,celular2,"
+                + " DATE_FORMAT( Nascimento, \"%d/%m/%Y\" ) AS Nascimento, observacao from Cliente where nome like ?";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setString(1, name);
+        pst.execute();
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+            cliente = new ClienteM(
+                            rs.getInt("id"),
+                            rs.getString("nome"),
+                            rs.getString("cpf"),
+                            rs.getString("rg"),
+                            rs.getString("rua"),
+                            rs.getString("numero"),
+                            rs.getString("bairro"),
+                            rs.getString("cidade"),
+                            rs.getString("telefone"),
+                            rs.getString("celular1"),
+                            rs.getString("celular2"),
+                            rs.getString("nascimento"),
+                            rs.getString("observacao"));
+        }
+
+        pst.close();
+        return cliente;
+    }
 }

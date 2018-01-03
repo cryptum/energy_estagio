@@ -7,13 +7,13 @@ package MODEL;
 public class ItensVendaML {
     
     private int Id;
-    private ProdutoM IdProduto;
     private VendaMLM IdVendaMl;
+    private ProdutoM IdProduto;
 
-    public ItensVendaML(int Id, ProdutoM IdProduto, VendaMLM IdVendaMl) {
+    public ItensVendaML(int Id, VendaMLM IdVendaMl, ProdutoM IdProduto) {
         this.Id = Id;
-        this.IdProduto = IdProduto;
         this.IdVendaMl = IdVendaMl;
+        this.IdProduto = IdProduto;
     }
 
     public ItensVendaML() {
@@ -27,19 +27,19 @@ public class ItensVendaML {
         this.Id = Id;
     }
 
-    public ProdutoM getIdProduto() {
-        return IdProduto;
-    }
-
-    public void setIdProduto(ProdutoM IdProduto) {
-        this.IdProduto = IdProduto;
-    }
-
     public VendaMLM getIdVendaMl() {
         return IdVendaMl;
     }
 
     public void setIdVendaMl(VendaMLM IdVendaMl) {
         this.IdVendaMl = IdVendaMl;
+    }
+
+    public ProdutoM getIdProduto() {
+        return IdProduto;
+    }
+
+    public void setIdProduto(ProdutoM IdProduto) {
+        this.IdProduto = IdProduto;
     }
 }

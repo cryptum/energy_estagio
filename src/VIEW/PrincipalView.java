@@ -20,8 +20,6 @@ public class PrincipalView extends javax.swing.JFrame {
         initComponents();
         this.setVisible(true);
         this.setExtendedState(MAXIMIZED_BOTH);
-        //Venda.setEnabled(false);
-        Consulta.setEnabled(false);
         MarcLivre.setEnabled(false);
         Relatorios.setEnabled(false);
     }
@@ -37,7 +35,6 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Venda = new javax.swing.JLabel();
-        Consulta = new javax.swing.JLabel();
         Cliente = new javax.swing.JLabel();
         MarcLivre = new javax.swing.JLabel();
         Relatorios = new javax.swing.JLabel();
@@ -63,19 +60,6 @@ public class PrincipalView extends javax.swing.JFrame {
             }
         });
 
-        Consulta.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
-        Consulta.setForeground(new java.awt.Color(227, 227, 227));
-        Consulta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Consulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Analytics.png"))); // NOI18N
-        Consulta.setText("Consulta");
-        Consulta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Consulta.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        Consulta.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ConsultaMouseClicked(evt);
-            }
-        });
-
         Cliente.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
         Cliente.setForeground(new java.awt.Color(227, 227, 227));
         Cliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -93,7 +77,7 @@ public class PrincipalView extends javax.swing.JFrame {
         MarcLivre.setForeground(new java.awt.Color(227, 227, 227));
         MarcLivre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         MarcLivre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Laptop.png"))); // NOI18N
-        MarcLivre.setText("<html><p align = \"center\">Mercado <br> Livre</p></html> "); // NOI18N
+        MarcLivre.setText("<html><p align = \"center\">Mercado<br>Livre</p></html> "); // NOI18N
         MarcLivre.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         MarcLivre.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         MarcLivre.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -150,7 +134,6 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(Cliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Venda, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Consulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(MarcLivre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE))
             .addComponent(Relatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
@@ -159,18 +142,17 @@ public class PrincipalView extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addComponent(Cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(Estoque, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jLabel8)
                 .addGap(0, 0, 0)
                 .addComponent(Venda)
                 .addGap(0, 0, 0)
-                .addComponent(Consulta)
-                .addGap(0, 0, 0)
                 .addComponent(MarcLivre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(Relatorios))
+                .addComponent(Relatorios)
+                .addContainerGap())
         );
 
         pnlPrincipal.setBackground(new java.awt.Color(230, 230, 230));
@@ -225,10 +207,6 @@ public class PrincipalView extends javax.swing.JFrame {
             pnlPrincipal.updateUI();
     }//GEN-LAST:event_EstoqueMouseClicked
 
-    private void ConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConsultaMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ConsultaMouseClicked
-
     private void MarcLivreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MarcLivreMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_MarcLivreMouseClicked
@@ -247,7 +225,6 @@ public class PrincipalView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Cliente;
-    private javax.swing.JLabel Consulta;
     private javax.swing.JLabel Estoque;
     private javax.swing.JLabel MarcLivre;
     private javax.swing.JLabel Relatorios;

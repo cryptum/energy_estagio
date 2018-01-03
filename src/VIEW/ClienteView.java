@@ -29,7 +29,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
         this.setVisible(true);
         atualizaTabelaCliente();
         tblCliente.getTableHeader().setReorderingAllowed(false);
-        txtId.setVisible(false);
+        //txtId.setVisible(false);
     }
 
     //Atualiza todos os funcionario para a tabela
@@ -66,7 +66,9 @@ public class ClienteView extends javax.swing.JInternalFrame {
                 }
             });
 
-            tblCliente.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tblCliente.getColumnModel().getColumn(0).setMaxWidth(0);
+            tblCliente.getColumnModel().getColumn(0).setMinWidth(0);
+            tblCliente.getColumnModel().getColumn(0).setPreferredWidth(0);
             tblCliente.getColumnModel().getColumn(1).setPreferredWidth(200);
             tblCliente.getColumnModel().getColumn(2).setPreferredWidth(100);
             
@@ -105,7 +107,9 @@ public class ClienteView extends javax.swing.JInternalFrame {
                 }
             });
 
-            tblCliente.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tblCliente.getColumnModel().getColumn(0).setMaxWidth(0);
+            tblCliente.getColumnModel().getColumn(0).setMinWidth(0);
+            tblCliente.getColumnModel().getColumn(0).setPreferredWidth(0);
             tblCliente.getColumnModel().getColumn(1).setPreferredWidth(200);
             tblCliente.getColumnModel().getColumn(2).setPreferredWidth(100);
             

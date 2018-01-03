@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Danilo-NOTE
  */
-public class VendaView extends javax.swing.JInternalFrame {
+public class VendaViewML extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form CRIENTE_DO_CU_QUENTE
@@ -51,7 +51,7 @@ public class VendaView extends javax.swing.JInternalFrame {
     }
     
     
-    public VendaView() {
+    public VendaViewML() {
         initComponents();
         this.setVisible(true);
         atualizaTabelaVenda();
@@ -1473,8 +1473,8 @@ public class VendaView extends javax.swing.JInternalFrame {
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnAddItemVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnExcluiItemVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
+                .addGap(105, 105, 105)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 

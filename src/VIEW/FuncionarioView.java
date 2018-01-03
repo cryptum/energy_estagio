@@ -66,7 +66,9 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
                 }
             });
 
-            tblFuncionario.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tblFuncionario.getColumnModel().getColumn(0).setMaxWidth(0);
+            tblFuncionario.getColumnModel().getColumn(0).setMinWidth(0);
+            tblFuncionario.getColumnModel().getColumn(0).setPreferredWidth(0);
             tblFuncionario.getColumnModel().getColumn(1).setPreferredWidth(200);
             tblFuncionario.getColumnModel().getColumn(2).setPreferredWidth(100);
             
@@ -106,7 +108,9 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
                 }
             });
 
-            tblFuncionario.getColumnModel().getColumn(0).setPreferredWidth(10);
+            tblFuncionario.getColumnModel().getColumn(0).setMaxWidth(0);
+            tblFuncionario.getColumnModel().getColumn(0).setMinWidth(0);
+            tblFuncionario.getColumnModel().getColumn(0).setPreferredWidth(0);
             tblFuncionario.getColumnModel().getColumn(1).setPreferredWidth(200);
             tblFuncionario.getColumnModel().getColumn(2).setPreferredWidth(100);
             

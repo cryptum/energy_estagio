@@ -1,8 +1,9 @@
 package DAO;
 
+import MODEL.ClienteM;
 import MODEL.VendaM;
-import MODEL.VendaM2;
 import MODEL.ItensVenda;
+import MODEL.ProdutoM;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,9 +20,11 @@ public class VendaDao {
     String sql;
     ClienteDao clientedao = new ClienteDao();
     FuncionarioDao funcionariodao = new FuncionarioDao();
+    MarcaDao marcadao = new MarcaDao();
+    ModeloDao modelodao = new ModeloDao();
     
-    public void salvar (VendaM venda) throws SQLException{
-        
+    public void salvar (VendaM venda,List<ItensVenda> item ) throws SQLException{
+
         int idvenda = 0;
         sql = "insert into Venda set id = ?, idcliente = ?, idfuncionario = ?, Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ), totalvenda = ?, formapagamento = ?";
         pst = Conexao.getInstance().prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -37,12 +40,12 @@ public class VendaDao {
             idvenda = rs.getInt(1);
         }
         pst.close();
-        salvarItensVenda(venda.getItensVenda(), idvenda);
+        salvarItensVenda((List<ItensVenda>) item, idvenda);
         
     }
     
-    public void salvarItensVenda (List<ItensVenda> itensVenda, int idVenda) throws SQLException{
-        for(ItensVenda itens : itensVenda){
+    public void salvarItensVenda (List<ItensVenda> item, int idVenda) throws SQLException{
+        for(ItensVenda itens : item){
             
             sql = "insert into ItemVenda values(?,?,?,?,?,?)";
             pst = Conexao.getInstance().prepareStatement(sql);
@@ -51,31 +54,36 @@ public class VendaDao {
             pst.setInt(3, itens.getIdProduto().getId());
             pst.setInt(4, itens.getQuantidade());
             pst.setFloat(5, itens.getPreco());
-            pst.setFloat(6, itens.getPrecototalitem());
+            pst.setFloat(6, itens.getTotal());
             pst.execute();
             pst.close();
-            
+            buscaquantidade(itens.getIdProduto().getId(), itens.getQuantidade());
         }
     }
     
-    public VendaM2 busca(int id) throws SQLException{
-        VendaM2 venda = null;
-        sql = "select * from Venda where id = ?";
+    public void buscaquantidade(int id, int quantidade) throws SQLException{
+        ProdutoM produto = null;        
+        sql = "select * from Produto where id = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, id);
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
-            venda = new VendaM2(
-            rs.getInt("id"),
-            clientedao.busca(rs.getInt("idcliente")),
-            funcionariodao.busca(rs.getInt("idcliente")),
-            rs.getString("data"),
-            rs.getFloat("totalvenda"),
-            rs.getString("formapagamento"));
-            }
+            produto = new ProdutoM(
+                            rs.getInt("id"),
+                            marcadao.busca(rs.getInt("idmarca")),
+                            modelodao.busca(rs.getInt("idmodelo")),
+                            rs.getString("nome"),
+                            rs.getFloat("valorcusto"),
+                            rs.getFloat("valormax"),
+                            rs.getFloat("valormini"),
+                            rs.getString("codigo"),
+                            rs.getInt("quantidade"));
+        }
         pst.close();
-        return venda;
+        quantidade = produto.getQuantidade() - quantidade;
+        atualizaQuantidade(quantidade, produto.getId());
     }
+
     
     public void atualizaQuantidade(int quantidade, int id)throws SQLException{
         sql = "update Produto set "
@@ -83,7 +91,7 @@ public class VendaDao {
 
                         + "where id = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
-        pst.setInt(1, -quantidade);
+        pst.setInt(1, quantidade);
         pst.setInt(2, id);
         pst.execute();
         pst.close();
@@ -107,14 +115,14 @@ public class VendaDao {
       
     
     
-    public List<VendaM2> listaTodos() throws SQLException{
-        List<VendaM2> listavenda = new ArrayList<>();
+    public List<VendaM> listaTodos() throws SQLException{
+        List<VendaM> listavenda = new ArrayList<>();
         sql = "select id, idcliente, idfuncionario, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, totalvenda, formapagamento from Venda ";
         pst = Conexao.getInstance().prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
 
         while(rs.next()){
-            listavenda.add(new VendaM2(
+            listavenda.add(new VendaM(
                         rs.getInt("id"),
                         clientedao.busca(rs.getInt("idcliente")),
                         funcionariodao.busca(rs.getInt("idfuncionario")),
@@ -124,48 +132,47 @@ public class VendaDao {
         }
         pst.close();
     return listavenda;
-    }/*
+    }
     
     public VendaM busca(int id) throws SQLException{
-    PreparedStatement pst;
-    String sql;
-    VendaM venda = null;
-    sql = "select * from Venda where id = ?";
-    pst = Conexao.getInstance().prepareStatement(sql);
-    pst.setInt(1, id);
-    ResultSet rs = pst.executeQuery();
-    while(rs.next()){
-    venda = new VendaM(
-    rs.getInt("id"),
-    clientedao.busca(rs.getInt("idcliente")),
-    rs.getString("data"),
-    rs.getFloat("totalvenda"),
-    rs.getString("formapagamento"));
-    }
-    pst.close();
-    return venda;
-    }
-    
-    public List<VendaM> buscaNomeLista(String Nome) throws SQLException{
-    PreparedStatement pst;
-    String sql;
-    List<VendaM> listavenda = new ArrayList<>();
-    String name = "%"+Nome+"%";
-    sql = "select * from Venda where nome like ?";
-    pst = Conexao.getInstance().prepareStatement(sql);
-    pst.setString(1, name);
-    pst.execute();
-    ResultSet rs = pst.executeQuery();
-    while(rs.next()){
-    listavenda.add(new VendaM(
-    rs.getInt("id"),
-    clientedao.busca(rs.getInt("idcliente")),
-    rs.getString("data"),
-    rs.getDouble("totalvenda"),
-    rs.getString("formapagamento")));
+        VendaM venda = null;
+        sql = "select id, idcliente, idfuncionario, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, totalvenda, formapagamento from Venda where id = ?";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setInt(1, id);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+            venda = new VendaM(
+            rs.getInt("id"),
+            clientedao.busca(rs.getInt("idcliente")),
+            funcionariodao.busca(rs.getInt("idfuncionario")),
+            rs.getString("data"),
+            rs.getFloat("totalvenda"),
+            rs.getString("formapagamento"));
+        }
+        pst.close();
+        return venda;
     }
     
-    pst.close();
-    return listavenda;
-    }*/
+    public List<VendaM> buscaNomeLista(int Nome) throws SQLException{
+        List<VendaM> listavenda = new ArrayList<>();
+        //String name = "%"+Nome+"%";
+        sql = "select id, idcliente, idfuncionario, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, totalvenda, formapagamento from Venda where idcliente like ?";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setInt(1, Nome);
+        pst.execute();
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+            listavenda.add(new VendaM(
+            rs.getInt("id"),
+            clientedao.busca(rs.getInt("idcliente")),
+            funcionariodao.busca(rs.getInt("idfuncionario")),
+            rs.getString("data"),
+            rs.getFloat("totalvenda"),
+            rs.getString("formapagamento")));
+        }
+
+        pst.close();
+        return listavenda;
+    }
+    
 }

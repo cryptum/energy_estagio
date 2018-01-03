@@ -7,16 +7,16 @@ package MODEL;
 public class ItensVenda {
     
     private int Id;
-    private ProdutoM IdProduto;
     private VendaM IdVenda;
+    private ProdutoM IdProduto;
     private int quantidade;
     private float preco;
     private float total;
 
-    public ItensVenda(int Id, ProdutoM IdProduto, VendaM IdVenda, int quantidade, float preco, float total) {
+    public ItensVenda(int Id, VendaM IdVenda, ProdutoM IdProduto, int quantidade, float preco, float total) {
         this.Id = Id;
-        this.IdProduto = IdProduto;
         this.IdVenda = IdVenda;
+        this.IdProduto = IdProduto;
         this.quantidade = quantidade;
         this.preco = preco;
         this.total = total;
@@ -33,20 +33,20 @@ public class ItensVenda {
         this.Id = Id;
     }
 
-    public ProdutoM getIdProduto() {
-        return IdProduto;
-    }
-
-    public void setIdProduto(ProdutoM IdProduto) {
-        this.IdProduto = IdProduto;
-    }
-
     public VendaM getIdVenda() {
         return IdVenda;
     }
 
     public void setIdVenda(VendaM IdVenda) {
         this.IdVenda = IdVenda;
+    }
+
+    public ProdutoM getIdProduto() {
+        return IdProduto;
+    }
+
+    public void setIdProduto(ProdutoM IdProduto) {
+        this.IdProduto = IdProduto;
     }
 
     public int getQuantidade() {
@@ -65,13 +65,11 @@ public class ItensVenda {
         this.preco = preco;
     }
 
-    public float getPrecototalitem() {
+    public float getTotal() {
         return total;
     }
 
-    public void setPrecototalitem(float total) {
+    public void setTotal(float total) {
         this.total = total;
-    }
-
-    
+    }    
 }

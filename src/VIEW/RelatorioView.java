@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Danilo-NOTE
  */
-public class ProdutoView extends javax.swing.JInternalFrame {
+public class RelatorioView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form PRODUTO_DO_CU_QUENTE
@@ -38,7 +38,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     ModeloDao modelodao = new ModeloDao();
     List<ModeloM> listaModelo = new ArrayList<>();
     
-    public ProdutoView() {
+    public RelatorioView() {
         initComponents();
         this.setVisible(true);
         atualizaTabelaProduto();
@@ -308,7 +308,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         try {
             listaMarca = marcadao.listaTodos();
         } catch (SQLException ex) {
-            Logger.getLogger(ProdutoView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RelatorioView.class.getName()).log(Level.SEVERE, null, ex);
         }
         
          String dados[][] = new String[listaMarca.size()][5];
@@ -325,7 +325,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         try {
             listaMarca = marcadao.listaTodos();
         } catch (SQLException ex) {
-            Logger.getLogger(ProdutoView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RelatorioView.class.getName()).log(Level.SEVERE, null, ex);
         }
         
          String dados[][] = new String[listaMarca.size()][5];
@@ -342,7 +342,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         try {
             listaModelo = modelodao.buscaModelo(cbxMarca.getSelectedIndex());
         } catch (SQLException ex) {
-            Logger.getLogger(ProdutoView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RelatorioView.class.getName()).log(Level.SEVERE, null, ex);
         }
         
          String dados[][] = new String[listaModelo.size()][5];
@@ -1224,7 +1224,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 marca = marcadao.buscaNome(cbxMarca.getSelectedItem().toString());
                 modelo = modelodao.buscaNome(cbxModelo.getSelectedItem().toString());
             } catch (SQLException ex) {
-                Logger.getLogger(ProdutoView.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(RelatorioView.class.getName()).log(Level.SEVERE, null, ex);
             }
         if(txtNome.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Preencha todos os obrigatórios !", "erro", JOptionPane.WARNING_MESSAGE);
@@ -1475,7 +1475,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         try {
             marca = marcadao.buscaNome(cbxEditarMarca.getSelectedItem().toString());
         } catch (SQLException ex) {
-            Logger.getLogger(ProdutoView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RelatorioView.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         if(txtEditarModelo.getText().isEmpty()){

@@ -53,7 +53,6 @@
                   <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="Cliente" alignment="0" max="32767" attributes="0"/>
                   <Component id="Venda" alignment="0" max="32767" attributes="0"/>
-                  <Component id="Consulta" alignment="1" max="32767" attributes="0"/>
                   <Component id="MarcLivre" alignment="0" pref="104" max="32767" attributes="0"/>
               </Group>
               <Component id="Relatorios" min="-2" pref="104" max="-2" attributes="0"/>
@@ -64,18 +63,17 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="Cliente" min="-2" pref="113" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="Estoque" min="-2" pref="112" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="Venda" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Component id="Consulta" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="MarcLivre" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="Relatorios" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -102,26 +100,6 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="VendaMouseClicked"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="Consulta">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Myanmar Text" size="18" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e3" green="e3" red="e3" type="rgb"/>
-            </Property>
-            <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/IMG/Analytics.png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Consulta"/>
-            <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="verticalTextPosition" type="int" value="3"/>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ConsultaMouseClicked"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="Cliente">
@@ -156,7 +134,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/IMG/Laptop.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align = &quot;center&quot;&gt;Mercado &lt;br&gt; Livre&lt;/p&gt;&lt;/html&gt; " noResource="true"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align = &quot;center&quot;&gt;Mercado&lt;br&gt;Livre&lt;/p&gt;&lt;/html&gt; " noResource="true"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
