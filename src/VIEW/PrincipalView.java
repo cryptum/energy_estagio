@@ -5,6 +5,8 @@
  */
 package VIEW;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 /**
@@ -20,7 +22,6 @@ public class PrincipalView extends javax.swing.JFrame {
         initComponents();
         this.setVisible(true);
         this.setExtendedState(MAXIMIZED_BOTH);
-        MarcLivre.setEnabled(false);
         Relatorios.setEnabled(false);
     }
 
@@ -208,7 +209,10 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_EstoqueMouseClicked
 
     private void MarcLivreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MarcLivreMouseClicked
-        // TODO add your handling code here:
+        VendaViewML VendaMl = new VendaViewML();
+            pnlPrincipal.removeAll();
+            pnlPrincipal.add(VendaMl);
+            pnlPrincipal.updateUI();
     }//GEN-LAST:event_MarcLivreMouseClicked
 
     private void RelatoriosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RelatoriosMouseClicked

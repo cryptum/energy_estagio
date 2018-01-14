@@ -41,23 +41,24 @@ public class ClienteView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
         }
         
-        String dados[][] = new String[listaCliente.size()][5];
+        String dados[][] = new String[listaCliente.size()][6];
             int i = 0;
             for (ClienteM cliente : listaCliente) {
                 dados[i][0] = String.valueOf(cliente.getId());
                 dados[i][1] = cliente.getNome();
-                dados[i][2] = cliente.getNascimento();
-                dados[i][3] = cliente.getTelefone();
-                dados[i][4] = cliente.getCelular1();
+                dados[i][2] = cliente.getCidade();
+                dados[i][3] = cliente.getNascimento();
+                dados[i][4] = cliente.getTelefone();
+                dados[i][5] = cliente.getCelular1();
 
                 i++;
             }
-            String tituloColuna[] = {"ID", "Nome", "Cidade","Telefone", "Celular1"};
+            String tituloColuna[] = {"ID", "Nome", "Cidade", "Nascimento","Telefone", "Celular1"};
             DefaultTableModel tabelaCliente = new DefaultTableModel();
             tabelaCliente.setDataVector(dados, tituloColuna);
             tblCliente.setModel(new DefaultTableModel(dados, tituloColuna) {
                 boolean[] canEdit = new boolean[]{
-                    false, false, false, false, false, false,
+                    false, false, false, false, false, false, false
                 };
 
                 @Override
@@ -83,22 +84,24 @@ public class ClienteView extends javax.swing.JInternalFrame {
     public void atualizaTabelaClienteBusca(){
         cliente = new ClienteM();
         
-        String dados[][] = new String[listaCliente.size()][5];
+        String dados[][] = new String[listaCliente.size()][6];
             int i = 0;
             for (ClienteM cliente : listaCliente) {
                 dados[i][0] = String.valueOf(cliente.getId());
                 dados[i][1] = cliente.getNome();
                 dados[i][2] = cliente.getCidade();
-                dados[i][3] = cliente.getTelefone();
-                dados[i][4] = cliente.getCelular1();
+                dados[i][3] = cliente.getNascimento();
+                dados[i][4] = cliente.getTelefone();
+                dados[i][5] = cliente.getCelular1();
+
                 i++;
             }
-            String tituloColuna[] = {"ID", "Nome", "Cidade","Telefone", "Celular1"};
+            String tituloColuna[] = {"ID", "Nome", "Cidade", "Nascimento","Telefone", "Celular1"};
             DefaultTableModel tabelaCliente = new DefaultTableModel();
             tabelaCliente.setDataVector(dados, tituloColuna);
             tblCliente.setModel(new DefaultTableModel(dados, tituloColuna) {
                 boolean[] canEdit = new boolean[]{
-                    false, false, false, false, false, false,
+                    false, false, false, false, false, false, false
                 };
 
                 @Override
@@ -119,19 +122,6 @@ public class ClienteView extends javax.swing.JInternalFrame {
             tblCliente.setRowHeight(35);
             tblCliente.updateUI();
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     // DECLARAÇÃO DE MÉTODOS DE CONTROLE DE BOTÕES

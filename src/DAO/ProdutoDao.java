@@ -144,4 +144,59 @@ public class ProdutoDao {
         pst.close();
         return listaProduto;
     }
+    
+    public boolean buscacodigo(String codigo) throws SQLException{
+        PreparedStatement pst;
+        String sql;
+        ProdutoM produto = null;
+        int i = 0;
+        sql = "select * from Produto where codigo = ?";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setString(1, codigo);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+            produto = new ProdutoM(
+                            rs.getInt("id"),
+                            marcaDao.busca(rs.getInt("idmarca")),
+                            modeloDao.busca(rs.getInt("idmodelo")),
+                            rs.getString("nome"),
+                            rs.getFloat("valorcusto"),
+                            rs.getFloat("valormax"),
+                            rs.getFloat("valormini"),
+                            rs.getString("codigo"),
+                            rs.getInt("quantidade"));
+            i++;
+        }
+        pst.close();
+        return !( i <= 0);
+    }
+    
+    public ProdutoM buscacodigo2(String codigo) throws SQLException{
+        PreparedStatement pst;
+        String sql;
+        ProdutoM produto = null;
+        int i = 0;
+        sql = "select * from Produto where codigo = ?";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setString(1, codigo);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+            produto = new ProdutoM(
+                            rs.getInt("id"),
+                            marcaDao.busca(rs.getInt("idmarca")),
+                            modeloDao.busca(rs.getInt("idmodelo")),
+                            rs.getString("nome"),
+                            rs.getFloat("valorcusto"),
+                            rs.getFloat("valormax"),
+                            rs.getFloat("valormini"),
+                            rs.getString("codigo"),
+                            rs.getInt("quantidade"));
+            i++;
+        }
+        pst.close();
+            
+            return produto;
+        
+    }
+    
 }

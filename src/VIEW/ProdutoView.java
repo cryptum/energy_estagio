@@ -1333,7 +1333,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         txtvalorMinimo.setText(String.valueOf(produto.getValorMax()));
         txtValorMaximo.setText(String.valueOf(produto.getValorMini()));
         txtCodigo.setText(produto.getCodigo());
-        txtCodigo.setText(String.valueOf(produto.getQuantidade()));
+        txtQuantidade.setText(String.valueOf(produto.getQuantidade()));
 
         btnAlterar.setEnabled(true);
         btnExcluir.setEnabled(true);
@@ -1493,6 +1493,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
             }
             atualizaTabelaModelo();
+            atualizaBoxModelo();
             btnSalvarModelo.setEnabled(false);
             txtEditarModelo.setEnabled(false);
             txtEditarModelo.setText("");
@@ -1502,16 +1503,17 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             modelo.setId(Integer.valueOf(txtIdModelo.getText()));
             modelo.setNome(txtEditarModelo.getText());
             modelo.setIdMarca(marca);
-        try{
-            modelodao.alterar(modelo);
-            JOptionPane.showMessageDialog(null, "Alterado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);       
-        }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
-        }
-        atualizaTabelaModelo();
-        btnSalvarModelo.setEnabled(false);
-        txtEditarModelo.setEnabled(false);
-        tblModelo.clearSelection();
+            try{
+                modelodao.alterar(modelo);
+                JOptionPane.showMessageDialog(null, "Alterado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);       
+            }catch(SQLException ex){
+                JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+            }
+            atualizaTabelaModelo();
+            atualizaBoxModelo();
+            btnSalvarModelo.setEnabled(false);
+            txtEditarModelo.setEnabled(false);
+            tblModelo.clearSelection();
     }
     }//GEN-LAST:event_btnSalvarModeloActionPerformed
 

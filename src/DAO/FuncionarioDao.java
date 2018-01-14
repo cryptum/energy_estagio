@@ -124,6 +124,32 @@ public class FuncionarioDao {
         return funcionario;
     }
     
+    public FuncionarioM buscaNome(String nome) throws SQLException{
+        PreparedStatement pst;
+        String sql;
+        FuncionarioM funcionario = null;        
+        sql = "select id, nome, cpf, rg, DATE_FORMAT( Nascimento, \"%d/%m/%Y\" ) AS Nascimento, telefone, celular1, celular2,"
+                + "login, senha from Funcionario where nome = ?";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setString(1, nome);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+            funcionario = new FuncionarioM(
+                            rs.getInt("id"),
+                            rs.getString("nome"),
+                            rs.getString("cpf"),
+                            rs.getString("rg"),
+                            rs.getString("nascimento"),
+                            rs.getString("telefone"),
+                            rs.getString("celular1"),
+                            rs.getString("celular2"),
+                            rs.getString("login"),
+                            rs.getString("senha"));
+        }
+        pst.close();
+        return funcionario;
+    }
+    
     public List<FuncionarioM> buscaNomeLista(String Nome) throws SQLException{
         PreparedStatement pst;
         String sql;
