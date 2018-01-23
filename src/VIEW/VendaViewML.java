@@ -49,6 +49,9 @@ public class VendaViewML extends javax.swing.JInternalFrame {
         ProdutoDialog.setSize(520, 460);
         FuncionarioDialog.setSize(520, 460);
         atualizaBoxFuncionario();
+        txtIdProduto.setVisible(false);
+        txtIDIten.setVisible(false);
+        txtQuantidadeTotal.setVisible(false);
     }
     
     public void atualizaBoxFuncionario(){
@@ -597,14 +600,13 @@ public class VendaViewML extends javax.swing.JInternalFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 705, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(221, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane3)
+                .addContainerGap())
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(159, 159, 159)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(187, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -752,7 +754,6 @@ public class VendaViewML extends javax.swing.JInternalFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(cbxFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel2))
@@ -904,7 +905,7 @@ public class VendaViewML extends javax.swing.JInternalFrame {
             produto.setId(Integer.valueOf(txtIdProduto.getText()));
             vendaml.setIdProduto(produto);
             vendaml.setData(new SimpleDateFormat("dd/MM/yyyy").format(new Date(System.currentTimeMillis())));
-            vendaml.setHorario(new SimpleDateFormat("hh:mm").format(new Date(System.currentTimeMillis())));
+            vendaml.setHorario(new SimpleDateFormat("HH:mm").format(new Date(System.currentTimeMillis())));
             vendaml.setRastreio("Sem Código");
             vendaml.setDetalhes("batata");
             try{

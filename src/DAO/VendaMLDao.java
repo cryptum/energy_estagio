@@ -75,7 +75,7 @@ public class VendaMLDao {
   
     public List<VendaMLM> listaTodos() throws SQLException{
         List<VendaMLM> listavenda = new ArrayList<>();
-        sql = "select id, idfuncionario, idproduto, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario, rastreio, detalhes from VendaML ";
+        sql = "select id, idfuncionario, idproduto, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario, rastreio, detalhes from VendaML ORDER BY id DESC";
         pst = Conexao.getInstance().prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
 

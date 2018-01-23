@@ -59,6 +59,11 @@ public class VendaView extends javax.swing.JInternalFrame {
         tblVenda.getTableHeader().setReorderingAllowed(false);
         tblItenVenda.getTableHeader().setReorderingAllowed(false);
         txtData.setText(new SimpleDateFormat("dd/MM/yyyy").format(new Date(System.currentTimeMillis())));
+        txtIdProduto.setVisible(false);
+        txtIDIten.setVisible(false);
+        txtQuantidadeTotal.setVisible(false);
+        //txtIdFuncionario.setVisible(false);
+        //txtIdCliente.setVisible(false);
         
         ClienteDialog.setSize(520, 460);
         ProdutoDialog.setSize(520, 460);
@@ -590,24 +595,16 @@ public class VendaView extends javax.swing.JInternalFrame {
    
     public void prepararSelecaoTabela(){
        btnNovo.setEnabled(true);
-       btnExcluir.setEnabled(true);
-       btnAlterar.setEnabled(true);
     }
    
     public void prepararAlterar(){
        btnNovo.setEnabled(false);
-       btnExcluir.setEnabled(false);
-       btnAlterar.setEnabled(false);
        btnFinalizar.setEnabled(true);
        btnCancelar.setEnabled(true);
        tblVenda.setEnabled(false);
        tblVenda.clearSelection();
     }
-   
-    public void prepararExcluir(){
-       btnExcluir.setEnabled(false);
-       btnAlterar.setEnabled(false);
-    }
+  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -665,8 +662,6 @@ public class VendaView extends javax.swing.JInternalFrame {
         jPanel5 = new javax.swing.JPanel();
         txtBusca = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        btnAlterar = new javax.swing.JButton();
-        btnExcluir = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -1247,39 +1242,18 @@ public class VendaView extends javax.swing.JInternalFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        btnAlterar.setText("Alterar");
-        btnAlterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlterarActionPerformed(evt);
-            }
-        });
-
-        btnExcluir.setText("Excluir");
-        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExcluirActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnAlterar)
-                .addGap(51, 51, 51)
-                .addComponent(btnExcluir)
-                .addGap(488, 488, 488))
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 705, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane3)
+                .addContainerGap())
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(157, 157, 157)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(182, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1287,11 +1261,7 @@ public class VendaView extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -1587,34 +1557,6 @@ public class VendaView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-    prepararAlterar();
-    ativarCampos();
-    jTabbedPane1.setSelectedIndex(1);
-    txtCliente.requestFocusInWindow(); 
-    }//GEN-LAST:event_btnAlterarActionPerformed
-
-    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        if(txtIdCliente.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Selecione um Cliente", "erro", JOptionPane.WARNING_MESSAGE);
-        }
-        else{
-            cliente.setId(Integer.parseInt(txtIdCliente.getText()));
-            int confirma = JOptionPane.showConfirmDialog(null, "Deseja excluir: "+ txtCliente.getText());
-            if(confirma ==0){
-                try{
-                    clientedao.excluir(cliente);
-                    limparCampos();
-                    txtCliente.requestFocusInWindow();
-                }catch(SQLException ex){
-                    JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
-                }
-                atualizaTabelaVenda();
-                prepararExcluir();
-            }
-        }
-    }//GEN-LAST:event_btnExcluirActionPerformed
-
     private void tblVendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblVendaMouseClicked
         try{
             listaItemVenda = itemvendadao.busca(Integer.parseInt(tblVenda.getValueAt(tblVenda.getSelectedRow(),0).toString()));
@@ -1664,8 +1606,6 @@ public class VendaView extends javax.swing.JInternalFrame {
         prepararNovo();
         ativarCampos();
         atualizaTabelaItemVendalimpa();
-        btnAlterar.setEnabled(false);
-        btnExcluir.setEnabled(false);
         txtCliente.requestFocusInWindow();
     }//GEN-LAST:event_btnNovoActionPerformed
 
@@ -1899,10 +1839,8 @@ public class VendaView extends javax.swing.JInternalFrame {
     private javax.swing.JDialog ItensDialog;
     private javax.swing.JDialog ProdutoDialog;
     private javax.swing.JButton btnAddItemVendas;
-    private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnExcluiItemVenda;
-    private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnFinalizar;
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnSalvar;

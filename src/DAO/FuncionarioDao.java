@@ -77,8 +77,7 @@ public class FuncionarioDao {
         PreparedStatement pst;
         String sql;
         List<FuncionarioM> listaFuncionario = new ArrayList<>();
-        sql = "select id, nome, cpf, rg, DATE_FORMAT( Nascimento, \"%d/%m/%Y\" ) AS Nascimento, telefone, celular1, celular2,"
-                + "login, senha from Funcionario order by nome";
+        sql = "select id, nome, cpf, rg, DATE_FORMAT( Nascimento, \"%d/%m/%Y\" ) AS Nascimento, telefone, celular1, celular2, login, senha from Funcionario order by nome";
         pst = Conexao.getInstance().prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
         while(rs.next()){

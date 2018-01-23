@@ -5,6 +5,8 @@ import MODEL.FuncionarioM;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
+import javax.swing.plaf.basic.BasicButtonUI;
+import util.LimiteDigitos;
 
 /**
  *
@@ -18,6 +20,10 @@ public class LoginView extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         lblErro.setVisible(false);
+        lblSair.setVisible(false);
+        
+        txtUser.setDocument(new LimiteDigitos(45));
+        txtSenha.setDocument(new LimiteDigitos(45));
     }
 
     /**
@@ -52,7 +58,6 @@ public class LoginView extends javax.swing.JFrame {
 
         txtUser.setFont(new java.awt.Font("Corbel", 0, 15)); // NOI18N
         txtUser.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtUser.setText("Login");
         txtUser.setBorder(null);
         txtUser.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -93,7 +98,6 @@ public class LoginView extends javax.swing.JFrame {
 
         txtSenha.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtSenha.setText("123");
         txtSenha.setBorder(null);
         txtSenha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -159,7 +163,7 @@ public class LoginView extends javax.swing.JFrame {
             } else {
                 funcionario = funcionariodao.valida(txtUser.getText(), txtSenha.getText());
                 if(funcionario == null){
-                    JOptionPane.showMessageDialog(null, "Usuário não encontrado", "Erro", JOptionPane.ERROR_MESSAGE);
+                    lblErro.setVisible(true);
                     txtSenha.setText("");
                     txtSenha.requestFocus();
                 }else{

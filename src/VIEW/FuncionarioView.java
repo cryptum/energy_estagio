@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import util.LimiteDigitos;
 
 /**
  *
@@ -30,6 +31,13 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         atualizaTabelaFuncionario();
         tblFuncionario.getTableHeader().setReorderingAllowed(false);
         txtId.setVisible(false);
+        desativarCampos();
+        
+        txtNome.setDocument(new LimiteDigitos(45));
+        txtRg.setDocument(new LimiteDigitos(20));
+        txtLogin.setDocument(new LimiteDigitos(45));
+        txtsenha.setDocument(new LimiteDigitos(45));
+        txtsenha2.setDocument(new LimiteDigitos(45));
     }
 
     //Atualiza todos os funcionario para a tabela
@@ -431,7 +439,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         txtCelular1.setBackground(new java.awt.Color(245, 245, 245));
         txtCelular1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
         try {
-            txtCelular1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)9 ####-####")));
+            txtCelular1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)# ####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -443,7 +451,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         txtCelular2.setBackground(new java.awt.Color(245, 245, 245));
         txtCelular2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
         try {
-            txtCelular2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)9 ####-####")));
+            txtCelular2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)# ####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }

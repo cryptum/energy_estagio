@@ -117,7 +117,7 @@ public class VendaDao {
     
     public List<VendaM> listaTodos() throws SQLException{
         List<VendaM> listavenda = new ArrayList<>();
-        sql = "select id, idcliente, idfuncionario, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, totalvenda, formapagamento from Venda ";
+        sql = "select id, idcliente, idfuncionario, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, totalvenda, formapagamento from Venda ORDER BY id DESC";
         pst = Conexao.getInstance().prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
 

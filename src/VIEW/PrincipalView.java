@@ -5,6 +5,7 @@
  */
 package VIEW;
 
+import java.awt.Color;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
@@ -22,7 +23,6 @@ public class PrincipalView extends javax.swing.JFrame {
         initComponents();
         this.setVisible(true);
         this.setExtendedState(MAXIMIZED_BOTH);
-        Relatorios.setEnabled(false);
     }
 
     /**
@@ -40,7 +40,7 @@ public class PrincipalView extends javax.swing.JFrame {
         MarcLivre = new javax.swing.JLabel();
         Relatorios = new javax.swing.JLabel();
         Estoque = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        Vendedor = new javax.swing.JLabel();
         pnlPrincipal = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,6 +59,18 @@ public class PrincipalView extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 VendaMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                VendaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                VendaMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                VendaMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                VendaMouseReleased(evt);
+            }
         });
 
         Cliente.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
@@ -71,6 +83,18 @@ public class PrincipalView extends javax.swing.JFrame {
         Cliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ClienteMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ClienteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ClienteMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ClienteMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                ClienteMouseReleased(evt);
             }
         });
 
@@ -85,6 +109,18 @@ public class PrincipalView extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 MarcLivreMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                MarcLivreMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                MarcLivreMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                MarcLivreMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                MarcLivreMouseReleased(evt);
+            }
         });
 
         Relatorios.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
@@ -97,6 +133,18 @@ public class PrincipalView extends javax.swing.JFrame {
         Relatorios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 RelatoriosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RelatoriosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RelatoriosMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                RelatoriosMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                RelatoriosMouseReleased(evt);
             }
         });
 
@@ -111,18 +159,42 @@ public class PrincipalView extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 EstoqueMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                EstoqueMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                EstoqueMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                EstoqueMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                EstoqueMouseReleased(evt);
+            }
         });
 
-        jLabel8.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(227, 227, 227));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Boss.png"))); // NOI18N
-        jLabel8.setText("Vendedores");
-        jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+        Vendedor.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
+        Vendedor.setForeground(new java.awt.Color(227, 227, 227));
+        Vendedor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Vendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Boss.png"))); // NOI18N
+        Vendedor.setText("Vendedores");
+        Vendedor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Vendedor.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Vendedor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel8MouseClicked(evt);
+                VendedorMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                VendedorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                VendedorMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                VendedorMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                VendedorMouseReleased(evt);
             }
         });
 
@@ -132,10 +204,10 @@ public class PrincipalView extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                 .addComponent(Estoque, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(Cliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Venda, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(MarcLivre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE))
+                .addComponent(MarcLivre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                .addComponent(Vendedor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(Relatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel1Layout.setVerticalGroup(
@@ -146,7 +218,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(Estoque, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jLabel8)
+                .addComponent(Vendedor)
                 .addGap(0, 0, 0)
                 .addComponent(Venda)
                 .addGap(0, 0, 0)
@@ -216,15 +288,114 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_MarcLivreMouseClicked
 
     private void RelatoriosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RelatoriosMouseClicked
-        // TODO add your handling code here:
+        RelatorioView Relatorio = new RelatorioView();
+            pnlPrincipal.removeAll();
+            pnlPrincipal.add(Relatorio);
+            pnlPrincipal.updateUI();
     }//GEN-LAST:event_RelatoriosMouseClicked
 
-    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+    private void VendedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VendedorMouseClicked
         FuncionarioView Funcionario = new FuncionarioView();
             pnlPrincipal.removeAll();
             pnlPrincipal.add(Funcionario);
             pnlPrincipal.updateUI();
-    }//GEN-LAST:event_jLabel8MouseClicked
+    }//GEN-LAST:event_VendedorMouseClicked
+
+    private void ClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClienteMouseEntered
+        Cliente.setForeground(Color.GRAY);
+    }//GEN-LAST:event_ClienteMouseEntered
+
+    private void ClienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClienteMouseExited
+        Cliente.setForeground(Color.getHSBColor(90 , 20 , 120));
+    }//GEN-LAST:event_ClienteMouseExited
+
+    private void ClienteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClienteMousePressed
+        Cliente.setForeground(Color.LIGHT_GRAY);
+    }//GEN-LAST:event_ClienteMousePressed
+
+    private void ClienteMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClienteMouseReleased
+        Cliente.setForeground(Color.getHSBColor(90 , 20 , 120));
+    }//GEN-LAST:event_ClienteMouseReleased
+
+    private void EstoqueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EstoqueMouseEntered
+        Estoque.setForeground(Color.GRAY);
+    }//GEN-LAST:event_EstoqueMouseEntered
+
+    private void EstoqueMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EstoqueMouseExited
+        Estoque.setForeground(Color.getHSBColor(90, 20, 120));
+    }//GEN-LAST:event_EstoqueMouseExited
+
+    private void EstoqueMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EstoqueMousePressed
+        Estoque.setForeground(Color.LIGHT_GRAY);
+    }//GEN-LAST:event_EstoqueMousePressed
+
+    private void EstoqueMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EstoqueMouseReleased
+        Estoque.setForeground(Color.getHSBColor(90 , 20 , 120));
+    }//GEN-LAST:event_EstoqueMouseReleased
+
+    private void VendedorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VendedorMouseEntered
+        Vendedor.setForeground(Color.GRAY);
+    }//GEN-LAST:event_VendedorMouseEntered
+
+    private void VendedorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VendedorMouseExited
+        Vendedor.setForeground(Color.getHSBColor(90, 20, 120));
+    }//GEN-LAST:event_VendedorMouseExited
+
+    private void VendedorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VendedorMousePressed
+        Vendedor.setForeground(Color.LIGHT_GRAY);
+    }//GEN-LAST:event_VendedorMousePressed
+
+    private void VendedorMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VendedorMouseReleased
+        Vendedor.setForeground(Color.getHSBColor(90 , 20 , 120));
+    }//GEN-LAST:event_VendedorMouseReleased
+
+    private void VendaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VendaMouseEntered
+        Venda.setForeground(Color.GRAY);
+    }//GEN-LAST:event_VendaMouseEntered
+
+    private void VendaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VendaMouseExited
+        Venda.setForeground(Color.getHSBColor(90, 20, 120));
+    }//GEN-LAST:event_VendaMouseExited
+
+    private void VendaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VendaMousePressed
+        Venda.setForeground(Color.LIGHT_GRAY);
+    }//GEN-LAST:event_VendaMousePressed
+
+    private void VendaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VendaMouseReleased
+        Venda.setForeground(Color.getHSBColor(90 , 20 , 120));
+    }//GEN-LAST:event_VendaMouseReleased
+
+    private void MarcLivreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MarcLivreMouseEntered
+        MarcLivre.setForeground(Color.GRAY);
+    }//GEN-LAST:event_MarcLivreMouseEntered
+
+    private void MarcLivreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MarcLivreMouseExited
+        MarcLivre.setForeground(Color.getHSBColor(90, 20, 120));
+    }//GEN-LAST:event_MarcLivreMouseExited
+
+    private void MarcLivreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MarcLivreMousePressed
+        MarcLivre.setForeground(Color.LIGHT_GRAY);
+    }//GEN-LAST:event_MarcLivreMousePressed
+
+    private void MarcLivreMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MarcLivreMouseReleased
+        MarcLivre.setForeground(Color.getHSBColor(90 , 20 , 120));
+    }//GEN-LAST:event_MarcLivreMouseReleased
+
+    private void RelatoriosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RelatoriosMouseEntered
+        Relatorios.setForeground(Color.GRAY);
+    }//GEN-LAST:event_RelatoriosMouseEntered
+
+    private void RelatoriosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RelatoriosMouseExited
+        Relatorios.setForeground(Color.getHSBColor(90, 20, 120));
+    }//GEN-LAST:event_RelatoriosMouseExited
+
+    private void RelatoriosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RelatoriosMousePressed
+        Relatorios.setForeground(Color.LIGHT_GRAY);
+    }//GEN-LAST:event_RelatoriosMousePressed
+
+    private void RelatoriosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RelatoriosMouseReleased
+        Relatorios.setForeground(Color.getHSBColor(90 , 20 , 120));
+    }//GEN-LAST:event_RelatoriosMouseReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -233,7 +404,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JLabel MarcLivre;
     private javax.swing.JLabel Relatorios;
     private javax.swing.JLabel Venda;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel Vendedor;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel pnlPrincipal;
     // End of variables declaration//GEN-END:variables

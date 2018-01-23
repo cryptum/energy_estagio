@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import util.LimiteDigitos;
 
 /**
  *
@@ -29,7 +30,16 @@ public class ClienteView extends javax.swing.JInternalFrame {
         this.setVisible(true);
         atualizaTabelaCliente();
         tblCliente.getTableHeader().setReorderingAllowed(false);
-        //txtId.setVisible(false);
+        txtId.setVisible(false);
+        desativarCampos();
+        
+        txtNome.setDocument(new LimiteDigitos(50));
+        txtRg.setDocument(new LimiteDigitos(20));
+        txtRua.setDocument(new LimiteDigitos(50));
+        txtNumero.setDocument(new LimiteDigitos(10));
+        txtBairro.setDocument(new LimiteDigitos(40));
+        txtCidade.setDocument(new LimiteDigitos(45));
+        txtObservacao.setDocument(new LimiteDigitos(50));
     }
 
     //Atualiza todos os funcionario para a tabela
@@ -299,7 +309,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
         }
 
         jPanel5.setBackground(new java.awt.Color(248, 248, 248));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 100, 100)), "Busca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(30, 30, 30))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Busca"));
 
         txtBusca.setBackground(new java.awt.Color(245, 245, 245));
         txtBusca.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
@@ -445,7 +455,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
         txtCelular1.setBackground(new java.awt.Color(245, 245, 245));
         txtCelular1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
         try {
-            txtCelular1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)9 ####-####")));
+            txtCelular1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)# ####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -457,7 +467,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
         txtCelular2.setBackground(new java.awt.Color(245, 245, 245));
         txtCelular2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
         try {
-            txtCelular2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)9 ####-####")));
+            txtCelular2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)# ####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
