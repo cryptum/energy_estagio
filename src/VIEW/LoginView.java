@@ -1,9 +1,16 @@
 package VIEW;
 
 import DAO.FuncionarioDao;
+import DAO.ValidaDao;
 import MODEL.FuncionarioM;
+import MODEL.ValidaM;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicButtonUI;
 import util.LimiteDigitos;
@@ -16,14 +23,37 @@ public class LoginView extends javax.swing.JFrame {
 
     FuncionarioM funcionario = new FuncionarioM();
     FuncionarioDao funcionariodao = new FuncionarioDao();
+    
+    ValidaM valida = new ValidaM();
+    ValidaDao validadao = new ValidaDao();
+    
     public LoginView() {
         initComponents();
         this.setLocationRelativeTo(null);
         lblErro.setVisible(false);
         lblSair.setVisible(false);
-        
         txtUser.setDocument(new LimiteDigitos(45));
         txtSenha.setDocument(new LimiteDigitos(45));
+        
+        
+        String datasistema = new SimpleDateFormat("MM").format(new Date(System.currentTimeMillis()));
+        String datasistema2 = new SimpleDateFormat("YY").format(new Date(System.currentTimeMillis()));
+        int datames= Integer.parseInt(datasistema);
+        int dataano= Integer.parseInt(datasistema2);
+        
+        try {
+            valida = validadao.valida();
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if((datames <= valida.getMes())&&(dataano<= valida.getAno())){
+            
+        }else{
+            lblErro.setVisible(true);
+            lblErro.setText("O sistema Contém um problema");
+            txtUser.setVisible(false);
+            txtSenha.setVisible(false);
+        }
     }
 
     /**
