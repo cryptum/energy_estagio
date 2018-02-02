@@ -1,6 +1,7 @@
 package DAO;
 
 import java.io.Serializable;
+import java.security.MessageDigest;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -16,12 +17,13 @@ public class Conexao implements Serializable {
 
     private Conexao() {
         // Altere o usuário e senha de acordo com o banco de dados instalado
-        usuario = "root";
+        //usuario = "root";         //for Workbench
+        usuario = "energysom";     //for Xampp
         senha = "root";
         
         // Defina aqui o nome do seu banco de dados
-        url = "jdbc:mysql://localhost:3306/energysom";
-
+        //url = "jdbc:mysql://localhost:3306/energysom"; //for Workbench
+        url = "jdbc:mysql://10.40.0.197/energysom";     //for Xampp
         try {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(url, usuario, senha);
