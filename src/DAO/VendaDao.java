@@ -175,4 +175,26 @@ public class VendaDao {
         return listavenda;
     }
     
+    public List<VendaM> buscaDataLista(String de, String ate) throws SQLException{
+        List<VendaM> listavenda = new ArrayList<>();
+        //String name = "%"+Nome+"%";
+        sql = "select id, idcliente, idfuncionario, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, totalvenda, formapagamento from Venda where Data >= STR_TO_DATE( ?, \"%d/%m/%Y\" ) and Data <= STR_TO_DATE( ?, \"%d/%m/%Y\" ) ";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setString(1, de);
+        pst.setString(2, ate);
+        pst.execute();
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+            listavenda.add(new VendaM(
+            rs.getInt("id"),
+            clientedao.busca(rs.getInt("idcliente")),
+            funcionariodao.busca(rs.getInt("idfuncionario")),
+            rs.getString("data"),
+            rs.getFloat("totalvenda"),
+            rs.getString("formapagamento")));
+        }
+
+        pst.close();
+        return listavenda;
+    }
 }

@@ -17,13 +17,14 @@ public class Conexao implements Serializable {
 
     private Conexao() {
         // Altere o usuário e senha de acordo com o banco de dados instalado
-        //usuario = "root";         //for Workbench
-        usuario = "energysom";     //for Xampp
+        usuario = "root";         //for Workbench
+        //usuario = "energysom2";     //for Xampp
         senha = "root";
         
         // Defina aqui o nome do seu banco de dados
-        //url = "jdbc:mysql://localhost:3306/energysom"; //for Workbench
-        url = "jdbc:mysql://10.40.0.197/energysom";     //for Xampp
+        url = "jdbc:mysql://localhost:3306/energysom"; //for Workbench
+        //url = "jdbc:mysql://192.168.100.5/energysom";     //for Xampp
+        //url = "jdbc:mysql://10.40.0.197/energysom";     //for Xampp
         try {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(url, usuario, senha);

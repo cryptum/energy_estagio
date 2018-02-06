@@ -18,3 +18,4 @@ insert into Cliente set id = 5, nome = "batata", cpf = "123", rg = "123", rua = 
                  
 
 INSERT INTO `energysom`.`funcionario` (`Id`, `Login`, `Senha`) VALUES ('1', 'login', '123');
+select id, idcliente, idfuncionario, DATE_FORMAT( data,  "%d/%m/%Y" ) AS data, totalvenda, formapagamento from Venda where Data >= STR_TO_DATE( "03/02/2018", "%d/%m/%Y" ) and Data <= STR_TO_DATE( "06/02/2018", "%d/%m/%Y" ) ;

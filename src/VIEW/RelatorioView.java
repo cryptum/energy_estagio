@@ -653,63 +653,72 @@ public class RelatorioView extends javax.swing.JInternalFrame {
             cabecalhoNome.setHorizontalAlignment(Element.ALIGN_CENTER);
             tabela.addCell(cabecalhoNome);
 
-            PdfPCell cabecalhoEnd = new PdfPCell(new Paragraph("CPF",f10));
+            PdfPCell cabecalhoEnd = new PdfPCell(new Paragraph("Marca",f10));
             cabecalhoEnd.setHorizontalAlignment(Element.ALIGN_CENTER);
             tabela.addCell(cabecalhoEnd);
             
-            PdfPCell cabecalhoEmail = new PdfPCell(new Paragraph("RG",f10));
+            PdfPCell cabecalhoEmail = new PdfPCell(new Paragraph("Modelo",f10));
             cabecalhoEmail.setHorizontalAlignment(Element.ALIGN_CENTER);
             tabela.addCell(cabecalhoEmail);
             
-            PdfPCell cabecalhoCidade = new PdfPCell(new Paragraph("Telefone",f10));
+            PdfPCell cabecalhoCidade = new PdfPCell(new Paragraph("Valor Custo",f10));
             cabecalhoCidade.setHorizontalAlignment(Element.ALIGN_CENTER);
             tabela.addCell(cabecalhoCidade);
             
-            PdfPCell cabecalhoTelefone = new PdfPCell(new Paragraph("Celular 1",f10));
+            PdfPCell cabecalhoTelefone = new PdfPCell(new Paragraph("Valor Maximo",f10));
             cabecalhoTelefone.setHorizontalAlignment(Element.ALIGN_CENTER);
             tabela.addCell(cabecalhoTelefone);
             
-            PdfPCell cabecalhoCel = new PdfPCell(new Paragraph("Celular 2",f10));
+            PdfPCell cabecalhoCel = new PdfPCell(new Paragraph("Valor Minimo",f10));
             cabecalhoCel.setHorizontalAlignment(Element.ALIGN_CENTER);
             tabela.addCell(cabecalhoCel);
             
-            PdfPCell cabecalhoNasc = new PdfPCell(new Paragraph("Nascimento",f10));
+            PdfPCell cabecalhoNasc = new PdfPCell(new Paragraph("Código",f10));
             cabecalhoNasc.setHorizontalAlignment(Element.ALIGN_CENTER);
             tabela.addCell(cabecalhoNasc);
             
+            PdfPCell cabecaquantidade = new PdfPCell(new Paragraph("Quantidade",f10));
+            cabecaquantidade.setHorizontalAlignment(Element.ALIGN_CENTER);
+            tabela.addCell(cabecaquantidade);
+            
             tabela.setHeaderRows(1); // linha que sera repetida em todas as paginas.
             
-            for (FuncionarioM funcionario : listaFuncionario){
-                Paragraph pNome = new Paragraph(funcionario.getNome(), fnormal);
+            for (ProdutoM produto : listaProduto){
+                Paragraph pNome = new Paragraph(produto.getNome(), fnormal);
                 pNome.setAlignment(Element.ALIGN_JUSTIFIED);
                 PdfPCell colNome = new PdfPCell(pNome);
                 
-                Paragraph pEnd = new Paragraph(funcionario.getCpf(), fnormal);
+                Paragraph pEnd = new Paragraph(produto.getIdMarca().getNome(), fnormal);
                 pEnd.setAlignment(Element.ALIGN_JUSTIFIED);
                 PdfPCell colEnd = new PdfPCell(pEnd);
                 
-                Paragraph pEmail = new Paragraph(funcionario.getRg(), fnormal);
+                Paragraph pEmail = new Paragraph(produto.getIdModelo().getNome(), fnormal);
                 pEmail.setAlignment(Element.ALIGN_JUSTIFIED);
                 PdfPCell colEmail = new PdfPCell(pEmail);
                 
-                Paragraph pCidade = new Paragraph(funcionario.getTelefone(), fnormal);
+                Paragraph pCidade = new Paragraph(String.valueOf(produto.getValorCusto()), fnormal);
                 pCidade.setAlignment(Element.ALIGN_CENTER);
                 PdfPCell colCidade = new PdfPCell(pCidade);
                 colCidade.setHorizontalAlignment(Element.ALIGN_CENTER);
                 
-                Paragraph pTel = new Paragraph(funcionario.getCelular1(), fnormal);
+                Paragraph pTel = new Paragraph(String.valueOf(produto.getValorMax()), fnormal);
                 pTel.setAlignment(Element.ALIGN_CENTER);
                 PdfPCell colTel = new PdfPCell(pTel);
                 colTel.setHorizontalAlignment(Element.ALIGN_CENTER);
                 
-                Paragraph pCel = new Paragraph(funcionario.getCelular2(), fnormal);
+                Paragraph pCel = new Paragraph(String.valueOf(produto.getValorMini()), fnormal);
                 pTel.setAlignment(Element.ALIGN_CENTER);
                 PdfPCell colCel = new PdfPCell(pCel);
                 colCel.setHorizontalAlignment(Element.ALIGN_CENTER);
                 
-                Paragraph pnasc = new Paragraph(funcionario.getNascimento(), fnormal);
+                Paragraph pnasc = new Paragraph(produto.getCodigo(), fnormal);
                 pnasc.setAlignment(Element.ALIGN_CENTER);
                 PdfPCell colnasc = new PdfPCell(pnasc);
+                colnasc.setHorizontalAlignment(Element.ALIGN_CENTER);
+                
+                Paragraph pquantidade = new Paragraph(produto.getCodigo(), fnormal);
+                pquantidade.setAlignment(Element.ALIGN_CENTER);
+                PdfPCell colquantidade = new PdfPCell(pquantidade);
                 colnasc.setHorizontalAlignment(Element.ALIGN_CENTER);
                 
                 tabela.addCell(colNome);
@@ -719,6 +728,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
                 tabela.addCell(colTel);
                 tabela.addCell(colCel);
                 tabela.addCell(colnasc);
+                tabela.addCell(colquantidade);
             }
             doc.add(tabela);
 
@@ -741,9 +751,9 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         txtNome = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        txtDe = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        txtAte = new javax.swing.JTextField();
+        txtAte = new javax.swing.JFormattedTextField();
+        txtDe = new javax.swing.JFormattedTextField();
         btnPuxarDados = new javax.swing.JButton();
         PainelGeral = new javax.swing.JPanel();
         RadioClientes = new javax.swing.JRadioButton();
@@ -801,16 +811,26 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         jLabel14.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
         jLabel14.setText("De:");
 
-        txtDe.setBackground(new java.awt.Color(245, 245, 245));
-        txtDe.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        txtDe.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
-
         jLabel16.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
         jLabel16.setText("Até:");
 
         txtAte.setBackground(new java.awt.Color(245, 245, 245));
-        txtAte.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         txtAte.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
+        try {
+            txtAte.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtAte.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+
+        txtDe.setBackground(new java.awt.Color(245, 245, 245));
+        txtDe.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
+        try {
+            txtDe.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        txtDe.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout PainelNomeLayout = new javax.swing.GroupLayout(PainelNome);
         PainelNome.setLayout(PainelNomeLayout);
@@ -825,12 +845,12 @@ public class RelatorioView extends javax.swing.JInternalFrame {
                         .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PainelNomeLayout.createSequentialGroup()
                         .addComponent(jLabel14)
-                        .addGap(10, 10, 10)
-                        .addComponent(txtDe, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtDe, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel16)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtAte, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtAte, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(116, Short.MAX_VALUE))
         );
         PainelNomeLayout.setVerticalGroup(
@@ -844,9 +864,10 @@ public class RelatorioView extends javax.swing.JInternalFrame {
                 .addGroup(PainelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel16)
-                        .addComponent(txtAte, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtDe, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel14))
+                        .addComponent(txtAte, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PainelNomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel14)
+                        .addComponent(txtDe, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -991,6 +1012,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         );
 
         btnGerarRelatorio.setText("Gerar Relatórios");
+        btnGerarRelatorio.setEnabled(false);
         btnGerarRelatorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGerarRelatorioActionPerformed(evt);
@@ -1099,6 +1121,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPuxarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPuxarDadosActionPerformed
+        btnGerarRelatorio.setEnabled(true);
         try{
         if(RadioClientes.isSelected()){
             if(RadioTodos.isSelected()){
@@ -1125,6 +1148,15 @@ public class RelatorioView extends javax.swing.JInternalFrame {
             }else if(RadioApenas1.isSelected()){
                 listaProduto = produtodao.buscaNomeLista(txtNome.getText());
                 atualizaTabelaProduto();
+            }
+        }
+        if(RadioVendas.isSelected()){
+            if(RadioTodos.isSelected()){
+                listaVenda = vendadao.listaTodos();
+                atualizaTabelaVenda();
+            }else if(RadioData.isSelected()){
+                listaVenda = vendadao.buscaDataLista(txtDe.getText(),txtAte.getText());
+                atualizaTabelaVenda();
             }
         }
         
@@ -1259,8 +1291,8 @@ public class RelatorioView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField txtAte;
-    private javax.swing.JTextField txtDe;
+    private javax.swing.JFormattedTextField txtAte;
+    private javax.swing.JFormattedTextField txtDe;
     private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
 }
