@@ -46,7 +46,7 @@ import javax.swing.table.DefaultTableModel;
 public class RelatorioView extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form PRODUTO_DO_CU_QUENTE
+     * Creates new form Relatorio_DO_CU_QUENTE
      */
     
     ClienteM cliente = new ClienteM();
@@ -76,8 +76,9 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         initComponents();
         this.setVisible(true);
         Tabela.getTableHeader().setReorderingAllowed(false);
-        //RadioFuncionarios.setEnabled(false);RadioProdutos.setEnabled(false);RadioVendas.setEnabled(false);RadioVendasML.setEnabled(false);RadioData.setEnabled(false);RadioCliente2.setEnabled(false);
-        
+        txtNome.setEnabled(false);
+        txtDe.setEnabled(false);
+        txtAte.setEnabled(false);
     }
 
     
@@ -855,6 +856,134 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         doc.close();
     }
     
+    public void gerarDocumentoVendaML() throws IOException, DocumentException{
+        
+        File pdf = null;
+        JFileChooser chooser = null;
+        doc = new com.itextpdf.text.Document(PageSize.A4.rotate());
+
+        String data = new SimpleDateFormat("dd/MM/yyyy").format(new Date(System.currentTimeMillis()));
+        String hora = new SimpleDateFormat("hh:mm").format(new Date(System.currentTimeMillis()));
+        
+ 	try {
+            pdf = File.createTempFile("Venda Mercado Livre ", "");            
+        } catch (IOException e1) {            
+            e1.printStackTrace();
+        }
+
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Arquivo PDF", "pdf");
+
+        chooser = new JFileChooser();
+        chooser.setCurrentDirectory(pdf);
+        chooser.setSelectedFile(pdf);
+        chooser.setFileFilter(filter);
+        chooser.setAcceptAllFileFilterUsed(false);
+        chooser.setMultiSelectionEnabled(false);
+
+
+        int retorno = chooser.showSaveDialog(null);
+        if (retorno==JFileChooser.APPROVE_OPTION){
+            caminho = chooser.getSelectedFile().getAbsolutePath();
+            
+            JOptionPane.showMessageDialog(null, "Salvo com sucesso!\n\nLocal: "+chooser.getSelectedFile().getAbsolutePath()+"\n ");
+        }
+
+        PdfWriter.getInstance(doc, new FileOutputStream(caminho+".pdf"));
+        doc.open();
+        Font f11 = new Font(Font.FontFamily.TIMES_ROMAN, 11);
+        Font f10 = new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD);
+        Font f12 = new Font(Font.FontFamily.HELVETICA, 17, Font.BOLD);
+        Font fnormal = new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL);
+            
+        Paragraph nomeUniversidade = new Paragraph("Energy Som",f12);
+            nomeUniversidade.setAlignment(Element.ALIGN_CENTER);
+            nomeUniversidade.setSpacingAfter(10);
+            doc.add(nomeUniversidade);
+            
+            Paragraph nomeRelatorio = new Paragraph("Relatório de Vendas Mercado Livre" ,f12);
+            nomeRelatorio.setAlignment(Element.ALIGN_CENTER);
+            nomeRelatorio.setSpacingAfter(10);
+            doc.add(nomeRelatorio);
+            
+            Paragraph DataInicioDataFim = new Paragraph("De:"+txtDe.getText()+" - Até:"+txtAte.getText() ,f11);
+            DataInicioDataFim.setAlignment(Element.ALIGN_CENTER);
+            DataInicioDataFim.setSpacingAfter(10);
+            doc.add(DataInicioDataFim);
+            
+            Paragraph DataeHora = new Paragraph(new SimpleDateFormat("dd/MM/yyyy").format(new Date(System.currentTimeMillis()))+" - "+new SimpleDateFormat("hh:mm").format(new Date(System.currentTimeMillis())) ,f12);
+            DataeHora.setAlignment(Element.ALIGN_LEFT);
+            DataeHora.setSpacingAfter(10);
+            doc.add(DataeHora);
+            
+            PdfPTable tabela = new PdfPTable(7);
+            tabela.setHorizontalAlignment(Element.ALIGN_CENTER);
+            tabela.setWidthPercentage(100f);
+
+            PdfPCell cabecalhoNome = new PdfPCell(new Paragraph("Vendedor", f10));
+            cabecalhoNome.setHorizontalAlignment(Element.ALIGN_CENTER);
+            tabela.addCell(cabecalhoNome);
+
+            PdfPCell cabecalhoEnd = new PdfPCell(new Paragraph("Produto",f10));
+            cabecalhoEnd.setHorizontalAlignment(Element.ALIGN_CENTER);
+            tabela.addCell(cabecalhoEnd);
+            
+            PdfPCell cabecalhoEmail = new PdfPCell(new Paragraph("Data",f10));
+            cabecalhoEmail.setHorizontalAlignment(Element.ALIGN_CENTER);
+            tabela.addCell(cabecalhoEmail);
+            
+            PdfPCell cabecalhoCidade = new PdfPCell(new Paragraph("Horario",f10));
+            cabecalhoCidade.setHorizontalAlignment(Element.ALIGN_CENTER);
+            tabela.addCell(cabecalhoCidade);
+            
+            PdfPCell cabecalhoTelefone = new PdfPCell(new Paragraph("Rastreio",f10));
+            cabecalhoTelefone.setHorizontalAlignment(Element.ALIGN_CENTER);
+            tabela.addCell(cabecalhoTelefone);
+            
+            PdfPCell cabecalhoDetalhes = new PdfPCell(new Paragraph("Detalhes",f10));
+            cabecalhoDetalhes.setHorizontalAlignment(Element.ALIGN_CENTER);
+            tabela.addCell(cabecalhoDetalhes);
+
+            tabela.setHeaderRows(1); // linha que sera repetida em todas as paginas.
+            
+            for (VendaMLM vendaMLM : ListaVendaML){
+                Paragraph pNome = new Paragraph(vendaMLM.getIdFuncionario().getNome(), fnormal);
+                pNome.setAlignment(Element.ALIGN_JUSTIFIED);
+                PdfPCell colNome = new PdfPCell(pNome);
+                
+                Paragraph pEnd = new Paragraph(vendaMLM.getIdProduto().getNome(), fnormal);
+                pEnd.setAlignment(Element.ALIGN_JUSTIFIED);
+                PdfPCell colEnd = new PdfPCell(pEnd);
+                
+                Paragraph pEmail = new Paragraph(vendaMLM.getData(), fnormal);
+                pEmail.setAlignment(Element.ALIGN_JUSTIFIED);
+                PdfPCell colEmail = new PdfPCell(pEmail);
+                
+                Paragraph pCidade = new Paragraph(vendaMLM.getHorario(), fnormal);
+                pCidade.setAlignment(Element.ALIGN_CENTER);
+                PdfPCell colCidade = new PdfPCell(pCidade);
+                colCidade.setHorizontalAlignment(Element.ALIGN_CENTER);
+                
+                Paragraph pTel = new Paragraph(vendaMLM.getRastreio(), fnormal);
+                pTel.setAlignment(Element.ALIGN_CENTER);
+                PdfPCell colTel = new PdfPCell(pTel);
+                colTel.setHorizontalAlignment(Element.ALIGN_CENTER);
+                
+                Paragraph pdetalhes = new Paragraph(vendaMLM.getDetalhes(), fnormal);
+                pdetalhes.setAlignment(Element.ALIGN_CENTER);
+                PdfPCell coldetalhes = new PdfPCell(pdetalhes);
+                coldetalhes.setHorizontalAlignment(Element.ALIGN_CENTER);
+                
+                tabela.addCell(colNome);
+                tabela.addCell(colEnd);
+                tabela.addCell(colEmail);
+                tabela.addCell(colCidade);
+                tabela.addCell(colTel);
+                tabela.addCell(coldetalhes);
+            }
+            doc.add(tabela);
+
+        doc.close();
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -1002,6 +1131,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         PainelGeral.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 100, 100)), "Busca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
 
         Grupo1.add(RadioClientes);
+        RadioClientes.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         RadioClientes.setText("Clientes");
         RadioClientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1010,6 +1140,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         });
 
         Grupo1.add(RadioFuncionarios);
+        RadioFuncionarios.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         RadioFuncionarios.setText("Funcionarios");
         RadioFuncionarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1018,6 +1149,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         });
 
         Grupo1.add(RadioProdutos);
+        RadioProdutos.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         RadioProdutos.setText("Produtos");
         RadioProdutos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1026,6 +1158,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         });
 
         Grupo1.add(RadioVendas);
+        RadioVendas.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         RadioVendas.setText("Vendas");
         RadioVendas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1034,6 +1167,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         });
 
         Grupo1.add(RadioVendasML);
+        RadioVendasML.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         RadioVendasML.setText("Vendas ML");
         RadioVendasML.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1074,6 +1208,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         PainelOpcao.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 100, 100)), "Busca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
 
         Grupo2.add(RadioTodos);
+        RadioTodos.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         RadioTodos.setText("Todos");
         RadioTodos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1082,6 +1217,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         });
 
         Grupo2.add(RadioApenas1);
+        RadioApenas1.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         RadioApenas1.setText("Apenas 1");
         RadioApenas1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1090,6 +1226,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         });
 
         Grupo2.add(RadioData);
+        RadioData.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         RadioData.setText("Data");
         RadioData.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1098,6 +1235,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         });
 
         Grupo2.add(RadioCliente2);
+        RadioCliente2.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
         RadioCliente2.setText("Cliente");
         RadioCliente2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1144,24 +1282,23 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(PainelGeral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 705, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(PainelOpcao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(PainelNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(PainelGeral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnPuxarDados, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(PainelOpcao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(PainelNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(btnPuxarDados, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnGerarRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnGerarRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(97, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3)
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1210,7 +1347,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 109, Short.MAX_VALUE))
+                .addGap(0, 21, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1283,16 +1420,13 @@ public class RelatorioView extends javax.swing.JInternalFrame {
             }
         }
         // ainta nao fiz siahf hidsi aiodsf hsdihf 
-        if(RadioVendas.isSelected()){
+        if(RadioVendasML.isSelected()){
             if(RadioTodos.isSelected()){
-                listaVenda = vendadao.listaTodos();
-                atualizaTabelaVenda();
+                ListaVendaML = vendaMLdao.listaTodos();
+                atualizaTabelaVendaML();
             }else if(RadioData.isSelected()){
-                listaVenda = vendadao.buscaDataLista(txtDe.getText(),txtAte.getText());
-                atualizaTabelaVenda();
-            }else if(RadioCliente2.isSelected()){
-                listaVenda = vendadao.buscaClienteLista(txtNome.getText());
-                atualizaTabelaVenda();
+                ListaVendaML = vendaMLdao.buscaDataLista(txtDe.getText(),txtAte.getText());
+                atualizaTabelaVendaML();
             }
         }
         
@@ -1326,6 +1460,10 @@ public class RelatorioView extends javax.swing.JInternalFrame {
                     gerarDocumentoFuncionario();
                 }else if(RadioProdutos.isSelected()){
                     gerarDocumentoProduto();
+                }else if(RadioVendas.isSelected()){
+                    gerarDocumentoVenda();
+                }else if (RadioVendasML.isSelected()){
+                    gerarDocumentoVendaML();
                 }
 
             } catch (Exception e) 

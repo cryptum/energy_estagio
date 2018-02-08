@@ -110,8 +110,28 @@ public class VendaMLDao {
                         rs.getString("detalhes"));
         }
         pst.close();
-        return venda;
+    return venda;
     }
-
+    
+    public List<VendaMLM> buscaDataLista(String de, String ate) throws SQLException{
+        List<VendaMLM> listavenda = new ArrayList<>();
+        sql = "select id, idfuncionario, idproduto, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario, rastreio, detalhes from VendaML where Data >= STR_TO_DATE( ?, \"%d/%m/%Y\" ) and Data <= STR_TO_DATE( ?, \"%d/%m/%Y\" )";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+        pst.setString(1, de);
+        pst.setString(2, ate);
+        while(rs.next()){
+            listavenda.add(new VendaMLM(
+                        rs.getInt("id"),
+                        funcionariodao.busca(rs.getInt("idfuncionario")),
+                        produtodao.busca(rs.getInt("idproduto")),
+                        rs.getString("data"),
+                        rs.getString("horario"),
+                        rs.getString("rastreio"),
+                        rs.getString("detalhes")));
+        }
+        pst.close();
+    return listavenda;
+    }
     
 }
