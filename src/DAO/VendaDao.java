@@ -197,4 +197,26 @@ public class VendaDao {
         pst.close();
         return listavenda;
     }
+    
+    public List<VendaM> buscaClienteLista(String nome) throws SQLException{
+        List<VendaM> listavenda = new ArrayList<>();
+        String name = "%"+nome+"%";
+        sql = "select venda.id, idcliente, idfuncionario, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, totalvenda, formapagamento from Venda, Cliente where Cliente.id = Venda.IdCliente and Cliente.Nome like ?";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setString(1, name);
+        pst.execute();
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+            listavenda.add(new VendaM(
+            rs.getInt("id"),
+            clientedao.busca(rs.getInt("idcliente")),
+            funcionariodao.busca(rs.getInt("idfuncionario")),
+            rs.getString("data"),
+            rs.getFloat("totalvenda"),
+            rs.getString("formapagamento")));
+        }
+
+        pst.close();
+        return listavenda;
+    }
 }

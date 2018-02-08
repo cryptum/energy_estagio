@@ -735,6 +735,126 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         doc.close();
     }
     
+    public void gerarDocumentoVenda() throws IOException, DocumentException{
+        
+        File pdf = null;
+        JFileChooser chooser = null;
+        doc = new com.itextpdf.text.Document(PageSize.A4.rotate());
+
+        String data = new SimpleDateFormat("dd/MM/yyyy").format(new Date(System.currentTimeMillis()));
+        String hora = new SimpleDateFormat("hh:mm").format(new Date(System.currentTimeMillis()));
+        
+ 	try {
+            pdf = File.createTempFile("Venda ", "");            
+        } catch (IOException e1) {            
+            e1.printStackTrace();
+        }
+
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Arquivo PDF", "pdf");
+
+        chooser = new JFileChooser();
+        chooser.setCurrentDirectory(pdf);
+        chooser.setSelectedFile(pdf);
+        chooser.setFileFilter(filter);
+        chooser.setAcceptAllFileFilterUsed(false);
+        chooser.setMultiSelectionEnabled(false);
+
+
+        int retorno = chooser.showSaveDialog(null);
+        if (retorno==JFileChooser.APPROVE_OPTION){
+            caminho = chooser.getSelectedFile().getAbsolutePath();
+            
+            JOptionPane.showMessageDialog(null, "Salvo com sucesso!\n\nLocal: "+chooser.getSelectedFile().getAbsolutePath()+"\n ");
+        }
+
+        PdfWriter.getInstance(doc, new FileOutputStream(caminho+".pdf"));
+        doc.open();
+        Font f11 = new Font(Font.FontFamily.TIMES_ROMAN, 11);
+        Font f10 = new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD);
+        Font f12 = new Font(Font.FontFamily.HELVETICA, 17, Font.BOLD);
+        Font fnormal = new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL);
+            
+        Paragraph nomeUniversidade = new Paragraph("Energy Som",f12);
+            nomeUniversidade.setAlignment(Element.ALIGN_CENTER);
+            nomeUniversidade.setSpacingAfter(10);
+            
+            Paragraph nomeRelatorio = new Paragraph("Relatório de Venda" ,f12);
+            nomeRelatorio.setAlignment(Element.ALIGN_CENTER);
+            nomeRelatorio.setSpacingAfter(10);
+            
+            Paragraph DataInicioDataFim = new Paragraph("De:"+txtDe.getText()+" - Até:"+txtAte.getText() ,f11);
+            DataInicioDataFim.setAlignment(Element.ALIGN_CENTER);
+            DataInicioDataFim.setSpacingAfter(10);
+            
+            Paragraph DataeHora = new Paragraph(new SimpleDateFormat("dd/MM/yyyy").format(new Date(System.currentTimeMillis()))+" - "+new SimpleDateFormat("hh:mm").format(new Date(System.currentTimeMillis())) ,f12);
+            DataeHora.setAlignment(Element.ALIGN_LEFT);
+            DataeHora.setSpacingAfter(10);
+            
+            doc.add(nomeUniversidade);
+            doc.add(nomeRelatorio);
+            doc.add(DataInicioDataFim);
+            doc.add(DataeHora);
+            
+            PdfPTable tabela = new PdfPTable(7);
+            tabela.setHorizontalAlignment(Element.ALIGN_CENTER);
+            tabela.setWidthPercentage(100f);
+
+            PdfPCell cabecalhoNome = new PdfPCell(new Paragraph("Cliente", f10));
+            cabecalhoNome.setHorizontalAlignment(Element.ALIGN_CENTER);
+            tabela.addCell(cabecalhoNome);
+
+            PdfPCell cabecalhoEnd = new PdfPCell(new Paragraph("Vendedor",f10));
+            cabecalhoEnd.setHorizontalAlignment(Element.ALIGN_CENTER);
+            tabela.addCell(cabecalhoEnd);
+            
+            PdfPCell cabecalhoEmail = new PdfPCell(new Paragraph("Data",f10));
+            cabecalhoEmail.setHorizontalAlignment(Element.ALIGN_CENTER);
+            tabela.addCell(cabecalhoEmail);
+            
+            PdfPCell cabecalhoCidade = new PdfPCell(new Paragraph("Total da Venda",f10));
+            cabecalhoCidade.setHorizontalAlignment(Element.ALIGN_CENTER);
+            tabela.addCell(cabecalhoCidade);
+            
+            PdfPCell cabecalhoTelefone = new PdfPCell(new Paragraph("Forma de Pagamento",f10));
+            cabecalhoTelefone.setHorizontalAlignment(Element.ALIGN_CENTER);
+            tabela.addCell(cabecalhoTelefone);
+
+            tabela.setHeaderRows(1); // linha que sera repetida em todas as paginas.
+            
+            for (VendaM venda : listaVenda){
+                Paragraph pNome = new Paragraph(venda.getIdCliente().getNome(), fnormal);
+                pNome.setAlignment(Element.ALIGN_JUSTIFIED);
+                PdfPCell colNome = new PdfPCell(pNome);
+                
+                Paragraph pEnd = new Paragraph(venda.getIdFuncionario().getNome(), fnormal);
+                pEnd.setAlignment(Element.ALIGN_JUSTIFIED);
+                PdfPCell colEnd = new PdfPCell(pEnd);
+                
+                Paragraph pEmail = new Paragraph(venda.getData(), fnormal);
+                pEmail.setAlignment(Element.ALIGN_JUSTIFIED);
+                PdfPCell colEmail = new PdfPCell(pEmail);
+                
+                Paragraph pCidade = new Paragraph(String.valueOf(venda.getTotalVendas()), fnormal);
+                pCidade.setAlignment(Element.ALIGN_CENTER);
+                PdfPCell colCidade = new PdfPCell(pCidade);
+                colCidade.setHorizontalAlignment(Element.ALIGN_CENTER);
+                
+                Paragraph pTel = new Paragraph(venda.getFormaPagamento(), fnormal);
+                pTel.setAlignment(Element.ALIGN_CENTER);
+                PdfPCell colTel = new PdfPCell(pTel);
+                colTel.setHorizontalAlignment(Element.ALIGN_CENTER);
+                
+                tabela.addCell(colNome);
+                tabela.addCell(colEnd);
+                tabela.addCell(colEmail);
+                tabela.addCell(colCidade);
+                tabela.addCell(colTel);
+            }
+            doc.add(tabela);
+
+        doc.close();
+    }
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -1156,6 +1276,22 @@ public class RelatorioView extends javax.swing.JInternalFrame {
                 atualizaTabelaVenda();
             }else if(RadioData.isSelected()){
                 listaVenda = vendadao.buscaDataLista(txtDe.getText(),txtAte.getText());
+                atualizaTabelaVenda();
+            }else if(RadioCliente2.isSelected()){
+                listaVenda = vendadao.buscaClienteLista(txtNome.getText());
+                atualizaTabelaVenda();
+            }
+        }
+        // ainta nao fiz siahf hidsi aiodsf hsdihf 
+        if(RadioVendas.isSelected()){
+            if(RadioTodos.isSelected()){
+                listaVenda = vendadao.listaTodos();
+                atualizaTabelaVenda();
+            }else if(RadioData.isSelected()){
+                listaVenda = vendadao.buscaDataLista(txtDe.getText(),txtAte.getText());
+                atualizaTabelaVenda();
+            }else if(RadioCliente2.isSelected()){
+                listaVenda = vendadao.buscaClienteLista(txtNome.getText());
                 atualizaTabelaVenda();
             }
         }
