@@ -38,7 +38,7 @@ public class LoginView extends javax.swing.JFrame {
         txtSenha.setText("123");
         
         String datasistema = new SimpleDateFormat("MM").format(new Date(System.currentTimeMillis()));
-        String datasistema2 = new SimpleDateFormat("YY").format(new Date(System.currentTimeMillis()));
+        String datasistema2 = new SimpleDateFormat("YYYY").format(new Date(System.currentTimeMillis()));
         int datames= Integer.parseInt(datasistema);
         int dataano= Integer.parseInt(datasistema2);
         
@@ -54,6 +54,7 @@ public class LoginView extends javax.swing.JFrame {
                 lblErro.setText("O sistema Contém um problema");
                 txtUser.setVisible(false);
                 txtSenha.setVisible(false);
+                btnLogin.setEnabled(false);
         }
     }
 
