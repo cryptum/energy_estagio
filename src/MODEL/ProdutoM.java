@@ -7,6 +7,7 @@ package MODEL;
 public class ProdutoM {
     
     private int Id;
+    private CategoriaM idCategoria;
     private MarcaM IdMarca;
     private ModeloM IdModelo;
     private String Nome;
@@ -16,8 +17,9 @@ public class ProdutoM {
     private String Codigo;
     private int Quantidade;
 
-    public ProdutoM(int Id, MarcaM IdMarca, ModeloM IdModelo, String Nome, float ValorCusto, float ValorMax, float ValorMini, String Codigo, int Quantidade) {
+    public ProdutoM(int Id, CategoriaM idCategoria, MarcaM IdMarca, ModeloM IdModelo, String Nome, float ValorCusto, float ValorMax, float ValorMini, String Codigo, int Quantidade) {
         this.Id = Id;
+        this.idCategoria = idCategoria;
         this.IdMarca = IdMarca;
         this.IdModelo = IdModelo;
         this.Nome = Nome;
@@ -37,6 +39,14 @@ public class ProdutoM {
 
     public void setId(int Id) {
         this.Id = Id;
+    }
+
+    public CategoriaM getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(CategoriaM idCategoria) {
+        this.idCategoria = idCategoria;
     }
 
     public MarcaM getIdMarca() {

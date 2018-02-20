@@ -12,22 +12,24 @@ import java.util.List;
  * @author Danilo-NOTE
  */
 public class ProdutoDao {
+    CategoriaDao categoriaDao = new CategoriaDao();
     ModeloDao modeloDao = new ModeloDao();
     MarcaDao marcaDao = new MarcaDao();
     public void salvar (ProdutoM produto) throws SQLException{
         PreparedStatement pst;
         String sql;
-        sql = "insert into Produto values (?,?,?,?,?,?,?,?,?)";
+        sql = "insert into Produto values (?,?,?,?,?,?,?,?,?,?)";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1,0);
-        pst.setInt(2, produto.getIdMarca().getId());
-        pst.setInt(3, produto.getIdModelo().getId());
-        pst.setString(4, produto.getNome());
-        pst.setFloat(5, produto.getValorCusto());
-        pst.setFloat(6, produto.getValorMax());
-        pst.setFloat(7, produto.getValorMini());
-        pst.setString(8, produto.getCodigo());
-        pst.setInt(9, produto.getQuantidade()); 
+        pst.setInt(2, produto.getIdCategoria().getId());
+        pst.setInt(3, produto.getIdMarca().getId());
+        pst.setInt(4, produto.getIdModelo().getId());
+        pst.setString(5, produto.getNome());
+        pst.setFloat(6, produto.getValorCusto());
+        pst.setFloat(7, produto.getValorMax());
+        pst.setFloat(8, produto.getValorMini());
+        pst.setString(9, produto.getCodigo());
+        pst.setInt(10, produto.getQuantidade()); 
         pst.execute();
         pst.close();
     }
@@ -46,6 +48,7 @@ public class ProdutoDao {
         PreparedStatement pst;
         String sql;
         sql = "update Produto set "
+                        + "idcategoria = ?, "
                         + "idmarca = ?, "
                         + "idmodelo = ?, "
                         + "nome = ?, "
@@ -57,15 +60,16 @@ public class ProdutoDao {
 
                         + "where id = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
-        pst.setInt(1, produto.getIdMarca().getId());
-        pst.setInt(2, produto.getIdModelo().getId());
-        pst.setString(3, produto.getNome());
-        pst.setDouble(4, produto.getValorCusto());
-        pst.setDouble(5, produto.getValorMax()); 
-        pst.setDouble(6, produto.getValorMini());
-        pst.setString(7, produto.getCodigo());
-        pst.setInt(8, produto.getQuantidade());
-        pst.setInt(9,produto.getId());
+        pst.setInt(1, produto.getIdCategoria().getId());
+        pst.setInt(2, produto.getIdMarca().getId());
+        pst.setInt(3, produto.getIdModelo().getId());
+        pst.setString(4, produto.getNome());
+        pst.setDouble(5, produto.getValorCusto());
+        pst.setDouble(6, produto.getValorMax()); 
+        pst.setDouble(7, produto.getValorMini());
+        pst.setString(8, produto.getCodigo());
+        pst.setInt(9, produto.getQuantidade());
+        pst.setInt(10,produto.getId());
         pst.execute();
         pst.close();
      }
@@ -81,6 +85,7 @@ public class ProdutoDao {
         while(rs.next()){
             listaProduto.add(new ProdutoM(
                             rs.getInt("id"),
+                            categoriaDao.busca(rs.getInt("idcategoria")),
                             marcaDao.busca(rs.getInt("idmarca")),
                             modeloDao.busca(rs.getInt("idmodelo")),
                             rs.getString("nome"),
@@ -105,6 +110,7 @@ public class ProdutoDao {
         while(rs.next()){
             produto = new ProdutoM(
                             rs.getInt("id"),
+                            categoriaDao.busca(rs.getInt("idcategoria")),
                             marcaDao.busca(rs.getInt("idmarca")),
                             modeloDao.busca(rs.getInt("idmodelo")),
                             rs.getString("nome"),
@@ -131,6 +137,7 @@ public class ProdutoDao {
         while(rs.next()){
             listaProduto.add(new ProdutoM(
                             rs.getInt("id"),
+                            categoriaDao.busca(rs.getInt("idcategoria")),
                             marcaDao.busca(rs.getInt("idmarca")),
                             modeloDao.busca(rs.getInt("idmodelo")),
                             rs.getString("nome"),
@@ -157,6 +164,7 @@ public class ProdutoDao {
         while(rs.next()){
             produto = new ProdutoM(
                             rs.getInt("id"),
+                            categoriaDao.busca(rs.getInt("idcategoria")),
                             marcaDao.busca(rs.getInt("idmarca")),
                             modeloDao.busca(rs.getInt("idmodelo")),
                             rs.getString("nome"),
@@ -183,6 +191,7 @@ public class ProdutoDao {
         while(rs.next()){
             produto = new ProdutoM(
                             rs.getInt("id"),
+                            categoriaDao.busca(rs.getInt("idcategoria")),
                             marcaDao.busca(rs.getInt("idmarca")),
                             modeloDao.busca(rs.getInt("idmodelo")),
                             rs.getString("nome"),

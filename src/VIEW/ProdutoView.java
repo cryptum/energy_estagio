@@ -1,8 +1,10 @@
 package VIEW;
 
+import DAO.CategoriaDao;
 import DAO.MarcaDao;
 import DAO.ModeloDao;
 import DAO.ProdutoDao;
+import MODEL.CategoriaM;
 import MODEL.MarcaM;
 import MODEL.ModeloM;
 import MODEL.ProdutoM;
@@ -31,6 +33,10 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     ProdutoDao produtodao = new ProdutoDao();
     List<ProdutoM> listaProduto = new ArrayList<>();
     
+    CategoriaM categoria = new CategoriaM();
+    CategoriaDao categoriadao = new CategoriaDao();
+    List<CategoriaM> listaCategoria = new ArrayList<>();
+    
     MarcaM marca = new MarcaM();
     MarcaDao marcadao = new MarcaDao();
     List<MarcaM> listaMarca = new ArrayList<>();
@@ -43,8 +49,10 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         initComponents();
         this.setVisible(true);
         atualizaTabelaProduto();
+        atualizaTabelaCategoria();
         atualizaTabelaMarca();
         atualizaTabelaModelo();
+        atualizaBoxCategoria();
         atualizaBoxMarca();
         atualizaBoxEditarMarca();
         tblProduto.getTableHeader().setReorderingAllowed(false);
@@ -69,20 +77,21 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
         }
         
-        String dados[][] = new String[listaProduto.size()][7];
+        String dados[][] = new String[listaProduto.size()][8];
             int i = 0;
             for (ProdutoM produto : listaProduto) {
                 dados[i][0] = String.valueOf(produto.getId());
                 dados[i][1] = produto.getNome();
-                dados[i][2] = produto.getIdMarca().getNome();
-                dados[i][3] = produto.getIdModelo().getNome();
-                dados[i][4] = String.valueOf(produto.getQuantidade());
-                dados[i][5] = String.valueOf(produto.getValorMax());
-                dados[i][6] = String.valueOf(produto.getValorMini());
+                dados[i][2] = produto.getIdCategoria().getNome();
+                dados[i][3] = produto.getIdMarca().getNome();
+                dados[i][4] = produto.getIdModelo().getNome();
+                dados[i][5] = String.valueOf(produto.getQuantidade());
+                dados[i][6] = String.valueOf(produto.getValorMax());
+                dados[i][7] = String.valueOf(produto.getValorMini());
 
                 i++;
             }
-            String tituloColuna[] = {"ID", "Nome", "Marca","Modelo","Quantidade", "Valor Maximo","Valor Minimo"};
+            String tituloColuna[] = {"ID", "Nome", "Categoria", "Marca","Modelo","Quantidade", "Valor Maximo","Valor Minimo"};
             DefaultTableModel tabelaProduto = new DefaultTableModel();
             tabelaProduto.setDataVector(dados, tituloColuna);
             tblProduto.setModel(new DefaultTableModel(dados, tituloColuna) {
@@ -112,20 +121,21 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     public void atualizaTabelaProdutoBusca(){
         produto = new ProdutoM();
         
-        String dados[][] = new String[listaProduto.size()][7];
+        String dados[][] = new String[listaProduto.size()][8];
             int i = 0;
             for (ProdutoM produto : listaProduto) {
                 dados[i][0] = String.valueOf(produto.getId());
                 dados[i][1] = produto.getNome();
-                dados[i][2] = produto.getIdMarca().getNome();
-                dados[i][3] = produto.getIdModelo().getNome();
-                dados[i][4] = String.valueOf(produto.getQuantidade());
-                dados[i][5] = String.valueOf(produto.getValorMax());
-                dados[i][6] = String.valueOf(produto.getValorMini());
+                dados[i][2] = produto.getIdCategoria().getNome();
+                dados[i][3] = produto.getIdMarca().getNome();
+                dados[i][4] = produto.getIdModelo().getNome();
+                dados[i][5] = String.valueOf(produto.getQuantidade());
+                dados[i][6] = String.valueOf(produto.getValorMax());
+                dados[i][7] = String.valueOf(produto.getValorMini());
 
                 i++;
             }
-            String tituloColuna[] = {"ID", "Nome", "Marca","Modelo","Quantidade", "Valor Maximo","Valor Minimo"};
+            String tituloColuna[] = {"ID", "Nome", "Categoria", "Marca","Modelo","Quantidade", "Valor Maximo","Valor Minimo"};
             DefaultTableModel tabelaProduto = new DefaultTableModel();
             tabelaProduto.setDataVector(dados, tituloColuna);
             tblProduto.setModel(new DefaultTableModel(dados, tituloColuna) {
@@ -307,6 +317,98 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             tblModelo.updateUI();
     }
     
+    public void atualizaTabelaCategoria(){
+        categoria = new CategoriaM();
+        try {
+            listaCategoria = categoriadao.listaTodos();
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+        }
+        
+        String dados[][] = new String[listaCategoria.size()][2];
+            int i = 0;
+            for (CategoriaM categoria : listaCategoria) {
+                dados[i][0] = String.valueOf(categoria.getId());
+                dados[i][1] = categoria.getNome();
+
+                i++;
+            }
+            String tituloColuna[] = {"ID", "Nome"};
+            DefaultTableModel tabelaModelo = new DefaultTableModel();
+            tabelaModelo.setDataVector(dados, tituloColuna);
+            tblCategoria.setModel(new DefaultTableModel(dados, tituloColuna) {
+                boolean[] canEdit = new boolean[]{
+                    false, false,false
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            });
+
+            tblCategoria.getColumnModel().getColumn(0).setMaxWidth(0);
+            tblCategoria.getColumnModel().getColumn(0).setMinWidth(0);
+            tblCategoria.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tblCategoria.getColumnModel().getColumn(1).setPreferredWidth(200);
+            DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
+            centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+            tblCategoria.getColumnModel().getColumn(0).setCellRenderer(centralizado);
+            tblCategoria.setRowHeight(35);
+            tblCategoria.updateUI();
+    }
+    
+    public void atualizaTabelaCategoriaBusca(){
+        categoria = new CategoriaM();
+        
+        String dados[][] = new String[listaCategoria.size()][2];
+            int i = 0;
+            for (CategoriaM categoria : listaCategoria) {
+                dados[i][0] = String.valueOf(categoria.getId());
+                dados[i][1] = categoria.getNome();
+
+                i++;
+            }
+            String tituloColuna[] = {"ID", "Nome"};
+            DefaultTableModel tabelaModelo = new DefaultTableModel();
+            tabelaModelo.setDataVector(dados, tituloColuna);
+            tblCategoria.setModel(new DefaultTableModel(dados, tituloColuna) {
+                boolean[] canEdit = new boolean[]{
+                    false, false,false
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            });
+
+            tblCategoria.getColumnModel().getColumn(0).setMaxWidth(0);
+            tblCategoria.getColumnModel().getColumn(0).setMinWidth(0);
+            tblCategoria.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tblCategoria.getColumnModel().getColumn(1).setPreferredWidth(200);
+            DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
+            centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+            tblCategoria.getColumnModel().getColumn(0).setCellRenderer(centralizado);
+            tblCategoria.setRowHeight(35);
+            tblCategoria.updateUI();
+    }
+    
+    public void atualizaBoxCategoria(){
+       
+        cbxCategoria.removeAllItems();
+        cbxCategoria.addItem("Selecione");
+        
+        try {
+            listaCategoria = categoriadao.listaTodos();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+         String dados[][] = new String[listaCategoria.size()][5];
+        for (CategoriaM categoria : listaCategoria) {
+            cbxCategoria.addItem(categoria.getNome());
+        }
+    } 
+    
     public void atualizaBoxEditarMarca(){
        
         cbxEditarMarca.removeAllItems();
@@ -363,6 +465,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     public void limparCampos(){
         txtId.setText("");
         txtNome.setText("");
+        cbxCategoria.setSelectedIndex(0);
         cbxMarca.setSelectedIndex(0);
         cbxModelo.setSelectedIndex(0);
         txtValorCusto.setText("");
@@ -375,6 +478,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     public void ativarCampos(){
         txtId.setEnabled(true);
         txtNome.setEnabled(true);
+        cbxCategoria.setEnabled(true);
         cbxMarca.setEnabled(true);
         cbxModelo.setEnabled(true);
         txtValorCusto.setEnabled(true);
@@ -387,6 +491,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     public void desativarCampos(){
         txtId.setEnabled(false);
         txtNome.setEnabled(false);
+        cbxCategoria.setEnabled(false);
         cbxMarca.setEnabled(false);
         cbxModelo.setEnabled(false);
         txtValorCusto.setEnabled(false);
@@ -458,6 +563,8 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         cbxModelo = new javax.swing.JComboBox<>();
         jLabel18 = new javax.swing.JLabel();
         txtQuantidade = new javax.swing.JFormattedTextField();
+        cbxCategoria = new javax.swing.JComboBox<>();
+        jLabel21 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -471,6 +578,18 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         btnSalvar = new javax.swing.JButton();
         btnNovo = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        jPanel9 = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tblCategoria = new javax.swing.JTable();
+        txtEditarCategoria = new javax.swing.JFormattedTextField();
+        btnSalvarCategoria = new javax.swing.JButton();
+        txtIdCategoria = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        btnLimparCategoria = new javax.swing.JButton();
+        jPanel15 = new javax.swing.JPanel();
+        txtBuscaCategoria = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -666,6 +785,18 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         txtQuantidade.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
         txtQuantidade.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
 
+        cbxCategoria.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        cbxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxCategoria.setToolTipText("");
+        cbxCategoria.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxCategoriaItemStateChanged(evt);
+            }
+        });
+
+        jLabel21.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel21.setText("Categoria:");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -675,29 +806,33 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(35, 35, 35)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(280, 280, 280))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(35, 35, 35)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(cbxMarca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(35, 35, 35)))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addComponent(cbxModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel21)
+                            .addComponent(cbxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(cbxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbxModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11))))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -709,13 +844,19 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 .addGap(0, 0, 0)
                 .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11))
-                .addGap(4, 4, 4)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbxModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11))
+                        .addGap(4, 4, 4)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cbxModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addGap(4, 4, 4)
+                        .addComponent(cbxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -878,7 +1019,150 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                         .addGap(37, 37, 37))))
         );
 
-        jTabbedPane1.addTab("Cadastro", jPanel6);
+        jTabbedPane1.addTab("Produtos", jPanel6);
+
+        jPanel9.setBackground(new java.awt.Color(248, 248, 248));
+
+        jPanel14.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 100, 100)), "Marca", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
+
+        tblCategoria.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nome"
+            }
+        ));
+        tblCategoria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblCategoriaMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(tblCategoria);
+
+        txtEditarCategoria.setBackground(new java.awt.Color(245, 245, 245));
+        txtEditarCategoria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
+        txtEditarCategoria.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+
+        btnSalvarCategoria.setText("Salvar");
+        btnSalvarCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarCategoriaActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel19.setText("Nome da Categoria:");
+
+        btnLimparCategoria.setText("Limpar");
+        btnLimparCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparCategoriaActionPerformed(evt);
+            }
+        });
+
+        jPanel15.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 100, 100)), "Busca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
+
+        txtBuscaCategoria.setBackground(new java.awt.Color(245, 245, 245));
+        txtBuscaCategoria.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        txtBuscaCategoria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
+        txtBuscaCategoria.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtBuscaCategoriaCaretUpdate(evt);
+            }
+        });
+
+        jLabel20.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel20.setText("Nome:");
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtBuscaCategoria, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(0, 4, Short.MAX_VALUE)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(txtBuscaCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4)
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel14Layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(btnSalvarCategoria)
+                                .addGap(47, 47, 47)
+                                .addComponent(btnLimparCategoria))
+                            .addGroup(jPanel14Layout.createSequentialGroup()
+                                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel14Layout.createSequentialGroup()
+                                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtIdCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtEditarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 27, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel19)
+                            .addComponent(txtIdCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtEditarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSalvarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLimparCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Categoria", jPanel9);
 
         jPanel7.setBackground(new java.awt.Color(248, 248, 248));
 
@@ -1189,7 +1473,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 65, Short.MAX_VALUE))
+                .addGap(0, 60, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1232,6 +1516,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 		
 		
         try {
+                categoria = categoriadao.buscaNome(cbxCategoria.getSelectedItem().toString());
                 marca = marcadao.buscaNome(cbxMarca.getSelectedItem().toString());
                 modelo = modelodao.buscaNome(cbxModelo.getSelectedItem().toString());
             } catch (SQLException ex) {
@@ -1244,6 +1529,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         else if(txtId.getText().isEmpty()){
             
                 //Salva tudo digitado no campo de texto para o objeto e salva no banco de dados
+            produto.setIdCategoria(categoria);
             produto.setIdMarca(marca);
             produto.setIdModelo(modelo);
             produto.setNome(txtNome.getText());
@@ -1266,6 +1552,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         else{
             //Salva tudo que foi alterado nos campos de texto para o objeto e salva no banco de dados
             produto.setId(Integer.valueOf(txtId.getText()));
+            produto.setIdCategoria(categoria);
             produto.setIdMarca(marca);
             produto.setIdModelo(modelo);
             produto.setNome(txtNome.getText());
@@ -1324,11 +1611,13 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         produto = new ProdutoM();
 
         txtId.setText(tblProduto.getValueAt(tblProduto.getSelectedRow(),0).toString());
-        cbxMarca.setSelectedItem(tblProduto.getValueAt(tblProduto.getSelectedRow(),2).toString());
-        cbxModelo.setSelectedItem(tblProduto.getValueAt(tblProduto.getSelectedRow(),3).toString());
+        cbxCategoria.setSelectedItem(tblProduto.getValueAt(tblProduto.getSelectedRow(),2).toString());
+        cbxMarca.setSelectedItem(tblProduto.getValueAt(tblProduto.getSelectedRow(),3).toString());
+        cbxModelo.setSelectedItem(tblProduto.getValueAt(tblProduto.getSelectedRow(),4).toString());
         
         try{
             produto = produtodao.busca(Integer.parseInt(txtId.getText()));
+            categoria = categoriadao.busca(produto.getIdCategoria().getId());
             marca = marcadao.busca(produto.getIdMarca().getId());
             modelo = modelodao.busca(produto.getIdModelo().getId());
         }catch(SQLException ex){
@@ -1337,6 +1626,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
    
         tblProduto.getTableHeader().setReorderingAllowed(false);
         txtId.setText(Integer.toString(produto.getId()));
+        cbxCategoria.setSelectedItem(categoria.getNome());
         cbxMarca.setSelectedItem(marca.getNome());
         cbxModelo.setSelectedItem(modelo.getNome());
         txtNome.setText(produto.getNome());
@@ -1439,7 +1729,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 listaMarca = marcadao.buscaNomeLista(txtBuscaMarca.getText());
 
                 if(listaProduto == null){
-                    JOptionPane.showMessageDialog(null, "Nenhum Cliente encontrado!","", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Nenhuma Marca encontrado!","", JOptionPane.WARNING_MESSAGE);
                     atualizaTabelaMarca();
                 }else{
                     atualizaTabelaMarcaBusca();
@@ -1559,16 +1849,102 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxEditarMarcaItemStateChanged
 
+    private void tblCategoriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblCategoriaMouseClicked
+        categoria = new CategoriaM();
+        txtIdCategoria.setText(tblCategoria.getValueAt(tblCategoria.getSelectedRow(),0).toString());
+        
+        try{
+            categoria = categoriadao.busca(Integer.parseInt(txtIdCategoria.getText()));
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage());
+        }
+        tblCategoria.getTableHeader().setReorderingAllowed(false);
+        txtIdCategoria.setText(Integer.toString(categoria.getId()));
+        txtEditarCategoria.setText(categoria.getNome());
+    }//GEN-LAST:event_tblCategoriaMouseClicked
+
+    private void btnSalvarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarCategoriaActionPerformed
+    categoria = new CategoriaM();
+        
+        if(txtEditarCategoria.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha todos os obrigatórios !", "erro", JOptionPane.WARNING_MESSAGE);
+            txtEditarMarca.requestFocusInWindow();       
+        }
+        else if(txtIdCategoria.getText().isEmpty()){
+            categoria.setNome(txtEditarCategoria.getText());
+            try{
+                categoriadao.salvar(categoria);
+                JOptionPane.showMessageDialog(null, "Gravado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            }catch(SQLException ex){
+                JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+            }
+            atualizaTabelaCategoria();
+            atualizaBoxCategoria();
+            btnSalvarCategoria.setEnabled(false);
+            txtEditarCategoria.setEnabled(false);
+            txtEditarCategoria.setText("");
+            tblCategoria.clearSelection();
+        }
+        else{
+            categoria.setId(Integer.valueOf(txtIdCategoria.getText()));
+            categoria.setNome(txtEditarCategoria.getText());
+        try{
+            categoriadao.alterar(categoria);
+            JOptionPane.showMessageDialog(null, "Alterado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);       
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+        }
+        atualizaTabelaCategoria();
+        atualizaBoxCategoria();
+        btnSalvarCategoria.setEnabled(false);
+        txtEditarCategoria.setEnabled(false);
+        tblCategoria.clearSelection();
+        }
+    }//GEN-LAST:event_btnSalvarCategoriaActionPerformed
+
+    private void btnLimparCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparCategoriaActionPerformed
+        txtIdCategoria.setText("");
+        txtEditarCategoria.setText("");
+        tblCategoria.clearSelection();
+    }//GEN-LAST:event_btnLimparCategoriaActionPerformed
+
+    private void txtBuscaCategoriaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscaCategoriaCaretUpdate
+        listaCategoria = null;
+        if(txtBuscaCategoria.getText().equals("")){
+            atualizaTabelaMarca();
+        }else{
+            try {
+                listaCategoria = categoriadao.buscaNomeLista(txtBuscaCategoria.getText());
+
+                if(listaCategoria == null){
+                    JOptionPane.showMessageDialog(null, "Nenhum Categoria encontrado!","", JOptionPane.WARNING_MESSAGE);
+                    atualizaTabelaMarca();
+                }else{
+                    atualizaTabelaCategoriaBusca();
+                }
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+            }
+        } 
+    }//GEN-LAST:event_txtBuscaCategoriaCaretUpdate
+
+    private void cbxCategoriaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxCategoriaItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxCategoriaItemStateChanged
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnLimparCategoria;
     private javax.swing.JButton btnLimparMarca;
     private javax.swing.JButton btnLimparModelo;
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnSalvar;
+    private javax.swing.JButton btnSalvarCategoria;
     private javax.swing.JButton btnSalvarMarca;
     private javax.swing.JButton btnSalvarModelo;
+    private javax.swing.JComboBox<String> cbxCategoria;
     private javax.swing.JComboBox<String> cbxEditarMarca;
     private javax.swing.JComboBox<String> cbxMarca;
     private javax.swing.JComboBox<String> cbxModelo;
@@ -1582,7 +1958,10 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1595,6 +1974,8 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1602,20 +1983,26 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable tblCategoria;
     private javax.swing.JTable tblMarca;
     private javax.swing.JTable tblModelo;
     private javax.swing.JTable tblProduto;
     private javax.swing.JTextField txtBusca;
+    private javax.swing.JTextField txtBuscaCategoria;
     private javax.swing.JTextField txtBuscaMarca;
     private javax.swing.JTextField txtBuscaModelo;
     private javax.swing.JFormattedTextField txtCodigo;
+    private javax.swing.JFormattedTextField txtEditarCategoria;
     private javax.swing.JFormattedTextField txtEditarMarca;
     private javax.swing.JFormattedTextField txtEditarModelo;
     private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtIdCategoria;
     private javax.swing.JTextField txtIdMarca;
     private javax.swing.JTextField txtIdModelo;
     private javax.swing.JTextField txtNome;

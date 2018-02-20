@@ -647,7 +647,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
                         .addGap(37, 37, 37))))
         );
 
-        jTabbedPane1.addTab("Cadastro", jPanel6);
+        jTabbedPane1.addTab("Funcionarios", jPanel6);
 
         jPanel8.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -675,7 +675,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 65, Short.MAX_VALUE))
+                .addGap(0, 40, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );

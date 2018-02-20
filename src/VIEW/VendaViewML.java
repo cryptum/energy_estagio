@@ -606,7 +606,7 @@ public class VendaViewML extends javax.swing.JInternalFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(159, 159, 159)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addContainerGap(188, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -803,7 +803,7 @@ public class VendaViewML extends javax.swing.JInternalFrame {
                 .addGap(24, 24, 24))
         );
 
-        jTabbedPane1.addTab("Cadastro", jPanel6);
+        jTabbedPane1.addTab("Venda", jPanel6);
 
         jPanel8.setBackground(new java.awt.Color(51, 51, 51));
 

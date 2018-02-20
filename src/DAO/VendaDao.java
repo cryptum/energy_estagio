@@ -20,6 +20,7 @@ public class VendaDao {
     String sql;
     ClienteDao clientedao = new ClienteDao();
     FuncionarioDao funcionariodao = new FuncionarioDao();
+    CategoriaDao categoriadao = new CategoriaDao();
     MarcaDao marcadao = new MarcaDao();
     ModeloDao modelodao = new ModeloDao();
     
@@ -70,6 +71,7 @@ public class VendaDao {
         while(rs.next()){
             produto = new ProdutoM(
                             rs.getInt("id"),
+                            categoriadao.busca(rs.getInt("idcategoria")),
                             marcadao.busca(rs.getInt("idmarca")),
                             modelodao.busca(rs.getInt("idmodelo")),
                             rs.getString("nome"),
