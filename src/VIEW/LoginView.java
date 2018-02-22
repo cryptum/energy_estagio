@@ -50,6 +50,7 @@ public class LoginView extends javax.swing.JFrame {
             if((datames <= valida.getMes())&&(dataano<= valida.getAno())){
 
             }else{
+                this.setVisible(true);
                 lblErro.setVisible(true);
                 lblErro.setText("O sistema Contém um problema");
                 txtUser.setVisible(false);
