@@ -43,6 +43,7 @@ public class PrincipalView extends javax.swing.JFrame {
         Relatorios = new javax.swing.JLabel();
         Estoque = new javax.swing.JLabel();
         Vendedor = new javax.swing.JLabel();
+        Relatorios1 = new javax.swing.JLabel();
         pnlPrincipal = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -128,7 +129,7 @@ public class PrincipalView extends javax.swing.JFrame {
         Relatorios.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
         Relatorios.setForeground(new java.awt.Color(227, 227, 227));
         Relatorios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Relatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Graph.png"))); // NOI18N
+        Relatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Analytics.png"))); // NOI18N
         Relatorios.setText("Relatórios");
         Relatorios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Relatorios.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -200,6 +201,31 @@ public class PrincipalView extends javax.swing.JFrame {
             }
         });
 
+        Relatorios1.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
+        Relatorios1.setForeground(new java.awt.Color(227, 227, 227));
+        Relatorios1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Relatorios1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Graph.png"))); // NOI18N
+        Relatorios1.setText("Situação");
+        Relatorios1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Relatorios1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Relatorios1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Relatorios1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Relatorios1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Relatorios1MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Relatorios1MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                Relatorios1MouseReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -211,6 +237,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addComponent(MarcLivre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
                 .addComponent(Vendedor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(Relatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Relatorios1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,6 +254,8 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addComponent(MarcLivre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(Relatorios)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Relatorios1)
                 .addContainerGap())
         );
 
@@ -399,12 +428,36 @@ public class PrincipalView extends javax.swing.JFrame {
         Relatorios.setForeground(Color.getHSBColor(90 , 20 , 120));
     }//GEN-LAST:event_RelatoriosMouseReleased
 
+    private void Relatorios1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Relatorios1MouseClicked
+            SituacaoDaEmpresa situ = new SituacaoDaEmpresa();
+            pnlPrincipal.removeAll();
+            pnlPrincipal.add(situ);
+            pnlPrincipal.updateUI();
+    }//GEN-LAST:event_Relatorios1MouseClicked
+
+    private void Relatorios1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Relatorios1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Relatorios1MouseEntered
+
+    private void Relatorios1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Relatorios1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Relatorios1MouseExited
+
+    private void Relatorios1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Relatorios1MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Relatorios1MousePressed
+
+    private void Relatorios1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Relatorios1MouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Relatorios1MouseReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Cliente;
     private javax.swing.JLabel Estoque;
     private javax.swing.JLabel MarcLivre;
     private javax.swing.JLabel Relatorios;
+    private javax.swing.JLabel Relatorios1;
     private javax.swing.JLabel Venda;
     private javax.swing.JLabel Vendedor;
     private javax.swing.JPanel jPanel1;

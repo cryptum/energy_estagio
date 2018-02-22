@@ -392,11 +392,6 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder title="Dados Iniciais">
-                  <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                    <LineBorder>
-                      <Color PropertyName="color" blue="64" green="64" red="64" type="rgb"/>
-                    </LineBorder>
-                  </Border>
                   <Font PropertyName="font" name="Tahoma" size="14" style="0"/>
                   <Color PropertyName="color" blue="1e" green="1e" red="1e" type="rgb"/>
                 </TitledBorder>
@@ -476,12 +471,7 @@
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Dados Iniciais">
-                  <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                    <LineBorder>
-                      <Color PropertyName="color" blue="64" green="64" red="64" type="rgb"/>
-                    </LineBorder>
-                  </Border>
+                <TitledBorder title="Cliente">
                   <Font PropertyName="font" name="Tahoma" size="14" style="0"/>
                   <Color PropertyName="color" blue="1e" green="1e" red="1e" type="rgb"/>
                 </TitledBorder>
@@ -562,12 +552,7 @@
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="123">
-                  <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                    <LineBorder>
-                      <Color PropertyName="color" blue="64" green="64" red="64" type="rgb"/>
-                    </LineBorder>
-                  </Border>
+                <TitledBorder title="Adicionais">
                   <Font PropertyName="font" name="Tahoma" size="14" style="0"/>
                   <Color PropertyName="color" blue="1e" green="1e" red="1e" type="rgb"/>
                 </TitledBorder>

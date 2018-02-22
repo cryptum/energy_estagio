@@ -62,8 +62,8 @@ public class VendaView extends javax.swing.JInternalFrame {
         txtIdProduto.setVisible(false);
         txtIDIten.setVisible(false);
         txtQuantidadeTotal.setVisible(false);
-        //txtIdFuncionario.setVisible(false);
-        //txtIdCliente.setVisible(false);
+        txtIdFuncionario.setVisible(false);
+        txtIdCliente.setVisible(false);
         
         ClienteDialog.setSize(520, 460);
         ProdutoDialog.setSize(520, 460);
@@ -842,7 +842,7 @@ public class VendaView extends javax.swing.JInternalFrame {
         ProdutoDialog.getContentPane().add(jPanel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 460));
 
         jPanel7.setBackground(new java.awt.Color(248, 248, 248));
-        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 100, 100)), "Dados Iniciais", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados Iniciais", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
         jLabel9.setText("Funcionario:");
@@ -883,7 +883,7 @@ public class VendaView extends javax.swing.JInternalFrame {
         );
 
         jPanel2.setBackground(new java.awt.Color(248, 248, 248));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 100, 100)), "Dados Iniciais", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
         jLabel1.setText("Cliente");
@@ -925,7 +925,7 @@ public class VendaView extends javax.swing.JInternalFrame {
         );
 
         jPanel9.setBackground(new java.awt.Color(248, 248, 248));
-        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(100, 100, 100)), "123", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
+        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Adicionais", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
         jLabel7.setText("Forma de Pagamento:");

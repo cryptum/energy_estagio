@@ -27,10 +27,13 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
@@ -73,219 +76,27 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
     public SituacaoDaEmpresa() {
         initComponents();
         this.setVisible(true);
-        Tabela.getTableHeader().setReorderingAllowed(false);
-
+        String datasistema = new SimpleDateFormat("MM").format(new Date(System.currentTimeMillis()));
+        sldMes.setValue(Integer.valueOf(datasistema));
+        atualizaBoxMarca();
+       
     }
-
     
-    //Atualiza todos os funcionario para a tabela
-    public void atualizaTabelaCliente(){
-        cliente = new ClienteM();
+    public void atualizaBoxMarca(){
+       
+        cbxAno.removeAllItems();
         
-        String dados[][] = new String[listaCliente.size()][6];
-            int i = 0;
-            for (ClienteM cliente : listaCliente) {
-                dados[i][0] = String.valueOf(cliente.getId());
-                dados[i][1] = cliente.getNome();
-                dados[i][2] = cliente.getCidade();
-                dados[i][3] = cliente.getNascimento();
-                dados[i][4] = cliente.getTelefone();
-                dados[i][5] = cliente.getCelular1();
-
-                i++;
-            }
-            String tituloColuna[] = {"ID", "Nome", "Cidade", "Nascimento","Telefone", "Celular1"};
-            DefaultTableModel tabelaCliente = new DefaultTableModel();
-            tabelaCliente.setDataVector(dados, tituloColuna);
-            Tabela.setModel(new DefaultTableModel(dados, tituloColuna) {
-                boolean[] canEdit = new boolean[]{
-                    false, false, false, false, false, false, false
-                };
-
-                @Override
-                public boolean isCellEditable(int rowIndex, int columnIndex) {
-                    return canEdit[columnIndex];
-                }
-            });
-
-            Tabela.getColumnModel().getColumn(0).setMaxWidth(0);
-            Tabela.getColumnModel().getColumn(0).setMinWidth(0);
-            Tabela.getColumnModel().getColumn(0).setPreferredWidth(0);
-            Tabela.getColumnModel().getColumn(1).setPreferredWidth(200);
-            Tabela.getColumnModel().getColumn(2).setPreferredWidth(100);
-            
-            DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
-            centralizado.setHorizontalAlignment(SwingConstants.CENTER);
-            Tabela.getColumnModel().getColumn(0).setCellRenderer(centralizado);
-            Tabela.setRowHeight(35);
-            Tabela.updateUI();
-    }
-    
-    public void atualizaTabelaFuncionario(){
-        funcionario = new FuncionarioM();
+        try {
+            listaVenda = vendadao.buscaDataSituacao();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoView.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        String dados[][] = new String[listaFuncionario.size()][5];
-            int i = 0;
-            for (FuncionarioM funcionario1 : listaFuncionario) {
-                dados[i][0] = String.valueOf(funcionario1.getId());
-                dados[i][1] = funcionario1.getNome();
-                dados[i][2] = funcionario1.getNascimento();
-                dados[i][3] = funcionario1.getTelefone();
-                dados[i][4] = funcionario1.getCelular1();
-
-                i++;
-            }
-            String tituloColuna[] = {"ID", "Nome", "Nascimento","Telefone", "Celular1"};
-            DefaultTableModel tabelaCliente = new DefaultTableModel();
-            tabelaCliente.setDataVector(dados, tituloColuna);
-            Tabela.setModel(new DefaultTableModel(dados, tituloColuna) {
-                boolean[] canEdit = new boolean[]{
-                    false, false, false, false, false, false,
-                };
-
-                @Override
-                public boolean isCellEditable(int rowIndex, int columnIndex) {
-                    return canEdit[columnIndex];
-                }
-            });
-
-            Tabela.getColumnModel().getColumn(0).setMaxWidth(0);
-            Tabela.getColumnModel().getColumn(0).setMinWidth(0);
-            Tabela.getColumnModel().getColumn(0).setPreferredWidth(0);
-            Tabela.getColumnModel().getColumn(1).setPreferredWidth(200);
-            Tabela.getColumnModel().getColumn(2).setPreferredWidth(100);
-            
-            DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
-            centralizado.setHorizontalAlignment(SwingConstants.CENTER);
-            Tabela.getColumnModel().getColumn(0).setCellRenderer(centralizado);
-            Tabela.setRowHeight(35);
-            Tabela.updateUI();
+         String dados[][] = new String[listaVenda.size()][5];
+        for (VendaM venda : listaVenda) {
+            cbxAno.addItem(venda.getData());
+        }
     }
-    
-    public void atualizaTabelaProduto(){
-        produto = new ProdutoM();
-        
-        String dados[][] = new String[listaProduto.size()][7];
-            int i = 0;
-            for (ProdutoM produto : listaProduto) {
-                dados[i][0] = String.valueOf(produto.getId());
-                dados[i][1] = produto.getNome();
-                dados[i][2] = produto.getIdMarca().getNome();
-                dados[i][3] = produto.getIdModelo().getNome();
-                dados[i][4] = String.valueOf(produto.getQuantidade());
-                dados[i][5] = String.valueOf(produto.getValorMax());
-                dados[i][6] = String.valueOf(produto.getValorMini());
-
-                i++;
-            }
-            String tituloColuna[] = {"ID", "Nome", "Marca","Modelo","Quantidade", "Valor Maximo","Valor Minimo"};
-            DefaultTableModel tabelaProduto = new DefaultTableModel();
-            tabelaProduto.setDataVector(dados, tituloColuna);
-            Tabela.setModel(new DefaultTableModel(dados, tituloColuna) {
-                boolean[] canEdit = new boolean[]{
-                    false, false, false, false, false, false,false
-                };
-
-                public boolean isCellEditable(int rowIndex, int columnIndex) {
-                    return canEdit[columnIndex];
-                }
-            });
-
-            Tabela.getColumnModel().getColumn(0).setMaxWidth(0);
-            Tabela.getColumnModel().getColumn(0).setMinWidth(0);
-            Tabela.getColumnModel().getColumn(0).setPreferredWidth(0);
-            Tabela.getColumnModel().getColumn(1).setPreferredWidth(200);
-            Tabela.getColumnModel().getColumn(2).setPreferredWidth(100);
-            
-            DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
-            centralizado.setHorizontalAlignment(SwingConstants.CENTER);
-            Tabela.getColumnModel().getColumn(0).setCellRenderer(centralizado);
-            Tabela.setRowHeight(35);
-            Tabela.updateUI();
-    }
-    
-    public void atualizaTabelaVenda(){
-        venda = new VendaM();
-        
-        String dados[][] = new String[listaVenda.size()][5];
-            int i = 0;
-            for (VendaM venda : listaVenda) {
-                dados[i][0] = String.valueOf(venda.getId());
-                dados[i][1] = venda.getIdCliente().getNome();
-                dados[i][2] = venda.getData();
-                dados[i][3] = String.valueOf(venda.getTotalVendas());
-
-                i++;
-            }
-            String tituloColuna[] = {"ID", "Cliente", "Data","Valor total"};
-            DefaultTableModel tabelaCliente = new DefaultTableModel();
-            tabelaCliente.setDataVector(dados, tituloColuna);
-            Tabela.setModel(new DefaultTableModel(dados, tituloColuna) {
-                boolean[] canEdit = new boolean[]{
-                    false, false, false, false, false
-                };
-
-                public boolean isCellEditable(int rowIndex, int columnIndex) {
-                    return canEdit[columnIndex];
-                }
-            });
-
-            Tabela.getColumnModel().getColumn(0).setMaxWidth(0);
-            Tabela.getColumnModel().getColumn(0).setMinWidth(0);
-            Tabela.getColumnModel().getColumn(0).setPreferredWidth(0);
-            Tabela.getColumnModel().getColumn(1).setPreferredWidth(200);
-            Tabela.getColumnModel().getColumn(2).setPreferredWidth(100);
-            
-            DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
-            centralizado.setHorizontalAlignment(SwingConstants.CENTER);
-            Tabela.getColumnModel().getColumn(0).setCellRenderer(centralizado);
-            Tabela.setRowHeight(35);
-            Tabela.updateUI();
-    }
-    
-    public void atualizaTabelaVendaML(){
-        vendaML = new VendaMLM();
-
-        
-        String dados[][] = new String[ListaVendaML.size()][5];
-            int i = 0;
-            for (VendaMLM venda2 : ListaVendaML) {
-                dados[i][0] = String.valueOf(venda2.getId());
-                dados[i][1] = venda2.getIdProduto().getNome();
-                dados[i][2] = venda2.getRastreio();
-                dados[i][3] = venda2.getData();
-                dados[i][4] = venda2.getHorario();
-
-                i++;
-            }
-            String tituloColuna[] = {"ID", "Produto","Rastreio", "Data","Horario"};
-            DefaultTableModel tabelaCliente = new DefaultTableModel();
-            tabelaCliente.setDataVector(dados, tituloColuna);
-            Tabela.setModel(new DefaultTableModel(dados, tituloColuna) {
-                boolean[] canEdit = new boolean[]{
-                    false, false, false, false, false
-                };
-
-                public boolean isCellEditable(int rowIndex, int columnIndex) {
-                    return canEdit[columnIndex];
-                }
-            });
-
-            Tabela.getColumnModel().getColumn(0).setMaxWidth(0);
-            Tabela.getColumnModel().getColumn(0).setMinWidth(0);
-            Tabela.getColumnModel().getColumn(0).setPreferredWidth(0);
-            Tabela.getColumnModel().getColumn(1).setPreferredWidth(200);
-            Tabela.getColumnModel().getColumn(2).setPreferredWidth(100);
-            
-            DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
-            centralizado.setHorizontalAlignment(SwingConstants.CENTER);
-            Tabela.getColumnModel().getColumn(0).setCellRenderer(centralizado);
-            Tabela.setRowHeight(35);
-            Tabela.updateUI();
-    }
-    
-    
-    
    
     
     @SuppressWarnings("unchecked")
@@ -297,16 +108,15 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        Tabela = new javax.swing.JTable();
         btnAtualizar = new javax.swing.JButton();
-        cbxCategoria = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        cbxCategoria1 = new javax.swing.JComboBox<>();
+        cbxAno = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txtValorCusto = new javax.swing.JFormattedTextField();
+        sldMes = new javax.swing.JSlider();
+        txtMes = new javax.swing.JFormattedTextField();
         jPanel8 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
 
@@ -322,22 +132,6 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
 
         jPanel4.setBackground(new java.awt.Color(248, 248, 248));
 
-        Tabela.setBackground(new java.awt.Color(248, 248, 248));
-        Tabela.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(210, 210, 210)));
-        Tabela.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
-        Tabela.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane3.setViewportView(Tabela);
-
         btnAtualizar.setText("Atualizar");
         btnAtualizar.setEnabled(false);
         btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -346,27 +140,18 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
             }
         });
 
-        cbxCategoria.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        cbxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" }));
-        cbxCategoria.setToolTipText("");
-        cbxCategoria.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cbxCategoriaItemStateChanged(evt);
-            }
-        });
-
         jLabel21.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
-        jLabel21.setText("Mes:");
+        jLabel21.setText("Ano:");
 
         jLabel22.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
-        jLabel22.setText("Ano:");
+        jLabel22.setText("Mes:");
 
-        cbxCategoria1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        cbxCategoria1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2018" }));
-        cbxCategoria1.setToolTipText("");
-        cbxCategoria1.addItemListener(new java.awt.event.ItemListener() {
+        cbxAno.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        cbxAno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2018" }));
+        cbxAno.setToolTipText("");
+        cbxAno.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cbxCategoria1ItemStateChanged(evt);
+                cbxAnoItemStateChanged(evt);
             }
         });
 
@@ -390,11 +175,9 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(txtValorCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(137, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(txtValorCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -406,52 +189,70 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        sldMes.setBackground(new java.awt.Color(211, 211, 211));
+        sldMes.setMaximum(12);
+        sldMes.setMinimum(1);
+        sldMes.setToolTipText("Utilize as setas do teclado para maior precisão");
+        sldMes.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                sldMesStateChanged(evt);
+            }
+        });
+
+        txtMes.setBackground(new java.awt.Color(245, 245, 245));
+        txtMes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
+        txtMes.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("##0.00"))));
+        txtMes.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 770, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel21)
-                            .addComponent(cbxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel22)
-                            .addComponent(cbxCategoria1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(97, 97, 97)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel21)
+                                .addGap(18, 18, 18)
+                                .addComponent(cbxAno, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel22)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtMes, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(52, 52, 52)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addContainerGap(345, Short.MAX_VALUE)
+                        .addComponent(sldMes, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel21))
-                        .addGap(1, 1, 1)
-                        .addComponent(cbxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel21)
+                        .addComponent(cbxAno, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel22)
-                        .addGap(1, 1, 1)
-                        .addComponent(cbxCategoria1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                        .addComponent(txtMes, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sldMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 358, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(93, 93, 93))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         jTabbedPane1.addTab("Opções", jPanel4);
@@ -518,21 +319,33 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
-    private void cbxCategoriaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxCategoriaItemStateChanged
+    private void cbxAnoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxAnoItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbxCategoriaItemStateChanged
+    }//GEN-LAST:event_cbxAnoItemStateChanged
 
-    private void cbxCategoria1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxCategoria1ItemStateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxCategoria1ItemStateChanged
+    private void sldMesStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sldMesStateChanged
+        int opt = sldMes.getValue();
+        switch(opt){
+            case 1 :{txtMes.setText("Janeiro");break;}
+            case 2 :{txtMes.setText("Fevereiro");break;}
+            case 3 :{txtMes.setText("Março");break;}
+            case 4 :{txtMes.setText("Abril");break;}
+            case 5 :{txtMes.setText("Maio");break;}
+            case 6 :{txtMes.setText("Junho");break;}
+            case 7 :{txtMes.setText("Julho");break;}
+            case 8 :{txtMes.setText("Agosto");break;}
+            case 9 :{txtMes.setText("Setembro");break;}
+            case 10 :{txtMes.setText("Outubro");break;}
+            case 11 :{txtMes.setText("Novembro");break;}
+            case 12 :{txtMes.setText("Dezembro");break;}
+        }
+    }//GEN-LAST:event_sldMesStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Grupo1;
     private javax.swing.ButtonGroup Grupo2;
-    private javax.swing.JTable Tabela;
     private javax.swing.JButton btnAtualizar;
-    private javax.swing.JComboBox<String> cbxCategoria;
-    private javax.swing.JComboBox<String> cbxCategoria1;
+    private javax.swing.JComboBox<String> cbxAno;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
@@ -541,8 +354,9 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JSlider sldMes;
+    private javax.swing.JFormattedTextField txtMes;
     private javax.swing.JFormattedTextField txtValorCusto;
     // End of variables declaration//GEN-END:variables
 }
