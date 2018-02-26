@@ -221,24 +221,4 @@ public class VendaDao {
         pst.close();
         return listavenda;
     }
-    
-    public List<VendaM> buscaDataSituacao() throws SQLException{
-        List<VendaM> listavenda = new ArrayList<>();
-        sql = "select id, idcliente, idfuncionario, DATE_FORMAT( data, \"%Y\" ) AS data, totalvenda, formapagamento from Venda group by data ";
-        pst = Conexao.getInstance().prepareStatement(sql);
-        pst.execute();
-        ResultSet rs = pst.executeQuery();
-        while(rs.next()){
-            listavenda.add(new VendaM(
-            rs.getInt("id"),
-            clientedao.busca(rs.getInt("idcliente")),
-            funcionariodao.busca(rs.getInt("idfuncionario")),
-            rs.getString("data"),
-            rs.getFloat("totalvenda"),
-            rs.getString("formapagamento")));
-        }
-
-        pst.close();
-        return listavenda;
-    }
 }
