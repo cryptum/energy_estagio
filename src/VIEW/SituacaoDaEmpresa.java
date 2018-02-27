@@ -86,15 +86,22 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
     }
     
     public void AtualizaVIEW() throws SQLException{
-        int mes = Integer.valueOf(txtNumeroMes.getText());
+        float totalmes = 0, totalano = 0;
         String ano = (String) cbxAno.getSelectedItem();
-        String data1, data2;
-        data1 = ano+"/"+mes+"/"+"01";
-        data2 = ano+"/"+mes+"/"+"31";
+        String data1, data2, data3,data4;
+        data1 = ano+"/"+txtNumeroMes.getText()+"/"+"01";
+        data2 = ano+"/"+txtNumeroMes.getText()+"/"+"31";
+        data3 = ano+"/01/01";
+        data4 = ano+"/12/31";
+        listaVenda = situacaodao.BuscaTotalVendaMes(data1,data2);
+        for (VendaM venda : listaVenda) {
+            txtVendaMes.setText(String.valueOf(venda.getTotalVendas()));
+        }
         
-        //ano = situacaodao.BuscaTotalVendaMes(data1,data2);
-        txtVendaMes.setText(ano);
-        
+        listaVenda = situacaodao.BuscaTotalVendaAno(data3,data4);
+        for (VendaM venda : listaVenda) {
+            txtVendaAno.setText(String.valueOf(venda.getTotalVendas()));
+        }
     }
     
     
