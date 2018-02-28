@@ -25,15 +25,16 @@ public class VendaMLDao {
     
     public void salvar (VendaMLM venda) throws SQLException{
 
-        sql = "insert into VendaML set id = ?, idfuncionario = ?, idproduto = ?, Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ), horario = ?, rastreio = ?, detalhes = ?";
+        sql = "insert into VendaML set id = ?, idfuncionario = ?, idproduto = ?, TotalVenda = ?, Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ), horario = ?, rastreio = ?, detalhes = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1,0);
         pst.setInt(2, venda.getIdFuncionario().getId());
         pst.setInt(3, venda.getIdProduto().getId());
-        pst.setString(4, venda.getData());
-        pst.setString(5, venda.getHorario());
-        pst.setString(6, venda.getRastreio());
-        pst.setString(7, venda.getDetalhes());
+        pst.setFloat(4, venda.getTotalVenda());
+        pst.setString(5, venda.getData());
+        pst.setString(6, venda.getHorario());
+        pst.setString(7, venda.getRastreio());
+        pst.setString(8, venda.getDetalhes());
         pst.execute();
         pst.close();
         buscaquantidade(venda.getIdProduto().getId(), 1);
@@ -77,7 +78,7 @@ public class VendaMLDao {
   
     public List<VendaMLM> listaTodos() throws SQLException{
         List<VendaMLM> listavenda = new ArrayList<>();
-        sql = "select id, idfuncionario, idproduto, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario, rastreio, detalhes from VendaML ORDER BY id DESC";
+        sql = "select id, idfuncionario, idproduto, TotalVenda, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario, rastreio, detalhes from VendaML ORDER BY id DESC";
         pst = Conexao.getInstance().prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
 
@@ -86,6 +87,7 @@ public class VendaMLDao {
                         rs.getInt("id"),
                         funcionariodao.busca(rs.getInt("idfuncionario")),
                         produtodao.busca(rs.getInt("idproduto")),
+                        rs.getFloat("TotalVenda"),
                         rs.getString("data"),
                         rs.getString("horario"),
                         rs.getString("rastreio"),
@@ -97,7 +99,7 @@ public class VendaMLDao {
     
     public VendaMLM busca(int id) throws SQLException{
         VendaMLM venda = null;
-        sql = "select id, idfuncionario, idproduto, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario, rastreio, detalhes from VendaML where id = ?";
+        sql = "select id, idfuncionario, idproduto, TotalVenda, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario, rastreio, detalhes from VendaML where id = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, id);
         ResultSet rs = pst.executeQuery();
@@ -106,6 +108,7 @@ public class VendaMLDao {
                         rs.getInt("id"),
                         funcionariodao.busca(rs.getInt("idfuncionario")),
                         produtodao.busca(rs.getInt("idproduto")),
+                        rs.getFloat("TotalVenda"),
                         rs.getString("data"),
                         rs.getString("horario"),
                         rs.getString("rastreio"),
@@ -117,7 +120,7 @@ public class VendaMLDao {
     
     public List<VendaMLM> buscaDataLista(String de, String ate) throws SQLException{
         List<VendaMLM> listavenda = new ArrayList<>();
-        sql = "select id, idfuncionario, idproduto, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario, rastreio, detalhes from VendaML where Data >= STR_TO_DATE( ?, \"%d/%m/%Y\" ) and Data <= STR_TO_DATE( ?, \"%d/%m/%Y\" )";
+        sql = "select id, idfuncionario, idproduto, TotalVenda, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario, rastreio, detalhes from VendaML where Data >= STR_TO_DATE( ?, \"%d/%m/%Y\" ) and Data <= STR_TO_DATE( ?, \"%d/%m/%Y\" )";
         pst = Conexao.getInstance().prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
         pst.setString(1, de);
@@ -127,6 +130,7 @@ public class VendaMLDao {
                         rs.getInt("id"),
                         funcionariodao.busca(rs.getInt("idfuncionario")),
                         produtodao.busca(rs.getInt("idproduto")),
+                        rs.getFloat("TotalVenda"),
                         rs.getString("data"),
                         rs.getString("horario"),
                         rs.getString("rastreio"),

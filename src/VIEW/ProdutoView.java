@@ -59,6 +59,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         txtId.setVisible(false);
         txtIdMarca.setVisible(false);
         txtIdModelo.setVisible(false);
+        txtIdCategoria.setVisible(false);
         desativarCampos();
         
         txtEditarMarca.setDocument(new LimiteDigitos(45));
@@ -489,6 +490,8 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     }
 
     public void desativarCampos(){
+        btnAlterar.setEnabled(false);
+        btnExcluir.setEnabled(false);
         txtId.setEnabled(false);
         txtNome.setEnabled(false);
         cbxCategoria.setEnabled(false);
@@ -511,6 +514,8 @@ public class ProdutoView extends javax.swing.JInternalFrame {
    
     public void prepararSalvareCancelar() {
        btnNovo.setEnabled(true);
+       btnAlterar.setEnabled(true);
+       btnExcluir.setEnabled(true);
        btnSalvar.setEnabled(false);
        btnCancelar.setEnabled(false);
        tblProduto.setEnabled(true);
@@ -1581,6 +1586,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
     prepararAlterar();
     ativarCampos();
+    jTabbedPane1.setSelectedIndex(1);
     txtNome.requestFocusInWindow(); 
     }//GEN-LAST:event_btnAlterarActionPerformed
 
@@ -1690,8 +1696,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             atualizaTabelaMarca();
             atualizaBoxEditarMarca();
             atualizaBoxMarca();
-            btnSalvarMarca.setEnabled(false);
-            txtEditarMarca.setEnabled(false);
+            txtIdMarca.setText("");
             txtEditarMarca.setText("");
             tblMarca.clearSelection();
         }
@@ -1707,8 +1712,8 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         atualizaTabelaMarca();
         atualizaBoxEditarMarca();
         atualizaBoxMarca();
-        btnSalvarMarca.setEnabled(false);
-        txtEditarMarca.setEnabled(false);
+        txtIdMarca.setText("");
+        txtEditarMarca.setText("");
         tblMarca.clearSelection();
         }
     }//GEN-LAST:event_btnSalvarMarcaActionPerformed
@@ -1717,6 +1722,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         txtIdMarca.setText("");
         txtEditarMarca.setText("");
         tblMarca.clearSelection();
+        txtEditarMarca.requestFocusInWindow();
     }//GEN-LAST:event_btnLimparMarcaActionPerformed
 
     private void txtBuscaMarcaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscaMarcaCaretUpdate
@@ -1794,8 +1800,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
             atualizaTabelaModelo();
             atualizaBoxModelo();
-            btnSalvarModelo.setEnabled(false);
-            txtEditarModelo.setEnabled(false);
+            txtIdModelo.setText("");
             txtEditarModelo.setText("");
             tblModelo.clearSelection();
         }
@@ -1811,8 +1816,8 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
             atualizaTabelaModelo();
             atualizaBoxModelo();
-            btnSalvarModelo.setEnabled(false);
-            txtEditarModelo.setEnabled(false);
+            txtIdModelo.setText("");
+            txtEditarModelo.setText("");
             tblModelo.clearSelection();
     }
     }//GEN-LAST:event_btnSalvarModeloActionPerformed
@@ -1822,6 +1827,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         cbxEditarMarca.setSelectedIndex(0);
         txtEditarModelo.setText("");
         tblModelo.clearSelection();
+        txtEditarModelo.requestFocusInWindow();
     }//GEN-LAST:event_btnLimparModeloActionPerformed
 
     private void txtBuscaModeloCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscaModeloCaretUpdate
@@ -1879,8 +1885,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
             atualizaTabelaCategoria();
             atualizaBoxCategoria();
-            btnSalvarCategoria.setEnabled(false);
-            txtEditarCategoria.setEnabled(false);
+            txtIdCategoria.setText("");
             txtEditarCategoria.setText("");
             tblCategoria.clearSelection();
         }
@@ -1895,8 +1900,8 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         }
         atualizaTabelaCategoria();
         atualizaBoxCategoria();
-        btnSalvarCategoria.setEnabled(false);
-        txtEditarCategoria.setEnabled(false);
+        txtIdCategoria.setText("");
+        txtEditarCategoria.setText("");
         tblCategoria.clearSelection();
         }
     }//GEN-LAST:event_btnSalvarCategoriaActionPerformed
@@ -1905,6 +1910,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         txtIdCategoria.setText("");
         txtEditarCategoria.setText("");
         tblCategoria.clearSelection();
+        txtEditarCategoria.requestFocusInWindow();
     }//GEN-LAST:event_btnLimparCategoriaActionPerformed
 
     private void txtBuscaCategoriaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscaCategoriaCaretUpdate

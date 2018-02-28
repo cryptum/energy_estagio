@@ -44,12 +44,12 @@ public class SituacaoDaEmpresaDao {
         return listavenda;
     }
     
-    public List<VendaM> BuscaTotalVendaMes(String data1, String data2) throws SQLException{
+    public List<VendaM> BuscaTotalVendaMes(String de, String ate) throws SQLException{
         List<VendaM> listavenda = new ArrayList<>();
         sql = "SELECT id, idcliente, idfuncionario, DATE_FORMAT( data,\"%d/%m/%Y\") AS data, SUM(totalvenda) As totalvenda, formapagamento FROM venda WHERE data >= (?) and data <= (?)";
         pst = Conexao.getInstance().prepareStatement(sql);
-        pst.setString(1, data1);
-        pst.setString(2, data2);
+        pst.setString(1, de);
+        pst.setString(2, ate);
         pst.execute();
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
@@ -89,16 +89,39 @@ public class SituacaoDaEmpresaDao {
     
     public List<VendaMLM> BuscaTotalVendaMLMes(String de, String ate) throws SQLException{
         List<VendaMLM> listavenda = new ArrayList<>();
-        sql = "select id, idfuncionario, idproduto, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario, rastreio, detalhes from VendaML where Data >= STR_TO_DATE( ?, \"%d/%m/%Y\" ) and Data <= STR_TO_DATE( ?, \"%d/%m/%Y\" )";
+        sql = "select id, idfuncionario, idproduto, SUM(TotalVenda) AS TotalVenda, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario, rastreio, detalhes from VendaML WHERE data >= (?) and data <= (?)";
         pst = Conexao.getInstance().prepareStatement(sql);
-        ResultSet rs = pst.executeQuery();
         pst.setString(1, de);
         pst.setString(2, ate);
+        ResultSet rs = pst.executeQuery();
         while(rs.next()){
             listavenda.add(new VendaMLM(
                         rs.getInt("id"),
                         funcionariodao.busca(rs.getInt("idfuncionario")),
                         produtodao.busca(rs.getInt("idproduto")),
+                        rs.getFloat("TotalVenda"),
+                        rs.getString("data"),
+                        rs.getString("horario"),
+                        rs.getString("rastreio"),
+                        rs.getString("detalhes")));
+        }
+        pst.close();
+    return listavenda;
+    }
+    
+    public List<VendaMLM> BuscaTotalVendaMLAno(String ano1, String ano2) throws SQLException{
+        List<VendaMLM> listavenda = new ArrayList<>();
+        sql = "select id, idfuncionario, idproduto, SUM(TotalVenda) AS TotalVenda, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario, rastreio, detalhes from VendaML WHERE data >= (?) and data <= (?)";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setString(1, ano1);
+        pst.setString(2, ano2);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+            listavenda.add(new VendaMLM(
+                        rs.getInt("id"),
+                        funcionariodao.busca(rs.getInt("idfuncionario")),
+                        produtodao.busca(rs.getInt("idproduto")),
+                        rs.getFloat("TotalVenda"),
                         rs.getString("data"),
                         rs.getString("horario"),
                         rs.getString("rastreio"),

@@ -121,7 +121,7 @@
                       <Table columnCount="3" rowCount="0">
                         <Column editable="true" title="Nome" type="java.lang.Object"/>
                         <Column editable="true" title="Quantidade" type="java.lang.Object"/>
-                        <Column editable="true" title="Valor M&#xe1;ximo" type="java.lang.Object"/>
+                        <Column editable="true" title="Valor M&#xed;nimo" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -795,6 +795,7 @@
                         </Property>
                       </Properties>
                       <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtCodigodeBarrasMouseClicked"/>
                         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCodigodeBarrasKeyPressed"/>
                       </Events>
                     </Component>
@@ -920,7 +921,7 @@
                 </Container>
                 <Component class="javax.swing.JButton" name="btnNovo">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Novo"/>
+                    <Property name="text" type="java.lang.String" value="Limpar"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNovoActionPerformed"/>

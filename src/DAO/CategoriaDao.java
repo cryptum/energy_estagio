@@ -13,28 +13,28 @@ import java.util.List;
  */
 public class CategoriaDao {
     
-    public void salvar (CategoriaM caregoria) throws SQLException{
+    public void salvar (CategoriaM categoria) throws SQLException{
         PreparedStatement pst;
         String sql;
         sql = "insert into Categoria values (?,?)";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1,0);
-        pst.setString(2, caregoria.getNome());         
+        pst.setString(2, categoria.getNome());         
         pst.execute();
         pst.close();
     }
     
-    public void excluir(CategoriaM caregoria) throws SQLException{
+    public void excluir(CategoriaM categoria) throws SQLException{
         PreparedStatement pst;
         String sql;
         sql = "delete from Categoria where id = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
-        pst.setInt(1, caregoria.getId());
+        pst.setInt(1, categoria.getId());
         pst.execute();
         pst.close();
     }
       
-    public void alterar(CategoriaM caregoria) throws SQLException{
+    public void alterar(CategoriaM categoria) throws SQLException{
         PreparedStatement pst;
         String sql;
         sql = "update Categoria set "
@@ -42,8 +42,8 @@ public class CategoriaDao {
 
                         + "where id = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
-        pst.setString(1, caregoria.getNome());
-        pst.setInt(11,caregoria.getId());
+        pst.setString(1, categoria.getNome());
+        pst.setInt(2,categoria.getId());
         pst.execute();
         pst.close();
      }
@@ -68,35 +68,35 @@ public class CategoriaDao {
     public CategoriaM busca(int id) throws SQLException{
         PreparedStatement pst;
         String sql;
-        CategoriaM caregoria = null;        
+        CategoriaM categoria = null;        
         sql = "select * from Categoria where id = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, id);
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
-            caregoria = new CategoriaM(
+            categoria = new CategoriaM(
                             rs.getInt("id"),
                             rs.getString("nome"));
         }
         pst.close();
-        return caregoria;
+        return categoria;
     }
     
     public CategoriaM buscaNome(String nome) throws SQLException{
         PreparedStatement pst;
         String sql;
-        CategoriaM caregoria = null;        
+        CategoriaM categoria = null;        
         sql = "select * from Categoria where nome = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, nome);
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
-            caregoria = new CategoriaM(
+            categoria = new CategoriaM(
                             rs.getInt("id"),
                             rs.getString("nome"));
         }
         pst.close();
-        return caregoria;
+        return categoria;
     }
     
     public List<CategoriaM> buscaNomeLista(String Nome) throws SQLException{

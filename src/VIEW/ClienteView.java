@@ -168,6 +168,8 @@ public class ClienteView extends javax.swing.JInternalFrame {
     }
 
     public void desativarCampos(){
+        btnAlterar.setEnabled(false);
+        btnExcluir.setEnabled(false);
         txtId.setEnabled(false);
         txtNome.setEnabled(false);
         txtRg.setEnabled(false);
@@ -194,6 +196,8 @@ public class ClienteView extends javax.swing.JInternalFrame {
    
     public void prepararSalvareCancelar() {
        btnNovo.setEnabled(true);
+       btnAlterar.setEnabled(true);
+       btnExcluir.setEnabled(true);
        btnSalvar.setEnabled(false);
        btnCancelar.setEnabled(false);
        tblCliente.setEnabled(true);

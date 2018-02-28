@@ -167,11 +167,11 @@ public class VendaViewML extends javax.swing.JInternalFrame {
             dados[i][0] = String.valueOf(produto.getId());
             dados[i][1] = produto.getNome();
             dados[i][2] = String.valueOf(produto.getQuantidade());
-            dados[i][3] = String.valueOf(produto.getValorMax());
+            dados[i][3] = String.valueOf(produto.getValorMini());
 
         i++;
         }
-        String tituloColuna[] = {"ID", "Nome","Quantidade","Valor Máximo"};
+        String tituloColuna[] = {"ID", "Nome","Quantidade","Valor Mínimo"};
         DefaultTableModel tabelaproduto = new DefaultTableModel();
         tabelaproduto.setDataVector(dados, tituloColuna);
         tblProdutoDialog.setModel(new DefaultTableModel(dados, tituloColuna) {
@@ -213,11 +213,11 @@ public class VendaViewML extends javax.swing.JInternalFrame {
             dados[i][0] = String.valueOf(produto.getId());
             dados[i][1] = produto.getNome();
             dados[i][2] = String.valueOf(produto.getQuantidade());
-            dados[i][3] = String.valueOf(produto.getValorMax());
+            dados[i][3] = String.valueOf(produto.getValorMini());
 
         i++;
         }
-        String tituloColuna[] = {"ID", "Nome","Quantidade","Valor Máximo"};
+        String tituloColuna[] = {"ID", "Nome","Quantidade","Valor Mínimo"};
         DefaultTableModel tabelaproduto = new DefaultTableModel();
         tabelaproduto.setDataVector(dados, tituloColuna);
         tblProdutoDialog.setModel(new DefaultTableModel(dados, tituloColuna) {
@@ -296,20 +296,12 @@ public class VendaViewML extends javax.swing.JInternalFrame {
     public void limparCampos(){
         lblTOTAL.setText("");
         txtIDIten.setText("");
+        txtIdProduto.setText("");
+        txtproduto.setText("");
         txtCodigodeBarras.setText("");
     }
    
-    public void ativarCampos(){
-        txtCodigodeBarras.setEnabled(true);
-
-    }
-
-    public void desativarCampos(){
-        //txtCodigodeBarras.setEnabled(false);
-    }
-   
     public void prepararNovo() {
-       btnNovo.setEnabled(false);
        tblVenda.setEnabled(false);
        tblVenda.clearSelection();
     }
@@ -396,7 +388,7 @@ public class VendaViewML extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Nome", "Quantidade", "Valor Máximo"
+                "Nome", "Quantidade", "Valor Mínimo"
             }
         ));
         tblProdutoDialog.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -632,6 +624,11 @@ public class VendaViewML extends javax.swing.JInternalFrame {
         txtCodigodeBarras.setBackground(new java.awt.Color(245, 245, 245));
         txtCodigodeBarras.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         txtCodigodeBarras.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
+        txtCodigodeBarras.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtCodigodeBarrasMouseClicked(evt);
+            }
+        });
         txtCodigodeBarras.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtCodigodeBarrasKeyPressed(evt);
@@ -773,7 +770,7 @@ public class VendaViewML extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        btnNovo.setText("Novo");
+        btnNovo.setText("Limpar");
         btnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNovoActionPerformed(evt);
@@ -888,10 +885,11 @@ public class VendaViewML extends javax.swing.JInternalFrame {
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         limparCampos();
         prepararNovo();
-        ativarCampos();
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnAddItemVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddItemVendasActionPerformed
+        try{
+            funcionario = funcionariodao.buscaNome(String.valueOf(cbxFuncionario.getSelectedItem()));
         if(txtproduto.getText().isEmpty() || txtIdProduto.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Selecione primeiro um produto! ","erro", JOptionPane.WARNING_MESSAGE);
             txtproduto.setText("");
@@ -900,27 +898,27 @@ public class VendaViewML extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Quantidade ultrapassa o estoque! ","erro", JOptionPane.WARNING_MESSAGE);
         }else{     
             vendaml = new VendaMLM();
-            funcionario.setId(1);
             vendaml.setIdFuncionario(funcionario);
             produto.setId(Integer.valueOf(txtIdProduto.getText()));
             vendaml.setIdProduto(produto);
+            vendaml.setTotalVenda(produto.getValorMini());
             vendaml.setData(new SimpleDateFormat("dd/MM/yyyy").format(new Date(System.currentTimeMillis())));
             vendaml.setHorario(new SimpleDateFormat("HH:mm").format(new Date(System.currentTimeMillis())));
             vendaml.setRastreio("Sem Código");
-            vendaml.setDetalhes("batata");
-            try{
+            vendaml.setDetalhes("Sem Detalhes");
+           
                 vendamldao.salvar(vendaml);
                 JOptionPane.showMessageDialog(null, "Gravado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-            }catch(SQLException ex){
-                JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
-            }
+            
             ListaTabelaProduto.add(vendaml);
             atualizaTabelaItemVenda();
             atualizaTabelaVenda();
             prepararSalvareCancelar();
-            desativarCampos();
             limparCampos();
         }
+        }catch(SQLException ex){
+                JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+            }
     }//GEN-LAST:event_btnAddItemVendasActionPerformed
 
     private void tblProdutoDialogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProdutoDialogMouseClicked
@@ -931,11 +929,12 @@ public class VendaViewML extends javax.swing.JInternalFrame {
         produto = new ProdutoM();
         produto.setId(Integer.parseInt(txtIdProduto.getText()));
         produto.setNome(txtproduto.getText());
+        produto.setValorMini(Float.valueOf(tblProdutoDialog.getValueAt(tblProdutoDialog.getSelectedRow(), 3).toString()));
         ProdutoDialog.dispose();
-        txtCodigodeBarras.setText("1");
     }//GEN-LAST:event_tblProdutoDialogMouseClicked
 
     private void txtprodutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtprodutoMouseClicked
+       txtCodigodeBarras.setText("");
        ProdutoDialog.setVisible(true);
        ProdutoDialog.setLocationRelativeTo(null);
        atualizaTabelaProdutoDialog();
@@ -990,29 +989,35 @@ public class VendaViewML extends javax.swing.JInternalFrame {
                     Logger.getLogger(VendaViewML.class.getName()).log(Level.SEVERE, null, ex);
                 }
         if(existe == false){
-            JOptionPane.showMessageDialog(null, "Selecione primeiro um produto! ","erro", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Selecione primeiro um Produto! ","erro", JOptionPane.WARNING_MESSAGE);
             txtproduto.setText("");
             txtIdProduto.setText("");
+        }if(cbxFuncionario.getSelectedIndex()== 0){
+            JOptionPane.showMessageDialog(null, "Selecione primeiro um Funcionario! ","erro", JOptionPane.WARNING_MESSAGE);
         }else{     
             vendaml = new VendaMLM();
             funcionario = new FuncionarioM();
             produto = new ProdutoM();
                 try {
                     produto = produtoDao.buscacodigo2(txtCodigodeBarras.getText());
+                    
                 } catch (SQLException ex) {
                     Logger.getLogger(VendaViewML.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "Produto não encontrado");
                 }
                 try {
                     funcionario = funcionariodao.buscaNome(String.valueOf(cbxFuncionario.getSelectedItem()));
                 } catch (SQLException ex) {
                     Logger.getLogger(VendaViewML.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "Funcionario não encontrado");
                 }
             vendaml.setIdFuncionario(funcionario);
             vendaml.setIdProduto(produto);
+            vendaml.setTotalVenda(produto.getValorMini());
             vendaml.setData(new SimpleDateFormat("dd/MM/yyyy").format(new Date(System.currentTimeMillis())));
-            vendaml.setHorario(new SimpleDateFormat("hh:mm").format(new Date(System.currentTimeMillis())));
+            vendaml.setHorario(new SimpleDateFormat("HH:mm").format(new Date(System.currentTimeMillis())));
             vendaml.setRastreio("Sem Código");
-            vendaml.setDetalhes("batata");
+            vendaml.setDetalhes("Sem Detalhes");
                 try{
                     vendamldao.salvar(vendaml);
                     JOptionPane.showMessageDialog(null, "Gravado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
@@ -1023,11 +1028,14 @@ public class VendaViewML extends javax.swing.JInternalFrame {
             atualizaTabelaItemVenda();
             atualizaTabelaVenda();
             prepararSalvareCancelar();
-            desativarCampos();
             limparCampos();
         }
     }
     }//GEN-LAST:event_txtCodigodeBarrasKeyPressed
+
+    private void txtCodigodeBarrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCodigodeBarrasMouseClicked
+        txtproduto.setText("");
+    }//GEN-LAST:event_txtCodigodeBarrasMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog FuncionarioDialog;

@@ -1764,6 +1764,7 @@ public class VendaView extends javax.swing.JInternalFrame {
             prepararSalvareCancelar();
             desativarCampos();
             limparCampos();
+            FinalizaDialog.dispose();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void txtBuscaFuncionarioDialogCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscaFuncionarioDialogCaretUpdate
