@@ -429,10 +429,10 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_RelatoriosMouseReleased
 
     private void Relatorios1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Relatorios1MouseClicked
-            SituacaoDaEmpresa situ = new SituacaoDaEmpresa();
-            pnlPrincipal.removeAll();
-            pnlPrincipal.add(situ);
-            pnlPrincipal.updateUI();
+        SituacaoDaEmpresa situ = new SituacaoDaEmpresa();
+        pnlPrincipal.removeAll();
+        pnlPrincipal.add(situ);
+        pnlPrincipal.updateUI();
     }//GEN-LAST:event_Relatorios1MouseClicked
 
     private void Relatorios1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Relatorios1MouseEntered

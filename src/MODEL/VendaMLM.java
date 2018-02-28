@@ -11,15 +11,17 @@ public class VendaMLM {
     private int Id;
     private FuncionarioM IdFuncionario;
     private ProdutoM IdProduto;
+    private float TotalVenda;
     private String Data;
     private String Horario;
     private String Rastreio;
     private String Detalhes;
 
-    public VendaMLM(int Id, FuncionarioM IdFuncionario, ProdutoM IdProduto, String Data, String Horario, String Rastreio, String Detalhes) {
+    public VendaMLM(int Id, FuncionarioM IdFuncionario, ProdutoM IdProduto, float TotalVenda, String Data, String Horario, String Rastreio, String Detalhes) {
         this.Id = Id;
         this.IdFuncionario = IdFuncionario;
         this.IdProduto = IdProduto;
+        this.TotalVenda = TotalVenda;
         this.Data = Data;
         this.Horario = Horario;
         this.Rastreio = Rastreio;
@@ -51,6 +53,14 @@ public class VendaMLM {
 
     public void setIdProduto(ProdutoM IdProduto) {
         this.IdProduto = IdProduto;
+    }
+
+    public float getTotalVenda() {
+        return TotalVenda;
+    }
+
+    public void setTotalVenda(float TotalVenda) {
+        this.TotalVenda = TotalVenda;
     }
 
     public String getData() {

@@ -75,7 +75,7 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
     SituacaoDaEmpresaDao situacaodao = new SituacaoDaEmpresaDao();
 
     
-    public SituacaoDaEmpresa() throws SQLException {
+    public SituacaoDaEmpresa(){
         initComponents();
         this.setVisible(true);
         String datasistema = new SimpleDateFormat("MM").format(new Date(System.currentTimeMillis()));
@@ -101,6 +101,11 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
         listaVenda = situacaodao.BuscaTotalVendaAno(data3,data4);
         for (VendaM venda : listaVenda) {
             txtVendaAno.setText(String.valueOf(venda.getTotalVendas()));
+        }
+        
+        ListaVendaML = situacaodao.BuscaTotalVendaMLMes(data1,data2);
+        for (VendaM venda : listaVenda) {
+            txtVendaMes.setText(String.valueOf(venda.getTotalVendas()));
         }
     }
     
