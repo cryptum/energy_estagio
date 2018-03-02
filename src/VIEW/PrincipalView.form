@@ -217,7 +217,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/IMG/Boss.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Vendedores"/>
+            <Property name="text" type="java.lang.String" value="Funcionario"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>

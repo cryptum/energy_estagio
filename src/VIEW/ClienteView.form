@@ -930,10 +930,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel15" min="-2" pref="92" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="775" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="jLabel15" alignment="0" pref="869" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">

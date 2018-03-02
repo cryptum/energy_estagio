@@ -10,12 +10,14 @@ public class DespesasM {
     private String Descricao;
     private float Valor;
     private String Data;
+    private String Hora;
 
-    public DespesasM(int Id, String Descricao, float Valor, String Data) {
+    public DespesasM(int Id, String Descricao, float Valor, String Data, String Hora) {
         this.Id = Id;
         this.Descricao = Descricao;
         this.Valor = Valor;
         this.Data = Data;
+        this.Hora = Hora;
     }
 
     public DespesasM() {
@@ -53,5 +55,14 @@ public class DespesasM {
         this.Data = Data;
     }
 
+    public String getHora() {
+        return Hora;
+    }
+
+    public void setHora(String Hora) {
+        this.Hora = Hora;
+    }
+
+    
     
 }

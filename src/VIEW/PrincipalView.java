@@ -180,7 +180,7 @@ public class PrincipalView extends javax.swing.JFrame {
         Vendedor.setForeground(new java.awt.Color(227, 227, 227));
         Vendedor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Vendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Boss.png"))); // NOI18N
-        Vendedor.setText("Vendedores");
+        Vendedor.setText("Funcionario");
         Vendedor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Vendedor.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         Vendedor.addMouseListener(new java.awt.event.MouseAdapter() {

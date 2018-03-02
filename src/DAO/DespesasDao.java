@@ -16,12 +16,13 @@ public class DespesasDao {
     public void salvar (DespesasM despesas) throws SQLException{
         PreparedStatement pst;
         String sql;
-        sql = "insert into Despesas values (?,?,?,?)";
+        sql = "insert into Despesas values (?,?,?,?,?)";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1,0);
         pst.setString(2, despesas.getDescricao());
         pst.setFloat(3, despesas.getValor());
         pst.setString(4, despesas.getData());
+        pst.setString(5, despesas.getHora());
         pst.execute();
         pst.close();
     }
@@ -43,13 +44,15 @@ public class DespesasDao {
                         + "descricao = ?, "
                         + "valor = ?, "
                         + "data = ?, "
+                        + "hora = ?, "
 
                         + "where id = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, despesas.getDescricao());
         pst.setFloat(2, despesas.getValor());
         pst.setString(3, despesas.getData());
-        pst.setInt(4,despesas.getId());
+        pst.setString(4, despesas.getHora());
+        pst.setInt(5,despesas.getId());
         pst.execute();
         pst.close();
      }
@@ -67,7 +70,8 @@ public class DespesasDao {
                             rs.getInt("Id"),
                             rs.getString("Descricao"),
                             rs.getFloat("Valor"),
-                            rs.getString("Data")));
+                            rs.getString("Data"),
+                            rs.getString("Hora")));
         }
         pst.close();
         return listaDespesas;
@@ -86,7 +90,8 @@ public class DespesasDao {
                             rs.getInt("Id"),
                             rs.getString("Descricao"),
                             rs.getFloat("Valor"),
-                            rs.getString("Data"));
+                            rs.getString("Data"),
+                            rs.getString("Hora"));
         }
         pst.close();
         return despesas;
@@ -105,7 +110,8 @@ public class DespesasDao {
                             rs.getInt("Id"),
                             rs.getString("Descricao"),
                             rs.getFloat("Valor"),
-                            rs.getString("Data"));
+                            rs.getString("Data"),
+                            rs.getString("Hora"));
         }
         pst.close();
         return despesas;
@@ -126,7 +132,8 @@ public class DespesasDao {
                             rs.getInt("Id"),
                             rs.getString("Descricao"),
                             rs.getFloat("Valor"),
-                            rs.getString("Data")));
+                            rs.getString("Data"),
+                            rs.getString("Hora")));
         }
 
         pst.close();

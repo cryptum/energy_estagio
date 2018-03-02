@@ -273,10 +273,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         tblFuncionario.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
         tblFuncionario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Danilo Vieira Bernardes", "(34)3423-5123", "06/06/1997", "Frutal"},
-                {"Leandro Matias Baldo", "(34)3421-4123", "05/02/1996", "Frutal"},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Nome", "Telefone", "Nascimento", "Cidade"
@@ -290,10 +287,6 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         jScrollPane3.setViewportView(tblFuncionario);
         if (tblFuncionario.getColumnModel().getColumnCount() > 0) {
             tblFuncionario.getColumnModel().getColumn(0).setMinWidth(20);
-            tblFuncionario.getColumnModel().getColumn(0).setHeaderValue("Nome");
-            tblFuncionario.getColumnModel().getColumn(1).setHeaderValue("Telefone");
-            tblFuncionario.getColumnModel().getColumn(2).setHeaderValue("Nascimento");
-            tblFuncionario.getColumnModel().getColumn(3).setHeaderValue("Cidade");
         }
 
         jPanel5.setBackground(new java.awt.Color(248, 248, 248));
@@ -664,9 +657,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 756, Short.MAX_VALUE))
+            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 869, Short.MAX_VALUE)
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

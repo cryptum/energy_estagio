@@ -161,52 +161,32 @@
                           <Font name="Myanmar Text" size="12" style="1"/>
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="4" rowCount="4">
-                            <Column editable="true" title="Nome" type="java.lang.Object">
-                              <Data value="Danilo Vieira Bernardes"/>
-                              <Data value="Leandro Matias Baldo"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                            </Column>
-                            <Column editable="true" title="Telefone" type="java.lang.Object">
-                              <Data value="(34)3423-5123"/>
-                              <Data value="(34)3421-4123"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                            </Column>
-                            <Column editable="true" title="Nascimento" type="java.lang.Object">
-                              <Data value="06/06/1997"/>
-                              <Data value="05/02/1996"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                            </Column>
-                            <Column editable="true" title="Cidade" type="java.lang.Object">
-                              <Data value="Frutal"/>
-                              <Data value="Frutal"/>
-                              <Data value="null"/>
-                              <Data value="null"/>
-                            </Column>
+                          <Table columnCount="4" rowCount="0">
+                            <Column editable="true" title="Nome" type="java.lang.Object"/>
+                            <Column editable="true" title="Telefone" type="java.lang.Object"/>
+                            <Column editable="true" title="Nascimento" type="java.lang.Object"/>
+                            <Column editable="true" title="Cidade" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                           <TableColumnModel selectionModel="0">
                             <Column maxWidth="-1" minWidth="20" prefWidth="-1" resizable="true">
-                              <Title value="Nome"/>
+                              <Title/>
                               <Editor/>
                               <Renderer/>
                             </Column>
                             <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                              <Title value="Telefone"/>
+                              <Title/>
                               <Editor/>
                               <Renderer/>
                             </Column>
                             <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                              <Title value="Nascimento"/>
+                              <Title/>
                               <Editor/>
                               <Renderer/>
                             </Column>
                             <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                              <Title value="Cidade"/>
+                              <Title/>
                               <Editor/>
                               <Renderer/>
                             </Column>
@@ -848,10 +828,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel15" min="-2" pref="111" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="756" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="jLabel15" alignment="0" pref="869" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
