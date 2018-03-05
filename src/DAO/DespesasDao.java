@@ -16,7 +16,7 @@ public class DespesasDao {
     public void salvar (DespesasM despesas) throws SQLException{
         PreparedStatement pst;
         String sql;
-        sql = "insert into Despesas values (?,?,?,?,?)";
+        sql = "insert into Despesas set id = ?, descricao = ?, valor = ?, Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ), hora = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1,0);
         pst.setString(2, despesas.getDescricao());
@@ -43,7 +43,7 @@ public class DespesasDao {
         sql = "update Despesas set "
                         + "descricao = ?, "
                         + "valor = ?, "
-                        + "data = ?, "
+                        + "Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ), "
                         + "hora = ?, "
 
                         + "where id = ?";
@@ -61,7 +61,7 @@ public class DespesasDao {
         PreparedStatement pst;
         String sql;
         List<DespesasM> listaDespesas = new ArrayList<>();
-        sql = "select * from Despesas";
+        sql = "select Id, Descricao, Valor,  Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ) AS Data, Hora from Despesas";
         pst = Conexao.getInstance().prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
         
@@ -81,7 +81,7 @@ public class DespesasDao {
         PreparedStatement pst;
         String sql;
         DespesasM despesas = null;        
-        sql = "select * from Despesas where id = ?";
+        sql = "select Id, Descricao, Valor,  Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ) AS Data, Hora from Despesas where id = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, id);
         ResultSet rs = pst.executeQuery();
@@ -101,7 +101,7 @@ public class DespesasDao {
         PreparedStatement pst;
         String sql;
         DespesasM despesas = null;        
-        sql = "select * from Despesas where nome = ?";
+        sql = "select Id, Descricao, Valor,  Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ) AS Data, Hora from Despesas where nome = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, nome);
         ResultSet rs = pst.executeQuery();
@@ -122,7 +122,7 @@ public class DespesasDao {
         String sql;
         List<DespesasM> listaDespesas = new ArrayList<>();
         String name = "%"+Nome+"%";
-        sql = "select * from Despesas where nome like ?";
+        sql = "select Id, Descricao, Valor,  Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ) AS Data, Hora from Despesas where nome like ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, name);
         pst.execute();

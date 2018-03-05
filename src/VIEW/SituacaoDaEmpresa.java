@@ -23,6 +23,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 
 
 
@@ -80,6 +83,8 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
         data2 = ano+"/"+txtNumeroMes.getText()+"/"+"31";
         data3 = ano+"/01/01";
         data4 = ano+"/12/31";
+        
+        //Atualiza Venda
         listaVenda = situacaodao.BuscaTotalVendaMes(data1,data2);
         listaVenda.forEach((vendames) -> {
             txtVendaMes.setText(String.valueOf(vendames.getTotalVendas()));
@@ -89,7 +94,8 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
         listaVenda.forEach((vendaano) -> {
             txtVendaAno.setText(String.valueOf(vendaano.getTotalVendas()));
         });
-
+        
+        //Atualiza Venda Mercado livre
         ListaVendaML = situacaodao.BuscaTotalVendaMLMes(data1,data2);
         ListaVendaML.forEach((vendamlmes) -> {
             txtVendaMLMes.setText(String.valueOf(vendamlmes.getTotalVenda()));
@@ -99,6 +105,18 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
         ListaVendaML.forEach((vendamlano) -> {
             txtVendaMLAno.setText(String.valueOf(vendamlano.getTotalVenda()));
         });
+        
+        //Atualiza Despesas
+        ListaDespesas = situacaodao.BuscaTotalDespesaMes(data1,data2);
+        ListaDespesas.forEach((despesa1mes) -> {
+            txtVendaMLMes.setText(String.valueOf(despesa1mes.getValor()));
+        });
+        
+        ListaDespesas = situacaodao.BuscaTotalDespesaAno(data3,data4);
+        ListaDespesas.forEach((despesa1ano) -> {
+            txtVendaMLAno.setText(String.valueOf(despesa1ano.getValor()));
+        });
+        
     }
     
     
@@ -116,6 +134,96 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
         for (VendaM venda : listaVenda) {
             cbxAno.addItem(venda.getData());
         }
+    }
+    
+    
+    public void atualizaTabelaDespesas(){
+        despesas = new DespesasM();
+        try {
+            ListaDespesas = despesasdao.listaTodos();
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+        }
+        
+        String dados[][] = new String[ListaDespesas.size()][5];
+            int i = 0;
+            for (DespesasM despesa : ListaDespesas) {
+                dados[i][0] = String.valueOf(despesa.getId());
+                dados[i][1] = despesa.getDescricao();
+                dados[i][2] = String.valueOf(despesa.getValor());
+                dados[i][3] = despesa.getData();
+                dados[i][4] = despesa.getHora();
+
+                i++;
+            }
+            String tituloColuna[] = {"ID", "Descrição", "Valor", "Data","Hora"};
+            DefaultTableModel tabeladespesas = new DefaultTableModel();
+            tabeladespesas.setDataVector(dados, tituloColuna);
+            tblDespesas.setModel(new DefaultTableModel(dados, tituloColuna) {
+                boolean[] canEdit = new boolean[]{
+                    false, false, false, false, false, false
+                };
+
+                @Override
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            });
+
+            tblDespesas.getColumnModel().getColumn(0).setMaxWidth(0);
+            tblDespesas.getColumnModel().getColumn(0).setMinWidth(0);
+            tblDespesas.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tblDespesas.getColumnModel().getColumn(1).setPreferredWidth(300);
+            tblDespesas.getColumnModel().getColumn(2).setPreferredWidth(100);
+            
+            DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
+            centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+            tblDespesas.getColumnModel().getColumn(0).setCellRenderer(centralizado);
+            tblDespesas.setRowHeight(35);
+            tblDespesas.updateUI();
+    }
+    
+    //Atualiza Busca
+    public void atualizaTabelaDespesasBusca(){
+        despesas = new DespesasM();
+
+        
+        String dados[][] = new String[ListaDespesas.size()][5];
+            int i = 0;
+            for (DespesasM despesa : ListaDespesas) {
+                dados[i][0] = String.valueOf(despesa.getId());
+                dados[i][1] = despesa.getDescricao();
+                dados[i][2] = String.valueOf(despesa.getValor());
+                dados[i][3] = despesa.getData();
+                dados[i][4] = despesa.getHora();
+
+                i++;
+            }
+            String tituloColuna[] = {"ID", "Descrição", "Valor", "Data","Hora"};
+            DefaultTableModel tabeladespesas = new DefaultTableModel();
+            tabeladespesas.setDataVector(dados, tituloColuna);
+            tblDespesas.setModel(new DefaultTableModel(dados, tituloColuna) {
+                boolean[] canEdit = new boolean[]{
+                    false, false, false, false, false, false
+                };
+
+                @Override
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            });
+
+            tblDespesas.getColumnModel().getColumn(0).setMaxWidth(0);
+            tblDespesas.getColumnModel().getColumn(0).setMinWidth(0);
+            tblDespesas.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tblDespesas.getColumnModel().getColumn(1).setPreferredWidth(300);
+            tblDespesas.getColumnModel().getColumn(2).setPreferredWidth(100);
+            
+            DefaultTableCellRenderer centralizado = new DefaultTableCellRenderer();
+            centralizado.setHorizontalAlignment(SwingConstants.CENTER);
+            tblDespesas.getColumnModel().getColumn(0).setCellRenderer(centralizado);
+            tblDespesas.setRowHeight(35);
+            tblDespesas.updateUI();
     }
    
     
@@ -816,7 +924,7 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
     private void btnSalvarDespesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarDespesaActionPerformed
             despesas = new DespesasM();
 		String custo = txtValorDespesa.getText();
-                String valor = valor.replaceAll(",", ".");
+                String valor = custo.replaceAll(",", ".");
                 
 
         if(txtNomeDespesa.getText().isEmpty()){
@@ -826,47 +934,37 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
         else if(txtIdDespesas.getText().isEmpty()){
             
             //Salva tudo digitado no campo de texto para o objeto e salva no banco de dados
-            despesas.setId(Integer.valueOf(txtIdDespesas.getText()));
-            despesas.setDescricao(txtNomeDespesa);
-            despesas.setIdModelo(modelo);
-            despesas.setNome(txtNome.getText());
-            despesas.setValorCusto(Float.valueOf(Custo));
-            despesas.setValorMax(Float.valueOf(Maximo));
-            produto.setValorMini(Float.valueOf(Minimo));
-            produto.setCodigo(txtCodigo.getText());
-            produto.setQuantidade(Integer.valueOf(txtQuantidade.getText()));
+            despesas.setDescricao(txtNomeDespesa.getText());
+            despesas.setValor(Float.valueOf(valor));
+            despesas.setData(txtDataDespesa.getText());
+            despesas.setHora(txtHoraDespesa.getText());
             try{
                 produtodao.salvar(produto);
                 JOptionPane.showMessageDialog(null, "Gravado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
             }catch(SQLException ex){
                 JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
             }
-            atualizaTabelaProduto();
-            prepararSalvareCancelar();
-            desativarCampos();
-            limparCampos();
+            atualizaTabelaDespesas();
+            //prepararSalvareCancelar();
+            //desativarCampos();
+            //limparCampos();
         }
         else{
             //Salva tudo que foi alterado nos campos de texto para o objeto e salva no banco de dados
-            produto.setId(Integer.valueOf(txtId.getText()));
-            produto.setIdCategoria(categoria);
-            produto.setIdMarca(marca);
-            produto.setIdModelo(modelo);
-            produto.setNome(txtNome.getText());
-            produto.setValorCusto(Float.valueOf(Custo));
-            produto.setValorMax(Float.valueOf(Maximo));
-            produto.setValorMini(Float.valueOf(Minimo));
-            produto.setCodigo(txtCodigo.getText());
-            produto.setQuantidade(Integer.valueOf(txtQuantidade.getText()));
+            despesas.setId(Integer.valueOf(txtIdDespesas.getText()));
+            despesas.setDescricao(txtNomeDespesa.getText());
+            despesas.setValor(Float.valueOf(valor));
+            despesas.setData(txtDataDespesa.getText());
+            despesas.setHora(txtHoraDespesa.getText());
         try{
             produtodao.alterar(produto);
             JOptionPane.showMessageDialog(null, "Alterado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);       
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
         }
-        atualizaTabelaProduto();
-        prepararSalvareCancelar();
-        desativarCampos();
+        atualizaTabelaDespesas();
+        //prepararSalvareCancelar();
+        //desativarCampos();
         }
     }//GEN-LAST:event_btnSalvarDespesaActionPerformed
 
@@ -878,18 +976,18 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnLimparDespesaActionPerformed
 
     private void txtBuscaCategoriaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtBuscaCategoriaCaretUpdate
-        listaCategoria = null;
+        ListaDespesas = null;
         if(txtBuscaCategoria.getText().equals("")){
-            atualizaTabelaMarca();
+            atualizaTabelaDespesas();
         }else{
             try {
-                listaCategoria = categoriadao.buscaNomeLista(txtBuscaCategoria.getText());
+                ListaDespesas = despesasdao.buscaNomeLista(txtBuscaCategoria.getText());
 
-                if(listaCategoria == null){
+                if(ListaDespesas == null){
                     JOptionPane.showMessageDialog(null, "Nenhum Categoria encontrado!","", JOptionPane.WARNING_MESSAGE);
-                    atualizaTabelaMarca();
+                    atualizaTabelaDespesas();
                 }else{
-                    atualizaTabelaCategoriaBusca();
+                    atualizaTabelaDespesasBusca();
                 }
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);

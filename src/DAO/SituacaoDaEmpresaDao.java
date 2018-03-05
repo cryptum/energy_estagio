@@ -1,5 +1,6 @@
 package DAO;
 
+import MODEL.DespesasM;
 import MODEL.VendaMLM;
 import MODEL.ProdutoM;
 import MODEL.VendaM;
@@ -23,6 +24,7 @@ public class SituacaoDaEmpresaDao {
     CategoriaDao categoriadao = new CategoriaDao();
     MarcaDao marcadao = new MarcaDao();
     ModeloDao modelodao = new ModeloDao();
+    DespesasDao despesasdao = new DespesasDao();
     
     public List<VendaM> buscaDataSituacao() throws SQLException{
         List<VendaM> listavenda = new ArrayList<>();
@@ -129,5 +131,44 @@ public class SituacaoDaEmpresaDao {
         }
         pst.close();
     return listavenda;
+    }
+    
+    
+    public List<DespesasM> BuscaTotalDespesaMes(String de, String ate) throws SQLException{
+        List<DespesasM> listaDespesas = new ArrayList<>();
+        sql = "select id, Descricao, SUM(Valor) AS Valor, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario from Despesas WHERE data >= (?) and data <= (?)";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setString(1, de);
+        pst.setString(2, ate);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+            listaDespesas.add(new DespesasM(
+                        rs.getInt("id"),
+                        rs.getString("Descricao"),
+                        rs.getFloat("Valor"),
+                        rs.getString("Data"),
+                        rs.getString("Hora")));
+        }
+        pst.close();
+    return listaDespesas;
+    }
+    
+    public List<DespesasM> BuscaTotalDespesaAno(String ano1, String ano2) throws SQLException{
+        List<DespesasM> listaDespesas = new ArrayList<>();
+        sql = "select id, Descricao, SUM(Valor) AS Valor, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario from Despesas WHERE data >= (?) and data <= (?)";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setString(1, ano1);
+        pst.setString(2, ano2);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+            listaDespesas.add(new DespesasM(
+                        rs.getInt("id"),
+                        rs.getString("Descricao"),
+                        rs.getFloat("Valor"),
+                        rs.getString("Data"),
+                        rs.getString("Hora")));
+        }
+        pst.close();
+    return listaDespesas;
     }
 }
