@@ -4,7 +4,7 @@ package MODEL;
  *
  * @author Danilo-NOTE
  */
-public class DespesasM {
+public class DespesaM {
     
     private int Id;
     private String Descricao;
@@ -12,7 +12,7 @@ public class DespesasM {
     private String Data;
     private String Hora;
 
-    public DespesasM(int Id, String Descricao, float Valor, String Data, String Hora) {
+    public DespesaM(int Id, String Descricao, float Valor, String Data, String Hora) {
         this.Id = Id;
         this.Descricao = Descricao;
         this.Valor = Valor;
@@ -20,7 +20,7 @@ public class DespesasM {
         this.Hora = Hora;
     }
 
-    public DespesasM() {
+    public DespesaM() {
     }
 
     public int getId() {

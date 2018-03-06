@@ -1,7 +1,8 @@
 package VIEW;
 
 import DAO.ClienteDao;
-import DAO.DespesasDao;
+import DAO.DespesaDao;
+import DAO.EntradadeProdutoDao;
 import DAO.FuncionarioDao;
 import DAO.MarcaDao;
 import DAO.ModeloDao;
@@ -10,7 +11,8 @@ import DAO.SituacaoDaEmpresaDao;
 import DAO.VendaDao;
 import DAO.VendaMLDao;
 import MODEL.ClienteM;
-import MODEL.DespesasM;
+import MODEL.DespesaM;
+import MODEL.EntradadeProdutoM;
 import MODEL.FuncionarioM;
 import MODEL.ProdutoM;
 import MODEL.VendaM;
@@ -36,7 +38,7 @@ import javax.swing.table.DefaultTableModel;
 public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Relatorio_DO_CU_QUENTE
+     * Creates new form SituacaoDaEmpresa_DO_CU_QUENTE
      */
     
     ClienteM cliente = new ClienteM();
@@ -60,9 +62,13 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
     List<VendaMLM> ListaVendaML = new ArrayList<>();
     SituacaoDaEmpresaDao situacaodao = new SituacaoDaEmpresaDao();
     
-    DespesasM despesas = new DespesasM();
-    DespesasDao despesasdao = new DespesasDao();
-    List<DespesasM> ListaDespesas = new ArrayList<>();
+    DespesaM despesas = new DespesaM();
+    DespesaDao despesasdao = new DespesaDao();
+    List<DespesaM> ListaDespesas = new ArrayList<>();
+    
+    EntradadeProdutoM entradadeproduto = new EntradadeProdutoM();
+    EntradadeProdutoDao entradadeprodutodao = new EntradadeProdutoDao();
+    List<EntradadeProdutoM> ListaEntradadeProduto = new ArrayList<>();
 
     
     public SituacaoDaEmpresa(){
@@ -117,6 +123,17 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
             txtDespesasAno.setText(String.valueOf(despesa1ano.getValor()));
         });
         
+        //Atualiza Entrada de Produto
+        ListaEntradadeProduto = situacaodao.BuscaTotalEntradeDeProdutoMes(data1,data2);
+        ListaEntradadeProduto.forEach((entradames) -> {
+            txtEntradaMes.setText(String.valueOf(entradames.getQuantidade()));
+        });
+        
+        ListaEntradadeProduto = situacaodao.BuscaTotalEntradeDeProdutoAno(data3,data4);
+        ListaEntradadeProduto.forEach((entradaano) -> {
+            txtEntradaAno.setText(String.valueOf(entradaano.getQuantidade()));
+        });
+        
     }
     
     
@@ -138,7 +155,7 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
     
     
     public void atualizaTabelaDespesas(){
-        despesas = new DespesasM();
+        despesas = new DespesaM();
         try {
             ListaDespesas = despesasdao.listaTodos();
         }catch (SQLException ex) {
@@ -147,7 +164,7 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
         
         String dados[][] = new String[ListaDespesas.size()][5];
             int i = 0;
-            for (DespesasM despesa : ListaDespesas) {
+            for (DespesaM despesa : ListaDespesas) {
                 dados[i][0] = String.valueOf(despesa.getId());
                 dados[i][1] = despesa.getDescricao();
                 dados[i][2] = String.valueOf(despesa.getValor());
@@ -185,12 +202,12 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
     
     //Atualiza Busca
     public void atualizaTabelaDespesasBusca(){
-        despesas = new DespesasM();
+        despesas = new DespesaM();
 
         
         String dados[][] = new String[ListaDespesas.size()][5];
             int i = 0;
-            for (DespesasM despesa : ListaDespesas) {
+            for (DespesaM despesa : ListaDespesas) {
                 dados[i][0] = String.valueOf(despesa.getId());
                 dados[i][1] = despesa.getDescricao();
                 dados[i][2] = String.valueOf(despesa.getValor());
@@ -904,7 +921,7 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_sldMesStateChanged
 
     private void tblDespesasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDespesasMouseClicked
-        despesas = new DespesasM();
+        despesas = new DespesaM();
         txtIdDespesas.setText(tblDespesas.getValueAt(tblDespesas.getSelectedRow(),0).toString());
 
         try{
@@ -922,7 +939,7 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tblDespesasMouseClicked
 
     private void btnSalvarDespesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarDespesaActionPerformed
-            despesas = new DespesasM();
+            despesas = new DespesaM();
 		String custo = txtValorDespesa.getText();
                 String valor = custo.replaceAll(",", ".");
                 

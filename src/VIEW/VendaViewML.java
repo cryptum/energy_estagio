@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
 public class VendaViewML extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form CRIENTE_DO_CU_QUENTE
+     * Creates new form VendaViewML_DO_CU_QUENTE
      */
     
     ProdutoM produto = new ProdutoM();

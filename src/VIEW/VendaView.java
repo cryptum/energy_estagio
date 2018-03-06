@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 public class VendaView extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form CRIENTE_DO_CU_QUENTE
+     * Creates new form VendaView_DO_CU_QUENTE
      */
     
     ProdutoM produto = new ProdutoM();

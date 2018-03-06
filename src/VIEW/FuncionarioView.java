@@ -18,7 +18,7 @@ import util.LimiteDigitos;
 public class FuncionarioView extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form CRIENTE_DO_CU_QUENTE
+     * Creates new form Funcionario_DO_CU_QUENTE
      */
     
     FuncionarioM funcionario = new FuncionarioM();

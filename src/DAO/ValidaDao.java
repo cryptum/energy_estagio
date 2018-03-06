@@ -20,7 +20,7 @@ public class ValidaDao {
         PreparedStatement pst;
         String sql;
         ValidaM valida = null;
-           sql = "select * from Valida where id = 1";
+           sql = "select * from DataDoDia where id = 1";
            pst = Conexao.getInstance().prepareStatement(sql);
            
            ResultSet rs = pst.executeQuery();

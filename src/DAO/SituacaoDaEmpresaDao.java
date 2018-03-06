@@ -1,6 +1,7 @@
 package DAO;
 
-import MODEL.DespesasM;
+import MODEL.DespesaM;
+import MODEL.EntradadeProdutoM;
 import MODEL.VendaMLM;
 import MODEL.ProdutoM;
 import MODEL.VendaM;
@@ -24,7 +25,8 @@ public class SituacaoDaEmpresaDao {
     CategoriaDao categoriadao = new CategoriaDao();
     MarcaDao marcadao = new MarcaDao();
     ModeloDao modelodao = new ModeloDao();
-    DespesasDao despesasdao = new DespesasDao();
+    DespesaDao despesasdao = new DespesaDao();
+    EntradadeProdutoDao entradadeprodutodao = new EntradadeProdutoDao();
     
     public List<VendaM> buscaDataSituacao() throws SQLException{
         List<VendaM> listavenda = new ArrayList<>();
@@ -134,15 +136,15 @@ public class SituacaoDaEmpresaDao {
     }
     
     
-    public List<DespesasM> BuscaTotalDespesaMes(String de, String ate) throws SQLException{
-        List<DespesasM> listaDespesas = new ArrayList<>();
+    public List<DespesaM> BuscaTotalDespesaMes(String de, String ate) throws SQLException{
+        List<DespesaM> listaDespesas = new ArrayList<>();
         sql = "select id, Descricao, SUM(Valor) AS Valor, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario from Despesas WHERE data >= (?) and data <= (?)";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, de);
         pst.setString(2, ate);
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
-            listaDespesas.add(new DespesasM(
+            listaDespesas.add(new DespesaM(
                         rs.getInt("id"),
                         rs.getString("Descricao"),
                         rs.getFloat("Valor"),
@@ -153,15 +155,15 @@ public class SituacaoDaEmpresaDao {
     return listaDespesas;
     }
     
-    public List<DespesasM> BuscaTotalDespesaAno(String ano1, String ano2) throws SQLException{
-        List<DespesasM> listaDespesas = new ArrayList<>();
+    public List<DespesaM> BuscaTotalDespesaAno(String ano1, String ano2) throws SQLException{
+        List<DespesaM> listaDespesas = new ArrayList<>();
         sql = "select id, Descricao, SUM(Valor) AS Valor, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario from Despesas WHERE data >= (?) and data <= (?)";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, ano1);
         pst.setString(2, ano2);
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
-            listaDespesas.add(new DespesasM(
+            listaDespesas.add(new DespesaM(
                         rs.getInt("id"),
                         rs.getString("Descricao"),
                         rs.getFloat("Valor"),
@@ -171,4 +173,45 @@ public class SituacaoDaEmpresaDao {
         pst.close();
     return listaDespesas;
     }
+    
+    public List<EntradadeProdutoM> BuscaTotalEntradeDeProdutoMes(String de, String ate) throws SQLException{
+        List<EntradadeProdutoM> listaEntrada = new ArrayList<>();
+        sql = "select Id, IdProduto, Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ) AS Data, Hora, Count(Quantidade) AS Quantidade, Detalhes from EntradadeProduto WHERE data >= (?) and data <= (?)";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setString(1, de);
+        pst.setString(2, ate);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+            listaEntrada.add(new EntradadeProdutoM(
+                        rs.getInt("Id"),
+                            produtodao.busca(rs.getInt("IdProduto")),
+                            rs.getString("Data"),
+                            rs.getString("Hora"),
+                            rs.getInt("Quantidade"),
+                            rs.getString("Detalhes")));
+        }
+        pst.close();
+    return listaEntrada;
+    }
+    
+    public List<EntradadeProdutoM> BuscaTotalEntradeDeProdutoAno(String ano1, String ano2) throws SQLException{
+        List<EntradadeProdutoM> listaEntrada = new ArrayList<>();
+        sql = "select Id, IdProduto, Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ) AS Data, Hora, Count(Quantidade) AS Quantidade, Detalhes from EntradadeProduto WHERE data >= (?) and data <= (?)";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setString(1, ano1);
+        pst.setString(2, ano2);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()){
+            listaEntrada.add(new EntradadeProdutoM(
+                        rs.getInt("Id"),
+                            produtodao.busca(rs.getInt("IdProduto")),
+                            rs.getString("Data"),
+                            rs.getString("Hora"),
+                            rs.getInt("Quantidade"),
+                            rs.getString("Detalhes")));
+        }
+        pst.close();
+    return listaEntrada;
+    }
+
 }
