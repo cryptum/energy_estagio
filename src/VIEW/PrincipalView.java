@@ -6,8 +6,7 @@
 package VIEW;
 
 import java.awt.Color;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 /**
@@ -23,8 +22,7 @@ public class PrincipalView extends javax.swing.JFrame {
         initComponents();
         this.setVisible(true);
         this.setExtendedState(MAXIMIZED_BOTH);
-        
-        
+
     }
 
     /**

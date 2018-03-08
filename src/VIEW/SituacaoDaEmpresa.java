@@ -77,6 +77,15 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
         String datasistema = new SimpleDateFormat("MM").format(new Date(System.currentTimeMillis()));
         sldMes.setValue(Integer.valueOf(datasistema));
         atualizaBoxAno();
+        try {
+            AtualizaVIEW();
+        } catch (SQLException ex) {
+            Logger.getLogger(SituacaoDaEmpresa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        txtNumeroMes.setVisible(false);
+        txtIdDespesas.setVisible(false);
 
        
     }
@@ -243,7 +252,15 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
             tblDespesas.updateUI();
     }
    
-    
+    public void LimparDespesas(){
+        txtIdDespesas.setText("");
+        txtNomeDespesa.setText("");
+        txtDescricaoDespesa.setText("");
+        txtDataDespesa.setText("");
+        txtHoraDespesa.setText("");
+        txtValorDespesa.setText("");
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -300,7 +317,7 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
         txtValorDespesa = new javax.swing.JFormattedTextField();
         jLabel26 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtDescricaoDespesa = new javax.swing.JTextArea();
         jPanel8 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
 
@@ -723,14 +740,14 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
         txtValorDespesa.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
 
         jLabel26.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
-        jLabel26.setText("Nome da Despesa:");
+        jLabel26.setText("Descrição da Despesa:");
 
-        jTextArea1.setBackground(new java.awt.Color(245, 245, 245));
-        jTextArea1.setColumns(20);
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
-        jScrollPane2.setViewportView(jTextArea1);
+        txtDescricaoDespesa.setBackground(new java.awt.Color(245, 245, 245));
+        txtDescricaoDespesa.setColumns(20);
+        txtDescricaoDespesa.setLineWrap(true);
+        txtDescricaoDespesa.setRows(5);
+        txtDescricaoDespesa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
+        jScrollPane2.setViewportView(txtDescricaoDespesa);
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -939,50 +956,46 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tblDespesasMouseClicked
 
     private void btnSalvarDespesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarDespesaActionPerformed
-            despesas = new DespesaM();
-		String custo = txtValorDespesa.getText();
-                String valor = custo.replaceAll(",", ".");
-                
-
+        despesas = new DespesaM();
+        String custo = txtValorDespesa.getText();
+        String valor = custo.replaceAll(",", ".");
+        
+        
         if(txtNomeDespesa.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Preencha todos os obrigatórios !", "erro", JOptionPane.WARNING_MESSAGE);
-            txtNomeDespesa.requestFocusInWindow();       
+            txtNomeDespesa.requestFocusInWindow();
         }
         else if(txtIdDespesas.getText().isEmpty()){
-            
-            //Salva tudo digitado no campo de texto para o objeto e salva no banco de dados
-            despesas.setDescricao(txtNomeDespesa.getText());
-            despesas.setValor(Float.valueOf(valor));
-            despesas.setData(txtDataDespesa.getText());
-            despesas.setHora(txtHoraDespesa.getText());
-            try{
-                produtodao.salvar(produto);
-                JOptionPane.showMessageDialog(null, "Gravado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-            }catch(SQLException ex){
-                JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
-            }
-            atualizaTabelaDespesas();
-            //prepararSalvareCancelar();
-            //desativarCampos();
-            //limparCampos();
+        
+        //Salva tudo digitado no campo de texto para o objeto e salva no banco de dados
+        despesas.setDescricao(txtNomeDespesa.getText());
+        despesas.setValor(Float.valueOf(valor));
+        despesas.setData(txtDataDespesa.getText());
+        despesas.setHora(txtHoraDespesa.getText());
+        try{
+        produtodao.salvar(produto);
+        JOptionPane.showMessageDialog(null, "Gravado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+        }catch(SQLException ex){
+        JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+        }
         }
         else{
-            //Salva tudo que foi alterado nos campos de texto para o objeto e salva no banco de dados
-            despesas.setId(Integer.valueOf(txtIdDespesas.getText()));
-            despesas.setDescricao(txtNomeDespesa.getText());
-            despesas.setValor(Float.valueOf(valor));
-            despesas.setData(txtDataDespesa.getText());
-            despesas.setHora(txtHoraDespesa.getText());
+        //Salva tudo que foi alterado nos campos de texto para o objeto e salva no banco de dados
+        despesas.setId(Integer.valueOf(txtIdDespesas.getText()));
+        despesas.setDescricao(txtNomeDespesa.getText());
+        despesas.setValor(Float.valueOf(valor));
+        despesas.setData(txtDataDespesa.getText());
+        despesas.setHora(txtHoraDespesa.getText());
         try{
-            produtodao.alterar(produto);
-            JOptionPane.showMessageDialog(null, "Alterado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);       
+        produtodao.alterar(produto);
+        JOptionPane.showMessageDialog(null, "Alterado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+        }
         }
         atualizaTabelaDespesas();
-        //prepararSalvareCancelar();
-        //desativarCampos();
-        }
+        LimparDespesas();
+        tblDespesas.clearSelection();
     }//GEN-LAST:event_btnSalvarDespesaActionPerformed
 
     private void btnLimparDespesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparDespesaActionPerformed
@@ -1049,11 +1062,11 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JSlider sldMes;
     private javax.swing.JTable tblDespesas;
     private javax.swing.JTextField txtBuscaCategoria;
     private javax.swing.JFormattedTextField txtDataDespesa;
+    private javax.swing.JTextArea txtDescricaoDespesa;
     private javax.swing.JFormattedTextField txtDespesasAno;
     private javax.swing.JFormattedTextField txtDespesasMes;
     private javax.swing.JFormattedTextField txtEntradaAno;

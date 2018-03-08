@@ -176,7 +176,7 @@ public class SituacaoDaEmpresaDao {
     
     public List<EntradadeProdutoM> BuscaTotalEntradeDeProdutoMes(String de, String ate) throws SQLException{
         List<EntradadeProdutoM> listaEntrada = new ArrayList<>();
-        sql = "select Id, IdProduto, Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ) AS Data, Hora, Count(Quantidade) AS Quantidade, Detalhes from EntradadeProduto WHERE data >= (?) and data <= (?)";
+        sql = "select Id, IdProduto, Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ) AS Data, Hora, Count(Quantidade) AS Quantidade from EntradadeProduto WHERE data >= (?) and data <= (?)";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, de);
         pst.setString(2, ate);
@@ -187,8 +187,7 @@ public class SituacaoDaEmpresaDao {
                             produtodao.busca(rs.getInt("IdProduto")),
                             rs.getString("Data"),
                             rs.getString("Hora"),
-                            rs.getInt("Quantidade"),
-                            rs.getString("Detalhes")));
+                            rs.getInt("Quantidade")));
         }
         pst.close();
     return listaEntrada;
@@ -196,7 +195,7 @@ public class SituacaoDaEmpresaDao {
     
     public List<EntradadeProdutoM> BuscaTotalEntradeDeProdutoAno(String ano1, String ano2) throws SQLException{
         List<EntradadeProdutoM> listaEntrada = new ArrayList<>();
-        sql = "select Id, IdProduto, Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ) AS Data, Hora, Count(Quantidade) AS Quantidade, Detalhes from EntradadeProduto WHERE data >= (?) and data <= (?)";
+        sql = "select Id, IdProduto, Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ) AS Data, Hora, Count(Quantidade) AS Quantidade from EntradadeProduto WHERE data >= (?) and data <= (?)";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, ano1);
         pst.setString(2, ano2);
@@ -207,8 +206,7 @@ public class SituacaoDaEmpresaDao {
                             produtodao.busca(rs.getInt("IdProduto")),
                             rs.getString("Data"),
                             rs.getString("Hora"),
-                            rs.getInt("Quantidade"),
-                            rs.getString("Detalhes")));
+                            rs.getInt("Quantidade")));
         }
         pst.close();
     return listaEntrada;

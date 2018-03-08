@@ -11,15 +11,13 @@ public class EntradadeProdutoM {
     private String Data;
     private String Hora;
     private int Quantidade;
-    private String Detalhes;
 
-    public EntradadeProdutoM(int Id, ProdutoM IdProduto, String Data, String Hora, int Quantidade, String Detalhes) {
+    public EntradadeProdutoM(int Id, ProdutoM IdProduto, String Data, String Hora, int Quantidade) {
         this.Id = Id;
         this.IdProduto = IdProduto;
         this.Data = Data;
         this.Hora = Hora;
         this.Quantidade = Quantidade;
-        this.Detalhes = Detalhes;
     }
 
     public EntradadeProdutoM() {
@@ -63,15 +61,6 @@ public class EntradadeProdutoM {
 
     public void setQuantidade(int Quantidade) {
         this.Quantidade = Quantidade;
-    }
-
-    public String getDetalhes() {
-        return Detalhes;
-    }
-
-    public void setDetalhes(String Detalhes) {
-        this.Detalhes = Detalhes;
-    }
-    
+    } 
     
 }
