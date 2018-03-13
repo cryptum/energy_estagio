@@ -103,7 +103,8 @@ public class EntradadeProdutoDao {
         PreparedStatement pst;
         String sql;
         EntradadeProdutoM entradadeproduto = null;        
-        sql = "select Id, IdProduto, Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ) AS Data, Hora, Quantidade from EntradadeProduto where nome = ?";
+        sql = "select EntradadeProduto.Id, EntradadeProduto.IdProduto, Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ) AS Data, EntradadeProduto.Hora,"
+                + " EntradadeProduto.Quantidade from EntradadeProduto, Produto where EntradadeProduto.IdProduto = Produto.ID and Produto.nome like ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, nome);
         ResultSet rs = pst.executeQuery();
@@ -124,7 +125,8 @@ public class EntradadeProdutoDao {
         String sql;
         List<EntradadeProdutoM> ListaEntradaProduto = new ArrayList<>();
         String name = "%"+Nome+"%";
-        sql = "select Id, IdProduto, Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ) AS Data, Hora, Quantidade from EntradadeProduto where nome like ?";
+        sql = "select EntradadeProduto.Id, EntradadeProduto.IdProduto, Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ) AS Data, EntradadeProduto.Hora,"
+                + " EntradadeProduto.Quantidade from EntradadeProduto, Produto where EntradadeProduto.IdProduto = Produto.ID and Produto.nome like ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, name);
         pst.execute();

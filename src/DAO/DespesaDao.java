@@ -117,14 +117,13 @@ public class DespesaDao {
         return despesas;
     }
     
-    public List<DespesaM> buscaNomeLista(String Nome) throws SQLException{
+    public List<DespesaM> buscaDataLista(String data) throws SQLException{
         PreparedStatement pst;
         String sql;
         List<DespesaM> listaDespesas = new ArrayList<>();
-        String name = "%"+Nome+"%";
-        sql = "select Id, Descricao, Valor,  Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ) AS Data, Hora from Despesa where nome like ?";
+        sql = "select Id, Descricao, Valor,  Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ) AS Data, Hora from Despesa where Data = STR_TO_DATE( ?, \"%d/%m/%Y\" )";
         pst = Conexao.getInstance().prepareStatement(sql);
-        pst.setString(1, name);
+        pst.setString(1, data);
         pst.execute();
         ResultSet rs = pst.executeQuery();
         while(rs.next()){

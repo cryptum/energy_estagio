@@ -74,6 +74,20 @@ public class ProdutoDao {
         pst.close();
      }
     
+    public void alterarQuantidade(ProdutoM produto) throws SQLException{
+        PreparedStatement pst;
+        String sql;
+        sql = "update Produto set "
+                        + "quantidade  = ? "
+
+                        + "where id = ?";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setInt(1, produto.getQuantidade());
+        pst.setInt(2,produto.getId());
+        pst.execute();
+        pst.close();
+     }
+    
     public List<ProdutoM> listaTodos() throws SQLException{
         PreparedStatement pst;
         String sql;
