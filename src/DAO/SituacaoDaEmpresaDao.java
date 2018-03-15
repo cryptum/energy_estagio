@@ -138,7 +138,7 @@ public class SituacaoDaEmpresaDao {
     
     public List<DespesaM> BuscaTotalDespesaMes(String de, String ate) throws SQLException{
         List<DespesaM> listaDespesas = new ArrayList<>();
-        sql = "select id, Descricao, SUM(Valor) AS Valor, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario from Despesas WHERE data >= (?) and data <= (?)";
+        sql = "select id, Descricao, SUM(Valor) AS Valor, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario from Despesa WHERE data >= (?) and data <= (?)";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, de);
         pst.setString(2, ate);
@@ -149,7 +149,7 @@ public class SituacaoDaEmpresaDao {
                         rs.getString("Descricao"),
                         rs.getFloat("Valor"),
                         rs.getString("Data"),
-                        rs.getString("Hora")));
+                        rs.getString("horario")));
         }
         pst.close();
     return listaDespesas;
@@ -157,7 +157,7 @@ public class SituacaoDaEmpresaDao {
     
     public List<DespesaM> BuscaTotalDespesaAno(String ano1, String ano2) throws SQLException{
         List<DespesaM> listaDespesas = new ArrayList<>();
-        sql = "select id, Descricao, SUM(Valor) AS Valor, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario from Despesas WHERE data >= (?) and data <= (?)";
+        sql = "select id, Descricao, SUM(Valor) AS Valor, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario from Despesa WHERE data >= (?) and data <= (?)";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, ano1);
         pst.setString(2, ano2);
@@ -168,7 +168,7 @@ public class SituacaoDaEmpresaDao {
                         rs.getString("Descricao"),
                         rs.getFloat("Valor"),
                         rs.getString("Data"),
-                        rs.getString("Hora")));
+                        rs.getString("horario")));
         }
         pst.close();
     return listaDespesas;
@@ -176,7 +176,7 @@ public class SituacaoDaEmpresaDao {
     
     public List<EntradadeProdutoM> BuscaTotalEntradeDeProdutoMes(String de, String ate) throws SQLException{
         List<EntradadeProdutoM> listaEntrada = new ArrayList<>();
-        sql = "select Id, IdProduto, Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ) AS Data, Hora, Count(Quantidade) AS Quantidade from EntradadeProduto WHERE data >= (?) and data <= (?)";
+        sql = "select Id, IdProduto, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS Data, Hora, Count(Quantidade) AS Quantidade from EntradadeProduto WHERE data >= (?) and data <= (?)";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, de);
         pst.setString(2, ate);
@@ -195,7 +195,7 @@ public class SituacaoDaEmpresaDao {
     
     public List<EntradadeProdutoM> BuscaTotalEntradeDeProdutoAno(String ano1, String ano2) throws SQLException{
         List<EntradadeProdutoM> listaEntrada = new ArrayList<>();
-        sql = "select Id, IdProduto, Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ) AS Data, Hora, Count(Quantidade) AS Quantidade from EntradadeProduto WHERE data >= (?) and data <= (?)";
+        sql = "select Id, IdProduto, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS Data, Hora, Count(Quantidade) AS Quantidade from EntradadeProduto WHERE data >= (?) and data <= (?)";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, ano1);
         pst.setString(2, ano2);
