@@ -2,6 +2,9 @@ package VIEW;
 
 import DAO.ClienteDao;
 import MODEL.ClienteM;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +43,9 @@ public class ClienteView extends javax.swing.JInternalFrame {
         txtBairro.setDocument(new LimiteDigitos(40));
         txtCidade.setDocument(new LimiteDigitos(45));
         txtObservacao.setDocument(new LimiteDigitos(50));
+        URL url = this.getClass().getResource("/view/icone.png");
+        Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
+        //this.setIconImage(imagemTitulo);
     }
 
     //Atualiza todos os funcionario para a tabela

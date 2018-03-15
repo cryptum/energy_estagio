@@ -41,7 +41,7 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="28" green="28" red="28" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
       </Properties>
 
@@ -91,11 +91,11 @@
               <Font name="Myanmar Text" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e3" green="e3" red="e3" type="rgb"/>
+              <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/jogo 2 - Para Fundo Cinza Escuro ((#404040)  esse cinza em RGB)/Vendas.png"/>
+              <Image iconType="3" name="/jogo 3 - Para Fundo Branco/Vendas.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Venda"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -115,11 +115,11 @@
               <Font name="Myanmar Text" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e3" green="e3" red="e3" type="rgb"/>
+              <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/jogo 2 - Para Fundo Cinza Escuro ((#404040)  esse cinza em RGB)/Cliente.png"/>
+              <Image iconType="3" name="/jogo 3 - Para Fundo Branco/Cliente.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cliente"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -139,11 +139,11 @@
               <Font name="Myanmar Text" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e3" green="e3" red="e3" type="rgb"/>
+              <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/jogo 2 - Para Fundo Cinza Escuro ((#404040)  esse cinza em RGB)/Mercado Livre.png"/>
+              <Image iconType="3" name="/jogo 3 - Para Fundo Branco/Mercado Livre.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p align = &quot;center&quot;&gt;Mercado&lt;br&gt;Livre&lt;/p&gt;&lt;/html&gt; " noResource="true"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -163,11 +163,11 @@
               <Font name="Myanmar Text" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e3" green="e3" red="e3" type="rgb"/>
+              <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/jogo 2 - Para Fundo Cinza Escuro ((#404040)  esse cinza em RGB)/Relatorios.png"/>
+              <Image iconType="3" name="/jogo 3 - Para Fundo Branco/Relatorio.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Relat&#xf3;rios"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -187,11 +187,11 @@
               <Font name="Myanmar Text" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e3" green="e3" red="e3" type="rgb"/>
+              <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/jogo 2 - Para Fundo Cinza Escuro ((#404040)  esse cinza em RGB)/Estoque.png"/>
+              <Image iconType="3" name="/jogo 3 - Para Fundo Branco/Estoque.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Estoque"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -211,11 +211,11 @@
               <Font name="Myanmar Text" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e3" green="e3" red="e3" type="rgb"/>
+              <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/jogo 2 - Para Fundo Cinza Escuro ((#404040)  esse cinza em RGB)/Funcionario.png"/>
+              <Image iconType="3" name="/jogo 3 - Para Fundo Branco/icons8-gest&#xe3;o-de-desenvolvimento-comercial-filled-50.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Funcionario"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -235,11 +235,11 @@
               <Font name="Myanmar Text" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="e3" green="e3" red="e3" type="rgb"/>
+              <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/jogo 2 - Para Fundo Cinza Escuro ((#404040)  esse cinza em RGB)/Estatisticas.png"/>
+              <Image iconType="3" name="/jogo 3 - Para Fundo Branco/Estatisticas.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Situa&#xe7;&#xe3;o"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
@@ -258,7 +258,7 @@
     <Container class="javax.swing.JPanel" name="pnlPrincipal">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="e6" green="e6" red="e6" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
       </Properties>
 

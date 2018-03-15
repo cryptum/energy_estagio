@@ -6,6 +6,9 @@
 package VIEW;
 
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.net.URL;
 
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
@@ -13,15 +16,18 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  *
  * @author Danilo-NOTE
  */
-public class PrincipalView extends javax.swing.JFrame {
+public class PrincipalView3 extends javax.swing.JFrame {
 
     /**
      * Creates new form PrincipalView
      */
-    public PrincipalView() {
+    public PrincipalView3() {
         initComponents();
         this.setVisible(true);
         this.setExtendedState(MAXIMIZED_BOTH);
+        URL url = this.getClass().getResource("/view/icone.png");
+        Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
+        this.setIconImage(imagemTitulo);
 
     }
 
@@ -46,13 +52,13 @@ public class PrincipalView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(40, 40, 40));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         Venda.setBackground(new java.awt.Color(204, 0, 255));
         Venda.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
-        Venda.setForeground(new java.awt.Color(227, 227, 227));
+        Venda.setForeground(new java.awt.Color(51, 51, 51));
         Venda.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Venda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogo 2 - Para Fundo Cinza Escuro ((#404040)  esse cinza em RGB)/Vendas.png"))); // NOI18N
+        Venda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogo 3 - Para Fundo Branco/Vendas.png"))); // NOI18N
         Venda.setText("Venda");
         Venda.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Venda.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -75,9 +81,9 @@ public class PrincipalView extends javax.swing.JFrame {
         });
 
         Cliente.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
-        Cliente.setForeground(new java.awt.Color(227, 227, 227));
+        Cliente.setForeground(new java.awt.Color(51, 51, 51));
         Cliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogo 2 - Para Fundo Cinza Escuro ((#404040)  esse cinza em RGB)/Cliente.png"))); // NOI18N
+        Cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogo 3 - Para Fundo Branco/Cliente.png"))); // NOI18N
         Cliente.setText("Cliente");
         Cliente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Cliente.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -100,9 +106,9 @@ public class PrincipalView extends javax.swing.JFrame {
         });
 
         MarcLivre.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
-        MarcLivre.setForeground(new java.awt.Color(227, 227, 227));
+        MarcLivre.setForeground(new java.awt.Color(51, 51, 51));
         MarcLivre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        MarcLivre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogo 2 - Para Fundo Cinza Escuro ((#404040)  esse cinza em RGB)/Mercado Livre.png"))); // NOI18N
+        MarcLivre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogo 3 - Para Fundo Branco/Mercado Livre.png"))); // NOI18N
         MarcLivre.setText("<html><p align = \"center\">Mercado<br>Livre</p></html> "); // NOI18N
         MarcLivre.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         MarcLivre.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -125,9 +131,9 @@ public class PrincipalView extends javax.swing.JFrame {
         });
 
         Relatorios.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
-        Relatorios.setForeground(new java.awt.Color(227, 227, 227));
+        Relatorios.setForeground(new java.awt.Color(51, 51, 51));
         Relatorios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Relatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogo 2 - Para Fundo Cinza Escuro ((#404040)  esse cinza em RGB)/Relatorios.png"))); // NOI18N
+        Relatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogo 3 - Para Fundo Branco/Relatorio.png"))); // NOI18N
         Relatorios.setText("Relatórios");
         Relatorios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Relatorios.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -150,9 +156,9 @@ public class PrincipalView extends javax.swing.JFrame {
         });
 
         Estoque.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
-        Estoque.setForeground(new java.awt.Color(227, 227, 227));
+        Estoque.setForeground(new java.awt.Color(51, 51, 51));
         Estoque.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Estoque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogo 2 - Para Fundo Cinza Escuro ((#404040)  esse cinza em RGB)/Estoque.png"))); // NOI18N
+        Estoque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogo 3 - Para Fundo Branco/Estoque.png"))); // NOI18N
         Estoque.setText("Estoque");
         Estoque.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Estoque.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -175,9 +181,9 @@ public class PrincipalView extends javax.swing.JFrame {
         });
 
         Vendedor.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
-        Vendedor.setForeground(new java.awt.Color(227, 227, 227));
+        Vendedor.setForeground(new java.awt.Color(51, 51, 51));
         Vendedor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Vendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogo 2 - Para Fundo Cinza Escuro ((#404040)  esse cinza em RGB)/Funcionario.png"))); // NOI18N
+        Vendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogo 3 - Para Fundo Branco/icons8-gestão-de-desenvolvimento-comercial-filled-50.png"))); // NOI18N
         Vendedor.setText("Funcionario");
         Vendedor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Vendedor.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -200,9 +206,9 @@ public class PrincipalView extends javax.swing.JFrame {
         });
 
         Relatorios1.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
-        Relatorios1.setForeground(new java.awt.Color(227, 227, 227));
+        Relatorios1.setForeground(new java.awt.Color(51, 51, 51));
         Relatorios1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Relatorios1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogo 2 - Para Fundo Cinza Escuro ((#404040)  esse cinza em RGB)/Estatisticas.png"))); // NOI18N
+        Relatorios1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogo 3 - Para Fundo Branco/Estatisticas.png"))); // NOI18N
         Relatorios1.setText("Situação");
         Relatorios1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Relatorios1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -257,7 +263,7 @@ public class PrincipalView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pnlPrincipal.setBackground(new java.awt.Color(230, 230, 230));
+        pnlPrincipal.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout pnlPrincipalLayout = new javax.swing.GroupLayout(pnlPrincipal);
         pnlPrincipal.setLayout(pnlPrincipalLayout);

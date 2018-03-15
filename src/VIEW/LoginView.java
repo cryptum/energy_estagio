@@ -5,7 +5,10 @@ import DAO.ValidaDao;
 import MODEL.FuncionarioM;
 import MODEL.ValidaM;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.net.URL;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -48,7 +51,7 @@ public class LoginView extends javax.swing.JFrame {
             Logger.getLogger(LoginView.class.getName()).log(Level.SEVERE, null, ex);
         }
             if((datames <= valida.getMes())&&(dataano<= valida.getAno())){
-
+                
             }else{
                 this.setVisible(true);
                 lblErro.setVisible(true);
@@ -56,7 +59,11 @@ public class LoginView extends javax.swing.JFrame {
                 txtUser.setVisible(false);
                 txtSenha.setVisible(false);
                 btnLogin.setEnabled(false);
+                this.dispose();
         }
+        URL url = this.getClass().getResource("/view/icone.png");
+        Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
+        this.setIconImage(imagemTitulo);
     }
 
     @SuppressWarnings("unchecked")
@@ -256,7 +263,7 @@ public class LoginView extends javax.swing.JFrame {
                     txtSenha.requestFocus();
                 }else{
        
-                    PrincipalView principal = new PrincipalView();
+                    PrincipalView3 principal = new PrincipalView3();
                     this.dispose();
                     
                 }
