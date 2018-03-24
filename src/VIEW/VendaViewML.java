@@ -355,8 +355,8 @@ public class VendaViewML extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         cbxFuncionario = new javax.swing.JComboBox<>();
         btnNovo = new javax.swing.JButton();
-        jPanel8 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
+        btnSair = new javax.swing.JLabel();
 
         ProdutoDialog.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         ProdutoDialog.setMinimumSize(new java.awt.Dimension(310, 380));
@@ -364,13 +364,13 @@ public class VendaViewML extends javax.swing.JInternalFrame {
 
         jPanel35.setBackground(new java.awt.Color(249, 249, 249));
 
-        jLabel69.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
+        jLabel69.setFont(new java.awt.Font("Champagne & Limousines", 0, 14)); // NOI18N
         jLabel69.setForeground(new java.awt.Color(26, 26, 26));
         jLabel69.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel69.setText("Buscar Produto");
 
         txtBuscaProdutoDialog.setBackground(new java.awt.Color(253, 253, 254));
-        txtBuscaProdutoDialog.setFont(new java.awt.Font("Shruti", 0, 18)); // NOI18N
+        txtBuscaProdutoDialog.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         txtBuscaProdutoDialog.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtBuscaProdutoDialog.setToolTipText("Limite em Reais para comprar fiado na loja.");
         txtBuscaProdutoDialog.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
@@ -383,6 +383,7 @@ public class VendaViewML extends javax.swing.JInternalFrame {
         jSeparator6.setBackground(new java.awt.Color(249, 249, 249));
         jSeparator6.setForeground(new java.awt.Color(104, 129, 164));
 
+        tblProdutoDialog.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
         tblProdutoDialog.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -425,7 +426,7 @@ public class VendaViewML extends javax.swing.JInternalFrame {
                 .addGap(31, 31, 31)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -437,13 +438,13 @@ public class VendaViewML extends javax.swing.JInternalFrame {
 
         jPanel36.setBackground(new java.awt.Color(249, 249, 249));
 
-        jLabel70.setFont(new java.awt.Font("Shruti", 0, 14)); // NOI18N
+        jLabel70.setFont(new java.awt.Font("Champagne & Limousines", 0, 14)); // NOI18N
         jLabel70.setForeground(new java.awt.Color(26, 26, 26));
         jLabel70.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel70.setText("Buscar Funcionario");
 
         txtBuscaFuncionarioDialog.setBackground(new java.awt.Color(253, 253, 254));
-        txtBuscaFuncionarioDialog.setFont(new java.awt.Font("Shruti", 0, 18)); // NOI18N
+        txtBuscaFuncionarioDialog.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         txtBuscaFuncionarioDialog.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtBuscaFuncionarioDialog.setToolTipText("Limite em Reais para comprar fiado na loja.");
         txtBuscaFuncionarioDialog.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 129, 164)));
@@ -458,7 +459,7 @@ public class VendaViewML extends javax.swing.JInternalFrame {
 
         tblFuncionarioDialog.setBackground(new java.awt.Color(248, 248, 248));
         tblFuncionarioDialog.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(210, 210, 210)));
-        tblFuncionarioDialog.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
+        tblFuncionarioDialog.setFont(new java.awt.Font("Champagne & Limousines", 1, 12)); // NOI18N
         tblFuncionarioDialog.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -519,17 +520,17 @@ public class VendaViewML extends javax.swing.JInternalFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
         jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
-        jTabbedPane1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jTabbedPane1.setFont(new java.awt.Font("Champagne & Limousines", 0, 14)); // NOI18N
 
-        jPanel4.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         tblVenda.setBackground(new java.awt.Color(248, 248, 248));
         tblVenda.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(210, 210, 210)));
-        tblVenda.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
+        tblVenda.setFont(new java.awt.Font("Champagne & Limousines", 0, 12)); // NOI18N
         tblVenda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"Danilo Vieira Bernardes", "(34)3423-5123", "06/06/1997", "Frutal"},
@@ -551,8 +552,8 @@ public class VendaViewML extends javax.swing.JInternalFrame {
             tblVenda.getColumnModel().getColumn(0).setMinWidth(20);
         }
 
-        jPanel5.setBackground(new java.awt.Color(248, 248, 248));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Champagne & Limousines", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
 
         txtBusca.setBackground(new java.awt.Color(245, 245, 245));
         txtBusca.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
@@ -563,7 +564,7 @@ public class VendaViewML extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel13.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel13.setText("Cliente:");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -592,13 +593,15 @@ public class VendaViewML extends javax.swing.JInternalFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane3))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(159, 159, 159)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 186, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(159, 159, 159)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(188, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -612,17 +615,17 @@ public class VendaViewML extends javax.swing.JInternalFrame {
 
         jTabbedPane1.addTab("Consulta", jPanel4);
 
-        jPanel6.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel3.setBackground(new java.awt.Color(248, 248, 248));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Seleção de Produtos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Seleção de Produtos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Champagne & Limousines", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Código de barras:");
 
         txtCodigodeBarras.setBackground(new java.awt.Color(245, 245, 245));
-        txtCodigodeBarras.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        txtCodigodeBarras.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         txtCodigodeBarras.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
         txtCodigodeBarras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -635,6 +638,7 @@ public class VendaViewML extends javax.swing.JInternalFrame {
             }
         });
 
+        tblItenVenda.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
         tblItenVenda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -653,6 +657,7 @@ public class VendaViewML extends javax.swing.JInternalFrame {
         });
         jScrollPane12.setViewportView(tblItenVenda);
 
+        btnAddItemVendas.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
         btnAddItemVendas.setText("Adicionar Produto +");
         btnAddItemVendas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -661,7 +666,7 @@ public class VendaViewML extends javax.swing.JInternalFrame {
         });
 
         txtproduto.setBackground(new java.awt.Color(245, 245, 245));
-        txtproduto.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        txtproduto.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         txtproduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
         txtproduto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -669,23 +674,23 @@ public class VendaViewML extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Produto:");
 
-        jLabel8.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel8.setText("Total: R$");
 
-        lblTOTAL.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        lblTOTAL.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         lblTOTAL.setText("..");
 
-        jLabel11.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel11.setText("ou");
 
-        jLabel9.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel9.setText("Vendedor: ");
 
-        cbxFuncionario.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        cbxFuncionario.setFont(new java.awt.Font("Champagne & Limousines", 0, 14)); // NOI18N
         cbxFuncionario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbxFuncionario.setToolTipText("");
 
@@ -795,51 +800,53 @@ public class VendaViewML extends javax.swing.JInternalFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
         );
 
         jTabbedPane1.addTab("Venda", jPanel6);
 
-        jPanel8.setBackground(new java.awt.Color(51, 51, 51));
-
-        jLabel15.setFont(new java.awt.Font("Shruti", 0, 20)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 51));
+        jLabel15.setFont(new java.awt.Font("Champagne & Limousines", 0, 20)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("Venda Mercado Livre");
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 1023, Short.MAX_VALUE)
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones Inativos/Fechar.png"))); // NOI18N
+        btnSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSairMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSairMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSairMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jTabbedPane1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1007, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 866, Short.MAX_VALUE)
+                .addComponent(btnSair)
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 641, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1035,11 +1042,24 @@ public class VendaViewML extends javax.swing.JInternalFrame {
         txtproduto.setText("");
     }//GEN-LAST:event_txtCodigodeBarrasMouseClicked
 
+    private void btnSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSairMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_btnSairMouseClicked
+
+    private void btnSairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSairMouseEntered
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Ativos/Fechar.png")));
+    }//GEN-LAST:event_btnSairMouseEntered
+
+    private void btnSairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSairMouseExited
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Fechar.png")));
+    }//GEN-LAST:event_btnSairMouseExited
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog FuncionarioDialog;
     private javax.swing.JDialog ProdutoDialog;
     private javax.swing.JButton btnAddItemVendas;
     private javax.swing.JButton btnNovo;
+    private javax.swing.JLabel btnSair;
     private javax.swing.JComboBox<String> cbxFuncionario;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
@@ -1057,7 +1077,6 @@ public class VendaViewML extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane3;

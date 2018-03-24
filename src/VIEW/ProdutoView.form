@@ -175,34 +175,39 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f8" green="f8" red="f8" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <Component id="jTabbedPane1" pref="859" max="32767" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="jLabel15" pref="1867" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnSair" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jTabbedPane1" min="-2" pref="803" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Component id="jPanel8" alignment="1" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jLabel15" pref="36" max="32767" attributes="0"/>
+                      <Component id="btnSair" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="jTabbedPane1" min="-2" pref="619" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
-              </Group>
-              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="634" max="32767" attributes="0"/>
-                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
@@ -212,8 +217,9 @@
           <Properties>
             <Property name="tabLayoutPolicy" type="int" value="1"/>
             <Property name="tabPlacement" type="int" value="2"/>
+            <Property name="focusable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Trebuchet MS" size="14" style="0"/>
+              <Font name="Champagne &amp; Limousines" size="14" style="0"/>
             </Property>
           </Properties>
 
@@ -222,7 +228,7 @@
             <Container class="javax.swing.JPanel" name="jPanel4">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -296,7 +302,7 @@
                           </Border>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="12" style="1"/>
+                          <Font name="Champagne &amp; Limousines" size="12" style="0"/>
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="4" rowCount="4">
@@ -363,12 +369,12 @@
                 <Container class="javax.swing.JPanel" name="jPanel5">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder title="Busca">
-                          <Font PropertyName="font" name="Tahoma" size="14" style="0"/>
+                          <Font PropertyName="font" name="Champagne &amp; Limousines" size="14" style="0"/>
                           <Color PropertyName="color" blue="1e" green="1e" red="1e" type="rgb"/>
                         </TitledBorder>
                       </Border>
@@ -407,7 +413,7 @@
                           <Color blue="f5" green="f5" red="f5" type="rgb"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="14" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="14" style="0"/>
                         </Property>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -424,7 +430,7 @@
                     <Component class="javax.swing.JLabel" name="jLabel13">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Nome:"/>
                       </Properties>
@@ -433,6 +439,9 @@
                 </Container>
                 <Component class="javax.swing.JButton" name="btnAlterar">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Champagne &amp; Limousines" size="11" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Alterar"/>
                   </Properties>
                   <Events>
@@ -441,6 +450,9 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnExcluir">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Champagne &amp; Limousines" size="11" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Excluir"/>
                   </Properties>
                   <Events>
@@ -452,7 +464,7 @@
             <Container class="javax.swing.JPanel" name="jPanel6">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -503,7 +515,7 @@
                                   <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="26" max="32767" attributes="0"/>
+                          <EmptySpace pref="93" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -512,12 +524,12 @@
                 <Container class="javax.swing.JPanel" name="jPanel2">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder title="Dados Iniciais">
-                          <Font PropertyName="font" name="Tahoma" size="14" style="0"/>
+                          <Font PropertyName="font" name="Champagne &amp; Limousines" size="14" style="0"/>
                           <Color PropertyName="color" blue="1e" green="1e" red="1e" type="rgb"/>
                         </TitledBorder>
                       </Border>
@@ -621,7 +633,7 @@
                     <Component class="javax.swing.JLabel" name="jLabel1">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Nome do Produto:"/>
                       </Properties>
@@ -632,7 +644,7 @@
                           <Color blue="f5" green="f5" red="f5" type="rgb"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="18" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="18" style="0"/>
                         </Property>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -646,7 +658,7 @@
                     <Component class="javax.swing.JLabel" name="jLabel10">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Marca:"/>
                       </Properties>
@@ -654,7 +666,7 @@
                     <Component class="javax.swing.JLabel" name="jLabel11">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Modelo:"/>
                       </Properties>
@@ -674,14 +686,14 @@
                           </Border>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="18" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="18" style="0"/>
                         </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel6">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Codigo de Barras:"/>
                       </Properties>
@@ -689,7 +701,7 @@
                     <Component class="javax.swing.JComboBox" name="cbxMarca">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="14" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="14" style="0"/>
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="4">
@@ -711,7 +723,7 @@
                     <Component class="javax.swing.JComboBox" name="cbxModelo">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="14" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="14" style="0"/>
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="4">
@@ -729,7 +741,7 @@
                     <Component class="javax.swing.JLabel" name="jLabel18">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Quantidade:"/>
                       </Properties>
@@ -750,14 +762,14 @@
                           <Format subtype="1" type="0"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="18" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="18" style="0"/>
                         </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="cbxCategoria">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="14" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="14" style="0"/>
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="4">
@@ -779,7 +791,7 @@
                     <Component class="javax.swing.JLabel" name="jLabel21">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Categoria:"/>
                       </Properties>
@@ -789,12 +801,12 @@
                 <Container class="javax.swing.JPanel" name="jPanel3">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder title="Valores e Custos">
-                          <Font PropertyName="font" name="Tahoma" size="14" style="0"/>
+                          <Font PropertyName="font" name="Champagne &amp; Limousines" size="14" style="0"/>
                           <Color PropertyName="color" blue="1e" green="1e" red="1e" type="rgb"/>
                         </TitledBorder>
                       </Border>
@@ -812,7 +824,7 @@
                                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="txtValorMaximo" min="-2" pref="108" max="-2" attributes="0"/>
-                                      <EmptySpace pref="78" max="32767" attributes="0"/>
+                                      <EmptySpace pref="79" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -827,7 +839,7 @@
                                               <Component id="txtValorCusto" min="-2" pref="108" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace pref="78" max="32767" attributes="0"/>
+                                      <EmptySpace pref="80" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -877,7 +889,7 @@
                     <Component class="javax.swing.JLabel" name="jLabel3">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Valor Mercado Livre:"/>
                       </Properties>
@@ -885,7 +897,7 @@
                     <Component class="javax.swing.JLabel" name="jLabel2">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Valor Custo:"/>
                       </Properties>
@@ -893,7 +905,7 @@
                     <Component class="javax.swing.JLabel" name="jLabel4">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="R$"/>
                       </Properties>
@@ -901,7 +913,7 @@
                     <Component class="javax.swing.JLabel" name="jLabel5">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="R$"/>
                       </Properties>
@@ -909,7 +921,7 @@
                     <Component class="javax.swing.JLabel" name="jLabel9">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Valor Loja:"/>
                       </Properties>
@@ -917,7 +929,7 @@
                     <Component class="javax.swing.JLabel" name="jLabel7">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="R$"/>
                       </Properties>
@@ -938,7 +950,7 @@
                           <Format format="##0.00" subtype="-1" type="4"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="18" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="18" style="0"/>
                         </Property>
                       </Properties>
                     </Component>
@@ -958,7 +970,7 @@
                           <Format format="##0.00" subtype="-1" type="4"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="18" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="18" style="0"/>
                         </Property>
                       </Properties>
                     </Component>
@@ -978,7 +990,7 @@
                           <Format format="##0.00" subtype="-1" type="4"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="18" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="18" style="0"/>
                         </Property>
                       </Properties>
                     </Component>
@@ -986,6 +998,9 @@
                 </Container>
                 <Component class="javax.swing.JButton" name="btnSalvar">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Champagne &amp; Limousines" size="11" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Salvar"/>
                   </Properties>
                   <Events>
@@ -994,6 +1009,9 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnNovo">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Champagne &amp; Limousines" size="11" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Novo"/>
                   </Properties>
                   <Events>
@@ -1002,6 +1020,9 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnCancelar">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Champagne &amp; Limousines" size="11" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Cancelar"/>
                   </Properties>
                   <Events>
@@ -1048,12 +1069,12 @@
                 <Container class="javax.swing.JPanel" name="jPanel14">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder justification="1" title="Marca">
-                          <Font PropertyName="font" name="Tahoma" size="14" style="0"/>
+                          <Font PropertyName="font" name="Champagne &amp; Limousines" size="14" style="0"/>
                           <Color PropertyName="color" blue="1e" green="1e" red="1e" type="rgb"/>
                         </TitledBorder>
                       </Border>
@@ -1088,7 +1109,7 @@
                                               <Component id="jPanel15" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="0" pref="73" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="30" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -1132,6 +1153,9 @@
                       <SubComponents>
                         <Component class="javax.swing.JTable" name="tblCategoria">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Champagne &amp; Limousines" size="11" style="0"/>
+                            </Property>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="1" rowCount="0">
                                 <Column editable="true" title="Nome" type="java.lang.Object"/>
@@ -1169,12 +1193,15 @@
                           </Border>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="18" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="18" style="0"/>
                         </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnSalvarCategoria">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Champagne &amp; Limousines" size="11" style="0"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Salvar"/>
                       </Properties>
                       <Events>
@@ -1186,13 +1213,16 @@
                     <Component class="javax.swing.JLabel" name="jLabel19">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Nome da Categoria:"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnLimparCategoria">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Champagne &amp; Limousines" size="11" style="0"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Limpar"/>
                       </Properties>
                       <Events>
@@ -1202,12 +1232,12 @@
                     <Container class="javax.swing.JPanel" name="jPanel15">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                             <TitledBorder title="Busca">
-                              <Font PropertyName="font" name="Trebuchet MS" size="14" style="0"/>
+                              <Font PropertyName="font" name="Champagne &amp; Limousines" size="14" style="0"/>
                               <Color PropertyName="color" blue="1e" green="1e" red="1e" type="rgb"/>
                             </TitledBorder>
                           </Border>
@@ -1245,7 +1275,7 @@
                               <Color blue="f5" green="f5" red="f5" type="rgb"/>
                             </Property>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Trebuchet MS" size="14" style="0"/>
+                              <Font name="Champagne &amp; Limousines" size="14" style="0"/>
                             </Property>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -1262,7 +1292,7 @@
                         <Component class="javax.swing.JLabel" name="jLabel20">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Myanmar Text" size="15" style="0"/>
+                              <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="Nome:"/>
                           </Properties>
@@ -1276,7 +1306,7 @@
             <Container class="javax.swing.JPanel" name="jPanel7">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -1316,12 +1346,12 @@
                 <Container class="javax.swing.JPanel" name="jPanel10">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder justification="1" title="Marca">
-                          <Font PropertyName="font" name="Tahoma" size="14" style="0"/>
+                          <Font PropertyName="font" name="Champagne &amp; Limousines" size="14" style="0"/>
                           <Color PropertyName="color" blue="1e" green="1e" red="1e" type="rgb"/>
                         </TitledBorder>
                       </Border>
@@ -1396,6 +1426,9 @@
                       <SubComponents>
                         <Component class="javax.swing.JTable" name="tblMarca">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Champagne &amp; Limousines" size="11" style="0"/>
+                            </Property>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="4" rowCount="4">
                                 <Column editable="true" title="Title 1" type="java.lang.Object"/>
@@ -1424,12 +1457,15 @@
                           </Border>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="18" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="18" style="0"/>
                         </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnSalvarMarca">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Champagne &amp; Limousines" size="11" style="0"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Salvar"/>
                       </Properties>
                       <Events>
@@ -1441,13 +1477,16 @@
                     <Component class="javax.swing.JLabel" name="jLabel8">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Nome da Marca:"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnLimparMarca">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Champagne &amp; Limousines" size="11" style="0"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Limpar"/>
                       </Properties>
                       <Events>
@@ -1457,12 +1496,12 @@
                     <Container class="javax.swing.JPanel" name="jPanel11">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                             <TitledBorder title="Busca">
-                              <Font PropertyName="font" name="Trebuchet MS" size="14" style="0"/>
+                              <Font PropertyName="font" name="Champagne &amp; Limousines" size="14" style="0"/>
                               <Color PropertyName="color" blue="1e" green="1e" red="1e" type="rgb"/>
                             </TitledBorder>
                           </Border>
@@ -1513,7 +1552,7 @@
                         <Component class="javax.swing.JLabel" name="jLabel14">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Myanmar Text" size="15" style="0"/>
+                              <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="Nome:"/>
                           </Properties>
@@ -1525,12 +1564,12 @@
                 <Container class="javax.swing.JPanel" name="jPanel12">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder title="Modelo">
-                          <Font PropertyName="font" name="Tahoma" size="14" style="0"/>
+                          <Font PropertyName="font" name="Champagne &amp; Limousines" size="14" style="0"/>
                           <Color PropertyName="color" blue="1e" green="1e" red="1e" type="rgb"/>
                         </TitledBorder>
                       </Border>
@@ -1558,7 +1597,7 @@
                                   <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="cbxEditarMarca" alignment="0" min="-2" pref="212" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="130" max="32767" attributes="0"/>
+                              <EmptySpace pref="79" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jScrollPane2" alignment="0" pref="369" max="32767" attributes="0"/>
                                   <Component id="jPanel13" alignment="0" max="32767" attributes="0"/>
@@ -1587,7 +1626,7 @@
                               <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="cbxEditarMarca" min="-2" pref="27" max="-2" attributes="0"/>
-                              <EmptySpace pref="52" max="32767" attributes="0"/>
+                              <EmptySpace pref="72" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="btnSalvarModelo" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                   <Component id="btnLimparModelo" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
@@ -1607,6 +1646,9 @@
                       <SubComponents>
                         <Component class="javax.swing.JTable" name="tblModelo">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Champagne &amp; Limousines" size="11" style="0"/>
+                            </Property>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="4" rowCount="4">
                                 <Column editable="true" title="Title 1" type="java.lang.Object"/>
@@ -1635,12 +1677,15 @@
                           </Border>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="18" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="18" style="0"/>
                         </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnSalvarModelo">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Champagne &amp; Limousines" size="11" style="0"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Salvar"/>
                       </Properties>
                       <Events>
@@ -1652,13 +1697,16 @@
                     <Component class="javax.swing.JLabel" name="jLabel12">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Nome do Modelo:"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnLimparModelo">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Champagne &amp; Limousines" size="11" style="0"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Limpar"/>
                       </Properties>
                       <Events>
@@ -1668,12 +1716,12 @@
                     <Container class="javax.swing.JPanel" name="jPanel13">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                             <TitledBorder title="Busca">
-                              <Font PropertyName="font" name="Trebuchet MS" size="14" style="0"/>
+                              <Font PropertyName="font" name="Champagne &amp; Limousines" size="14" style="0"/>
                               <Color PropertyName="color" blue="1e" green="1e" red="1e" type="rgb"/>
                             </TitledBorder>
                           </Border>
@@ -1724,7 +1772,7 @@
                         <Component class="javax.swing.JLabel" name="jLabel16">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Myanmar Text" size="15" style="0"/>
+                              <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="Nome:"/>
                           </Properties>
@@ -1734,7 +1782,7 @@
                     <Component class="javax.swing.JLabel" name="jLabel17">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Marca:"/>
                       </Properties>
@@ -1742,7 +1790,7 @@
                     <Component class="javax.swing.JComboBox" name="cbxEditarMarca">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="14" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="14" style="0"/>
                         </Property>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="4">
@@ -1768,7 +1816,7 @@
             <Container class="javax.swing.JPanel" name="jPanel16">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -1803,12 +1851,12 @@
                 <Container class="javax.swing.JPanel" name="jPanel17">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder justification="1" title="Entrada de Produtos">
-                          <Font PropertyName="font" name="Tahoma" size="14" style="0"/>
+                          <Font PropertyName="font" name="Champagne &amp; Limousines" size="14" style="0"/>
                           <Color PropertyName="color" blue="1e" green="1e" red="1e" type="rgb"/>
                         </TitledBorder>
                       </Border>
@@ -1856,7 +1904,7 @@
                                               <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace pref="17" max="32767" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="jLabel26" alignment="0" max="32767" attributes="0"/>
                                           <Component id="txtTotal" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
@@ -1907,7 +1955,7 @@
                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                               <Component id="jPanel18" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollPane5" pref="302" max="32767" attributes="0"/>
+                              <Component id="jScrollPane5" pref="318" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -1923,6 +1971,9 @@
                       <SubComponents>
                         <Component class="javax.swing.JTable" name="tblEntradadeProdutos">
                           <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Champagne &amp; Limousines" size="11" style="0"/>
+                            </Property>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="1" rowCount="0">
                                 <Column editable="true" title="Nome" type="java.lang.Object"/>
@@ -1960,7 +2011,7 @@
                           </Border>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="18" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="18" style="0"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -1969,6 +2020,9 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="btnSalvarCategoria1">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Champagne &amp; Limousines" size="11" style="0"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Salvar"/>
                       </Properties>
                       <Events>
@@ -1980,13 +2034,16 @@
                     <Component class="javax.swing.JLabel" name="jLabel22">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Nome da Produto:"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnLimparCategoria1">
                       <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Champagne &amp; Limousines" size="11" style="0"/>
+                        </Property>
                         <Property name="text" type="java.lang.String" value="Limpar"/>
                       </Properties>
                       <Events>
@@ -1996,7 +2053,7 @@
                     <Container class="javax.swing.JPanel" name="jPanel18">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -2039,7 +2096,7 @@
                               <Color blue="f5" green="f5" red="f5" type="rgb"/>
                             </Property>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Trebuchet MS" size="14" style="0"/>
+                              <Font name="Champagne &amp; Limousines" size="14" style="0"/>
                             </Property>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -2056,7 +2113,7 @@
                         <Component class="javax.swing.JLabel" name="jLabel23">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Myanmar Text" size="15" style="0"/>
+                              <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="Produto:"/>
                           </Properties>
@@ -2076,7 +2133,7 @@
                           </Border>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="18" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="18" style="0"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -2086,7 +2143,7 @@
                     <Component class="javax.swing.JLabel" name="jLabel24">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Quantidade Atual:"/>
                       </Properties>
@@ -2105,14 +2162,14 @@
                         </Property>
                         <Property name="enabled" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="18" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="18" style="0"/>
                         </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel25">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Quantidade Atual:"/>
                       </Properties>
@@ -2131,14 +2188,14 @@
                           </Border>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="18" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="18" style="0"/>
                         </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel26">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Quantidade Total:"/>
                       </Properties>
@@ -2146,7 +2203,7 @@
                     <Component class="javax.swing.JLabel" name="jLabel27">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="+"/>
                       </Properties>
@@ -2154,7 +2211,7 @@
                     <Component class="javax.swing.JLabel" name="jLabel28">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="="/>
                       </Properties>
@@ -2165,43 +2222,30 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel8">
+        <Component class="javax.swing.JLabel" name="jLabel15">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Champagne &amp; Limousines" size="20" style="0"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Produto"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="btnSair">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Icones Inativos/Fechar.png"/>
             </Property>
           </Properties>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel15" alignment="0" pref="869" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel15" min="-2" pref="38" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel15">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Shruti" size="20" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="e3" green="e3" red="e3" type="rgb"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Produto"/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSairMouseClicked"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSairMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSairMouseExited"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

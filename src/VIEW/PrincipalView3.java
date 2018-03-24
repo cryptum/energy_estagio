@@ -9,7 +9,6 @@ import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.net.URL;
-
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 /**
@@ -25,9 +24,10 @@ public class PrincipalView3 extends javax.swing.JFrame {
         initComponents();
         this.setVisible(true);
         this.setExtendedState(MAXIMIZED_BOTH);
-        URL url = this.getClass().getResource("/view/icone.png");
-        Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
-        this.setIconImage(imagemTitulo);
+        
+        //URL url = this.getClass().getResource("/view/icone.png");
+        //Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
+        //this.setIconImage(imagemTitulo);
 
     }
 
@@ -41,192 +41,185 @@ public class PrincipalView3 extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        Venda = new javax.swing.JLabel();
-        Cliente = new javax.swing.JLabel();
-        MarcLivre = new javax.swing.JLabel();
-        Relatorios = new javax.swing.JLabel();
-        Estoque = new javax.swing.JLabel();
-        Vendedor = new javax.swing.JLabel();
-        Relatorios1 = new javax.swing.JLabel();
+        btnEstoque = new javax.swing.JLabel();
+        btnVendedor = new javax.swing.JLabel();
+        btnVenda = new javax.swing.JLabel();
+        btnMarcLivre = new javax.swing.JLabel();
+        btnRelatorios = new javax.swing.JLabel();
+        btnSituacao = new javax.swing.JLabel();
+        btnCliente = new javax.swing.JLabel();
         pnlPrincipal = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        Venda.setBackground(new java.awt.Color(204, 0, 255));
-        Venda.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
-        Venda.setForeground(new java.awt.Color(51, 51, 51));
-        Venda.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Venda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogo 3 - Para Fundo Branco/Vendas.png"))); // NOI18N
-        Venda.setText("Venda");
-        Venda.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Venda.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        Venda.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnEstoque.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
+        btnEstoque.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnEstoque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VIEW/Icones Inativos/Estoque.png"))); // NOI18N
+        btnEstoque.setText("Estoque");
+        btnEstoque.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEstoque.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnEstoque.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                VendaMouseClicked(evt);
+                btnEstoqueMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                VendaMouseEntered(evt);
+                btnEstoqueMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                VendaMouseExited(evt);
+                btnEstoqueMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                VendaMousePressed(evt);
+                btnEstoqueMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                VendaMouseReleased(evt);
+                btnEstoqueMouseReleased(evt);
             }
         });
 
-        Cliente.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
-        Cliente.setForeground(new java.awt.Color(51, 51, 51));
-        Cliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogo 3 - Para Fundo Branco/Cliente.png"))); // NOI18N
-        Cliente.setText("Cliente");
-        Cliente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Cliente.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        Cliente.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnVendedor.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
+        btnVendedor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnVendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VIEW/Icones Inativos/Funcionario.png"))); // NOI18N
+        btnVendedor.setText("Funcionario");
+        btnVendedor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnVendedor.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnVendedor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ClienteMouseClicked(evt);
+                btnVendedorMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ClienteMouseEntered(evt);
+                btnVendedorMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                ClienteMouseExited(evt);
+                btnVendedorMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                ClienteMousePressed(evt);
+                btnVendedorMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                ClienteMouseReleased(evt);
+                btnVendedorMouseReleased(evt);
             }
         });
 
-        MarcLivre.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
-        MarcLivre.setForeground(new java.awt.Color(51, 51, 51));
-        MarcLivre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        MarcLivre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogo 3 - Para Fundo Branco/Mercado Livre.png"))); // NOI18N
-        MarcLivre.setText("<html><p align = \"center\">Mercado<br>Livre</p></html> "); // NOI18N
-        MarcLivre.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        MarcLivre.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        MarcLivre.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnVenda.setBackground(new java.awt.Color(204, 0, 255));
+        btnVenda.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
+        btnVenda.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VIEW/Icones Inativos/Vendas.png"))); // NOI18N
+        btnVenda.setText("Venda");
+        btnVenda.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnVenda.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnVenda.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                MarcLivreMouseClicked(evt);
+                btnVendaMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                MarcLivreMouseEntered(evt);
+                btnVendaMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                MarcLivreMouseExited(evt);
+                btnVendaMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                MarcLivreMousePressed(evt);
+                btnVendaMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                MarcLivreMouseReleased(evt);
+                btnVendaMouseReleased(evt);
             }
         });
 
-        Relatorios.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
-        Relatorios.setForeground(new java.awt.Color(51, 51, 51));
-        Relatorios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Relatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogo 3 - Para Fundo Branco/Relatorio.png"))); // NOI18N
-        Relatorios.setText("Relatórios");
-        Relatorios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Relatorios.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        Relatorios.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnMarcLivre.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
+        btnMarcLivre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnMarcLivre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VIEW/Icones Inativos/Mercado Livre.png"))); // NOI18N
+        btnMarcLivre.setText("Mercado"); // NOI18N
+        btnMarcLivre.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnMarcLivre.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnMarcLivre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                RelatoriosMouseClicked(evt);
+                btnMarcLivreMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                RelatoriosMouseEntered(evt);
+                btnMarcLivreMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                RelatoriosMouseExited(evt);
+                btnMarcLivreMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                RelatoriosMousePressed(evt);
+                btnMarcLivreMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                RelatoriosMouseReleased(evt);
+                btnMarcLivreMouseReleased(evt);
             }
         });
 
-        Estoque.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
-        Estoque.setForeground(new java.awt.Color(51, 51, 51));
-        Estoque.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Estoque.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogo 3 - Para Fundo Branco/Estoque.png"))); // NOI18N
-        Estoque.setText("Estoque");
-        Estoque.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Estoque.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        Estoque.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnRelatorios.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
+        btnRelatorios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnRelatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VIEW/Icones Inativos/Relatorio.png"))); // NOI18N
+        btnRelatorios.setText("Relatórios");
+        btnRelatorios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnRelatorios.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnRelatorios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                EstoqueMouseClicked(evt);
+                btnRelatoriosMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                EstoqueMouseEntered(evt);
+                btnRelatoriosMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                EstoqueMouseExited(evt);
+                btnRelatoriosMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                EstoqueMousePressed(evt);
+                btnRelatoriosMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                EstoqueMouseReleased(evt);
+                btnRelatoriosMouseReleased(evt);
             }
         });
 
-        Vendedor.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
-        Vendedor.setForeground(new java.awt.Color(51, 51, 51));
-        Vendedor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Vendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogo 3 - Para Fundo Branco/icons8-gestão-de-desenvolvimento-comercial-filled-50.png"))); // NOI18N
-        Vendedor.setText("Funcionario");
-        Vendedor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Vendedor.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        Vendedor.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnSituacao.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
+        btnSituacao.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnSituacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VIEW/Icones Inativos/Estatisticas.png"))); // NOI18N
+        btnSituacao.setText("Situação");
+        btnSituacao.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnSituacao.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnSituacao.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                VendedorMouseClicked(evt);
+                btnSituacaoMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                VendedorMouseEntered(evt);
+                btnSituacaoMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                VendedorMouseExited(evt);
+                btnSituacaoMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                VendedorMousePressed(evt);
+                btnSituacaoMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                VendedorMouseReleased(evt);
+                btnSituacaoMouseReleased(evt);
             }
         });
 
-        Relatorios1.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
-        Relatorios1.setForeground(new java.awt.Color(51, 51, 51));
-        Relatorios1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Relatorios1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jogo 3 - Para Fundo Branco/Estatisticas.png"))); // NOI18N
-        Relatorios1.setText("Situação");
-        Relatorios1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Relatorios1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        Relatorios1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnCliente.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
+        btnCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VIEW/Icones Inativos/Cliente.png"))); // NOI18N
+        btnCliente.setText("Cliente");
+        btnCliente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCliente.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnCliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Relatorios1MouseClicked(evt);
+                btnClienteMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Relatorios1MouseEntered(evt);
+                btnClienteMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                Relatorios1MouseExited(evt);
+                btnClienteMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                Relatorios1MousePressed(evt);
+                btnClienteMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                Relatorios1MouseReleased(evt);
+                btnClienteMouseReleased(evt);
             }
         });
 
@@ -234,32 +227,36 @@ public class PrincipalView3 extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                .addComponent(Estoque, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Cliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Venda, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(MarcLivre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                .addComponent(Vendedor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(Relatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(Relatorios1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCliente)
+                .addGap(15, 15, 15)
+                .addComponent(btnEstoque)
+                .addGap(15, 15, 15)
+                .addComponent(btnVendedor)
+                .addGap(15, 15, 15)
+                .addComponent(btnVenda)
+                .addGap(15, 15, 15)
+                .addComponent(btnMarcLivre)
+                .addGap(15, 15, 15)
+                .addComponent(btnRelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(btnSituacao)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(Cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(Estoque, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(Vendedor)
-                .addGap(0, 0, 0)
-                .addComponent(Venda)
-                .addGap(0, 0, 0)
-                .addComponent(MarcLivre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(Relatorios)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Relatorios1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnVendedor, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnEstoque, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnRelatorios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnMarcLivre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnVenda, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(btnSituacao, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnCliente, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
 
@@ -269,201 +266,251 @@ public class PrincipalView3 extends javax.swing.JFrame {
         pnlPrincipal.setLayout(pnlPrincipalLayout);
         pnlPrincipalLayout.setHorizontalGroup(
             pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1111, Short.MAX_VALUE)
+            .addGap(0, 775, Short.MAX_VALUE)
         );
         pnlPrincipalLayout.setVerticalGroup(
             pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 632, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(pnlPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(pnlPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pnlPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnlPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClienteMouseClicked
-        ClienteView Cliente = new ClienteView();
-            pnlPrincipal.removeAll();
-            pnlPrincipal.add(Cliente);
-            pnlPrincipal.updateUI();
-    }//GEN-LAST:event_ClienteMouseClicked
-
-    private void VendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VendaMouseClicked
+    private void btnVendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendaMouseClicked
         VendaView venda = new VendaView();
             pnlPrincipal.removeAll();
             pnlPrincipal.add(venda);
             pnlPrincipal.updateUI();
-    }//GEN-LAST:event_VendaMouseClicked
+            btnVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Ativos/Vendas.png")));
+            btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Cliente.png")));
+            btnEstoque.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Estoque.png")));
+            btnVendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Funcionario.png")));
+            btnMarcLivre.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Mercado livre.png")));
+            btnRelatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Relatorios.png")));
+            btnSituacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Estatisticas.png")));
+    }//GEN-LAST:event_btnVendaMouseClicked
 
-    private void EstoqueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EstoqueMouseClicked
+    private void btnEstoqueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEstoqueMouseClicked
         ProdutoView Produto = new ProdutoView();
             pnlPrincipal.removeAll();
             pnlPrincipal.add(Produto);
             pnlPrincipal.updateUI();
-    }//GEN-LAST:event_EstoqueMouseClicked
+            btnEstoque.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Ativos/Estoque.png")));
+            btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Cliente.png")));
+            btnVendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Funcionario.png")));
+            btnVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Vendas.png")));
+            btnMarcLivre.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Mercado livre.png")));
+            btnRelatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Relatorios.png")));
+            btnSituacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Estatisticas.png")));
+    }//GEN-LAST:event_btnEstoqueMouseClicked
 
-    private void MarcLivreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MarcLivreMouseClicked
+    private void btnMarcLivreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMarcLivreMouseClicked
         VendaViewML VendaMl = new VendaViewML();
             pnlPrincipal.removeAll();
             pnlPrincipal.add(VendaMl);
             pnlPrincipal.updateUI();
-    }//GEN-LAST:event_MarcLivreMouseClicked
+            btnMarcLivre.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Ativos/Mercado livre.png")));
+            btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Cliente.png")));
+            btnEstoque.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Estoque.png")));
+            btnVendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Funcionario.png")));
+            btnVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Vendas.png")));
+            btnRelatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Relatorios.png")));
+            btnSituacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Estatisticas.png")));
+    }//GEN-LAST:event_btnMarcLivreMouseClicked
 
-    private void RelatoriosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RelatoriosMouseClicked
+    private void btnRelatoriosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRelatoriosMouseClicked
         RelatorioView Relatorio = new RelatorioView();
             pnlPrincipal.removeAll();
             pnlPrincipal.add(Relatorio);
             pnlPrincipal.updateUI();
-    }//GEN-LAST:event_RelatoriosMouseClicked
+            btnRelatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Ativos/Relatorios.png")));
+            btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Cliente.png")));
+            btnEstoque.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Estoque.png")));
+            btnVendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Funcionario.png")));
+            btnVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Vendas.png")));
+            btnMarcLivre.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Mercado livre.png")));
+            btnSituacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Estatisticas.png")));
+    }//GEN-LAST:event_btnRelatoriosMouseClicked
 
-    private void VendedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VendedorMouseClicked
+    private void btnVendedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendedorMouseClicked
         FuncionarioView Funcionario = new FuncionarioView();
             pnlPrincipal.removeAll();
             pnlPrincipal.add(Funcionario);
             pnlPrincipal.updateUI();
-    }//GEN-LAST:event_VendedorMouseClicked
+            btnVendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Ativos/Funcionario.png")));
+            btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Cliente.png")));
+            btnEstoque.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Estoque.png")));
+            btnVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Vendas.png")));
+            btnMarcLivre.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Mercado livre.png")));
+            btnRelatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Relatorios.png")));
+            btnSituacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Estatisticas.png")));
+    }//GEN-LAST:event_btnVendedorMouseClicked
 
-    private void ClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClienteMouseEntered
-        Cliente.setForeground(Color.GRAY);
-    }//GEN-LAST:event_ClienteMouseEntered
+    private void btnEstoqueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEstoqueMouseEntered
+    btnEstoque.setForeground(Color.yellow);
+    }//GEN-LAST:event_btnEstoqueMouseEntered
 
-    private void ClienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClienteMouseExited
-        Cliente.setForeground(Color.getHSBColor(90 , 20 , 120));
-    }//GEN-LAST:event_ClienteMouseExited
+    private void btnEstoqueMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEstoqueMouseExited
+    btnEstoque.setForeground(Color.black);
+    }//GEN-LAST:event_btnEstoqueMouseExited
 
-    private void ClienteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClienteMousePressed
-        Cliente.setForeground(Color.LIGHT_GRAY);
-    }//GEN-LAST:event_ClienteMousePressed
+    private void btnEstoqueMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEstoqueMousePressed
+    btnEstoque.setForeground(Color.LIGHT_GRAY);
+    }//GEN-LAST:event_btnEstoqueMousePressed
 
-    private void ClienteMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClienteMouseReleased
-        Cliente.setForeground(Color.getHSBColor(90 , 20 , 120));
-    }//GEN-LAST:event_ClienteMouseReleased
+    private void btnEstoqueMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEstoqueMouseReleased
+    btnEstoque.setForeground(Color.yellow);
+    }//GEN-LAST:event_btnEstoqueMouseReleased
 
-    private void EstoqueMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EstoqueMouseEntered
-        Estoque.setForeground(Color.GRAY);
-    }//GEN-LAST:event_EstoqueMouseEntered
+    private void btnVendedorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendedorMouseEntered
+    btnVendedor.setForeground(Color.yellow);
+    }//GEN-LAST:event_btnVendedorMouseEntered
 
-    private void EstoqueMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EstoqueMouseExited
-        Estoque.setForeground(Color.getHSBColor(90, 20, 120));
-    }//GEN-LAST:event_EstoqueMouseExited
+    private void btnVendedorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendedorMouseExited
+    btnVendedor.setForeground(Color.black);
+    }//GEN-LAST:event_btnVendedorMouseExited
 
-    private void EstoqueMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EstoqueMousePressed
-        Estoque.setForeground(Color.LIGHT_GRAY);
-    }//GEN-LAST:event_EstoqueMousePressed
+    private void btnVendedorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendedorMousePressed
+    btnVendedor.setForeground(Color.LIGHT_GRAY);
+    }//GEN-LAST:event_btnVendedorMousePressed
 
-    private void EstoqueMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EstoqueMouseReleased
-        Estoque.setForeground(Color.getHSBColor(90 , 20 , 120));
-    }//GEN-LAST:event_EstoqueMouseReleased
+    private void btnVendedorMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendedorMouseReleased
+    btnVendedor.setForeground(Color.yellow);
+    }//GEN-LAST:event_btnVendedorMouseReleased
 
-    private void VendedorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VendedorMouseEntered
-        Vendedor.setForeground(Color.GRAY);
-    }//GEN-LAST:event_VendedorMouseEntered
+    private void btnVendaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendaMouseEntered
+    btnVenda.setForeground(Color.YELLOW);
+    }//GEN-LAST:event_btnVendaMouseEntered
 
-    private void VendedorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VendedorMouseExited
-        Vendedor.setForeground(Color.getHSBColor(90, 20, 120));
-    }//GEN-LAST:event_VendedorMouseExited
+    private void btnVendaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendaMouseExited
+    btnVenda.setForeground(Color.black);
+    }//GEN-LAST:event_btnVendaMouseExited
 
-    private void VendedorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VendedorMousePressed
-        Vendedor.setForeground(Color.LIGHT_GRAY);
-    }//GEN-LAST:event_VendedorMousePressed
+    private void btnVendaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendaMousePressed
+    btnVenda.setForeground(Color.LIGHT_GRAY);
+    }//GEN-LAST:event_btnVendaMousePressed
 
-    private void VendedorMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VendedorMouseReleased
-        Vendedor.setForeground(Color.getHSBColor(90 , 20 , 120));
-    }//GEN-LAST:event_VendedorMouseReleased
+    private void btnVendaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendaMouseReleased
+    btnVenda.setForeground(Color.yellow);
+    }//GEN-LAST:event_btnVendaMouseReleased
 
-    private void VendaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VendaMouseEntered
-        Venda.setForeground(Color.GRAY);
-    }//GEN-LAST:event_VendaMouseEntered
+    private void btnMarcLivreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMarcLivreMouseEntered
+    btnMarcLivre.setForeground(Color.yellow);
+    }//GEN-LAST:event_btnMarcLivreMouseEntered
 
-    private void VendaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VendaMouseExited
-        Venda.setForeground(Color.getHSBColor(90, 20, 120));
-    }//GEN-LAST:event_VendaMouseExited
+    private void btnMarcLivreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMarcLivreMouseExited
+    btnMarcLivre.setForeground(Color.black);
+    }//GEN-LAST:event_btnMarcLivreMouseExited
 
-    private void VendaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VendaMousePressed
-        Venda.setForeground(Color.LIGHT_GRAY);
-    }//GEN-LAST:event_VendaMousePressed
+    private void btnMarcLivreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMarcLivreMousePressed
+    btnMarcLivre.setForeground(Color.LIGHT_GRAY);
+    }//GEN-LAST:event_btnMarcLivreMousePressed
 
-    private void VendaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VendaMouseReleased
-        Venda.setForeground(Color.getHSBColor(90 , 20 , 120));
-    }//GEN-LAST:event_VendaMouseReleased
+    private void btnMarcLivreMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMarcLivreMouseReleased
+    btnMarcLivre.setForeground(Color.yellow);
+    }//GEN-LAST:event_btnMarcLivreMouseReleased
 
-    private void MarcLivreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MarcLivreMouseEntered
-        MarcLivre.setForeground(Color.GRAY);
-    }//GEN-LAST:event_MarcLivreMouseEntered
+    private void btnRelatoriosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRelatoriosMouseEntered
+    btnRelatorios.setForeground(Color.yellow);
+    }//GEN-LAST:event_btnRelatoriosMouseEntered
 
-    private void MarcLivreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MarcLivreMouseExited
-        MarcLivre.setForeground(Color.getHSBColor(90, 20, 120));
-    }//GEN-LAST:event_MarcLivreMouseExited
+    private void btnRelatoriosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRelatoriosMouseExited
+    btnRelatorios.setForeground(Color.black);
+    }//GEN-LAST:event_btnRelatoriosMouseExited
 
-    private void MarcLivreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MarcLivreMousePressed
-        MarcLivre.setForeground(Color.LIGHT_GRAY);
-    }//GEN-LAST:event_MarcLivreMousePressed
+    private void btnRelatoriosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRelatoriosMousePressed
+    btnRelatorios.setForeground(Color.LIGHT_GRAY);
+    }//GEN-LAST:event_btnRelatoriosMousePressed
 
-    private void MarcLivreMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MarcLivreMouseReleased
-        MarcLivre.setForeground(Color.getHSBColor(90 , 20 , 120));
-    }//GEN-LAST:event_MarcLivreMouseReleased
+    private void btnRelatoriosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRelatoriosMouseReleased
+    btnRelatorios.setForeground(Color.yellow);
+    }//GEN-LAST:event_btnRelatoriosMouseReleased
 
-    private void RelatoriosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RelatoriosMouseEntered
-        Relatorios.setForeground(Color.GRAY);
-    }//GEN-LAST:event_RelatoriosMouseEntered
-
-    private void RelatoriosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RelatoriosMouseExited
-        Relatorios.setForeground(Color.getHSBColor(90, 20, 120));
-    }//GEN-LAST:event_RelatoriosMouseExited
-
-    private void RelatoriosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RelatoriosMousePressed
-        Relatorios.setForeground(Color.LIGHT_GRAY);
-    }//GEN-LAST:event_RelatoriosMousePressed
-
-    private void RelatoriosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RelatoriosMouseReleased
-        Relatorios.setForeground(Color.getHSBColor(90 , 20 , 120));
-    }//GEN-LAST:event_RelatoriosMouseReleased
-
-    private void Relatorios1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Relatorios1MouseClicked
+    private void btnSituacaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSituacaoMouseClicked
         SituacaoDaEmpresa situ = new SituacaoDaEmpresa();
         pnlPrincipal.removeAll();
         pnlPrincipal.add(situ);
         pnlPrincipal.updateUI();
-    }//GEN-LAST:event_Relatorios1MouseClicked
+        btnSituacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Ativos/Estatisticas.png")));
+        btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Cliente.png")));
+        btnVendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Funcionario.png")));
+        btnEstoque.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Estoque.png")));
+        btnVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Vendas.png")));
+        btnMarcLivre.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Mercado livre.png")));
+        btnRelatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Relatorios.png")));
+    }//GEN-LAST:event_btnSituacaoMouseClicked
 
-    private void Relatorios1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Relatorios1MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Relatorios1MouseEntered
+    private void btnSituacaoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSituacaoMouseEntered
+    btnSituacao.setForeground(Color.yellow);
+    }//GEN-LAST:event_btnSituacaoMouseEntered
 
-    private void Relatorios1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Relatorios1MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Relatorios1MouseExited
+    private void btnSituacaoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSituacaoMouseExited
+    btnSituacao.setForeground(Color.black);
+    }//GEN-LAST:event_btnSituacaoMouseExited
 
-    private void Relatorios1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Relatorios1MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Relatorios1MousePressed
+    private void btnSituacaoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSituacaoMousePressed
+    btnSituacao.setForeground(Color.white);
+    }//GEN-LAST:event_btnSituacaoMousePressed
 
-    private void Relatorios1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Relatorios1MouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Relatorios1MouseReleased
+    private void btnSituacaoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSituacaoMouseReleased
+    btnSituacao.setForeground(Color.yellow);
+    }//GEN-LAST:event_btnSituacaoMouseReleased
+
+    private void btnClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClienteMouseClicked
+        ClienteView cliente = new ClienteView();
+        ((BasicInternalFrameUI)cliente.getUI()).setNorthPane(null);
+        pnlPrincipal.removeAll();
+        pnlPrincipal.add(cliente);
+        pnlPrincipal.updateUI();
+        btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Ativos/Cliente.png")));
+        btnVendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Funcionario.png")));
+        btnEstoque.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Estoque.png")));
+        btnVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Vendas.png")));
+        btnMarcLivre.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Mercado livre.png")));
+        btnRelatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Relatorios.png")));
+        btnSituacao.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Estatisticas.png")));
+    }//GEN-LAST:event_btnClienteMouseClicked
+
+    private void btnClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClienteMouseEntered
+    btnCliente.setForeground(Color.yellow);
+    }//GEN-LAST:event_btnClienteMouseEntered
+
+    private void btnClienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClienteMouseExited
+    btnCliente.setForeground(Color.black);
+    }//GEN-LAST:event_btnClienteMouseExited
+
+    private void btnClienteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClienteMousePressed
+    btnCliente.setForeground(Color.LIGHT_GRAY);
+    }//GEN-LAST:event_btnClienteMousePressed
+
+    private void btnClienteMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClienteMouseReleased
+    btnCliente.setForeground(Color.yellow);
+    }//GEN-LAST:event_btnClienteMouseReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Cliente;
-    private javax.swing.JLabel Estoque;
-    private javax.swing.JLabel MarcLivre;
-    private javax.swing.JLabel Relatorios;
-    private javax.swing.JLabel Relatorios1;
-    private javax.swing.JLabel Venda;
-    private javax.swing.JLabel Vendedor;
+    private javax.swing.JLabel btnCliente;
+    private javax.swing.JLabel btnEstoque;
+    private javax.swing.JLabel btnMarcLivre;
+    private javax.swing.JLabel btnRelatorios;
+    private javax.swing.JLabel btnSituacao;
+    private javax.swing.JLabel btnVenda;
+    private javax.swing.JLabel btnVendedor;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel pnlPrincipal;
     // End of variables declaration//GEN-END:variables

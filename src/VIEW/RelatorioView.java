@@ -1016,24 +1016,24 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         RadioData = new javax.swing.JRadioButton();
         RadioCliente2 = new javax.swing.JRadioButton();
         btnGerarRelatorio = new javax.swing.JButton();
-        jPanel8 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
+        btnSair = new javax.swing.JLabel();
 
         setClosable(true);
         setMaximizable(true);
         setResizable(true);
 
-        jPanel1.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
         jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
-        jTabbedPane1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jTabbedPane1.setFont(new java.awt.Font("Champagne & Limousines", 0, 14)); // NOI18N
 
-        jPanel4.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         Tabela.setBackground(new java.awt.Color(248, 248, 248));
         Tabela.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(210, 210, 210)));
-        Tabela.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
+        Tabela.setFont(new java.awt.Font("Champagne & Limousines", 0, 12)); // NOI18N
         Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -1047,20 +1047,20 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         ));
         jScrollPane3.setViewportView(Tabela);
 
-        PainelNome.setBackground(new java.awt.Color(248, 248, 248));
-        PainelNome.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Filtro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
+        PainelNome.setBackground(new java.awt.Color(255, 255, 255));
+        PainelNome.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Filtro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Champagne & Limousines", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
 
         txtNome.setBackground(new java.awt.Color(245, 245, 245));
-        txtNome.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        txtNome.setFont(new java.awt.Font("Champagne & Limousines", 0, 14)); // NOI18N
         txtNome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
 
-        jLabel13.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel13.setText("Nome:");
 
-        jLabel14.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel14.setText("De:");
 
-        jLabel16.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel16.setText("Até:");
 
         txtAte.setBackground(new java.awt.Color(245, 245, 245));
@@ -1070,7 +1070,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtAte.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        txtAte.setFont(new java.awt.Font("Champagne & Limousines", 0, 14)); // NOI18N
 
         txtDe.setBackground(new java.awt.Color(245, 245, 245));
         txtDe.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
@@ -1079,7 +1079,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtDe.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        txtDe.setFont(new java.awt.Font("Champagne & Limousines", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout PainelNomeLayout = new javax.swing.GroupLayout(PainelNome);
         PainelNome.setLayout(PainelNomeLayout);
@@ -1120,6 +1120,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        btnPuxarDados.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
         btnPuxarDados.setText("Puxar Dados");
         btnPuxarDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1127,11 +1128,11 @@ public class RelatorioView extends javax.swing.JInternalFrame {
             }
         });
 
-        PainelGeral.setBackground(new java.awt.Color(248, 248, 248));
-        PainelGeral.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Categoria", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
+        PainelGeral.setBackground(new java.awt.Color(255, 255, 255));
+        PainelGeral.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Categoria", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Champagne & Limousines", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
 
         Grupo1.add(RadioClientes);
-        RadioClientes.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        RadioClientes.setFont(new java.awt.Font("Champagne & Limousines", 0, 12)); // NOI18N
         RadioClientes.setText("Clientes");
         RadioClientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1140,7 +1141,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         });
 
         Grupo1.add(RadioFuncionarios);
-        RadioFuncionarios.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        RadioFuncionarios.setFont(new java.awt.Font("Champagne & Limousines", 0, 12)); // NOI18N
         RadioFuncionarios.setText("Funcionarios");
         RadioFuncionarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1149,7 +1150,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         });
 
         Grupo1.add(RadioProdutos);
-        RadioProdutos.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        RadioProdutos.setFont(new java.awt.Font("Champagne & Limousines", 0, 12)); // NOI18N
         RadioProdutos.setText("Produtos");
         RadioProdutos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1158,7 +1159,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         });
 
         Grupo1.add(RadioVendas);
-        RadioVendas.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        RadioVendas.setFont(new java.awt.Font("Champagne & Limousines", 0, 12)); // NOI18N
         RadioVendas.setText("Vendas");
         RadioVendas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1167,7 +1168,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         });
 
         Grupo1.add(RadioVendasML);
-        RadioVendasML.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        RadioVendasML.setFont(new java.awt.Font("Champagne & Limousines", 0, 12)); // NOI18N
         RadioVendasML.setText("Vendas ML");
         RadioVendasML.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1204,11 +1205,11 @@ public class RelatorioView extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        PainelOpcao.setBackground(new java.awt.Color(248, 248, 248));
-        PainelOpcao.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tipo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
+        PainelOpcao.setBackground(new java.awt.Color(255, 255, 255));
+        PainelOpcao.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tipo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Champagne & Limousines", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
 
         Grupo2.add(RadioTodos);
-        RadioTodos.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        RadioTodos.setFont(new java.awt.Font("Champagne & Limousines", 0, 12)); // NOI18N
         RadioTodos.setText("Todos");
         RadioTodos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1217,7 +1218,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         });
 
         Grupo2.add(RadioApenas1);
-        RadioApenas1.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        RadioApenas1.setFont(new java.awt.Font("Champagne & Limousines", 0, 12)); // NOI18N
         RadioApenas1.setText("Apenas 1");
         RadioApenas1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1226,7 +1227,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         });
 
         Grupo2.add(RadioData);
-        RadioData.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        RadioData.setFont(new java.awt.Font("Champagne & Limousines", 0, 12)); // NOI18N
         RadioData.setText("Data");
         RadioData.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1235,7 +1236,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         });
 
         Grupo2.add(RadioCliente2);
-        RadioCliente2.setFont(new java.awt.Font("Trebuchet MS", 0, 12)); // NOI18N
+        RadioCliente2.setFont(new java.awt.Font("Champagne & Limousines", 0, 12)); // NOI18N
         RadioCliente2.setText("Cliente");
         RadioCliente2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1269,6 +1270,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        btnGerarRelatorio.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
         btnGerarRelatorio.setText("Gerar Relatórios");
         btnGerarRelatorio.setEnabled(false);
         btnGerarRelatorio.addActionListener(new java.awt.event.ActionListener() {
@@ -1294,7 +1296,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
                         .addComponent(btnPuxarDados, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnGerarRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane3)
@@ -1319,46 +1321,47 @@ public class RelatorioView extends javax.swing.JInternalFrame {
 
         jTabbedPane1.addTab("Opções", jPanel4);
 
-        jPanel8.setBackground(new java.awt.Color(51, 51, 51));
-
-        jLabel15.setFont(new java.awt.Font("Shruti", 0, 20)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(227, 227, 227));
+        jLabel15.setFont(new java.awt.Font("Champagne & Limousines", 0, 20)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("Relatórios");
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 862, Short.MAX_VALUE)
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones Inativos/Fechar.png"))); // NOI18N
+        btnSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSairMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSairMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSairMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 15, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 832, Short.MAX_VALUE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1041, Short.MAX_VALUE)
+                .addComponent(btnSair)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(14, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 629, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1536,6 +1539,18 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         txtAte.setEnabled(false);
     }//GEN-LAST:event_RadioCliente2MouseClicked
 
+    private void btnSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSairMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_btnSairMouseClicked
+
+    private void btnSairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSairMouseEntered
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Ativos/Fechar.png")));
+    }//GEN-LAST:event_btnSairMouseEntered
+
+    private void btnSairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSairMouseExited
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Fechar.png")));
+    }//GEN-LAST:event_btnSairMouseExited
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Grupo1;
     private javax.swing.ButtonGroup Grupo2;
@@ -1554,13 +1569,13 @@ public class RelatorioView extends javax.swing.JInternalFrame {
     private javax.swing.JTable Tabela;
     private javax.swing.JButton btnGerarRelatorio;
     private javax.swing.JButton btnPuxarDados;
+    private javax.swing.JLabel btnSair;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JFormattedTextField txtAte;

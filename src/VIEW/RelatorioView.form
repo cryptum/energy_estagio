@@ -43,34 +43,39 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="f8" green="f8" red="f8" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <Component id="jTabbedPane1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
-              </Group>
-              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Component id="jPanel8" alignment="1" max="32767" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jTabbedPane1" pref="832" max="32767" attributes="0"/>
+                      <Component id="jLabel15" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="1041" max="32767" attributes="0"/>
+                  <Component id="btnSair" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="jLabel15" min="-2" pref="38" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="btnSair" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
                   <Component id="jTabbedPane1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="14" max="32767" attributes="0"/>
-              </Group>
-              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="629" max="32767" attributes="0"/>
-                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
@@ -81,7 +86,7 @@
             <Property name="tabLayoutPolicy" type="int" value="1"/>
             <Property name="tabPlacement" type="int" value="2"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Trebuchet MS" size="14" style="0"/>
+              <Font name="Champagne &amp; Limousines" size="14" style="0"/>
             </Property>
           </Properties>
 
@@ -90,7 +95,7 @@
             <Container class="javax.swing.JPanel" name="jPanel4">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -120,7 +125,7 @@
                                   <Component id="btnGerarRelatorio" min="-2" pref="134" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="97" max="32767" attributes="0"/>
+                          <EmptySpace pref="102" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
@@ -171,7 +176,7 @@
                           </Border>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="12" style="1"/>
+                          <Font name="Champagne &amp; Limousines" size="12" style="0"/>
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="0" rowCount="4"/>
@@ -189,12 +194,12 @@
                 <Container class="javax.swing.JPanel" name="PainelNome">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder title="Filtro">
-                          <Font PropertyName="font" name="Tahoma" size="14" style="0"/>
+                          <Font PropertyName="font" name="Champagne &amp; Limousines" size="14" style="0"/>
                           <Color PropertyName="color" blue="1e" green="1e" red="1e" type="rgb"/>
                         </TitledBorder>
                       </Border>
@@ -257,7 +262,7 @@
                           <Color blue="f5" green="f5" red="f5" type="rgb"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="14" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="14" style="0"/>
                         </Property>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -271,7 +276,7 @@
                     <Component class="javax.swing.JLabel" name="jLabel13">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Nome:"/>
                       </Properties>
@@ -279,7 +284,7 @@
                     <Component class="javax.swing.JLabel" name="jLabel14">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="De:"/>
                       </Properties>
@@ -287,7 +292,7 @@
                     <Component class="javax.swing.JLabel" name="jLabel16">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Myanmar Text" size="15" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="15" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="At&#xe9;:"/>
                       </Properties>
@@ -308,7 +313,7 @@
                           <Format format="##/##/####" subtype="-1" type="5"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="14" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="14" style="0"/>
                         </Property>
                       </Properties>
                     </Component>
@@ -328,7 +333,7 @@
                           <Format format="##/##/####" subtype="-1" type="5"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="14" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="14" style="0"/>
                         </Property>
                       </Properties>
                     </Component>
@@ -336,6 +341,9 @@
                 </Container>
                 <Component class="javax.swing.JButton" name="btnPuxarDados">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Champagne &amp; Limousines" size="11" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Puxar Dados"/>
                   </Properties>
                   <Events>
@@ -345,12 +353,12 @@
                 <Container class="javax.swing.JPanel" name="PainelGeral">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder title="Categoria">
-                          <Font PropertyName="font" name="Tahoma" size="14" style="0"/>
+                          <Font PropertyName="font" name="Champagne &amp; Limousines" size="14" style="0"/>
                           <Color PropertyName="color" blue="1e" green="1e" red="1e" type="rgb"/>
                         </TitledBorder>
                       </Border>
@@ -397,7 +405,7 @@
                           <ComponentRef name="Grupo1"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="12" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="12" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Clientes"/>
                       </Properties>
@@ -411,7 +419,7 @@
                           <ComponentRef name="Grupo1"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="12" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="12" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Funcionarios"/>
                       </Properties>
@@ -425,7 +433,7 @@
                           <ComponentRef name="Grupo1"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="12" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="12" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Produtos"/>
                       </Properties>
@@ -439,7 +447,7 @@
                           <ComponentRef name="Grupo1"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="12" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="12" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Vendas"/>
                       </Properties>
@@ -453,7 +461,7 @@
                           <ComponentRef name="Grupo1"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="12" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="12" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Vendas ML"/>
                       </Properties>
@@ -466,12 +474,12 @@
                 <Container class="javax.swing.JPanel" name="PainelOpcao">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder title="Tipo">
-                          <Font PropertyName="font" name="Tahoma" size="14" style="0"/>
+                          <Font PropertyName="font" name="Champagne &amp; Limousines" size="14" style="0"/>
                           <Color PropertyName="color" blue="1e" green="1e" red="1e" type="rgb"/>
                         </TitledBorder>
                       </Border>
@@ -515,7 +523,7 @@
                           <ComponentRef name="Grupo2"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="12" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="12" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Todos"/>
                       </Properties>
@@ -529,7 +537,7 @@
                           <ComponentRef name="Grupo2"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="12" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="12" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Apenas 1"/>
                       </Properties>
@@ -543,7 +551,7 @@
                           <ComponentRef name="Grupo2"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="12" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="12" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Data"/>
                       </Properties>
@@ -557,7 +565,7 @@
                           <ComponentRef name="Grupo2"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Trebuchet MS" size="12" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="12" style="0"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Cliente"/>
                       </Properties>
@@ -569,6 +577,9 @@
                 </Container>
                 <Component class="javax.swing.JButton" name="btnGerarRelatorio">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Champagne &amp; Limousines" size="11" style="0"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Gerar Relat&#xf3;rios"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
@@ -580,43 +591,27 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel8">
+        <Component class="javax.swing.JLabel" name="jLabel15">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Champagne &amp; Limousines" size="20" style="0"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Relat&#xf3;rios"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="btnSair">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Icones Inativos/Fechar.png"/>
             </Property>
           </Properties>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel15" alignment="0" pref="862" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel15" min="-2" pref="38" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel15">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Shruti" size="20" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="e3" green="e3" red="e3" type="rgb"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Relat&#xf3;rios"/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSairMouseClicked"/>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSairMouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSairMouseExited"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

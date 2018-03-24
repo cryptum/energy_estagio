@@ -253,24 +253,25 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         btnSalvar = new javax.swing.JButton();
         btnNovo = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
-        jPanel8 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
+        btnSair = new javax.swing.JLabel();
 
         setClosable(true);
         setMaximizable(true);
         setResizable(true);
 
-        jPanel1.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
         jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
         jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
-        jTabbedPane1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jTabbedPane1.setFont(new java.awt.Font("Champagne & Limousines", 0, 14)); // NOI18N
 
-        jPanel4.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         tblFuncionario.setBackground(new java.awt.Color(248, 248, 248));
         tblFuncionario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(210, 210, 210)));
-        tblFuncionario.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
+        tblFuncionario.setFont(new java.awt.Font("Champagne & Limousines", 1, 12)); // NOI18N
         tblFuncionario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -289,8 +290,8 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
             tblFuncionario.getColumnModel().getColumn(0).setMinWidth(20);
         }
 
-        jPanel5.setBackground(new java.awt.Color(248, 248, 248));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Champagne & Limousines", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
 
         txtBusca.setBackground(new java.awt.Color(245, 245, 245));
         txtBusca.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
@@ -301,7 +302,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel13.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel13.setText("Nome:");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -375,25 +376,25 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
 
         jTabbedPane1.addTab("Consulta", jPanel4);
 
-        jPanel6.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(248, 248, 248));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados Iniciais", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados Iniciais", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Champagne & Limousines", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel1.setText("Nome Completo:");
 
         txtNome.setBackground(new java.awt.Color(245, 245, 245));
-        txtNome.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        txtNome.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         txtNome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
 
-        jLabel8.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel8.setText("Data de Nascimento:");
 
-        jLabel10.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel10.setText("CPF:");
 
-        jLabel11.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel11.setText("RG:");
 
         txtCpf.setBackground(new java.awt.Color(245, 245, 245));
@@ -403,7 +404,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtCpf.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        txtCpf.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
 
         txtNascimento.setBackground(new java.awt.Color(245, 245, 245));
         txtNascimento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
@@ -412,11 +413,11 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtNascimento.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        txtNascimento.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
 
         txtRg.setBackground(new java.awt.Color(245, 245, 245));
         txtRg.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
-        txtRg.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        txtRg.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
 
         txtTelefone.setBackground(new java.awt.Color(245, 245, 245));
         txtTelefone.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
@@ -425,12 +426,12 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtTelefone.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        txtTelefone.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel6.setText("Telefone:");
 
-        jLabel7.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel7.setText("Celular 1:");
 
         txtCelular1.setBackground(new java.awt.Color(245, 245, 245));
@@ -440,9 +441,9 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtCelular1.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        txtCelular1.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
 
-        jLabel12.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel12.setText("Celular 2:");
 
         txtCelular2.setBackground(new java.awt.Color(245, 245, 245));
@@ -452,7 +453,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtCelular2.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        txtCelular2.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -519,31 +520,31 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
                     .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCelular1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCelular2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        jPanel3.setBackground(new java.awt.Color(248, 248, 248));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Acesso", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Acesso", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Champagne & Limousines", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel3.setText("Senha:");
 
-        jLabel2.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel2.setText("Login:");
 
-        jLabel4.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel4.setText("Repetir senha:");
 
         txtLogin.setBackground(new java.awt.Color(245, 245, 245));
-        txtLogin.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        txtLogin.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         txtLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
 
         txtsenha.setBackground(new java.awt.Color(245, 245, 245));
-        txtsenha.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        txtsenha.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         txtsenha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
 
         txtsenha2.setBackground(new java.awt.Color(245, 245, 245));
-        txtsenha2.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        txtsenha2.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         txtsenha2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -583,7 +584,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtsenha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
         btnSalvar.setText("Salvar");
@@ -628,7 +629,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -646,44 +647,46 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
 
         jTabbedPane1.addTab("Funcionarios", jPanel6);
 
-        jPanel8.setBackground(new java.awt.Color(51, 51, 51));
-
-        jLabel15.setFont(new java.awt.Font("Shruti", 0, 20)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(227, 227, 227));
+        jLabel15.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel15.setFont(new java.awt.Font("Champagne & Limousines", 0, 20)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("Funcionario");
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 869, Short.MAX_VALUE)
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones Inativos/Fechar.png"))); // NOI18N
+        btnSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSairMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSairMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSairMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 40, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTabbedPane1)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1069, Short.MAX_VALUE)
+                .addComponent(btnSair))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 641, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -856,11 +859,24 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtBuscaCaretUpdate
 
+    private void btnSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSairMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_btnSairMouseClicked
+
+    private void btnSairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSairMouseEntered
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Ativos/Fechar.png")));
+    }//GEN-LAST:event_btnSairMouseEntered
+
+    private void btnSairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSairMouseExited
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Fechar.png")));
+    }//GEN-LAST:event_btnSairMouseExited
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnNovo;
+    private javax.swing.JLabel btnSair;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -880,7 +896,6 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tblFuncionario;

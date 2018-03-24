@@ -74,8 +74,9 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         txtEditarModelo.setDocument(new LimiteDigitos(45));
         txtNome.setDocument(new LimiteDigitos(50));
         txtCodigo.setDocument(new LimiteDigitos(45));
+        
     }
-
+     
     
     //Atualiza todos os funcionario para a tabela
     public void atualizaTabelaProduto(){
@@ -827,8 +828,8 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
+        btnSair = new javax.swing.JLabel();
 
         ProdutoDialog.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         ProdutoDialog.setMinimumSize(new java.awt.Dimension(310, 380));
@@ -907,17 +908,18 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setResizable(true);
 
-        jPanel1.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
         jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
-        jTabbedPane1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jTabbedPane1.setFocusable(false);
+        jTabbedPane1.setFont(new java.awt.Font("Champagne & Limousines", 0, 14)); // NOI18N
 
-        jPanel4.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         tblProduto.setBackground(new java.awt.Color(248, 248, 248));
         tblProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(210, 210, 210)));
-        tblProduto.setFont(new java.awt.Font("Myanmar Text", 1, 12)); // NOI18N
+        tblProduto.setFont(new java.awt.Font("Champagne & Limousines", 0, 12)); // NOI18N
         tblProduto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"Behinger", "Pedaleira", "500", "450"},
@@ -939,11 +941,11 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             tblProduto.getColumnModel().getColumn(0).setMinWidth(20);
         }
 
-        jPanel5.setBackground(new java.awt.Color(248, 248, 248));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Champagne & Limousines", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
 
         txtBusca.setBackground(new java.awt.Color(245, 245, 245));
-        txtBusca.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        txtBusca.setFont(new java.awt.Font("Champagne & Limousines", 0, 14)); // NOI18N
         txtBusca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
         txtBusca.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -951,7 +953,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel13.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel13.setText("Nome:");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -975,6 +977,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
+        btnAlterar.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
         btnAlterar.setText("Alterar");
         btnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -982,6 +985,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
 
+        btnExcluir.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
         btnExcluir.setText("Excluir");
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1025,32 +1029,32 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
         jTabbedPane1.addTab("Consulta", jPanel4);
 
-        jPanel6.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(248, 248, 248));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados Iniciais", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados Iniciais", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Champagne & Limousines", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel1.setText("Nome do Produto:");
 
         txtNome.setBackground(new java.awt.Color(245, 245, 245));
-        txtNome.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        txtNome.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         txtNome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
 
-        jLabel10.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel10.setText("Marca:");
 
-        jLabel11.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel11.setText("Modelo:");
 
         txtCodigo.setBackground(new java.awt.Color(245, 245, 245));
         txtCodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
-        txtCodigo.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        txtCodigo.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel6.setText("Codigo de Barras:");
 
-        cbxMarca.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        cbxMarca.setFont(new java.awt.Font("Champagne & Limousines", 0, 14)); // NOI18N
         cbxMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbxMarca.setToolTipText("");
         cbxMarca.addItemListener(new java.awt.event.ItemListener() {
@@ -1059,18 +1063,18 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
 
-        cbxModelo.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        cbxModelo.setFont(new java.awt.Font("Champagne & Limousines", 0, 14)); // NOI18N
         cbxModelo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel18.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel18.setText("Quantidade:");
 
         txtQuantidade.setBackground(new java.awt.Color(245, 245, 245));
         txtQuantidade.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
         txtQuantidade.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
-        txtQuantidade.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        txtQuantidade.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
 
-        cbxCategoria.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        cbxCategoria.setFont(new java.awt.Font("Champagne & Limousines", 0, 14)); // NOI18N
         cbxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbxCategoria.setToolTipText("");
         cbxCategoria.addItemListener(new java.awt.event.ItemListener() {
@@ -1079,7 +1083,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel21.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel21.setText("Categoria:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -1153,41 +1157,41 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        jPanel3.setBackground(new java.awt.Color(248, 248, 248));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Valores e Custos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Valores e Custos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Champagne & Limousines", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel3.setText("Valor Mercado Livre:");
 
-        jLabel2.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel2.setText("Valor Custo:");
 
-        jLabel4.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel4.setText("R$");
 
-        jLabel5.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel5.setText("R$");
 
-        jLabel9.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel9.setText("Valor Loja:");
 
-        jLabel7.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel7.setText("R$");
 
         txtvalorMinimo.setBackground(new java.awt.Color(245, 245, 245));
         txtvalorMinimo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
         txtvalorMinimo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("##0.00"))));
-        txtvalorMinimo.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        txtvalorMinimo.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
 
         txtValorMaximo.setBackground(new java.awt.Color(245, 245, 245));
         txtValorMaximo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
         txtValorMaximo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("##0.00"))));
-        txtValorMaximo.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        txtValorMaximo.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
 
         txtValorCusto.setBackground(new java.awt.Color(245, 245, 245));
         txtValorCusto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
         txtValorCusto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("##0.00"))));
-        txtValorCusto.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        txtValorCusto.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -1201,7 +1205,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtValorMaximo, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(78, Short.MAX_VALUE))
+                        .addContainerGap(79, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
@@ -1212,7 +1216,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtValorCusto, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(78, Short.MAX_VALUE))
+                        .addContainerGap(80, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1246,6 +1250,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 .addContainerGap(56, Short.MAX_VALUE))
         );
 
+        btnSalvar.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
         btnSalvar.setText("Salvar");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1253,6 +1258,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
 
+        btnNovo.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
         btnNovo.setText("Novo");
         btnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1260,6 +1266,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
 
+        btnCancelar.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1300,16 +1307,17 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Produtos", jPanel6);
 
         jPanel9.setBackground(new java.awt.Color(248, 248, 248));
 
-        jPanel14.setBackground(new java.awt.Color(248, 248, 248));
-        jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Marca", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
+        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Marca", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Champagne & Limousines", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
 
+        tblCategoria.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
         tblCategoria.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -1327,8 +1335,9 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
         txtEditarCategoria.setBackground(new java.awt.Color(245, 245, 245));
         txtEditarCategoria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
-        txtEditarCategoria.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        txtEditarCategoria.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
 
+        btnSalvarCategoria.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
         btnSalvarCategoria.setText("Salvar");
         btnSalvarCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1336,9 +1345,10 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel19.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel19.setText("Nome da Categoria:");
 
+        btnLimparCategoria.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
         btnLimparCategoria.setText("Limpar");
         btnLimparCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1346,11 +1356,11 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
 
-        jPanel15.setBackground(new java.awt.Color(248, 248, 248));
-        jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
+        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Champagne & Limousines", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
 
         txtBuscaCategoria.setBackground(new java.awt.Color(245, 245, 245));
-        txtBuscaCategoria.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        txtBuscaCategoria.setFont(new java.awt.Font("Champagne & Limousines", 0, 14)); // NOI18N
         txtBuscaCategoria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
         txtBuscaCategoria.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -1358,7 +1368,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel20.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel20.setText("Nome:");
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
@@ -1405,7 +1415,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                                     .addComponent(txtEditarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 73, Short.MAX_VALUE)))
+                        .addGap(0, 30, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel14Layout.setVerticalGroup(
@@ -1448,11 +1458,12 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
         jTabbedPane1.addTab("Categoria", jPanel9);
 
-        jPanel7.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel10.setBackground(new java.awt.Color(248, 248, 248));
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Marca", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Marca", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Champagne & Limousines", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
 
+        tblMarca.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
         tblMarca.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -1473,8 +1484,9 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
         txtEditarMarca.setBackground(new java.awt.Color(245, 245, 245));
         txtEditarMarca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
-        txtEditarMarca.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        txtEditarMarca.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
 
+        btnSalvarMarca.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
         btnSalvarMarca.setText("Salvar");
         btnSalvarMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1482,9 +1494,10 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel8.setText("Nome da Marca:");
 
+        btnLimparMarca.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
         btnLimparMarca.setText("Limpar");
         btnLimparMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1492,8 +1505,8 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
 
-        jPanel11.setBackground(new java.awt.Color(248, 248, 248));
-        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Champagne & Limousines", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
 
         txtBuscaMarca.setBackground(new java.awt.Color(245, 245, 245));
         txtBuscaMarca.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
@@ -1504,7 +1517,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel14.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel14.setText("Nome:");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
@@ -1570,9 +1583,10 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 .addGap(61, 61, 61))
         );
 
-        jPanel12.setBackground(new java.awt.Color(248, 248, 248));
-        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Modelo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
+        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Modelo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Champagne & Limousines", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
 
+        tblModelo.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
         tblModelo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -1593,8 +1607,9 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
         txtEditarModelo.setBackground(new java.awt.Color(245, 245, 245));
         txtEditarModelo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
-        txtEditarModelo.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        txtEditarModelo.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
 
+        btnSalvarModelo.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
         btnSalvarModelo.setText("Salvar");
         btnSalvarModelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1602,9 +1617,10 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel12.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel12.setText("Nome do Modelo:");
 
+        btnLimparModelo.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
         btnLimparModelo.setText("Limpar");
         btnLimparModelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1612,8 +1628,8 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
 
-        jPanel13.setBackground(new java.awt.Color(248, 248, 248));
-        jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
+        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Champagne & Limousines", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
 
         txtBuscaModelo.setBackground(new java.awt.Color(245, 245, 245));
         txtBuscaModelo.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
@@ -1624,7 +1640,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel16.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel16.setText("Nome:");
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
@@ -1644,10 +1660,10 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 .addComponent(txtBuscaModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jLabel17.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel17.setText("Marca:");
 
-        cbxEditarMarca.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        cbxEditarMarca.setFont(new java.awt.Font("Champagne & Limousines", 0, 14)); // NOI18N
         cbxEditarMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbxEditarMarca.setToolTipText("");
         cbxEditarMarca.addItemListener(new java.awt.event.ItemListener() {
@@ -1675,7 +1691,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                         .addComponent(txtIdModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel17)
                     .addComponent(cbxEditarMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
                     .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1699,7 +1715,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cbxEditarMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvarModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLimparModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1729,11 +1745,12 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
         jTabbedPane1.addTab("<html><p align = \"center\">Marca <br> Modelo</p></html> ", jPanel7);
 
-        jPanel16.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel16.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel17.setBackground(new java.awt.Color(248, 248, 248));
-        jPanel17.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Entrada de Produtos", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
+        jPanel17.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel17.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Entrada de Produtos", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Champagne & Limousines", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
 
+        tblEntradadeProdutos.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
         tblEntradadeProdutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -1751,13 +1768,14 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
         txtNomeEntradadeproduto.setBackground(new java.awt.Color(245, 245, 245));
         txtNomeEntradadeproduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
-        txtNomeEntradadeproduto.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        txtNomeEntradadeproduto.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         txtNomeEntradadeproduto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtNomeEntradadeprodutoMouseClicked(evt);
             }
         });
 
+        btnSalvarCategoria1.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
         btnSalvarCategoria1.setText("Salvar");
         btnSalvarCategoria1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1765,9 +1783,10 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel22.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel22.setText("Nome da Produto:");
 
+        btnLimparCategoria1.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
         btnLimparCategoria1.setText("Limpar");
         btnLimparCategoria1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1775,11 +1794,11 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
 
-        jPanel18.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel18.setBackground(new java.awt.Color(255, 255, 255));
         jPanel18.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Busca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 0, 14), new java.awt.Color(30, 30, 30))); // NOI18N
 
         txtBuscaEntradadeProduto.setBackground(new java.awt.Color(245, 245, 245));
-        txtBuscaEntradadeProduto.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        txtBuscaEntradadeProduto.setFont(new java.awt.Font("Champagne & Limousines", 0, 14)); // NOI18N
         txtBuscaEntradadeProduto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
         txtBuscaEntradadeProduto.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -1787,7 +1806,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel23.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel23.setText("Produto:");
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
@@ -1812,36 +1831,36 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
         txtQuantidadeadd.setBackground(new java.awt.Color(245, 245, 245));
         txtQuantidadeadd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
-        txtQuantidadeadd.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        txtQuantidadeadd.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         txtQuantidadeadd.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtQuantidadeaddCaretUpdate(evt);
             }
         });
 
-        jLabel24.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel24.setText("Quantidade Atual:");
 
         txtQuantidadeatual.setBackground(new java.awt.Color(245, 245, 245));
         txtQuantidadeatual.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
         txtQuantidadeatual.setEnabled(false);
-        txtQuantidadeatual.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        txtQuantidadeatual.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
 
-        jLabel25.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel25.setText("Quantidade Atual:");
 
         txtTotal.setEditable(false);
         txtTotal.setBackground(new java.awt.Color(245, 245, 245));
         txtTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
-        txtTotal.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        txtTotal.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
 
-        jLabel26.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel26.setText("Quantidade Total:");
 
-        jLabel27.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel27.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel27.setText("+");
 
-        jLabel28.setFont(new java.awt.Font("Myanmar Text", 0, 15)); // NOI18N
+        jLabel28.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel28.setText("=");
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
@@ -1879,7 +1898,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                                     .addComponent(txtQuantidadeatual, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel28)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -1917,7 +1936,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 .addGap(28, 28, 28)
                 .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1940,46 +1959,48 @@ public class ProdutoView extends javax.swing.JInternalFrame {
 
         jTabbedPane1.addTab("<html><p align = \"center\">Entrada<br>De <br> Produtos</p></html> ", jPanel16);
 
-        jPanel8.setBackground(new java.awt.Color(51, 51, 51));
-
-        jLabel15.setFont(new java.awt.Font("Shruti", 0, 20)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(227, 227, 227));
+        jLabel15.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel15.setFont(new java.awt.Font("Champagne & Limousines", 0, 20)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("Produto");
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 869, Short.MAX_VALUE)
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones Inativos/Fechar.png"))); // NOI18N
+        btnSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSairMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSairMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSairMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 859, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 1867, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSair))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 803, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 619, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 634, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -2544,6 +2565,18 @@ public class ProdutoView extends javax.swing.JInternalFrame {
        tblProdutoDialog.getTableHeader().setReorderingAllowed(false);
     }//GEN-LAST:event_txtNomeEntradadeprodutoMouseClicked
 
+    private void btnSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSairMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_btnSairMouseClicked
+
+    private void btnSairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSairMouseEntered
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Ativos/Fechar.png")));
+    }//GEN-LAST:event_btnSairMouseEntered
+
+    private void btnSairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSairMouseExited
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("Icones Inativos/Fechar.png")));
+    }//GEN-LAST:event_btnSairMouseExited
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog ProdutoDialog;
     private javax.swing.JButton btnAlterar;
@@ -2554,6 +2587,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnLimparMarca;
     private javax.swing.JButton btnLimparModelo;
     private javax.swing.JButton btnNovo;
+    private javax.swing.JLabel btnSair;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JButton btnSalvarCategoria;
     private javax.swing.JButton btnSalvarCategoria1;
@@ -2609,7 +2643,6 @@ public class ProdutoView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane11;
