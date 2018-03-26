@@ -25,9 +25,9 @@ public class PrincipalView3 extends javax.swing.JFrame {
         this.setVisible(true);
         this.setExtendedState(MAXIMIZED_BOTH);
         
-        //URL url = this.getClass().getResource("/view/icone.png");
-        //Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
-        //this.setIconImage(imagemTitulo);
+        URL url = this.getClass().getResource("Icones Icon/icone.png");
+        Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
+        this.setIconImage(imagemTitulo);
 
     }
 
@@ -293,6 +293,7 @@ public class PrincipalView3 extends javax.swing.JFrame {
 
     private void btnVendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendaMouseClicked
         VendaView venda = new VendaView();
+        ((BasicInternalFrameUI)venda.getUI()).setNorthPane(null);
             pnlPrincipal.removeAll();
             pnlPrincipal.add(venda);
             pnlPrincipal.updateUI();
@@ -307,6 +308,7 @@ public class PrincipalView3 extends javax.swing.JFrame {
 
     private void btnEstoqueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEstoqueMouseClicked
         ProdutoView Produto = new ProdutoView();
+        ((BasicInternalFrameUI)Produto.getUI()).setNorthPane(null);
             pnlPrincipal.removeAll();
             pnlPrincipal.add(Produto);
             pnlPrincipal.updateUI();
@@ -321,6 +323,7 @@ public class PrincipalView3 extends javax.swing.JFrame {
 
     private void btnMarcLivreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMarcLivreMouseClicked
         VendaViewML VendaMl = new VendaViewML();
+        ((BasicInternalFrameUI)VendaMl.getUI()).setNorthPane(null);
             pnlPrincipal.removeAll();
             pnlPrincipal.add(VendaMl);
             pnlPrincipal.updateUI();
@@ -335,6 +338,7 @@ public class PrincipalView3 extends javax.swing.JFrame {
 
     private void btnRelatoriosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRelatoriosMouseClicked
         RelatorioView Relatorio = new RelatorioView();
+        ((BasicInternalFrameUI)Relatorio.getUI()).setNorthPane(null);
             pnlPrincipal.removeAll();
             pnlPrincipal.add(Relatorio);
             pnlPrincipal.updateUI();
@@ -349,6 +353,7 @@ public class PrincipalView3 extends javax.swing.JFrame {
 
     private void btnVendedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendedorMouseClicked
         FuncionarioView Funcionario = new FuncionarioView();
+        ((BasicInternalFrameUI)Funcionario.getUI()).setNorthPane(null);
             pnlPrincipal.removeAll();
             pnlPrincipal.add(Funcionario);
             pnlPrincipal.updateUI();
@@ -443,6 +448,7 @@ public class PrincipalView3 extends javax.swing.JFrame {
 
     private void btnSituacaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSituacaoMouseClicked
         SituacaoDaEmpresa situ = new SituacaoDaEmpresa();
+        ((BasicInternalFrameUI)situ.getUI()).setNorthPane(null);
         pnlPrincipal.removeAll();
         pnlPrincipal.add(situ);
         pnlPrincipal.updateUI();

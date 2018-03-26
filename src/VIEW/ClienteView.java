@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
-import javax.swing.UIManager;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import util.LimiteDigitos;
@@ -44,14 +43,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
         txtBairro.setDocument(new LimiteDigitos(40));
         txtCidade.setDocument(new LimiteDigitos(45));
         txtObservacao.setDocument(new LimiteDigitos(50));
-        URL url = this.getClass().getResource("/view/icone.png");
-        Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
-        //this.setIconImage(imagemTitulo);
-        try { 
-         UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"); 
-        } catch (Exception ex) { 
-         ex.printStackTrace(); 
-}
+        
     }
 
     //Atualiza todos os funcionario para a tabela

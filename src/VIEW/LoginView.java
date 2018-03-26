@@ -60,9 +60,9 @@ public class LoginView extends javax.swing.JFrame {
                 btnLogin.setEnabled(false);
                 
         }
-        //URL url = this.getClass().getResource("/view/icone.png");
-        //Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
-        //this.setIconImage(imagemTitulo);
+        URL url = this.getClass().getResource("Icones Icon/icone.png");
+        Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
+        this.setIconImage(imagemTitulo);
     }
 
     @SuppressWarnings("unchecked")

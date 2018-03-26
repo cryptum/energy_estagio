@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
@@ -1584,6 +1585,7 @@ public class VendaView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage());
         }
         ItensDialog.setVisible(true);
+        //((BasicInternalFrameUI)ItensDialog.getUI()).setNorthPane(null);
         ItensDialog.setLocationRelativeTo(null);
         tblItensDialog.getTableHeader().setReorderingAllowed(false);
         atualizaTabelaItensDialog();
