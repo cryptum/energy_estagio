@@ -153,7 +153,7 @@ public class PrincipalView3 extends javax.swing.JFrame {
 
         btnRelatorios.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
         btnRelatorios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnRelatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VIEW/Icones Inativos/Relatorio.png"))); // NOI18N
+        btnRelatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VIEW/Icones Inativos/Relatorios.png"))); // NOI18N
         btnRelatorios.setText("Relatórios");
         btnRelatorios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnRelatorios.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);

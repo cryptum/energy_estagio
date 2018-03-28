@@ -85,7 +85,7 @@ public class LoginView extends javax.swing.JFrame {
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones Inativos/Senha.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VIEW/Icones Inativos/Senha.png"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 550, -1, -1));
 
         txtSenha.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
@@ -114,7 +114,7 @@ public class LoginView extends javax.swing.JFrame {
         });
         getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 650, 93, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones Inativos/Login.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VIEW/Icones Inativos/Login.png"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 550, -1, -1));
 
         txtUser.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
@@ -150,7 +150,7 @@ public class LoginView extends javax.swing.JFrame {
         lblErro.setText("Senha ou usuário incorretos!");
         getContentPane().add(lblErro, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 730, -1, -1));
 
-        BackGround.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones Inativos/tela iniciar login.png"))); // NOI18N
+        BackGround.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VIEW/Icones Inativos/tela iniciar login.png"))); // NOI18N
         getContentPane().add(BackGround, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();

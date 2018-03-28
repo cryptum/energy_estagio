@@ -1526,7 +1526,7 @@ public class VendaView extends javax.swing.JInternalFrame {
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("Venda");
 
-        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones Inativos/Fechar.png"))); // NOI18N
+        btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VIEW/Icones Inativos/Fechar.png"))); // NOI18N
         btnSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnSairMouseClicked(evt);

@@ -182,7 +182,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/VIEW/Icones Inativos/Relatorio.png"/>
+              <Image iconType="3" name="/VIEW/Icones Inativos/Relatorios.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Relat&#xf3;rios"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
