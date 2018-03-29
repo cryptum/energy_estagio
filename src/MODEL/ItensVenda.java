@@ -12,17 +12,19 @@ public class ItensVenda {
     private int quantidade;
     private float preco;
     private float total;
+    private Boolean excluido;
 
-    public ItensVenda(int Id, VendaM IdVenda, ProdutoM IdProduto, int quantidade, float preco, float total) {
+    public ItensVenda() {
+    }
+
+    public ItensVenda(int Id, VendaM IdVenda, ProdutoM IdProduto, int quantidade, float preco, float total, Boolean excluido) {
         this.Id = Id;
         this.IdVenda = IdVenda;
         this.IdProduto = IdProduto;
         this.quantidade = quantidade;
         this.preco = preco;
         this.total = total;
-    }
-
-    public ItensVenda() {
+        this.excluido = excluido;
     }
 
     public int getId() {
@@ -71,5 +73,16 @@ public class ItensVenda {
 
     public void setTotal(float total) {
         this.total = total;
-    }    
+    }
+
+    public Boolean getExcluido() {
+        return excluido;
+    }
+
+    public void setExcluido(Boolean excluido) {
+        this.excluido = excluido;
+    }
+    
+    
+    
 }

@@ -26,6 +26,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+import javax.swing.plaf.basic.BasicButtonUI;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
@@ -83,6 +84,9 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
             Logger.getLogger(SituacaoDaEmpresa.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        btnAtualizar.setUI(new BasicButtonUI());
+        btnLimparDespesa.setUI(new BasicButtonUI());
+        btnSalvarDespesa.setUI(new BasicButtonUI());
         
         txtNumeroMes.setVisible(false);
         txtIdDespesas.setVisible(false);
@@ -330,7 +334,10 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
+        btnAtualizar.setBackground(new java.awt.Color(255, 255, 255));
+        btnAtualizar.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         btnAtualizar.setText("Atualizar");
+        btnAtualizar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtualizarActionPerformed(evt);
@@ -597,10 +604,10 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGap(0, 102, Short.MAX_VALUE)
                                 .addComponent(txtNumeroMes, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(93, 93, 93)
+                                .addComponent(btnAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -664,8 +671,10 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
         txtNomeDespesa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
         txtNomeDespesa.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
 
-        btnSalvarDespesa.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
+        btnSalvarDespesa.setBackground(new java.awt.Color(255, 255, 255));
+        btnSalvarDespesa.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         btnSalvarDespesa.setText("Salvar");
+        btnSalvarDespesa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnSalvarDespesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarDespesaActionPerformed(evt);
@@ -675,8 +684,10 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
         jLabel19.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel19.setText("Nome da Despesa:");
 
-        btnLimparDespesa.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
+        btnLimparDespesa.setBackground(new java.awt.Color(255, 255, 255));
+        btnLimparDespesa.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         btnLimparDespesa.setText("Limpar");
+        btnLimparDespesa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnLimparDespesa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimparDespesaActionPerformed(evt);
@@ -754,7 +765,7 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtIdDespesas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 223, Short.MAX_VALUE))
+                                .addGap(0, 231, Short.MAX_VALUE))
                             .addComponent(txtNomeDespesa))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -769,9 +780,9 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
                             .addComponent(txtHoraDespesa)
                             .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel14Layout.createSequentialGroup()
-                        .addComponent(btnSalvarDespesa)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnLimparDespesa)
+                        .addComponent(btnSalvarDespesa, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnLimparDespesa, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel14Layout.createSequentialGroup()

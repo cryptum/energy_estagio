@@ -17,7 +17,7 @@ public class FuncionarioDao {
         PreparedStatement pst;
         String sql;
         sql = "insert into Funcionario set id = ?, nome = ?, cpf = ?, rg = ?, Nascimento = STR_TO_DATE( ?, \"%d/%m/%Y\" ),"
-                + " telefone = ?, celular1 = ?, celular2 = ?, login = ?, senha = ?";
+                + " telefone = ?, celular1 = ?, celular2 = ?, login = ?, senha = ? admin = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1,0);
         pst.setString(2, funcionario.getNome());
@@ -28,7 +28,8 @@ public class FuncionarioDao {
         pst.setString(7, funcionario.getCelular1());
         pst.setString(8, funcionario.getCelular2());
         pst.setString(9, funcionario.getLogin());
-        pst.setString(10, funcionario.getSenha());        
+        pst.setString(10, funcionario.getSenha());
+        pst.setBoolean(11, funcionario.getAdmin());        
         pst.execute();
         pst.close();
     }
@@ -55,7 +56,8 @@ public class FuncionarioDao {
                         + "celular1 = ?, "
                         + "celular2 = ?, "
                         + "login = ?, "
-                        + "senha = ? "
+                        + "senha = ?, "
+                        + "admin = ? "
 
                         + "where id = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
@@ -68,7 +70,8 @@ public class FuncionarioDao {
         pst.setString(7, funcionario.getCelular2());
         pst.setString(8, funcionario.getLogin());
         pst.setString(9, funcionario.getSenha());
-        pst.setInt(10, funcionario.getId());
+        pst.setBoolean(10, funcionario.getAdmin());
+        pst.setInt(11, funcionario.getId());
         pst.execute();
         pst.close();
      }
@@ -77,7 +80,7 @@ public class FuncionarioDao {
         PreparedStatement pst;
         String sql;
         List<FuncionarioM> listaFuncionario = new ArrayList<>();
-        sql = "select id, nome, cpf, rg, DATE_FORMAT( Nascimento, \"%d/%m/%Y\" ) AS Nascimento, telefone, celular1, celular2, login, senha from Funcionario order by nome";
+        sql = "select id, nome, cpf, rg, DATE_FORMAT( Nascimento, \"%d/%m/%Y\" ) AS Nascimento, telefone, celular1, celular2, login, senha, admin from Funcionario order by nome";
         pst = Conexao.getInstance().prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
@@ -91,7 +94,8 @@ public class FuncionarioDao {
                             rs.getString("celular1"),
                             rs.getString("celular2"),
                             rs.getString("login"),
-                            rs.getString("senha")));
+                            rs.getString("senha"),
+                            rs.getBoolean("admin")));
         }
         pst.close();
         return listaFuncionario;
@@ -102,7 +106,7 @@ public class FuncionarioDao {
         String sql;
         FuncionarioM funcionario = null;        
         sql = "select id, nome, cpf, rg, DATE_FORMAT( Nascimento, \"%d/%m/%Y\" ) AS Nascimento, telefone, celular1, celular2,"
-                + "login, senha from Funcionario where id = ?";
+                + "login, senha, admin from Funcionario where id = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, id);
         ResultSet rs = pst.executeQuery();
@@ -117,7 +121,8 @@ public class FuncionarioDao {
                             rs.getString("celular1"),
                             rs.getString("celular2"),
                             rs.getString("login"),
-                            rs.getString("senha"));
+                            rs.getString("senha"),
+                            rs.getBoolean("admin"));
         }
         pst.close();
         return funcionario;
@@ -128,7 +133,7 @@ public class FuncionarioDao {
         String sql;
         FuncionarioM funcionario = null;        
         sql = "select id, nome, cpf, rg, DATE_FORMAT( Nascimento, \"%d/%m/%Y\" ) AS Nascimento, telefone, celular1, celular2,"
-                + "login, senha from Funcionario where nome = ?";
+                + "login, senha, admin from Funcionario where nome = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, nome);
         ResultSet rs = pst.executeQuery();
@@ -143,7 +148,8 @@ public class FuncionarioDao {
                             rs.getString("celular1"),
                             rs.getString("celular2"),
                             rs.getString("login"),
-                            rs.getString("senha"));
+                            rs.getString("senha"),
+                            rs.getBoolean("admin"));
         }
         pst.close();
         return funcionario;
@@ -155,7 +161,7 @@ public class FuncionarioDao {
         List<FuncionarioM> listaFuncionario = new ArrayList<>();
         String name = "%"+Nome+"%";
         sql = "select id,nome, cpf, rg, DATE_FORMAT( Nascimento, \"%d/%m/%Y\" ) AS Nascimento, telefone, celular1, celular2,"
-                + "login, senha from Funcionario where nome like ?";
+                + "login, senha, admin from Funcionario where nome like ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, name);
         pst.execute();
@@ -171,7 +177,8 @@ public class FuncionarioDao {
                             rs.getString("celular1"),
                             rs.getString("celular2"),
                             rs.getString("login"),
-                            rs.getString("senha")));
+                            rs.getString("senha"),
+                            rs.getBoolean("admin")));
         }
         pst.close();
         return listaFuncionario;
@@ -198,7 +205,8 @@ public class FuncionarioDao {
                             rs.getString("celular1"),
                             rs.getString("celular2"),
                             rs.getString("login"),
-                            rs.getString("senha"));
+                            rs.getString("senha"),
+                            rs.getBoolean("admin"));;
             }
             pst.close();
             return funcionario;

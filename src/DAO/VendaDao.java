@@ -27,7 +27,7 @@ public class VendaDao {
     public void salvar (VendaM venda,List<ItensVenda> item ) throws SQLException{
 
         int idvenda = 0;
-        sql = "insert into Venda set id = ?, idcliente = ?, idfuncionario = ?, Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ), totalvenda = ?, formapagamento = ?";
+        sql = "insert into Venda set id = ?, idcliente = ?, idfuncionario = ?, Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ), totalvenda = ?, formapagamento = ?, Excluido = ?";
         pst = Conexao.getInstance().prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
         pst.setInt(1,0);
         pst.setInt(2, venda.getIdCliente().getId());
@@ -35,6 +35,7 @@ public class VendaDao {
         pst.setString(4, venda.getData());
         pst.setFloat(5, venda.getTotalVendas());
         pst.setString(6, venda.getFormaPagamento());
+        pst.setBoolean(7, venda.getExcluido());
         pst.executeUpdate();
         ResultSet rs = pst.getGeneratedKeys();
         while (rs.next()) {
@@ -48,7 +49,7 @@ public class VendaDao {
     public void salvarItensVenda (List<ItensVenda> item, int idVenda) throws SQLException{
         for(ItensVenda itens : item){
             
-            sql = "insert into ItemVenda values(?,?,?,?,?,?)";
+            sql = "insert into ItemVenda values(?,?,?,?,?,?,?)";
             pst = Conexao.getInstance().prepareStatement(sql);
             pst.setInt(1,0);
             pst.setInt(2, idVenda);
@@ -56,6 +57,7 @@ public class VendaDao {
             pst.setInt(4, itens.getQuantidade());
             pst.setFloat(5, itens.getPreco());
             pst.setFloat(6, itens.getTotal());
+            pst.setBoolean(7, itens.getExcluido());
             pst.execute();
             pst.close();
             buscaquantidade(itens.getIdProduto().getId(), itens.getQuantidade());
@@ -119,7 +121,7 @@ public class VendaDao {
     
     public List<VendaM> listaTodos() throws SQLException{
         List<VendaM> listavenda = new ArrayList<>();
-        sql = "select id, idcliente, idfuncionario, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, totalvenda, formapagamento from Venda ORDER BY id DESC";
+        sql = "select id, idcliente, idfuncionario, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, totalvenda, formapagamento, excluido from Venda ORDER BY id DESC";
         pst = Conexao.getInstance().prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
 
@@ -130,7 +132,8 @@ public class VendaDao {
                         funcionariodao.busca(rs.getInt("idfuncionario")),
                         rs.getString("data"),
                         rs.getFloat("totalvenda"),
-                        rs.getString("formapagamento")));
+                        rs.getString("formapagamento"),
+                        rs.getBoolean("excluido")));
         }
         pst.close();
     return listavenda;
@@ -138,7 +141,7 @@ public class VendaDao {
     
     public VendaM busca(int id) throws SQLException{
         VendaM venda = null;
-        sql = "select id, idcliente, idfuncionario, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, totalvenda, formapagamento from Venda where id = ?";
+        sql = "select id, idcliente, idfuncionario, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, totalvenda, formapagamento, excluido from Venda where id = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, id);
         ResultSet rs = pst.executeQuery();
@@ -147,9 +150,10 @@ public class VendaDao {
             rs.getInt("id"),
             clientedao.busca(rs.getInt("idcliente")),
             funcionariodao.busca(rs.getInt("idfuncionario")),
-            rs.getString("data"),
-            rs.getFloat("totalvenda"),
-            rs.getString("formapagamento"));
+                        rs.getString("data"),
+                        rs.getFloat("totalvenda"),
+                        rs.getString("formapagamento"),
+                        rs.getBoolean("excluido"));
         }
         pst.close();
         return venda;
@@ -158,7 +162,7 @@ public class VendaDao {
     public List<VendaM> buscaNomeLista(int Nome) throws SQLException{
         List<VendaM> listavenda = new ArrayList<>();
         //String name = "%"+Nome+"%";
-        sql = "select id, idcliente, idfuncionario, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, totalvenda, formapagamento from Venda where idcliente like ?";
+        sql = "select id, idcliente, idfuncionario, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, totalvenda, formapagamento, excluido from Venda where idcliente like ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, Nome);
         pst.execute();
@@ -168,9 +172,10 @@ public class VendaDao {
             rs.getInt("id"),
             clientedao.busca(rs.getInt("idcliente")),
             funcionariodao.busca(rs.getInt("idfuncionario")),
-            rs.getString("data"),
-            rs.getFloat("totalvenda"),
-            rs.getString("formapagamento")));
+                        rs.getString("data"),
+                        rs.getFloat("totalvenda"),
+                        rs.getString("formapagamento"),
+                        rs.getBoolean("excluido")));
         }
 
         pst.close();
@@ -180,7 +185,7 @@ public class VendaDao {
     public List<VendaM> buscaDataLista(String de, String ate) throws SQLException{
         List<VendaM> listavenda = new ArrayList<>();
         //String name = "%"+Nome+"%";
-        sql = "select id, idcliente, idfuncionario, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, totalvenda, formapagamento from Venda where Data >= STR_TO_DATE( ?, \"%d/%m/%Y\" ) and Data <= STR_TO_DATE( ?, \"%d/%m/%Y\" ) ";
+        sql = "select id, idcliente, idfuncionario, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, totalvenda, formapagamento, excluido from Venda where Data >= STR_TO_DATE( ?, \"%d/%m/%Y\" ) and Data <= STR_TO_DATE( ?, \"%d/%m/%Y\" ) ";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, de);
         pst.setString(2, ate);
@@ -191,9 +196,10 @@ public class VendaDao {
             rs.getInt("id"),
             clientedao.busca(rs.getInt("idcliente")),
             funcionariodao.busca(rs.getInt("idfuncionario")),
-            rs.getString("data"),
-            rs.getFloat("totalvenda"),
-            rs.getString("formapagamento")));
+                        rs.getString("data"),
+                        rs.getFloat("totalvenda"),
+                        rs.getString("formapagamento"),
+                        rs.getBoolean("excluido")));
         }
 
         pst.close();
@@ -203,7 +209,7 @@ public class VendaDao {
     public List<VendaM> buscaClienteLista(String nome) throws SQLException{
         List<VendaM> listavenda = new ArrayList<>();
         String name = "%"+nome+"%";
-        sql = "select venda.id, idcliente, idfuncionario, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, totalvenda, formapagamento from Venda, Cliente where Cliente.id = Venda.IdCliente and Cliente.Nome like ?";
+        sql = "select venda.id, idcliente, idfuncionario, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, totalvenda, formapagamento, excluido from Venda, Cliente where Cliente.id = Venda.IdCliente and Cliente.Nome like ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, name);
         pst.execute();
@@ -213,12 +219,27 @@ public class VendaDao {
             rs.getInt("id"),
             clientedao.busca(rs.getInt("idcliente")),
             funcionariodao.busca(rs.getInt("idfuncionario")),
-            rs.getString("data"),
-            rs.getFloat("totalvenda"),
-            rs.getString("formapagamento")));
+                        rs.getString("data"),
+                        rs.getFloat("totalvenda"),
+                        rs.getString("formapagamento"),
+                        rs.getBoolean("excluido")));
         }
 
         pst.close();
         return listavenda;
+    }
+    
+    public void alterarVendaTrue(VendaM venda) throws SQLException{
+        PreparedStatement pst;
+        String sql;
+        sql = "update Venda set "
+                        + "excluido  = ? "
+
+                        + "where id = ?";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setBoolean(1, venda.getExcluido());
+        pst.setInt(2,venda.getId());
+        pst.execute();
+        pst.close();
     }
 }

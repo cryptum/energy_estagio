@@ -14,18 +14,19 @@ public class VendaM {
     private String Data;
     private float TotalVendas;
     private String FormaPagamento;
+    private Boolean Excluido;
 
-    public VendaM(int Id, ClienteM IdCliente, FuncionarioM idFuncionario, String Data, float TotalVendas, String FormaPagamento) {
+    public VendaM() {
+    }
+
+    public VendaM(int Id, ClienteM IdCliente, FuncionarioM idFuncionario, String Data, float TotalVendas, String FormaPagamento, Boolean Excluido) {
         this.Id = Id;
         this.IdCliente = IdCliente;
         this.idFuncionario = idFuncionario;
         this.Data = Data;
         this.TotalVendas = TotalVendas;
         this.FormaPagamento = FormaPagamento;
-    }
-
-    
-    public VendaM() {
+        this.Excluido = Excluido;
     }
 
     public int getId() {
@@ -75,4 +76,14 @@ public class VendaM {
     public void setFormaPagamento(String FormaPagamento) {
         this.FormaPagamento = FormaPagamento;
     }
+
+    public Boolean getExcluido() {
+        return Excluido;
+    }
+
+    public void setExcluido(Boolean Excluido) {
+        this.Excluido = Excluido;
+    }
+
+    
 }

@@ -15,6 +15,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.plaf.basic.BasicButtonUI;
 import util.LimiteDigitos;
 
 /**
@@ -39,6 +40,8 @@ public class LoginView extends javax.swing.JFrame {
         txtSenha.setText("123");
         lblDesenvolvedor.setVisible(false);
         
+        btnLogin.setUI(new BasicButtonUI());
+        
         String datasistema = new SimpleDateFormat("MM").format(new Date(System.currentTimeMillis()));
         String datasistema2 = new SimpleDateFormat("YYYY").format(new Date(System.currentTimeMillis()));
         int datames= Integer.parseInt(datasistema);
@@ -48,6 +51,9 @@ public class LoginView extends javax.swing.JFrame {
             valida = validadao.valida();
         } catch (SQLException ex) {
             Logger.getLogger(LoginView.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "A data expirou!");
+            JOptionPane.showMessageDialog(null, "Sem conexão com o Banco de Dados!\nSolicite seu Programador!");
+            System.exit(0);
         }
             if((datames <= valida.getMes())&&(dataano<= valida.getAno())){
                 
@@ -104,9 +110,10 @@ public class LoginView extends javax.swing.JFrame {
         jSeparator2.setForeground(new java.awt.Color(102, 102, 102));
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 590, 202, 10));
 
-        btnLogin.setBackground(new java.awt.Color(127, 255, 127));
+        btnLogin.setBackground(new java.awt.Color(255, 255, 255));
         btnLogin.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         btnLogin.setText("Entrar");
+        btnLogin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 51), 1, true));
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);

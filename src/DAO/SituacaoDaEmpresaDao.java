@@ -30,7 +30,7 @@ public class SituacaoDaEmpresaDao {
     
     public List<VendaM> buscaDataSituacao() throws SQLException{
         List<VendaM> listavenda = new ArrayList<>();
-        sql = "select id, idcliente, idfuncionario, DATE_FORMAT( data, \"%Y\" ) AS data, totalvenda, formapagamento from Venda group by data ";
+        sql = "select id, idcliente, idfuncionario, DATE_FORMAT( data, \"%Y\" ) AS data, totalvenda, formapagamento, excluido from Venda group by data ";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.execute();
         ResultSet rs = pst.executeQuery();
@@ -39,9 +39,10 @@ public class SituacaoDaEmpresaDao {
             rs.getInt("id"),
             clientedao.busca(rs.getInt("idcliente")),
             funcionariodao.busca(rs.getInt("idfuncionario")),
-            rs.getString("data"),
-            rs.getFloat("totalvenda"),
-            rs.getString("formapagamento")));
+                        rs.getString("data"),
+                        rs.getFloat("totalvenda"),
+                        rs.getString("formapagamento"),
+                        rs.getBoolean("excluido")));
         }
 
         pst.close();
@@ -50,7 +51,7 @@ public class SituacaoDaEmpresaDao {
     
     public List<VendaM> BuscaTotalVendaMes(String de, String ate) throws SQLException{
         List<VendaM> listavenda = new ArrayList<>();
-        sql = "SELECT id, idcliente, idfuncionario, DATE_FORMAT( data,\"%d/%m/%Y\") AS data, SUM(totalvenda) As totalvenda, formapagamento FROM venda WHERE data >= (?) and data <= (?)";
+        sql = "SELECT id, idcliente, idfuncionario, DATE_FORMAT( data,\"%d/%m/%Y\") AS data, SUM(totalvenda) As totalvenda, formapagamento, excluido FROM venda WHERE data >= (?) and data <= (?) and excluido = false";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, de);
         pst.setString(2, ate);
@@ -61,9 +62,10 @@ public class SituacaoDaEmpresaDao {
             rs.getInt("id"),
             clientedao.busca(rs.getInt("idcliente")),
             funcionariodao.busca(rs.getInt("idfuncionario")),
-            rs.getString("data"),
-            rs.getFloat("totalvenda"),
-            rs.getString("formapagamento")));
+                        rs.getString("data"),
+                        rs.getFloat("totalvenda"),
+                        rs.getString("formapagamento"),
+                        rs.getBoolean("excluido")));
         }
         pst.close();
         return listavenda;
@@ -71,7 +73,7 @@ public class SituacaoDaEmpresaDao {
     
     public List<VendaM> BuscaTotalVendaAno(String ano1, String ano2) throws SQLException{
         List<VendaM> listavenda = new ArrayList<>();
-        sql = "SELECT id, idcliente, idfuncionario, DATE_FORMAT( data,\"%d/%m/%Y\") AS data, SUM(totalvenda) As totalvenda, formapagamento FROM venda WHERE Data >= (?) and Data <= (?)";
+        sql = "SELECT id, idcliente, idfuncionario, DATE_FORMAT( data,\"%d/%m/%Y\") AS data, SUM(totalvenda) As totalvenda, formapagamento, excluido FROM venda WHERE Data >= (?) and Data <= (?) and excluido = false";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, ano1);
         pst.setString(2, ano2);
@@ -82,9 +84,10 @@ public class SituacaoDaEmpresaDao {
             rs.getInt("id"),
             clientedao.busca(rs.getInt("idcliente")),
             funcionariodao.busca(rs.getInt("idfuncionario")),
-            rs.getString("data"),
-            rs.getFloat("totalvenda"),
-            rs.getString("formapagamento")));
+                        rs.getString("data"),
+                        rs.getFloat("totalvenda"),
+                        rs.getString("formapagamento"),
+                        rs.getBoolean("excluido")));
         }
 
         pst.close();

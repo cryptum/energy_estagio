@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+import javax.swing.plaf.basic.BasicButtonUI;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
@@ -52,6 +53,8 @@ public class VendaViewML extends javax.swing.JInternalFrame {
         txtIdProduto.setVisible(false);
         txtIDIten.setVisible(false);
         txtQuantidadeTotal.setVisible(false);
+        btnAddItemVendas.setUI(new BasicButtonUI());
+        btnNovo.setUI(new BasicButtonUI());
     }
     
     public void atualizaBoxFuncionario(){
@@ -658,8 +661,10 @@ public class VendaViewML extends javax.swing.JInternalFrame {
         });
         jScrollPane12.setViewportView(tblItenVenda);
 
-        btnAddItemVendas.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
+        btnAddItemVendas.setBackground(new java.awt.Color(255, 255, 255));
+        btnAddItemVendas.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         btnAddItemVendas.setText("Adicionar Produto +");
+        btnAddItemVendas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnAddItemVendas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddItemVendasActionPerformed(evt);
@@ -706,7 +711,7 @@ public class VendaViewML extends javax.swing.JInternalFrame {
                         .addComponent(jScrollPane12))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                         .addGap(94, 94, 94)
-                        .addComponent(btnAddItemVendas)
+                        .addComponent(btnAddItemVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel8)
                         .addGap(18, 18, 18)
@@ -776,7 +781,10 @@ public class VendaViewML extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
+        btnNovo.setBackground(new java.awt.Color(255, 255, 255));
+        btnNovo.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         btnNovo.setText("Limpar");
+        btnNovo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNovoActionPerformed(evt);
@@ -793,7 +801,7 @@ public class VendaViewML extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(

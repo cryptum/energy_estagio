@@ -17,6 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+import javax.swing.plaf.basic.BasicButtonUI;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import util.LimiteDigitos;
@@ -74,6 +75,19 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         txtEditarModelo.setDocument(new LimiteDigitos(45));
         txtNome.setDocument(new LimiteDigitos(50));
         txtCodigo.setDocument(new LimiteDigitos(45));
+        btnAlterar.setUI(new BasicButtonUI());
+        btnCancelar.setUI(new BasicButtonUI());
+        btnExcluir.setUI(new BasicButtonUI());
+        btnLimparCategoria.setUI(new BasicButtonUI());
+        btnLimparCategoria1.setUI(new BasicButtonUI());
+        btnLimparMarca.setUI(new BasicButtonUI());
+        btnLimparModelo.setUI(new BasicButtonUI());
+        btnNovo.setUI(new BasicButtonUI());
+        btnSalvar.setUI(new BasicButtonUI());
+        btnSalvarCategoria.setUI(new BasicButtonUI());
+        btnSalvarCategoria1.setUI(new BasicButtonUI());
+        btnSalvarMarca.setUI(new BasicButtonUI());
+        btnSalvarModelo.setUI(new BasicButtonUI());
         
     }
      
@@ -979,16 +993,20 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        btnAlterar.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
+        btnAlterar.setBackground(new java.awt.Color(255, 255, 255));
+        btnAlterar.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         btnAlterar.setText("Alterar");
+        btnAlterar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAlterarActionPerformed(evt);
             }
         });
 
-        btnExcluir.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
+        btnExcluir.setBackground(new java.awt.Color(255, 255, 255));
+        btnExcluir.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         btnExcluir.setText("Excluir");
+        btnExcluir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExcluirActionPerformed(evt);
@@ -999,11 +1017,11 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnAlterar)
-                .addGap(51, 51, 51)
-                .addComponent(btnExcluir)
+                .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(488, 488, 488))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1013,7 +1031,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1252,24 +1270,30 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                 .addContainerGap(56, Short.MAX_VALUE))
         );
 
-        btnSalvar.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
+        btnSalvar.setBackground(new java.awt.Color(255, 255, 255));
+        btnSalvar.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         btnSalvar.setText("Salvar");
+        btnSalvar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarActionPerformed(evt);
             }
         });
 
-        btnNovo.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
+        btnNovo.setBackground(new java.awt.Color(255, 255, 255));
+        btnNovo.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         btnNovo.setText("Novo");
+        btnNovo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNovoActionPerformed(evt);
             }
         });
 
-        btnCancelar.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
+        btnCancelar.setBackground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         btnCancelar.setText("Cancelar");
+        btnCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -1289,11 +1313,11 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(84, 84, 84)
-                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(72, 72, 72)
-                        .addComponent(btnCancelar)))
+                        .addComponent(btnNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(78, 78, 78)
+                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(67, 67, 67)
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -1338,7 +1362,8 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         txtEditarCategoria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
         txtEditarCategoria.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
 
-        btnSalvarCategoria.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
+        btnSalvarCategoria.setBackground(new java.awt.Color(255, 255, 255));
+        btnSalvarCategoria.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         btnSalvarCategoria.setText("Salvar");
         btnSalvarCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1349,7 +1374,8 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         jLabel19.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel19.setText("Nome da Categoria:");
 
-        btnLimparCategoria.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
+        btnLimparCategoria.setBackground(new java.awt.Color(255, 255, 255));
+        btnLimparCategoria.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         btnLimparCategoria.setText("Limpar");
         btnLimparCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1416,7 +1442,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                                     .addComponent(txtEditarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 45, Short.MAX_VALUE)))
+                        .addGap(0, 31, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel14Layout.setVerticalGroup(
@@ -1487,8 +1513,10 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         txtEditarMarca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
         txtEditarMarca.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
 
-        btnSalvarMarca.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
+        btnSalvarMarca.setBackground(new java.awt.Color(255, 255, 255));
+        btnSalvarMarca.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         btnSalvarMarca.setText("Salvar");
+        btnSalvarMarca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnSalvarMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarMarcaActionPerformed(evt);
@@ -1498,8 +1526,10 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         jLabel8.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel8.setText("Nome da Marca:");
 
-        btnLimparMarca.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
+        btnLimparMarca.setBackground(new java.awt.Color(255, 255, 255));
+        btnLimparMarca.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         btnLimparMarca.setText("Limpar");
+        btnLimparMarca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnLimparMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimparMarcaActionPerformed(evt);
@@ -1554,10 +1584,10 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                                 .addComponent(txtIdMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addComponent(btnSalvarMarca)
+                        .addComponent(btnSalvarMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnLimparMarca)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnLimparMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1610,8 +1640,10 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         txtEditarModelo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
         txtEditarModelo.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
 
-        btnSalvarModelo.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
+        btnSalvarModelo.setBackground(new java.awt.Color(255, 255, 255));
+        btnSalvarModelo.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         btnSalvarModelo.setText("Salvar");
+        btnSalvarModelo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnSalvarModelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarModeloActionPerformed(evt);
@@ -1621,8 +1653,10 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         jLabel12.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel12.setText("Nome do Modelo:");
 
-        btnLimparModelo.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
+        btnLimparModelo.setBackground(new java.awt.Color(255, 255, 255));
+        btnLimparModelo.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         btnLimparModelo.setText("Limpar");
+        btnLimparModelo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnLimparModelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimparModeloActionPerformed(evt);
@@ -1683,16 +1717,16 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                     .addComponent(txtEditarModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
-                        .addComponent(btnSalvarModelo)
+                        .addComponent(btnSalvarModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnLimparModelo))
+                        .addComponent(btnLimparModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtIdModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel17)
                     .addComponent(cbxEditarMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
                     .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1776,8 +1810,10 @@ public class ProdutoView extends javax.swing.JInternalFrame {
             }
         });
 
-        btnSalvarCategoria1.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
+        btnSalvarCategoria1.setBackground(new java.awt.Color(255, 255, 255));
+        btnSalvarCategoria1.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         btnSalvarCategoria1.setText("Salvar");
+        btnSalvarCategoria1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnSalvarCategoria1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarCategoria1ActionPerformed(evt);
@@ -1787,8 +1823,10 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         jLabel22.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
         jLabel22.setText("Nome da Produto:");
 
-        btnLimparCategoria1.setFont(new java.awt.Font("Champagne & Limousines", 0, 11)); // NOI18N
+        btnLimparCategoria1.setBackground(new java.awt.Color(255, 255, 255));
+        btnLimparCategoria1.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         btnLimparCategoria1.setText("Limpar");
+        btnLimparCategoria1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnLimparCategoria1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimparCategoria1ActionPerformed(evt);
@@ -1840,7 +1878,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         });
 
         jLabel24.setFont(new java.awt.Font("Champagne & Limousines", 0, 15)); // NOI18N
-        jLabel24.setText("Quantidade Atual:");
+        jLabel24.setText("À Adicionar");
 
         txtQuantidadeatual.setBackground(new java.awt.Color(245, 245, 245));
         txtQuantidadeatual.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
@@ -1884,9 +1922,9 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                                         .addComponent(txtIdEntradadeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel17Layout.createSequentialGroup()
                                         .addGap(21, 21, 21)
-                                        .addComponent(btnSalvarCategoria1)
-                                        .addGap(47, 47, 47)
-                                        .addComponent(btnLimparCategoria1)))
+                                        .addComponent(btnSalvarCategoria1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(27, 27, 27)
+                                        .addComponent(btnLimparCategoria1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1899,10 +1937,14 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                                     .addComponent(txtQuantidadeatual, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel28)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel17Layout.createSequentialGroup()
+                                .addGap(0, 9, Short.MAX_VALUE)
+                                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel17Layout.createSequentialGroup()
+                                .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         jPanel17Layout.setVerticalGroup(
@@ -1919,25 +1961,24 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                         .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtNomeEntradadeproduto, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtQuantidadeadd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addComponent(jLabel25)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtQuantidadeatual, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel25)
                     .addGroup(jPanel17Layout.createSequentialGroup()
                         .addComponent(jLabel26)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtQuantidadeatual, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(17, 17, 17)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvarCategoria1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLimparCategoria1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1991,7 +2032,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(542, 542, 542)
                         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 545, Short.MAX_VALUE)))
+                        .addGap(0, 559, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(

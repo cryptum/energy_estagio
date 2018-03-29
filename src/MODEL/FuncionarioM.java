@@ -16,8 +16,12 @@ public class FuncionarioM {
     private String Celular2;
     private String Login;
     private String Senha;
+    private Boolean Admin;
 
-    public FuncionarioM(int Id, String Nome, String Cpf, String Rg, String Nascimento, String Telefone, String Celular1, String Celular2, String Login, String Senha) {
+    public FuncionarioM() {
+    }
+
+    public FuncionarioM(int Id, String Nome, String Cpf, String Rg, String Nascimento, String Telefone, String Celular1, String Celular2, String Login, String Senha, Boolean Admin) {
         this.Id = Id;
         this.Nome = Nome;
         this.Cpf = Cpf;
@@ -28,9 +32,7 @@ public class FuncionarioM {
         this.Celular2 = Celular2;
         this.Login = Login;
         this.Senha = Senha;
-    }
-
-    public FuncionarioM() {
+        this.Admin = Admin;
     }
 
     public int getId() {
@@ -113,5 +115,14 @@ public class FuncionarioM {
         this.Senha = Senha;
     }
 
+    public Boolean getAdmin() {
+        return Admin;
+    }
+
+    public void setAdmin(Boolean Admin) {
+        this.Admin = Admin;
+    }
+
     
+
 }

@@ -21,7 +21,7 @@ public class ItemvendaDao {
         PreparedStatement pst;
         String sql;
         List<ItensVenda> listaitens = new ArrayList<>();
-        sql = "select id, idvenda, idproduto, quantidade, preco, total from itemvenda where idvenda = ?";
+        sql = "select id, idvenda, idproduto, quantidade, preco, total, excluido from itemvenda where idvenda = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1, idvenda);
         pst.execute();
@@ -33,9 +33,24 @@ public class ItemvendaDao {
             produtodao.busca(rs.getInt("IdProduto")),
             rs.getInt("quantidade"),
             rs.getFloat("preco"),
-            rs.getFloat("total")));
+            rs.getFloat("total"),
+            rs.getBoolean("excluido")));
         }
         pst.close();
         return listaitens;
+    }
+    
+    public void alterarItemVendaTrue(ItensVenda iten) throws SQLException{
+        PreparedStatement pst;
+        String sql;
+        sql = "update ItemVenda set "
+                        + "excluido  = ? "
+
+                        + "where idvenda = ?";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setBoolean(1, iten.getExcluido());
+        pst.setInt(2,iten.getIdVenda().getId());
+        pst.execute();
+        pst.close();
     }
 }
