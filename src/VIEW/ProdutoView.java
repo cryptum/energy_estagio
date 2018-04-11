@@ -1365,6 +1365,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         btnSalvarCategoria.setBackground(new java.awt.Color(255, 255, 255));
         btnSalvarCategoria.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         btnSalvarCategoria.setText("Salvar");
+        btnSalvarCategoria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnSalvarCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarCategoriaActionPerformed(evt);
@@ -1377,6 +1378,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         btnLimparCategoria.setBackground(new java.awt.Color(255, 255, 255));
         btnLimparCategoria.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         btnLimparCategoria.setText("Limpar");
+        btnLimparCategoria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnLimparCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimparCategoriaActionPerformed(evt);
@@ -1430,9 +1432,9 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                         .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel14Layout.createSequentialGroup()
                                 .addGap(21, 21, 21)
-                                .addComponent(btnSalvarCategoria)
-                                .addGap(47, 47, 47)
-                                .addComponent(btnLimparCategoria))
+                                .addComponent(btnSalvarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(btnLimparCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel14Layout.createSequentialGroup()
                                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel14Layout.createSequentialGroup()

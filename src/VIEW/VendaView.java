@@ -2,6 +2,9 @@ package VIEW;
 
 import DAO.*;
 import MODEL.*;
+import com.sun.java.swing.plaf.windows.WindowsTableHeaderUI;
+import java.awt.Color;
+import java.awt.Component;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -10,6 +13,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.plaf.basic.BasicButtonUI;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
@@ -64,6 +68,7 @@ public class VendaView extends javax.swing.JInternalFrame {
         tblVenda.getTableHeader().setReorderingAllowed(false);
         tblItenVenda.getTableHeader().setReorderingAllowed(false);
         txtData.setText(new SimpleDateFormat("dd/MM/yyyy").format(new Date(System.currentTimeMillis())));
+        txtIdVenda.setVisible(false);
         txtIdProduto.setVisible(false);
         txtIDIten.setVisible(false);
         txtQuantidadeTotal.setVisible(false);
@@ -73,7 +78,7 @@ public class VendaView extends javax.swing.JInternalFrame {
         ClienteDialog.setSize(525, 490);
         ProdutoDialog.setSize(535, 500);
         FuncionarioDialog.setSize(525, 490);
-        ItensDialog.setSize(535, 435);
+        ItensDialog.setSize(535, 500);
         FinalizaDialog.setSize(825, 365);
         btnAddItemVendas.setUI(new BasicButtonUI());
         btnCancelar.setUI(new BasicButtonUI());
@@ -94,7 +99,7 @@ public class VendaView extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
         }
         
-        String dados[][] = new String[listaVenda.size()][5];
+        Object dados[][] = new String[listaVenda.size()][5];
             int i = 0;
             for (VendaM venda2 : listaVenda) {
                 dados[i][0] = String.valueOf(venda2.getId());
@@ -103,9 +108,9 @@ public class VendaView extends javax.swing.JInternalFrame {
                 dados[i][3] = String.valueOf(venda2.getTotalVendas());
                 
                 if(venda2.getExcluido() == false){
-                    dados[i][4] = "Cancelado";
+                    dados[i][4] = "Ativa";
                 }else{
-                    dados[i][4] = "Ativo";
+                    dados[i][4] = "Cancelada";
                 }
                 i++;
             }
@@ -152,9 +157,9 @@ public class VendaView extends javax.swing.JInternalFrame {
                 dados[i][3] = String.valueOf(venda2.getTotalVendas());
                 
                 if(venda2.getExcluido() == false){
-                    dados[i][4] = "Cancelado";
+                    dados[i][4] = "Ativa";
                 }else{
-                    dados[i][4] = "Ativo";
+                    dados[i][4] = "Cancelada";
                 }
                 i++;
             }
@@ -1331,7 +1336,7 @@ public class VendaView extends javax.swing.JInternalFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(157, 157, 157)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1449,12 +1454,12 @@ public class VendaView extends javax.swing.JInternalFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane12))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane12)
+                        .addContainerGap())
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(btnAddItemVendas, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1487,13 +1492,14 @@ public class VendaView extends javax.swing.JInternalFrame {
                                 .addGap(34, 34, 34)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
-                                    .addComponent(txtTotal)))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(txtTotal)
+                                        .addContainerGap())))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                 .addGap(386, 386, 386)
                                 .addComponent(jLabel8)
                                 .addGap(18, 18, 18)
-                                .addComponent(lblTOTAL, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
+                                .addComponent(lblTOTAL, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1945,13 +1951,14 @@ public class VendaView extends javax.swing.JInternalFrame {
         int confirma = JOptionPane.showConfirmDialog(null, "Deseja Excluir ?");
             if (confirma == 0) {
                 try {
-                    venda.setId(Integer.valueOf(txtIDIten.getText()));
+                    venda.setId(Integer.valueOf(txtIdVenda.getText()));
                     venda.setExcluido(true);
                     itemVenda.setIdVenda(venda);
                     itemVenda.setExcluido(true);
                     vendadao.alterarVendaTrue(venda);
                     itemvendadao.alterarItemVendaTrue(itemVenda);
-
+                    ItensDialog.dispose();
+                    atualizaTabelaVenda();
                 } catch (SQLException ex) {
                     Logger.getLogger(VendaView.class.getName()).log(Level.SEVERE, null, ex);
                     JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.WARNING_MESSAGE);
