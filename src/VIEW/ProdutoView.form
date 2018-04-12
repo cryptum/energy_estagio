@@ -216,7 +216,7 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jTabbedPane1" min="-2" pref="619" max="-2" attributes="0"/>
-                  <EmptySpace pref="58" max="32767" attributes="0"/>
+                  <EmptySpace pref="92" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -452,7 +452,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Champagne &amp; Limousines" size="18" style="0"/>
+                      <Font name="Champagne &amp; Limousines" size="18" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Alterar"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -473,7 +473,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Champagne &amp; Limousines" size="18" style="0"/>
+                      <Font name="Champagne &amp; Limousines" size="18" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Excluir"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -1029,7 +1029,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Champagne &amp; Limousines" size="18" style="0"/>
+                      <Font name="Champagne &amp; Limousines" size="18" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Salvar"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -1050,7 +1050,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Champagne &amp; Limousines" size="18" style="0"/>
+                      <Font name="Champagne &amp; Limousines" size="18" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Novo"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -1071,7 +1071,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Champagne &amp; Limousines" size="18" style="0"/>
+                      <Font name="Champagne &amp; Limousines" size="18" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Cancelar"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -1260,7 +1260,7 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Champagne &amp; Limousines" size="18" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="18" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Salvar"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -1291,7 +1291,7 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Champagne &amp; Limousines" size="18" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="18" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Limpar"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -1544,7 +1544,7 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Champagne &amp; Limousines" size="18" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="18" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Salvar"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -1575,7 +1575,7 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Champagne &amp; Limousines" size="18" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="18" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Limpar"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -1784,7 +1784,7 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Champagne &amp; Limousines" size="18" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="18" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Salvar"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -1815,7 +1815,7 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Champagne &amp; Limousines" size="18" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="18" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Limpar"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -2146,7 +2146,7 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Champagne &amp; Limousines" size="18" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="18" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Salvar"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -2177,7 +2177,7 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Champagne &amp; Limousines" size="18" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="18" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Limpar"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

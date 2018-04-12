@@ -10,6 +10,7 @@ import MODEL.EntradadeProdutoM;
 import MODEL.MarcaM;
 import MODEL.ModeloM;
 import MODEL.ProdutoM;
+import com.sun.java.swing.plaf.windows.WindowsTableHeaderUI;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.plaf.basic.BasicButtonUI;
+import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import util.LimiteDigitos;
@@ -63,7 +65,19 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         atualizaBoxMarca();
         atualizaBoxEditarMarca();
         ProdutoDialog.setSize(535, 500);
+        jTabbedPane1.setUI(new BasicTabbedPaneUI());
+        tblCategoria.getTableHeader().setUI(new WindowsTableHeaderUI());
+        tblCategoria.getTableHeader().setReorderingAllowed(false);
+        tblEntradadeProdutos.getTableHeader().setUI(new WindowsTableHeaderUI());
+        tblEntradadeProdutos.getTableHeader().setReorderingAllowed(false);
+        tblMarca.getTableHeader().setUI(new WindowsTableHeaderUI());
+        tblMarca.getTableHeader().setReorderingAllowed(false);
+        tblModelo.getTableHeader().setUI(new WindowsTableHeaderUI());
+        tblModelo.getTableHeader().setReorderingAllowed(false);
+        tblProduto.getTableHeader().setUI(new WindowsTableHeaderUI());
         tblProduto.getTableHeader().setReorderingAllowed(false);
+        tblProdutoDialog.getTableHeader().setUI(new WindowsTableHeaderUI());
+        tblProdutoDialog.getTableHeader().setReorderingAllowed(false);
         txtId.setVisible(false);
         txtIdMarca.setVisible(false);
         txtIdModelo.setVisible(false);
@@ -994,7 +1008,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         );
 
         btnAlterar.setBackground(new java.awt.Color(255, 255, 255));
-        btnAlterar.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
+        btnAlterar.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
         btnAlterar.setText("Alterar");
         btnAlterar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnAlterar.addActionListener(new java.awt.event.ActionListener() {
@@ -1004,7 +1018,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         });
 
         btnExcluir.setBackground(new java.awt.Color(255, 255, 255));
-        btnExcluir.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
+        btnExcluir.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
         btnExcluir.setText("Excluir");
         btnExcluir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -1271,7 +1285,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         );
 
         btnSalvar.setBackground(new java.awt.Color(255, 255, 255));
-        btnSalvar.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
+        btnSalvar.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
         btnSalvar.setText("Salvar");
         btnSalvar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -1281,7 +1295,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         });
 
         btnNovo.setBackground(new java.awt.Color(255, 255, 255));
-        btnNovo.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
+        btnNovo.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
         btnNovo.setText("Novo");
         btnNovo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnNovo.addActionListener(new java.awt.event.ActionListener() {
@@ -1291,7 +1305,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         });
 
         btnCancelar.setBackground(new java.awt.Color(255, 255, 255));
-        btnCancelar.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
+        btnCancelar.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -1363,7 +1377,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         txtEditarCategoria.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
 
         btnSalvarCategoria.setBackground(new java.awt.Color(255, 255, 255));
-        btnSalvarCategoria.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
+        btnSalvarCategoria.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
         btnSalvarCategoria.setText("Salvar");
         btnSalvarCategoria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnSalvarCategoria.addActionListener(new java.awt.event.ActionListener() {
@@ -1376,7 +1390,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         jLabel19.setText("Nome da Categoria:");
 
         btnLimparCategoria.setBackground(new java.awt.Color(255, 255, 255));
-        btnLimparCategoria.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
+        btnLimparCategoria.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
         btnLimparCategoria.setText("Limpar");
         btnLimparCategoria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnLimparCategoria.addActionListener(new java.awt.event.ActionListener() {
@@ -1516,7 +1530,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         txtEditarMarca.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
 
         btnSalvarMarca.setBackground(new java.awt.Color(255, 255, 255));
-        btnSalvarMarca.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
+        btnSalvarMarca.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
         btnSalvarMarca.setText("Salvar");
         btnSalvarMarca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnSalvarMarca.addActionListener(new java.awt.event.ActionListener() {
@@ -1529,7 +1543,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         jLabel8.setText("Nome da Marca:");
 
         btnLimparMarca.setBackground(new java.awt.Color(255, 255, 255));
-        btnLimparMarca.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
+        btnLimparMarca.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
         btnLimparMarca.setText("Limpar");
         btnLimparMarca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnLimparMarca.addActionListener(new java.awt.event.ActionListener() {
@@ -1643,7 +1657,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         txtEditarModelo.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
 
         btnSalvarModelo.setBackground(new java.awt.Color(255, 255, 255));
-        btnSalvarModelo.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
+        btnSalvarModelo.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
         btnSalvarModelo.setText("Salvar");
         btnSalvarModelo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnSalvarModelo.addActionListener(new java.awt.event.ActionListener() {
@@ -1656,7 +1670,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         jLabel12.setText("Nome do Modelo:");
 
         btnLimparModelo.setBackground(new java.awt.Color(255, 255, 255));
-        btnLimparModelo.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
+        btnLimparModelo.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
         btnLimparModelo.setText("Limpar");
         btnLimparModelo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnLimparModelo.addActionListener(new java.awt.event.ActionListener() {
@@ -1813,7 +1827,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         });
 
         btnSalvarCategoria1.setBackground(new java.awt.Color(255, 255, 255));
-        btnSalvarCategoria1.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
+        btnSalvarCategoria1.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
         btnSalvarCategoria1.setText("Salvar");
         btnSalvarCategoria1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnSalvarCategoria1.addActionListener(new java.awt.event.ActionListener() {
@@ -1826,7 +1840,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
         jLabel22.setText("Nome da Produto:");
 
         btnLimparCategoria1.setBackground(new java.awt.Color(255, 255, 255));
-        btnLimparCategoria1.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
+        btnLimparCategoria1.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
         btnLimparCategoria1.setText("Limpar");
         btnLimparCategoria1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnLimparCategoria1.addActionListener(new java.awt.event.ActionListener() {
@@ -2045,7 +2059,7 @@ public class ProdutoView extends javax.swing.JInternalFrame {
                     .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 619, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

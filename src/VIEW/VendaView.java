@@ -3,8 +3,6 @@ package VIEW;
 import DAO.*;
 import MODEL.*;
 import com.sun.java.swing.plaf.windows.WindowsTableHeaderUI;
-import java.awt.Color;
-import java.awt.Component;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -12,11 +10,14 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.control.PasswordField;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
 import javax.swing.plaf.basic.BasicButtonUI;
-import javax.swing.plaf.basic.BasicInternalFrameUI;
+import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import util.ColorirVenda;
@@ -65,8 +66,19 @@ public class VendaView extends javax.swing.JInternalFrame {
         this.setVisible(true);
         atualizaTabelaVenda();
         atualizaTabelaItemVenda();
-        tblVenda.getTableHeader().setReorderingAllowed(false);
+        jTabbedPane1.setUI(new BasicTabbedPaneUI());
+        tblClienteDialog.getTableHeader().setUI(new WindowsTableHeaderUI());
+        tblClienteDialog.getTableHeader().setReorderingAllowed(false);
+        tblFuncionarioDialog.getTableHeader().setUI(new WindowsTableHeaderUI());
+        tblFuncionarioDialog.getTableHeader().setReorderingAllowed(false);
+        tblItenVenda.getTableHeader().setUI(new WindowsTableHeaderUI());
         tblItenVenda.getTableHeader().setReorderingAllowed(false);
+        tblItensDialog.getTableHeader().setUI(new WindowsTableHeaderUI());
+        tblItensDialog.getTableHeader().setReorderingAllowed(false);
+        tblProdutoDialog.getTableHeader().setUI(new WindowsTableHeaderUI());
+        tblProdutoDialog.getTableHeader().setReorderingAllowed(false);
+        tblVenda.getTableHeader().setUI(new WindowsTableHeaderUI());
+        tblVenda.getTableHeader().setReorderingAllowed(false);
         txtData.setText(new SimpleDateFormat("dd/MM/yyyy").format(new Date(System.currentTimeMillis())));
         txtIdVenda.setVisible(false);
         txtIdProduto.setVisible(false);
@@ -114,7 +126,7 @@ public class VendaView extends javax.swing.JInternalFrame {
                 }
                 i++;
             }
-            String tituloColuna[] = {"ID", "Cliente", "Data","Valor total","situação"};
+            String tituloColuna[] = {"ID", "Cliente", "Data","Valor Total","Situação"};
             DefaultTableModel tabelaCliente = new DefaultTableModel();
             tabelaCliente.setDataVector(dados, tituloColuna);
             tblVenda.setModel(new DefaultTableModel(dados, tituloColuna) {
@@ -971,7 +983,7 @@ public class VendaView extends javax.swing.JInternalFrame {
         );
 
         btnSalvar.setBackground(new java.awt.Color(255, 255, 255));
-        btnSalvar.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
+        btnSalvar.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
         btnSalvar.setText("Finalizar");
         btnSalvar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -981,7 +993,7 @@ public class VendaView extends javax.swing.JInternalFrame {
         });
 
         btnVoltar.setBackground(new java.awt.Color(255, 255, 255));
-        btnVoltar.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
+        btnVoltar.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
         btnVoltar.setText("Voltar");
         btnVoltar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -1059,7 +1071,7 @@ public class VendaView extends javax.swing.JInternalFrame {
                         .addGap(241, 241, 241)
                         .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
-                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1204,7 +1216,7 @@ public class VendaView extends javax.swing.JInternalFrame {
         jSeparator9.setForeground(new java.awt.Color(104, 129, 164));
 
         btnExcluir.setBackground(new java.awt.Color(255, 255, 255));
-        btnExcluir.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
+        btnExcluir.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
         btnExcluir.setText("Excluir Venda");
         btnExcluir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -1336,7 +1348,7 @@ public class VendaView extends javax.swing.JInternalFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(157, 157, 157)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1406,7 +1418,7 @@ public class VendaView extends javax.swing.JInternalFrame {
         jScrollPane12.setViewportView(tblItenVenda);
 
         btnAddItemVendas.setBackground(new java.awt.Color(255, 255, 255));
-        btnAddItemVendas.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
+        btnAddItemVendas.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
         btnAddItemVendas.setText("Adicionar Produto +");
         btnAddItemVendas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnAddItemVendas.addActionListener(new java.awt.event.ActionListener() {
@@ -1416,7 +1428,7 @@ public class VendaView extends javax.swing.JInternalFrame {
         });
 
         btnExcluiItemVenda.setBackground(new java.awt.Color(255, 255, 255));
-        btnExcluiItemVenda.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
+        btnExcluiItemVenda.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
         btnExcluiItemVenda.setText("Remover Produto -");
         btnExcluiItemVenda.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnExcluiItemVenda.addActionListener(new java.awt.event.ActionListener() {
@@ -1540,7 +1552,7 @@ public class VendaView extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        btnFinalizar.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
+        btnFinalizar.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
         btnFinalizar.setText("Salvar");
         btnFinalizar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnFinalizar.addActionListener(new java.awt.event.ActionListener() {
@@ -1549,7 +1561,7 @@ public class VendaView extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNovo.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
+        btnNovo.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
         btnNovo.setText("Novo");
         btnNovo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnNovo.addActionListener(new java.awt.event.ActionListener() {
@@ -1558,7 +1570,7 @@ public class VendaView extends javax.swing.JInternalFrame {
             }
         });
 
-        btnCancelar.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
+        btnCancelar.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -1624,9 +1636,9 @@ public class VendaView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(534, Short.MAX_VALUE)
+                        .addContainerGap(532, Short.MAX_VALUE)
                         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 992, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 353, Short.MAX_VALUE)))
+                        .addGap(0, 351, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSair)
                 .addContainerGap())
@@ -1639,7 +1651,7 @@ public class VendaView extends javax.swing.JInternalFrame {
                     .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(166, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1951,6 +1963,30 @@ public class VendaView extends javax.swing.JInternalFrame {
         int confirma = JOptionPane.showConfirmDialog(null, "Deseja Excluir ?");
             if (confirma == 0) {
                 try {
+                    /*JPasswordField password = new JPasswordField(10);
+                    JPasswordField login = new JPasswordField(10);
+                    password.setEchoChar('*');
+                    login.setEchoChar('*');
+                    JLabel rotulo1 = new JLabel("Login de Administrador:");
+                    JLabel rotulo2 = new JLabel("Senha de Administrador:");
+                    JPanel entUsuario1 = new JPanel();
+                    JPanel entUsuario2 = new JPanel();
+                    entUsuario1.add(rotulo1);
+                    entUsuario1.add(password);
+                    entUsuario2.add(rotulo2);
+                    entUsuario2.add(login);
+                    JOptionPane.showMessageDialog(null, entUsuario1, "Acesso restrito",JOptionPane.PLAIN_MESSAGE);
+                    JOptionPane.showMessageDialog(null, entUsuario2, "Acesso restrito",JOptionPane.PLAIN_MESSAGE);*/
+                
+                
+                String LoginMaster = JOptionPane.showInputDialog(null,"Digite seu login: ");
+                String SenhaMaster = JOptionPane.showInputDialog(null,"Digite sua senha: ");
+                
+                funcionario = funcionariodao.valida(LoginMaster, SenhaMaster);
+                if(funcionario == null){
+                    JOptionPane.showMessageDialog(null, "Funcionario não encontrado", "Erro", JOptionPane.ERROR_MESSAGE);
+                }else{
+                
                     venda.setId(Integer.valueOf(txtIdVenda.getText()));
                     venda.setExcluido(true);
                     itemVenda.setIdVenda(venda);
@@ -1959,6 +1995,8 @@ public class VendaView extends javax.swing.JInternalFrame {
                     itemvendadao.alterarItemVendaTrue(itemVenda);
                     ItensDialog.dispose();
                     atualizaTabelaVenda();
+                    
+                }
                 } catch (SQLException ex) {
                     Logger.getLogger(VendaView.class.getName()).log(Level.SEVERE, null, ex);
                     JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.WARNING_MESSAGE);

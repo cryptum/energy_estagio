@@ -374,7 +374,7 @@
                               <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
                               <Component id="btnVoltar" min="-2" pref="106" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                              <Component id="btnSalvar" min="-2" pref="99" max="-2" attributes="0"/>
+                              <Component id="btnSalvar" min="-2" pref="104" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -579,7 +579,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Champagne &amp; Limousines" size="18" style="0"/>
+                  <Font name="Champagne &amp; Limousines" size="18" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Finalizar"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -600,7 +600,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Champagne &amp; Limousines" size="18" style="0"/>
+                  <Font name="Champagne &amp; Limousines" size="18" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Voltar"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -1051,7 +1051,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Champagne &amp; Limousines" size="18" style="0"/>
+                  <Font name="Champagne &amp; Limousines" size="18" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Excluir Venda"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -1128,9 +1128,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel15" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace pref="534" max="32767" attributes="0"/>
+                          <EmptySpace pref="532" max="32767" attributes="0"/>
                           <Component id="jTabbedPane1" min="-2" pref="992" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="353" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="351" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -1148,7 +1148,7 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jTabbedPane1" min="-2" pref="543" max="-2" attributes="0"/>
-                  <EmptySpace pref="132" max="32767" attributes="0"/>
+                  <EmptySpace pref="166" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1190,7 +1190,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
                           <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="187" max="32767" attributes="0"/>
+                          <EmptySpace pref="168" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1660,7 +1660,7 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Champagne &amp; Limousines" size="18" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="18" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Adicionar Produto +"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -1681,7 +1681,7 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Champagne &amp; Limousines" size="18" style="0"/>
+                          <Font name="Champagne &amp; Limousines" size="18" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="Remover Produto -"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -1767,7 +1767,7 @@
                 <Component class="javax.swing.JButton" name="btnFinalizar">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Champagne &amp; Limousines" size="18" style="0"/>
+                      <Font name="Champagne &amp; Limousines" size="18" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Salvar"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -1785,7 +1785,7 @@
                 <Component class="javax.swing.JButton" name="btnNovo">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Champagne &amp; Limousines" size="18" style="0"/>
+                      <Font name="Champagne &amp; Limousines" size="18" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Novo"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -1803,7 +1803,7 @@
                 <Component class="javax.swing.JButton" name="btnCancelar">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Champagne &amp; Limousines" size="18" style="0"/>
+                      <Font name="Champagne &amp; Limousines" size="18" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Cancelar"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

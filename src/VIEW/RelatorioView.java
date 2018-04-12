@@ -2,15 +2,11 @@ package VIEW;
 
 import DAO.ClienteDao;
 import DAO.FuncionarioDao;
-import DAO.MarcaDao;
-import DAO.ModeloDao;
 import DAO.ProdutoDao;
 import DAO.VendaDao;
 import DAO.VendaMLDao;
 import MODEL.ClienteM;
 import MODEL.FuncionarioM;
-import MODEL.MarcaM;
-import MODEL.ModeloM;
 import MODEL.ProdutoM;
 import MODEL.VendaM;
 import MODEL.VendaMLM;
@@ -23,7 +19,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
-import java.awt.Desktop;
+import com.sun.java.swing.plaf.windows.WindowsTableHeaderUI;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -36,6 +32,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.plaf.basic.BasicButtonUI;
+import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
@@ -76,6 +73,8 @@ public class RelatorioView extends javax.swing.JInternalFrame {
     public RelatorioView() {
         initComponents();
         this.setVisible(true);
+        jTabbedPane1.setUI(new BasicTabbedPaneUI());
+        Tabela.getTableHeader().setUI(new WindowsTableHeaderUI());
         Tabela.getTableHeader().setReorderingAllowed(false);
         txtNome.setEnabled(false);
         txtDe.setEnabled(false);
@@ -1126,7 +1125,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         );
 
         btnPuxarDados.setBackground(new java.awt.Color(255, 255, 255));
-        btnPuxarDados.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
+        btnPuxarDados.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
         btnPuxarDados.setText("Puxar Dados");
         btnPuxarDados.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnPuxarDados.addActionListener(new java.awt.event.ActionListener() {
@@ -1278,7 +1277,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         );
 
         btnGerarRelatorio.setBackground(new java.awt.Color(255, 255, 255));
-        btnGerarRelatorio.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
+        btnGerarRelatorio.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
         btnGerarRelatorio.setText("Gerar Relatórios");
         btnGerarRelatorio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 51)));
         btnGerarRelatorio.setEnabled(false);
@@ -1360,7 +1359,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(534, 534, 534)
                         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 832, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 513, Short.MAX_VALUE)))
+                        .addGap(0, 509, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSair)
                 .addContainerGap())
@@ -1373,7 +1372,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
                     .addComponent(btnSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

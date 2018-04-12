@@ -111,7 +111,7 @@ public class LoginView extends javax.swing.JFrame {
         getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 590, 202, 10));
 
         btnLogin.setBackground(new java.awt.Color(255, 255, 255));
-        btnLogin.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
+        btnLogin.setFont(new java.awt.Font("Champagne & Limousines", 1, 18)); // NOI18N
         btnLogin.setText("Entrar");
         btnLogin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 51), 1, true));
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -119,7 +119,7 @@ public class LoginView extends javax.swing.JFrame {
                 btnLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 650, 93, -1));
+        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 650, 93, 30));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VIEW/Icones Inativos/Login.png"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 550, -1, -1));
@@ -152,10 +152,10 @@ public class LoginView extends javax.swing.JFrame {
         });
         getContentPane().add(lblversão, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 246, -1));
 
-        lblErro.setFont(new java.awt.Font("Champagne & Limousines", 0, 24)); // NOI18N
+        lblErro.setFont(new java.awt.Font("Champagne & Limousines", 1, 24)); // NOI18N
         lblErro.setForeground(new java.awt.Color(192, 39, 39));
         lblErro.setText("Senha ou usuário incorretos!");
-        getContentPane().add(lblErro, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 730, -1, -1));
+        getContentPane().add(lblErro, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 730, -1, -1));
 
         BackGround.setIcon(new javax.swing.ImageIcon(getClass().getResource("/VIEW/Icones Inativos/tela iniciar login.png"))); // NOI18N
         getContentPane().add(BackGround, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

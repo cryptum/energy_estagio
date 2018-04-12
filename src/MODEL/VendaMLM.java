@@ -16,8 +16,12 @@ public class VendaMLM {
     private String Horario;
     private String Rastreio;
     private String Detalhes;
+    private Boolean Excluido;
 
-    public VendaMLM(int Id, FuncionarioM IdFuncionario, ProdutoM IdProduto, float TotalVenda, String Data, String Horario, String Rastreio, String Detalhes) {
+    public VendaMLM() {
+    }
+
+    public VendaMLM(int Id, FuncionarioM IdFuncionario, ProdutoM IdProduto, float TotalVenda, String Data, String Horario, String Rastreio, String Detalhes, Boolean Excluido) {
         this.Id = Id;
         this.IdFuncionario = IdFuncionario;
         this.IdProduto = IdProduto;
@@ -26,9 +30,7 @@ public class VendaMLM {
         this.Horario = Horario;
         this.Rastreio = Rastreio;
         this.Detalhes = Detalhes;
-    }
-
-    public VendaMLM() {
+        this.Excluido = Excluido;
     }
 
     public int getId() {
@@ -95,5 +97,14 @@ public class VendaMLM {
         this.Detalhes = Detalhes;
     }
 
+    public Boolean getExcluido() {
+        return Excluido;
+    }
+
+    public void setExcluido(Boolean Excluido) {
+        this.Excluido = Excluido;
+    }
+    
+    
     
 }

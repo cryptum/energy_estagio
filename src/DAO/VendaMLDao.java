@@ -25,7 +25,7 @@ public class VendaMLDao {
     
     public void salvar (VendaMLM venda) throws SQLException{
 
-        sql = "insert into VendaML set id = ?, idfuncionario = ?, idproduto = ?, TotalVenda = ?, Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ), horario = ?, rastreio = ?, detalhes = ?";
+        sql = "insert into VendaML set id = ?, idfuncionario = ?, idproduto = ?, TotalVenda = ?, Data = STR_TO_DATE( ?, \"%d/%m/%Y\" ), horario = ?, rastreio = ?, detalhes = ? , excluido = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setInt(1,0);
         pst.setInt(2, venda.getIdFuncionario().getId());
@@ -35,6 +35,7 @@ public class VendaMLDao {
         pst.setString(6, venda.getHorario());
         pst.setString(7, venda.getRastreio());
         pst.setString(8, venda.getDetalhes());
+        pst.setBoolean(9, venda.getExcluido());
         pst.execute();
         pst.close();
         buscaquantidade(venda.getIdProduto().getId(), 1);
@@ -78,7 +79,7 @@ public class VendaMLDao {
   
     public List<VendaMLM> listaTodos() throws SQLException{
         List<VendaMLM> listavenda = new ArrayList<>();
-        sql = "select id, idfuncionario, idproduto, TotalVenda, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario, rastreio, detalhes from VendaML ORDER BY id DESC";
+        sql = "select id, idfuncionario, idproduto, TotalVenda, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario, rastreio, detalhes, excluido from VendaML ORDER BY id DESC";
         pst = Conexao.getInstance().prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
 
@@ -91,20 +92,22 @@ public class VendaMLDao {
                         rs.getString("data"),
                         rs.getString("horario"),
                         rs.getString("rastreio"),
-                        rs.getString("detalhes")));
+                        rs.getString("detalhes"),
+                        rs.getBoolean("excluido")));
         }
         pst.close();
     return listavenda;
     }
     
-    public VendaMLM busca(int id) throws SQLException{
-        VendaMLM venda = null;
-        sql = "select id, idfuncionario, idproduto, TotalVenda, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario, rastreio, detalhes from VendaML where id = ?";
+    public List<VendaMLM> busca(String nome) throws SQLException{
+        List<VendaMLM> listavenda = new ArrayList<>();
+        String name = "%"+nome+"%";
+        sql = "select VendaML.id, idfuncionario, idproduto, TotalVenda, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario, rastreio, detalhes, excluido from VendaML, Produto where VendaML.idproduto = Produto.id and produto.nome = ?";
         pst = Conexao.getInstance().prepareStatement(sql);
-        pst.setInt(1, id);
+        pst.setString(1, name);
         ResultSet rs = pst.executeQuery();
         while(rs.next()){
-            venda = new VendaMLM(
+            listavenda.add(new VendaMLM(
                         rs.getInt("id"),
                         funcionariodao.busca(rs.getInt("idfuncionario")),
                         produtodao.busca(rs.getInt("idproduto")),
@@ -112,15 +115,16 @@ public class VendaMLDao {
                         rs.getString("data"),
                         rs.getString("horario"),
                         rs.getString("rastreio"),
-                        rs.getString("detalhes"));
+                        rs.getString("detalhes"),
+                        rs.getBoolean("excluido")));
         }
         pst.close();
-    return venda;
+    return listavenda;
     }
     
     public List<VendaMLM> buscaDataLista(String de, String ate) throws SQLException{
         List<VendaMLM> listavenda = new ArrayList<>();
-        sql = "select id, idfuncionario, idproduto, TotalVenda, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario, rastreio, detalhes from VendaML where Data >= STR_TO_DATE( ?, \"%d/%m/%Y\" ) and Data <= STR_TO_DATE( ?, \"%d/%m/%Y\" )";
+        sql = "select id, idfuncionario, idproduto, TotalVenda, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario, rastreio, detalhes, excluido from VendaML where Data >= STR_TO_DATE( ?, \"%d/%m/%Y\" ) and Data <= STR_TO_DATE( ?, \"%d/%m/%Y\" )";
         pst = Conexao.getInstance().prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
         pst.setString(1, de);
@@ -134,10 +138,24 @@ public class VendaMLDao {
                         rs.getString("data"),
                         rs.getString("horario"),
                         rs.getString("rastreio"),
-                        rs.getString("detalhes")));
+                        rs.getString("detalhes"),
+                        rs.getBoolean("excluido")));
         }
         pst.close();
     return listavenda;
     }
     
+    public void alterarVendaMLTrue(VendaMLM vendaml) throws SQLException{
+        PreparedStatement pst;
+        String sql;
+        sql = "update ItemVenda set "
+                        + "excluido  = ? "
+
+                        + "where idvenda = ?";
+        pst = Conexao.getInstance().prepareStatement(sql);
+        pst.setBoolean(1, vendaml.getExcluido());
+        pst.setInt(2,vendaml.getId());
+        pst.execute();
+        pst.close();
+    }
 }

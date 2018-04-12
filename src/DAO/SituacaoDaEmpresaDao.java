@@ -96,7 +96,7 @@ public class SituacaoDaEmpresaDao {
     
     public List<VendaMLM> BuscaTotalVendaMLMes(String de, String ate) throws SQLException{
         List<VendaMLM> listavenda = new ArrayList<>();
-        sql = "select id, idfuncionario, idproduto, SUM(TotalVenda) AS TotalVenda, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario, rastreio, detalhes from VendaML WHERE data >= (?) and data <= (?)";
+        sql = "select id, idfuncionario, idproduto, SUM(TotalVenda) AS TotalVenda, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario, rastreio, detalhes, excluido from VendaML WHERE data >= (?) and data <= (?) and excluido = false";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, de);
         pst.setString(2, ate);
@@ -110,7 +110,8 @@ public class SituacaoDaEmpresaDao {
                         rs.getString("data"),
                         rs.getString("horario"),
                         rs.getString("rastreio"),
-                        rs.getString("detalhes")));
+                        rs.getString("detalhes"),
+                        rs.getBoolean("exlcuido")));
         }
         pst.close();
     return listavenda;
@@ -118,7 +119,7 @@ public class SituacaoDaEmpresaDao {
     
     public List<VendaMLM> BuscaTotalVendaMLAno(String ano1, String ano2) throws SQLException{
         List<VendaMLM> listavenda = new ArrayList<>();
-        sql = "select id, idfuncionario, idproduto, SUM(TotalVenda) AS TotalVenda, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario, rastreio, detalhes from VendaML WHERE data >= (?) and data <= (?)";
+        sql = "select id, idfuncionario, idproduto, SUM(TotalVenda) AS TotalVenda, DATE_FORMAT( data, \"%d/%m/%Y\" ) AS data, horario, rastreio, detalhes, excluido from VendaML WHERE data >= (?) and data <= (?) and excluido = false";
         pst = Conexao.getInstance().prepareStatement(sql);
         pst.setString(1, ano1);
         pst.setString(2, ano2);
@@ -132,7 +133,8 @@ public class SituacaoDaEmpresaDao {
                         rs.getString("data"),
                         rs.getString("horario"),
                         rs.getString("rastreio"),
-                        rs.getString("detalhes")));
+                        rs.getString("detalhes"),
+                        rs.getBoolean("excluido")));
         }
         pst.close();
     return listavenda;
