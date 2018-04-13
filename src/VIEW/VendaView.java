@@ -1638,7 +1638,7 @@ public class VendaView extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(532, Short.MAX_VALUE)
+                        .addGap(560, 560, 560)
                         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 992, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 367, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()

@@ -392,9 +392,9 @@
                   <Component id="btnSair" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="513" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="560" max="-2" attributes="0"/>
                   <Component id="jTabbedPane1" min="-2" pref="1007" max="-2" attributes="0"/>
-                  <EmptySpace pref="395" max="32767" attributes="0"/>
+                  <EmptySpace pref="348" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
