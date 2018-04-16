@@ -335,7 +335,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         
  	try {
             pdf = File.createTempFile("Clientes ", "");            
-        } catch (IOException e1) {            
+        } catch (IOException e1) {
             e1.printStackTrace();
         }
 
@@ -1442,6 +1442,7 @@ public class RelatorioView extends javax.swing.JInternalFrame {
         }
         
         }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnPuxarDadosActionPerformed
 
@@ -1477,9 +1478,9 @@ public class RelatorioView extends javax.swing.JInternalFrame {
                     gerarDocumentoVendaML();
                 }
 
-            } catch (Exception e) 
-            {
-                e.printStackTrace();
+            } catch (Exception ex){
+                JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
+                ex.printStackTrace();
             }
         }
       

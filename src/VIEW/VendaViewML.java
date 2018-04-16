@@ -76,6 +76,7 @@ public class VendaViewML extends javax.swing.JInternalFrame {
         try {
             listaFuncionario = funcionariodao.listaTodos();
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
             Logger.getLogger(ProdutoView.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -1050,6 +1051,7 @@ public class VendaViewML extends javax.swing.JInternalFrame {
                 try {
                     existe = produtoDao.buscacodigo(txtCodigodeBarras.getText());
                 } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
                     Logger.getLogger(VendaViewML.class.getName()).log(Level.SEVERE, null, ex);
                 }
         if(existe == false){

@@ -891,7 +891,7 @@ public class ClienteView extends javax.swing.JInternalFrame {
         try{
             cliente = clientedao.busca(id);
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
         }
    
         tblCliente.getTableHeader().setReorderingAllowed(false);

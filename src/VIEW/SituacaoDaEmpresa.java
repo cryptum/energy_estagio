@@ -85,6 +85,7 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
         try {
             AtualizaVIEW();
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
             Logger.getLogger(SituacaoDaEmpresa.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -161,6 +162,7 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
         try {
             listaVenda = situacaodao.buscaDataSituacao();
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
             Logger.getLogger(ProdutoView.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -908,6 +910,7 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
         try {
             AtualizaVIEW();
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
             Logger.getLogger(SituacaoDaEmpresa.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAtualizarActionPerformed
@@ -941,7 +944,7 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
         try{
             despesas = despesasdao.busca(Integer.parseInt(txtIdDespesas.getText()));
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
         }
         
         tblDespesas.getTableHeader().setReorderingAllowed(false);

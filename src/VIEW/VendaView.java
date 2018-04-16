@@ -1681,7 +1681,7 @@ public class VendaView extends javax.swing.JInternalFrame {
         try{
             listaItemVenda = itemvendadao.busca(Integer.parseInt(tblVenda.getValueAt(tblVenda.getSelectedRow(),0).toString()));
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
         }
         ItensDialog.setVisible(true);
         txtIdVenda.setText(tblVenda.getValueAt(tblVenda.getSelectedRow(),0).toString());

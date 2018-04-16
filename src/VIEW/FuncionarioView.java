@@ -834,7 +834,7 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         try{
             funcionario = funcionariodao.busca(id);
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro: "+ex.getMessage(), "erro", JOptionPane.WARNING_MESSAGE);
         }
    
         tblFuncionario.getTableHeader().setReorderingAllowed(false);
