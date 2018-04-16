@@ -390,6 +390,8 @@ public class VendaViewML extends javax.swing.JInternalFrame {
 
         ProdutoDialog.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         ProdutoDialog.setMinimumSize(new java.awt.Dimension(310, 380));
+        ProdutoDialog.setUndecorated(true);
+        ProdutoDialog.setResizable(false);
         ProdutoDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel35.setBackground(new java.awt.Color(249, 249, 249));
@@ -463,6 +465,7 @@ public class VendaViewML extends javax.swing.JInternalFrame {
         ProdutoDialog.getContentPane().add(jPanel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 460));
 
         FuncionarioDialog.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        FuncionarioDialog.setUndecorated(true);
         FuncionarioDialog.setResizable(false);
         FuncionarioDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -543,8 +546,6 @@ public class VendaViewML extends javax.swing.JInternalFrame {
 
         setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 2, 2, 2));
         setClosable(true);
-        setMaximizable(true);
-        setResizable(true);
         setMaximumSize(new java.awt.Dimension(1919, 800));
         setMinimumSize(new java.awt.Dimension(1919, 800));
         setPreferredSize(new java.awt.Dimension(1919, 800));

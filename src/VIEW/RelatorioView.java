@@ -1024,8 +1024,6 @@ public class RelatorioView extends javax.swing.JInternalFrame {
 
         setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 2, 2, 2));
         setClosable(true);
-        setMaximizable(true);
-        setResizable(true);
         setMaximumSize(new java.awt.Dimension(1919, 800));
         setMinimumSize(new java.awt.Dimension(1919, 800));
         setPreferredSize(new java.awt.Dimension(1919, 800));

@@ -743,6 +743,7 @@ public class VendaView extends javax.swing.JInternalFrame {
         btnSair = new javax.swing.JLabel();
 
         ClienteDialog.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        ClienteDialog.setUndecorated(true);
         ClienteDialog.setResizable(false);
         ClienteDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -823,6 +824,8 @@ public class VendaView extends javax.swing.JInternalFrame {
 
         ProdutoDialog.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         ProdutoDialog.setMinimumSize(new java.awt.Dimension(310, 380));
+        ProdutoDialog.setUndecorated(true);
+        ProdutoDialog.setResizable(false);
         ProdutoDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel35.setBackground(new java.awt.Color(255, 255, 255));
@@ -896,6 +899,8 @@ public class VendaView extends javax.swing.JInternalFrame {
         ProdutoDialog.getContentPane().add(jPanel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 460));
 
         FinalizaDialog.setBackground(new java.awt.Color(249, 249, 249));
+        FinalizaDialog.setUndecorated(true);
+        FinalizaDialog.setResizable(false);
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1109,6 +1114,7 @@ public class VendaView extends javax.swing.JInternalFrame {
         );
 
         FuncionarioDialog.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        FuncionarioDialog.setUndecorated(true);
         FuncionarioDialog.setResizable(false);
         FuncionarioDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1189,6 +1195,8 @@ public class VendaView extends javax.swing.JInternalFrame {
 
         ItensDialog.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         ItensDialog.setMinimumSize(new java.awt.Dimension(310, 380));
+        ItensDialog.setUndecorated(true);
+        ItensDialog.setResizable(false);
         ItensDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel37.setBackground(new java.awt.Color(255, 255, 255));
@@ -1261,8 +1269,6 @@ public class VendaView extends javax.swing.JInternalFrame {
 
         setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 2, 2, 2));
         setClosable(true);
-        setMaximizable(true);
-        setResizable(true);
         setMaximumSize(new java.awt.Dimension(1919, 800));
         setMinimumSize(new java.awt.Dimension(1919, 800));
         setPreferredSize(new java.awt.Dimension(1919, 800));
