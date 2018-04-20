@@ -429,6 +429,7 @@ public class SituacaoDaEmpresa extends javax.swing.JInternalFrame {
         txtMes.setBackground(new java.awt.Color(245, 245, 245));
         txtMes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 225, 225)));
         txtMes.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("##0.00"))));
+        txtMes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtMes.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));

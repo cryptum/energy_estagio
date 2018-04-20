@@ -32,10 +32,11 @@ public class FuncionarioView extends javax.swing.JInternalFrame {
         initComponents();
         this.setVisible(true);
         atualizaTabelaFuncionario();
-        jTabbedPane1.setUI(new BasicTabbedPaneUI());
+        jTabbedPane1.setUI(new  BasicTabbedPaneUI());
         tblFuncionario.getTableHeader().setUI(new WindowsTableHeaderUI());
         tblFuncionario.getTableHeader().setReorderingAllowed(false);
         txtId.setVisible(false);
+        prepararSalvareCancelar();
         desativarCampos();
         
         txtNome.setDocument(new LimiteDigitos(45));

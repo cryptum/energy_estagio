@@ -226,28 +226,6 @@ CREATE TABLE IF NOT EXISTS `EnergySom`.`ItemVenda` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `EnergySom`.`ItemVendaML`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `EnergySom`.`ItemVendaML` (
-  `Id` INT NOT NULL AUTO_INCREMENT,
-  `IdVenda` INT NOT NULL,
-  `IdProduto` INT NOT NULL,
-  INDEX `fk_Produto_has_VendaML_VendaML1_idx` (`IdVenda` ASC),
-  INDEX `fk_Produto_has_VendaML_Produto1_idx` (`IdProduto` ASC),
-  PRIMARY KEY (`Id`),
-  CONSTRAINT `fk_Produto_has_VendaML_Produto1`
-    FOREIGN KEY (`IdProduto`)
-    REFERENCES `EnergySom`.`Produto` (`Id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Produto_has_VendaML_VendaML1`
-    FOREIGN KEY (`IdVenda`)
-    REFERENCES `EnergySom`.`VendaML` (`Id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `EnergySom`.`DataDoDia`
@@ -295,3 +273,8 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+INSERT INTO `datadodia` (`Id`, `Mes`, `Ano`) VALUES ('1', '5', '2018');
+
+INSERT INTO `funcionario` (`Id`, `Nome`, `Cpf`, `Rg`, `Nascimento`, `Telefone`, `Celular1`, `Celular2`, `Login`, `Senha`, `admin`) VALUES ('1', 'ROOT', NULL, NULL, NULL, NULL, NULL, NULL, 'login', '123', '1');

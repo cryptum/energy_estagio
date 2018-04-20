@@ -111,7 +111,7 @@ public class SituacaoDaEmpresaDao {
                         rs.getString("horario"),
                         rs.getString("rastreio"),
                         rs.getString("detalhes"),
-                        rs.getBoolean("exlcuido")));
+                        rs.getBoolean("excluido")));
         }
         pst.close();
     return listavenda;
