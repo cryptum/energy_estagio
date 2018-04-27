@@ -143,7 +143,7 @@ public class LoginView extends javax.swing.JFrame {
 
         lblversão.setFont(new java.awt.Font("Champagne & Limousines", 0, 18)); // NOI18N
         lblversão.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblversão.setText("EnergyWare Versão 3.8 BETA");
+        lblversão.setText("EnergyWare Versão 3.9 BETA");
         lblversão.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lblversãoMouseEntered(evt);
